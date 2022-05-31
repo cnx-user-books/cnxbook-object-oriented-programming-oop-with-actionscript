@@ -1,0 +1,5298 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Creating Custom Effects</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34457</md:content-id>
+  <md:title>Creating Custom Effects</md:title>
+  <md:abstract>Learn how to create a custom effect and how to play it two different ways.</md:abstract>
+  <md:uuid>dac44a2a-27b4-47bc-9849-b8bb2d06ca06</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="miscellaneous">
+
+
+
+
+
+	
+
+<emphasis id="Click" effect="bold">
+
+Click
+
+</emphasis>
+
+ 
+
+<link id="a1000" url="CustomEffect02.html">
+
+CustomEffect02
+
+</link>
+
+
+	or 
+
+<link id="a1001" url="CustomEffect03.html">
+
+CustomEffect03
+
+</link>
+
+
+to run the ActionScript programs from this lesson. 
+
+<emphasis id="em1000" effect="italics">
+
+(Click the "Back" button in your browser
+to return to this page.)
+
+</emphasis>
+
+
+
+</note>
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+  
+
+<item id="li1000">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+ 
+    
+
+<list id="ul1001" list-type="bulleted">
+
+      
+
+<item id="li1001">
+<link id="a1003" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1002">
+<link id="a1004" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+ 
+        
+
+<list id="ul1002" list-type="bulleted">
+
+          
+
+<item id="li1003">
+<link id="a1005" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+          
+
+<item id="li1004">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+        
+
+</list>
+
+
+      
+
+</item>
+
+
+      
+
+<item id="li1005">
+<link id="a1007" target-id="Supplementary_material">
+
+Supplemental material
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1006">
+<link id="a1008" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1007">
+<link id="a1009" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1008">
+<link id="a1010" target-id="DiscussionandSamplePrograms">
+
+Discussion and sample code
+
+</link>
+
+ 
+    
+
+<list id="ul1003" list-type="bulleted">
+
+      
+
+<item id="li1009">
+<link id="a1011" target-id="Creating">
+
+Creating a custom effect
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1010">
+<link id="a1012" target-id="class">
+
+The class named CustomEffect
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1011">
+<link id="a1013" target-id="CustomEffe">
+
+The class named CustomEffectInstance
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1012">
+<link id="a1014" target-id="driver">
+
+The Driver class for the program named 
+	  CustomEffect02
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1013">
+<link id="a1015" target-id="Driver">
+
+The Driver class for the program named 
+	  CustomEffect03
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1014">
+<link id="a1016" target-id="program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1015">
+<link id="a1017" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1016">
+<link id="a1018" target-id="CompleteProgramListings">
+
+Complete Program Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1019" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+        
+
+<note id="note1001" type="miscellaneous">
+
+
+          
+
+
+            
+
+
+              
+
+All references to ActionScript in this lesson are 
+			  references to version 3 or later. 
+
+</note>
+
+            
+
+
+          
+
+
+
+        
+
+
+
+
+
+
+<para id="p1000">
+This tutorial lesson is 
+part of a series of lessons dedicated to object-oriented programming 
+(OOP) with ActionScript.
+
+</para>
+
+
+
+
+
+<para id="p1001">
+<emphasis id="strong1000" effect="bold">
+Several ways to create and launch ActionScript 
+programs
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1002">
+There are several ways to 
+create and launch programs written in the ActionScript programming language. 
+Many of the lessons in this series will use Adobe Flex as the launch pad for the 
+sample ActionScript programs.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+An earlier lesson titled 
+
+<emphasis id="strong1001" effect="bold">
+The Default 
+Application Container
+
+</emphasis>
+ provided information on how to get started programming 
+with Adobe's Flex Builder 3. 
+
+<emphasis id="em1001" effect="italics">
+(See 
+
+<link id="a1020" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming website
+
+</link>
+
+.)
+
+</emphasis>
+ 
+You should study that lesson before embarking on the lessons in this series.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1002" effect="bold">
+Some understanding of Flex MXML will be required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1005">
+I also recommend that you 
+study all of the lessons on Baldwin's Flex programming website in parallel with 
+your study of these ActionScript lessons. Eventually you will probably need to 
+understand both ActionScript and Flex and the relationships that exist between 
+them in order to become a successful ActionScript programmer.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1003" effect="bold">
+Will emphasize ActionScript code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+It is often possible to use 
+either ActionScript code or Flex MXML code to achieve the same result. Insofar 
+as this series of lessons is concerned, the emphasis will be on ActionScript 
+code even in those cases where Flex MXML code may be a suitable alternative.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1008">
+I recommend that you open 
+another copy of this document in a separate browser window and use the following 
+links to easily find and view the figures and listings while you are reading 
+about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+  
+
+<item id="li1018">
+<link id="a1021" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Program output at startup. 
+
+</item>
+
+
+  
+
+<item id="li1019">
+<link id="a1022" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. CustomEffect02 output after clicking a 
+  button.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+  
+
+<item id="li1020">
+<link id="a1023" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Common MXML Code.
+
+</item>
+
+
+  
+
+<item id="li1021">
+<link id="a1024" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class named 
+  CustomEffect.
+
+</item>
+
+
+  
+
+<item id="li1022">
+<link id="a1025" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The constructor for the class named 
+  CustomEffect.
+
+</item>
+
+
+  
+
+<item id="li1023">
+<link id="a1026" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Override the initInstance method.
+
+</item>
+
+
+  
+
+<item id="li1024">
+<link id="a1027" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Override the getAffectedProperties 
+  method. 
+
+</item>
+
+
+  
+
+<item id="li1025">
+<link id="a1028" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Beginning of the CustomEffectInstance 
+  class.
+
+</item>
+
+
+  
+
+<item id="li1026">
+<link id="a1029" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Declare variables for storage of 
+  effect properties.
+
+</item>
+
+
+  
+
+<item id="li1027">
+<link id="a1030" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. The constructor for the 
+  CustomEffectInstance class.
+
+</item>
+
+
+  
+
+<item id="li1028">
+<link id="a1031" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Override the inherited play method.
+
+</item>
+
+
+  
+
+<item id="li1029">
+<link id="a1032" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Play the three effects in parallel.
+
+</item>
+
+
+  
+
+<item id="li1030">
+<link id="a1033" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Beginning of the Driver class for 
+  CustomEffect02.
+
+</item>
+
+
+  
+
+<item id="li1031">
+<link id="a1034" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Beginning of the constructor for the 
+  Driver class.
+
+</item>
+
+
+  
+
+<item id="li1032">
+<link id="a1035" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Set properties on the custom effect.
+
+</item>
+
+
+  
+
+<item id="li1033">
+<link id="a1036" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. The common click event handler.
+
+</item>
+
+
+  
+
+<item id="li1034">
+<link id="a1037" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. Beginning of the Driver class for 
+  CustomEffect03.
+
+</item>
+
+
+  
+
+<item id="li1035">
+<link id="a1038" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. Set properties on the custom effect.
+
+</item>
+
+
+  
+
+<item id="li1036">
+<link id="a1039" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. Apply the effect to the two buttons 
+  individually.
+
+</item>
+
+
+  
+
+<item id="li1037">
+<link id="a1040" target-id="Listing">
+
+Listing 18
+
+</link>
+
+. Common MXML code used for both 
+  programs.
+
+</item>
+
+
+  
+
+<item id="li1038">
+<link id="a1041" target-id="Listing1">
+
+Listing 19
+
+</link>
+
+. Source code for the class named 
+  CustomEffect.
+
+</item>
+
+
+  
+
+<item id="li1039">
+<link id="a1042" target-id="Listing2">
+
+Listing 20
+
+</link>
+
+. Source code for the class named 
+  CustomEffectInstance.
+
+</item>
+
+
+  
+
+<item id="li1040">
+<link id="a1043" target-id="Listing3">
+
+Listing 21
+
+</link>
+
+. Driver class for the program named 
+  CustomEffect02.
+
+</item>
+
+
+  
+
+<item id="li1041">
+<link id="a1044" target-id="Listing4">
+
+Listing 22
+
+</link>
+
+. Driver class for the program named 
+  CustomEffect03.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Supplementary_material" effect="bold">
+
+Supplemental material
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1009">
+I recommend that you also 
+study the other lessons in my extensive collection of online programming 
+tutorials. You will find a consolidated index at 
+
+<link id="a1045" url="http://www.dickbaldwin.com/toc.htm">
+
+www.DickBaldwin.com
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11002">
+<title>
+
+
+
+<emphasis id="General_background_information" effect="bold">
+
+General background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1010">
+In an 
+earlier lesson titled 
+
+<emphasis id="strong1004" effect="bold">
+Events, Triggers, and Effects
+
+</emphasis>
+, I taught you how to use the triggers and effects that are 
+built into the ActionScript language.
+
+</para>
+
+
+
+
+<para id="p1011">
+In this lesson, I will teach you how to 
+create your own custom effects. I will also explain two different programs that 
+use a custom effect of my own design. I recommend that you 
+
+<link id="a1046" target-id="Click">
+
+run
+
+</link>
+
+ the online version of each of the two programs before 
+continuing with the lesson.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1005" effect="bold">
+Program output at startup
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+Figure 1 shows the screen 
+output of both programs at startup.
+
+</para>
+
+
+
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+
+
+
+
+
+
+
+
+<title>
+<emphasis id="Figure_1" effect="bold">
+</emphasis>
+Program output at startup.
+</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<media id="media1000" alt="Program output at startup." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/as0118a.jpg" width="294/" height="374"/>
+</media>
+
+
+
+
+<caption>Program output at startup.</caption>
+</figure>
+
+
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1006" effect="bold">
+A common custom effect
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+Both programs apply the same custom effect to both buttons. However, the 
+program named 
+
+<emphasis id="strong1007" effect="bold">
+CustomEffect02
+
+</emphasis>
+ applies the effect in such a way 
+that it is played on both buttons simultaneously if either button is clicked. 
+The program named 
+
+<emphasis id="strong1008" effect="bold">
+CustomEffect03
+
+</emphasis>
+ applies the custom effect in 
+such a way that it plays individually on each button when the button is clicked. 
+I will explain the reason for this difference later.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1009" effect="bold">
+One run is worth a thousand pictures
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+Hopefully by now you have been able to 
+
+<link id="a1047" target-id="Click">
+
+run
+
+</link>
+
+ the 
+online version of both programs because the effect is difficult to explain. 
+Basically, the custom effect consists of the parallel execution of three types 
+of standard ActionScript effects:
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+  
+
+<item id="li1042">
+WipeRight
+
+</item>
+
+
+  
+
+<item id="li1043">
+Glow
+
+</item>
+
+
+  
+
+<item id="li1044">
+Rotate
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1018">
+The effect appears to cause the buttons to leave their positions, change 
+color, and fly around for a short while before settling back into their normal 
+positions.
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1010" effect="bold">
+CustomEffect02 output after clicking a button
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+Figure 2 shows the output 
+from the program named CustomEffect02 shortly after clicking one of the buttons.
+
+</para>
+
+
+
+
+
+<para id="p1021">
+
+
+
+</para>
+
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+
+
+
+
+
+
+
+
+<title>
+<emphasis id="Figure_2" effect="bold">
+</emphasis>
+CustomEffect02 output after clicking a button.
+</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<media id="media1001" alt="CustomEffect02 output after clicking a button." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/as0118b.jpg" width="296" height="373"/>
+</media>
+
+
+
+
+<caption>CustomEffect02 output after clicking a button.</caption>
+</figure>
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="DiscussionandSamplePrograms" effect="bold">
+
+
+</emphasis>
+
+Discussion and sample code
+
+</title>
+
+
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1011" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+I will discuss and explain 
+these two programs in fragments. Complete listings of the MXML code and the 
+ActionScript code are provided near the end of the lesson beginning with Listing 
+18.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1012" effect="bold">
+The MXML files
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1025">
+Both programs use the same simple MXML code shown in Listing 1.
+
+</para>
+
+
+
+
+
+<example id="listing1000" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+Common MXML Code.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1000" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;!--CustomEffect02 11/26/09
+Illustrates a custom effect, which is the parallel
+playing of three standard effects:
+
+WipeRight
+Rotate
+Glow
+
+The effect is applied to two buttons each time either
+button is clicked.
+
+This version sets the targets on the effect and calls the
+play method on the effect.
+
+See the Flex 3 Cookbook, page 363
+Also see http://livedocs.adobe.com/flex/3/html/help.html?
+content=createeffects_2.html#178126
+Also see http://livedocs.adobe.com/flex/3/html/help.html?
+content=behaviors_04.html#275399
+--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1013" effect="bold">
+An object of the class named Driver
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+As you can see, this MXML file simply instantiates an object of the class 
+named 
+
+<emphasis id="strong1014" effect="bold">
+Driver
+
+</emphasis>
+. That's because almost all of the code in these 
+two programs is written in ActionScript instead of MXML.
+
+</para>
+
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="Creating" effect="bold">
+
+Creating a custom effect
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1028">
+You must define two classes to create a custom effect. One class is a
+
+
+<emphasis id="em1002" effect="italics">
+factory
+
+</emphasis>
+ class that extends the class named 
+
+<emphasis id="strong1015" effect="bold">
+Effect
+
+</emphasis>
+. The 
+other class is an 
+
+<emphasis id="em1003" effect="italics">
+instance
+
+</emphasis>
+ class that extends the class named
+
+
+<emphasis id="strong1016" effect="bold">
+EffectInstance
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1017" effect="bold">
+The instance class plays the effect
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+When the time comes to play the effect on a component, the factory class 
+instantiates an object of the instance class to actually play the effect. If the 
+same effect is played on two or more components at the same time, a different 
+object of the instance class is instantiated to play the effect on 
+each component.
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1018" effect="bold">
+Play three effects in parallel
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+As explained in Listing 1, the custom class that I designed for use in this 
+lesson plays the following three effects in parallel:
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+  
+
+<item id="li1045">
+WipeRight
+
+</item>
+
+
+  
+
+<item id="li1046">
+Rotate
+
+</item>
+
+
+  
+
+<item id="li1047">
+Glow
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1033">
+You learned about something similar to this in my earlier lesson titled 
+
+
+<emphasis id="strong1019" effect="bold">
+Events, Triggers, and Effects
+
+</emphasis>
+. However, in that lesson I didn't combine the 
+three effects into a single custom effect the way that I will in this lesson.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1020" effect="bold">
+Knowledge of OOP is required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+I will do the best that I can to explain this code. Even at that, you are 
+likely to need a pretty good understanding of object-oriented programming to 
+understand the code required to create a custom effect. As you will see later, 
+the required code is steeped in overridden methods, interfaces, and other 
+object-oriented concepts.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="class" effect="bold">
+
+The class named CustomEffect
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1036">
+The class named 
+
+<emphasis id="strong1021" effect="bold">
+CustomEffect
+
+</emphasis>
+ begins in Listing 2. A complete 
+listing of the class is provided in Listing 19 near the end of the lesson.
+
+</para>
+
+
+
+
+
+<example id="listing1001" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Beginning of the class named  	  CustomEffect.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1001" display="block">package CustomClasses{
+  import mx.effects.Effect;
+  import mx.effects.IEffectInstance;
+  import mx.events.EffectEvent;
+  
+  public class CustomEffect extends Effect{
+    
+    //Would prefer to make these private and use implicit
+    // setter methods, but I decided to leave them public
+    // to simplify the code.    
+    public var theDuration:Number = 2000;//default value
+    public var rotateAngleFrom:Number = 0;//default value
+    public var rotateAngleTo:Number = 360;//default value
+    public var wipeShowTarget:Boolean = true;//default 
+    public var glowColor:uint = 0xFF0000;//default value
+    public var glowInner:Boolean = true;//default value
+    public var glowStrength:Number = 255;//default value</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1022" effect="bold">
+The factory class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+Of the two required classes, this is the factory class that I mentioned 
+earlier. This class must extend the class named 
+
+<emphasis id="strong1023" effect="bold">
+Effect
+
+</emphasis>
+, and 
+will override methods inherited from that class.
+
+</para>
+
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1024" effect="bold">
+Public instance variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1040">
+Listing 2 declares and initializes seven public instance variables that will 
+be used to set properties on the 
+
+<emphasis id="strong1025" effect="bold">
+WipeRight
+
+</emphasis>
+ object, the
+
+
+<emphasis id="strong1026" effect="bold">
+Rotate
+
+</emphasis>
+ object, and the 
+
+<emphasis id="strong1027" effect="bold">
+Glow
+
+</emphasis>
+ object. I provided 
+default values for these variables so that the program will work even if the 
+driver program fails to provide the required values.
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1028" effect="bold">
+Could use implicit setter methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1042">
+As I mentioned in the comments, I would prefer to make these variables 
+private and provide an implicit setter method for each variable. However, I 
+decided to make them public to simplify the code and make it easier to explain.
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1029" effect="bold">
+The constructor for the class named 
+CustomEffect
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1044">
+The constructor is shown in its entirety in Listing 3.
+
+</para>
+
+
+
+
+
+<example id="listing1002" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+The constructor for the class named  	  CustomEffect.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1002" display="block">    public function CustomEffect(target:Object=null){
+      super(target);
+      instanceClass = CustomEffectInstance;
+    } //end constructor</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1030" effect="bold">
+The incoming parameter
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1046">
+The incoming parameter for the constructor is the generic type
+
+
+<emphasis id="strong1031" effect="bold">
+Object
+
+</emphasis>
+. This parameter must specify the component on which the 
+effect is to be played.
+
+</para>
+
+
+
+
+
+<para id="p1047">
+If no target is passed as a parameter to the constructor, the default null 
+value prevails and the 
+
+<emphasis id="strong1032" effect="bold">
+target
+
+</emphasis>
+ property of the object must be 
+set. As you will see later, an alternative property named
+
+
+<emphasis id="strong1033" effect="bold">
+targets
+
+</emphasis>
+ can be set to cause the effect to be played on multiple 
+targets at the same time.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1034" effect="bold">
+Call the superclass constructor
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+Without attempting to explain why, I am going to tell you that it is 
+frequently necessary in OOP to cause the constructor for a class to make a call 
+to the constructor of its superclass as the first statement in the constructor. 
+This constructor is no exception to that rule.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+The first statement in Listing 3 is a call to the constructor for the
+
+
+<emphasis id="strong1035" effect="bold">
+Effect
+
+</emphasis>
+ class passing a reference to the target component(s) as 
+a parameter. When that constructor returns control, the second statement in 
+Listing 3 is executed.
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1036" effect="bold">
+The instanceClass property
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1052">
+This class inherits a property named 
+
+<emphasis id="strong1037" effect="bold">
+instanceClass
+
+</emphasis>
+ from the 
+class named 
+
+<emphasis id="strong1038" effect="bold">
+Effect
+
+</emphasis>
+. According to 
+
+<link id="a1048" url="http://livedocs.adobe.com/flex/3/html/help.html?content=createeffects_2.html#178126">
+
+
+About creating a custom effect
+
+</link>
+
+, the factory class that you define must set 
+the value of this property to the name of the instance class that will be used 
+to play the effect.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+In this program, the name of the instance class is
+
+
+<emphasis id="strong1039" effect="bold">
+CustomEffectInstance
+
+</emphasis>
+, as shown in Listing 3. I will explain the 
+code in that class after I finish explaining the code in this class.
+
+</para>
+
+
+
+
+
+<para id="p1054">
+This inherited property provides the mechanism that ties the instance class 
+to the factory class.
+
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1040" effect="bold">
+Override the initInstance method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1056">
+Listing 4 overrides an inherited method named
+
+
+<emphasis id="strong1041" effect="bold">
+initInstance
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<example id="listing1003" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+Override the initInstance method.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1003" display="block">    override protected function initInstance(
+                           instance:IEffectInstance):void{
+      super.initInstance(instance);
+
+      CustomEffectInstance(instance).theDuration = 
+                                         this.theDuration;
+      CustomEffectInstance(instance).rotateAngleFrom = 
+                                     this.rotateAngleFrom;
+      CustomEffectInstance(instance).rotateAngleTo = 
+                                       this.rotateAngleTo;
+      CustomEffectInstance(instance).wipeShowTarget = 
+                                      this.wipeShowTarget;
+      CustomEffectInstance(instance).glowColor = 
+                                           this.glowColor;
+      CustomEffectInstance(instance).glowInner = 
+                                           this.glowInner;
+      CustomEffectInstance(instance).glowStrength = 
+                                        this.glowStrength;
+
+    } //end initInstance</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1042" effect="bold">
+Set the property values in the instance object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+According to 
+
+<link id="a1049" url="http://livedocs.adobe.com/flex/3/html/help.html?content=createeffects_2.html#178126">
+
+
+About creating a custom effect
+
+</link>
+
+, the purpose of this method is to copy 
+property values from the factory class to the instance class. Flex calls this 
+method from the 
+
+<emphasis id="strong1043" effect="bold">
+Effect.createInstance()
+
+</emphasis>
+ method. You don't have 
+to call it yourself, but you must prepare it to be called.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1044" effect="bold">
+A reference to the instance object as type 
+iEffectInstance
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+The 
+
+<emphasis id="strong1045" effect="bold">
+initInstance
+
+</emphasis>
+ method receives a reference to the instance 
+object as the interface type 
+
+<emphasis id="strong1046" effect="bold">
+IEffectInstance
+
+</emphasis>
+. The objective is 
+to write values into the properties belonging to the instance object. However, 
+the 
+
+<emphasis id="strong1047" effect="bold">
+IEffectInstance
+
+</emphasis>
+ interface doesn't know anything about 
+properties having those names. Therefore, it is necessary to cast the instance 
+object's reference to the type of the instance object before making each 
+assignment. One such cast operation is shown by the statement that begins with
+
+
+<emphasis id="strong1048" effect="bold">
+CustomEffectInstance(instance)
+
+</emphasis>
+ in Listing 4.
+
+</para>
+
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1049" effect="bold">
+Call the initInstance method of the superclass
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1062">
+Also note that you must 
+call the 
+
+<emphasis id="strong1050" effect="bold">
+initInstance
+
+</emphasis>
+ method of the superclass in your 
+overridden method as shown in Listing 4.
+
+</para>
+
+
+
+
+
+<para id="p1063">
+This method provides the mechanism by which required property values make it 
+all the way from the driver class to the instance class.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1051" effect="bold">
+Override the getAffectedProperties method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+According to 
+
+<link id="a1050" url="http://livedocs.adobe.com/flex/3/html/help.html?content=createeffects_2.html#178126">
+
+
+About creating a custom effect
+
+</link>
+
+, you must override the inherited method named
+
+
+<emphasis id="strong1052" effect="bold">
+getAffectedProperties
+
+</emphasis>
+ in such a way as to return an array of 
+strings. Each string is the name of a property of the target object that is 
+changed by the effect. If no properties are changed, you must return an empty 
+array.
+
+</para>
+
+
+
+
+
+<para id="p1066">
+Listing 5 shows my overridden version of the
+
+
+<emphasis id="strong1053" effect="bold">
+getAffectedProperties
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<example id="listing1004" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+Override the getAffectedProperties  	  method.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1004" display="block">    override public function 
+                            getAffectedProperties():Array{
+      return ["rotation","rotationX","rotationY","x","y"];
+    } //end getAffectedProperties
+    //--------------------------------------------------//
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1054" effect="bold">
+This is a little difficult
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1068">
+It is a little difficult to know exactly which properties belonging to the 
+target component will be modified by the effect, particularly when the custom 
+effect is a composite of existing effects. Also, I don't know whether a change 
+must be permanent or whether a temporary change in the value of a property 
+requires that it be returned by the 
+
+<emphasis id="strong1055" effect="bold">
+getAffectedProperties
+
+</emphasis>
+
+method. There are several target property values that are temporarily changed by 
+this custom effect.
+
+</para>
+
+
+
+
+
+<para id="p1069">
+In this program, the target component is a 
+
+<emphasis id="strong1056" effect="bold">
+Button
+
+</emphasis>
+ object but 
+it could be any component. I went through the list of properties belonging to a 
+button and came up with the five shown in Listing 5 as those most likely to be 
+modified.
+
+</para>
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1057" effect="bold">
+The end of the CustomEffect class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1071">
+Listing 5 also signals the end of the class named
+
+
+<emphasis id="strong1058" effect="bold">
+CustomEffect
+
+</emphasis>
+. In addition to the methods that were overridden 
+above, the following two inherited methods may optionally be overridden as well:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+  
+
+<item id="li1048">
+<emphasis id="strong1059" effect="bold">
+effectStartHandler
+
+</emphasis>
+ - called when the effect instance 
+  starts playing.
+
+</item>
+
+
+  
+
+<item id="li1049">
+<emphasis id="strong1060" effect="bold">
+effectEndHandler
+
+</emphasis>
+ - called when the effect instance 
+  finishes playing.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1072">
+As the names and descriptions of these two methods suggest, they can be 
+overridden to provide any special behavior that you need when the effect starts 
+and finishes playing.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="CustomEffe" effect="bold">
+
+The class named CustomEffectInstance
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1073">
+The class named 
+
+<emphasis id="strong1061" effect="bold">
+CustomEffectInstance
+
+</emphasis>
+ begins in Listing 6. A 
+complete listing of the class is provided in Listing 20 near the end of the 
+lesson.
+
+</para>
+
+
+
+
+
+<example id="listing1005" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Beginning of the CustomEffectInstance  	  class.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1005" display="block">package CustomClasses{
+  import mx.effects.EffectInstance;
+  import mx.effects.Glow;
+  import mx.effects.Parallel;
+  import mx.effects.Rotate;
+  import mx.effects.WipeRight;
+  import mx.events.FlexEvent;
+  
+  public class CustomEffectInstance 
+                                   extends EffectInstance{
+    //Instantiate the individual effects that will be
+    // combined in parallel to produce the custom effect.
+    private var wipeEffect:WipeRight = new WipeRight();
+    private var rotateEffect:Rotate = new Rotate();
+    private var glowEffect:Glow = new Glow();</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1062" effect="bold">
+Extends the class named EffectInstance
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1075">
+This class extends the class named 
+
+<emphasis id="strong1063" effect="bold">
+EffectInstance
+
+</emphasis>
+. As 
+before, the code in this class will override methods inherited from the
+
+
+<emphasis id="strong1064" effect="bold">
+EffectInstance
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1065" effect="bold">
+Instantiate and save references to standard 
+effects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1077">
+Listing 6 instantiates and saves references to the
+
+
+<emphasis id="strong1066" effect="bold">
+WipeRight
+
+</emphasis>
+, 
+
+<emphasis id="strong1067" effect="bold">
+Rotate
+
+</emphasis>
+, and 
+
+<emphasis id="strong1068" effect="bold">
+Glow
+
+</emphasis>
+
+effect classes. They will be combined to run concurrently later in the program.
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1069" effect="bold">
+Declare variables for storage of effect 
+properties
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1079">
+Listing 7 declares a set of variables that will be used to store the 
+properties for the three different effects that are combined to create a 
+composite effect.
+
+</para>
+
+
+
+
+
+<example id="listing1006" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+Declare variables for storage of effect  	  properties.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1006" display="block">    //Variables for the storage of effect properties.
+    public var theDuration:Number;
+    public var rotateAngleFrom:Number;
+    public var rotateAngleTo:Number;
+    public var wipeShowTarget:Boolean;
+    public var glowColor:uint;
+    public var glowInner:Boolean;
+    public var glowStrength:Number;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1080">
+Property values are stored in these variables by the code in the
+
+
+<emphasis id="strong1070" effect="bold">
+initInstance
+
+</emphasis>
+ method shown in Listing 4.
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1071" effect="bold">
+The constructor for the CustomEffectInstance 
+class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1082">
+The constructor for the class 
+is shown in its entirety in Listing 8.
+
+</para>
+
+
+
+
+
+<example id="listing1007" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_8" effect="bold">
+</emphasis>
+The constructor for the  	  CustomEffectInstance class.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1007" display="block">    public function CustomEffectInstance(
+                                        theTarget:Object){
+      super(theTarget);
+
+      //Set the target for all three individual effects.
+      rotateEffect.target = theTarget;
+      wipeEffect.target = theTarget;
+      glowEffect.target = theTarget;
+    } //end constructor</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1072" effect="bold">
+The target component
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1084">
+As was the case in Listing 3, this constructor receives a parameter of the 
+generic type 
+
+<emphasis id="strong1073" effect="bold">
+Object
+
+</emphasis>
+, which specifies the component on which the 
+effect will be played.
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1074" effect="bold">
+A different EffectInstance object for each 
+target component
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1086">
+If multiple target components are specified by setting the
+
+
+<emphasis id="strong1075" effect="bold">
+targets
+
+</emphasis>
+ property of the 
+
+<emphasis id="strong1076" effect="bold">
+CustomEffect
+
+</emphasis>
+ class, 
+different objects of the 
+
+<emphasis id="strong1077" effect="bold">
+CustomEffectInstance
+
+</emphasis>
+ class are 
+instantiated and targeted to the different components in the list of target 
+components.
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1078" effect="bold">
+Target the WipeRight, Rotate, and Glow effects 
+to the target component
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1088">
+The code in the constructor sets the specified target to be the target for 
+the three types of standard effects that will be played concurrently.
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1079" effect="bold">
+Override the inherited play method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1090">
+You may have noticed that the code in the 
+
+<emphasis id="strong1080" effect="bold">
+CustomEffect
+
+</emphasis>
+
+class didn't include any of the operational details regarding the nature of the 
+custom effect. Those details are programmed into an overridden
+
+
+<emphasis id="strong1081" effect="bold">
+play
+
+</emphasis>
+ method that begins in Listing 9.
+
+</para>
+
+
+
+
+
+<example id="listing1008" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_9" effect="bold">
+</emphasis>
+Override the inherited play method.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1008" display="block">    override public function play():void{
+      super.play();
+      
+      //Note: The following values cannot be set in the
+      // constructor because the variables aren't stable
+      // at that point in time.
+      
+      //Configure the rotate effect
+      rotateEffect.angleFrom = rotateAngleFrom;
+      rotateEffect.angleTo = rotateAngleTo;
+      rotateEffect.duration = theDuration;
+      
+      //Configure the wipe effect.
+      wipeEffect.showTarget = wipeShowTarget;
+      wipeEffect.duration = theDuration;
+      
+      //Configure the glow effect.
+      glowEffect.color = glowColor;
+      glowEffect.duration = theDuration;
+      glowEffect.inner = glowInner;
+      glowEffect.strength = glowStrength;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1082" effect="bold">
+The overridden play method produces the desired 
+effect
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1092">
+Later on you will see that the driver class for this program instantiates an 
+object of the custom effect class and calls the 
+
+<emphasis id="strong1083" effect="bold">
+play
+
+</emphasis>
+ method on 
+that object. At that point, the driver class will be calling the method that 
+begins in Listing 9.
+
+</para>
+
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1084" effect="bold">
+Set the required properties on the three 
+standard effects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1094">
+Listing 9 uses the values that were stored in the variables in Listing 7 by 
+the initInstance method in Listing 4 to set the required properties for each of 
+the three individual effects that will be combined to produce this custom 
+effect.
+
+</para>
+
+
+
+
+
+<para id="p1095">
+Ordinarily, you might think that this could have been accomplished in the 
+constructor for the class. However, the values in the variables in Listing 7 
+aren't stable until the constructor has finished constructing the object. 
+Therefore, it is necessary to defer the assignments in Listing 9 until after the 
+construction of the object is complete.
+
+</para>
+
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1085" effect="bold">
+Play the three effects in parallel
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1097">
+You learned how to use an 
+object of the 
+
+<emphasis id="strong1086" effect="bold">
+Parallel
+
+</emphasis>
+ class to play two or more effects in parallel in the 
+earlier lesson titled 
+
+<emphasis id="strong1087" effect="bold">
+Events, Triggers, and Effects
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<example id="listing1009" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_10" effect="bold">
+</emphasis>
+Play the three effects in parallel.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1009" display="block">      //Play all three effects in parallel.
+      var parallel:Parallel = new Parallel();
+      parallel.addChild(rotateEffect);
+      parallel.addChild(glowEffect);
+      parallel.addChild(wipeEffect);
+      parallel.play();
+    } //end play
+    //--------------------------------------------------//
+  } //end class
+} //end package </code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1098">
+Therefore, you shouldn't have any difficulty understanding the code in 
+Listing 10.
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1088" effect="bold">
+Steps required to create a custom effect
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1100">
+You must define a factory class and an instance class. The following steps 
+are required to create and prepare the factory class:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+  
+
+<item id="li1050">
+Define a factory class that extends the 
+
+<emphasis id="strong1089" effect="bold">
+Effect
+
+</emphasis>
+
+  class.
+
+</item>
+
+
+  
+
+<item id="li1051">
+Declare variables in the factory class, if any are required, to store the 
+  property values for the custom effect.
+
+</item>
+
+
+  
+
+<item id="li1052">
+Define a constructor for the factory class that calls the constructor for 
+  the superclass and also sets the name of the instance class into the inherited 
+  variable named 
+
+<emphasis id="strong1090" effect="bold">
+instanceClass
+
+</emphasis>
+.
+
+</item>
+
+
+  
+
+<item id="li1053">
+Override the 
+
+<emphasis id="strong1091" effect="bold">
+initInstance
+
+</emphasis>
+ method in the factory class to 
+  store the property values into variables in the instance class. Also call the 
+
+<emphasis id="strong1092" effect="bold">
+
+  initInstance
+
+</emphasis>
+ method of the superclass in that overridden method.
+
+</item>
+
+
+  
+
+<item id="li1054">
+Override the 
+
+<emphasis id="strong1093" effect="bold">
+getAffectedProperties
+
+</emphasis>
+ method in the factory 
+  class to return a list of target component properties that will be modified by 
+  the effect. Return an empty array if none will be modified.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1094" effect="bold">
+Define and prepare the instance class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1102">
+Having defined the factory class using the steps listed above, define the 
+instance class by performing the following steps:
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+  
+
+<item id="li1055">
+Define an instance class that extends the 
+
+<emphasis id="strong1095" effect="bold">
+EffectInstance
+
+</emphasis>
+
+    class.
+
+</item>
+
+
+  
+
+<item id="li1056">
+Declare public instance variables for the storage of effect property 
+  values if any are required.
+
+</item>
+
+
+  
+
+<item id="li1057">
+Define a constructor for the instance class that deals appropriately with 
+  the target component.
+
+</item>
+
+
+  
+
+<item id="li1058">
+Override the inherited 
+
+<emphasis id="strong1096" effect="bold">
+play
+
+</emphasis>
+ method to implement the 
+  actual behavior of the custom effect.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1097" effect="bold">
+The end of the CustomEffectInstance class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1104">
+Listing 10 signals the end of the class named
+
+
+<emphasis id="strong1098" effect="bold">
+CustomEffectInstance
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="driver" effect="bold">
+
+The Driver class for the program named 
+CustomEffect02
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1105">
+The two classes discussed above constitute the whole of the custom effect. I 
+will provide and explain two different driver classes that use the same custom 
+effect but use it in different ways. The driver class for the program named
+
+
+<emphasis id="strong1099" effect="bold">
+CustomEffect02
+
+</emphasis>
+ begins in Listing 11. A complete listing of this 
+class is provided in Listing 21 near the end of the lesson.
+
+</para>
+
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1100" effect="bold">
+<emphasis id="ways" effect="bold">
+
+Two ways to play 
+effects
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1107">
+You learned in the earlier lesson titled 
+
+<emphasis id="strong1101" effect="bold">
+Events, Triggers, and Effects
+
+</emphasis>
+ that there are at least two different ways to 
+cause an effect to be played on a component in an ActionScript program. One way 
+is to call the 
+
+<emphasis id="strong1102" effect="bold">
+setStyle
+
+</emphasis>
+ method on the component and associate 
+an effect trigger with an effect. With that approach, the effect will be played 
+each time the effect trigger fires.
+
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1103" effect="bold">
+The second way
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1109">
+The second way to play an effect on a component is to target an
+
+
+<emphasis id="strong1104" effect="bold">
+Effect
+
+</emphasis>
+ object to the component and then call the
+
+
+<emphasis id="strong1105" effect="bold">
+play
+
+</emphasis>
+ method on the effect object. This approach doesn't make 
+explicit use of the effect trigger.
+
+</para>
+
+
+
+
+
+<para id="p1110">
+I will illustrate the second approach in the program named
+
+
+<emphasis id="strong1106" effect="bold">
+CustomEffect02
+
+</emphasis>
+, and will illustrate the first approach later in 
+the program named 
+
+<emphasis id="strong1107" effect="bold">
+CustomEffect03
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1111">
+<emphasis id="strong1108" effect="bold">
+Beginning of the Driver class for 
+CustomEffect02
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1112">
+The Driver class begins in Listing 11.
+
+</para>
+
+
+
+
+
+<example id="listing1010" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_11" effect="bold">
+</emphasis>
+Beginning of the Driver class for  	  CustomEffect02.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1010" display="block">package CustomClasses{
+
+  import mx.containers.VBox;
+  import mx.controls.Button;
+  import mx.controls.Label;
+  import mx.controls.Spacer;
+  import flash.events.MouseEvent;
+
+  public class Driver extends VBox{
+    //Instantiate and save references to all of the
+    // objects needed by the program.
+    private var title:Label = new Label();
+    private var btnA:Button = new Button();
+    private var btnB:Button = new Button();
+    private var spacer:Spacer = new Spacer();
+    private var theEffect:CustomEffect = 
+                                       new CustomEffect();</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1113">
+The code in Listing 11 extends the 
+
+<emphasis id="strong1109" effect="bold">
+VBox
+
+</emphasis>
+ class and 
+instantiates objects for all of the components that will be required to produce 
+the GUI shown in Figure 1. In addition, Listing 11 instantiates an object of the 
+new 
+
+<emphasis id="strong1110" effect="bold">
+CustomEffect
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1114">
+<emphasis id="strong1111" effect="bold">
+No target is passed to the constructor
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1115">
+As you can see from Listing 11, a target component was not passed to the 
+constructor for the 
+
+<emphasis id="strong1112" effect="bold">
+CustomEffect
+
+</emphasis>
+ class. Instead, an alternative 
+approach that sets the 
+
+<emphasis id="strong1113" effect="bold">
+targets
+
+</emphasis>
+ property will be used.
+
+</para>
+
+
+
+
+
+<para id="p1116">
+<emphasis id="strong1114" effect="bold">
+Beginning of the constructor for the Driver 
+class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1117">
+The constructor for the 
+Driver class begins in Listing 12.
+
+</para>
+
+
+
+
+
+<example id="listing1011" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_12" effect="bold">
+</emphasis>
+Beginning of the constructor for the  	  Driver class.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1011" display="block">    public function Driver(){//constructor
+      //Make some space at the top of the display.
+      spacer.height = 40;
+      addChild(spacer);
+      
+      //Set title properties and add to the VBox.
+      title.setStyle("color","0xFFFF00");
+      title.setStyle("fontSize",14);
+      title.text = "Demo custom effect";
+      addChild(title);
+
+      //Instantiate two buttons and add them to the VBox.
+      // Register the same event listener on both of
+      // them.
+      btnA.label = "Click me and watch the effect.";
+      btnA.addEventListener(MouseEvent.CLICK,handler);
+      addChild(btnA);
+      
+      btnB.label = "Or click me instead.";
+      btnB.addEventListener(MouseEvent.CLICK,handler);
+      addChild(btnB);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1118">
+There is nothing new in Listing 12 so further explanation shouldn't be 
+required. It is worth noting, however, that the same 
+
+<emphasis id="strong1115" effect="bold">
+click
+
+</emphasis>
+
+event listener is registered on both buttons.
+
+</para>
+
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1116" effect="bold">
+Set properties on the custom effect
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1120">
+Listing 13 shows the code 
+that sets properties on the custom effect. 
+
+</para>
+
+
+
+
+
+<example id="listing1012" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_13" effect="bold">
+</emphasis>
+Set properties on the custom effect.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1012" display="block">      //Specify both buttons to be the target for the
+      // same effect.
+      theEffect.targets = [btnA,btnB];
+      
+      //Set various properties needed by the effect.
+      theEffect.theDuration = 4000;
+      theEffect.rotateAngleFrom = 0;
+      theEffect.rotateAngleTo = 720;
+      theEffect.wipeShowTarget = true;
+      theEffect.glowColor = 0xFF0000;
+      theEffect.glowInner = true;
+      theEffect.glowStrength = 255;
+
+    } //end constructor</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1121">
+With the exception of the property named 
+
+<emphasis id="strong1117" effect="bold">
+targets
+
+</emphasis>
+, the values 
+that are assigned in Listing 13 are stored in the variables that are declared in 
+Listing 2.
+
+</para>
+
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1118" effect="bold">
+The targets property
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1123">
+The 
+
+<emphasis id="strong1119" effect="bold">
+targets
+
+</emphasis>
+ property is inherited into the
+
+
+<emphasis id="strong1120" effect="bold">
+CustomEffect
+
+</emphasis>
+ class from the 
+
+<emphasis id="strong1121" effect="bold">
+Effect
+
+</emphasis>
+ class. Note 
+that both buttons are passed to the 
+
+<emphasis id="strong1122" effect="bold">
+targets
+
+</emphasis>
+ property in the 
+form of an array containing references to the two buttons. This causes the 
+custom effect to be played on both buttons at the same time.
+
+</para>
+
+
+
+
+
+<para id="p1124">
+Listing 13 also signals the end of the constructor for the
+
+
+<emphasis id="strong1123" effect="bold">
+Driver
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1125">
+<emphasis id="strong1124" effect="bold">
+The common click event handler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1126">
+The click event handler that 
+is registered on both buttons is shown in Listing 14.
+
+</para>
+
+
+
+
+
+<example id="listing1013" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_14" effect="bold">
+</emphasis>
+The common click event handler.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1013" display="block">    public function handler(event:MouseEvent):void{
+      theEffect.play();
+    }//end handler
+
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1127">
+The event handler calls the 
+
+<emphasis id="strong1125" effect="bold">
+play
+
+</emphasis>
+ method on the custom effect 
+object whenever either of the buttons shown in Figure 1 is clicked. This causes 
+the 
+
+<emphasis id="strong1126" effect="bold">
+play
+
+</emphasis>
+ method defined in Listing 9 to be executed.
+
+</para>
+
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1127" effect="bold">
+The end of the program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1129">
+Listing 14 also signals the end of the program named 
+
+<emphasis id="strong1128" effect="bold">
+CustomEffect02
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+The Driver class for the program named CustomEffect03
+
+</title>
+
+
+
+
+
+<para id="p1130">
+The 
+
+<emphasis id="strong1129" effect="bold">
+Driver
+
+</emphasis>
+ class for the 
+program named 
+
+<emphasis id="strong1130" effect="bold">
+CustomEffect03
+
+</emphasis>
+ begins in Listing 15. A complete listing of the 
+class is provided in Listing 22 near the end of the lesson. This program uses 
+the 
+
+<link id="a1051" target-id="ways">
+
+first approach
+
+</link>
+
+ for playing an effect.
+
+</para>
+
+
+
+
+
+<example id="listing1014" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_15" effect="bold">
+</emphasis>
+Beginning of the Driver class for  	  CustomEffect03.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1014" display="block">package CustomClasses{
+
+  import mx.containers.VBox;
+  import mx.controls.Button;
+  import mx.controls.Label;
+  import mx.controls.Spacer;
+
+  public class Driver extends VBox{
+    //Instantiate and save references to all of the
+    // objects needed by the program.
+    private var title:Label = new Label();
+    private var btnA:Button = new Button();
+    private var btnB:Button = new Button();
+    private var spacer:Spacer = new Spacer();
+    private var theEffect:CustomEffect = 
+                                       new CustomEffect();
+    //--------------------------------------------------//
+    
+    public function Driver(){//constructor
+      //Make some space at the top of the display.
+      spacer.height = 40;
+      addChild(spacer);
+      
+      //Set title properties and add to the VBox.
+      title.setStyle("color","0xFFFF00");
+      title.setStyle("fontSize",14);
+      title.text = "Demo custom effect";
+      addChild(title);
+
+      //Instantiate two buttons and add them to the VBox.
+      // Register the same event listener on both of
+      // them.
+      btnA.label = "Click me and watch the effect.";
+      addChild(btnA);
+      
+      btnB.label = "Or click me instead.";
+      addChild(btnB);
+        </code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1131">
+<emphasis id="strong1131" effect="bold">
+Very similar to the previous code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1132">
+The code in Listing 15 matches the code in Listing 11 and Listing 12 with a 
+few exceptions:
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+  
+
+<item id="li1059">
+There is no import directive for the 
+
+<emphasis id="strong1132" effect="bold">
+MouseEvent
+
+</emphasis>
+
+  class.
+
+</item>
+
+
+  
+
+<item id="li1060">
+There are no 
+
+<emphasis id="strong1133" effect="bold">
+click
+
+</emphasis>
+ event handlers registered on the 
+  buttons.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1133">
+<emphasis id="strong1134" effect="bold">
+Set properties on the custom effect
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1134">
+Listing 16 sets the 
+properties on the custom effect.
+
+</para>
+
+
+
+
+
+<example id="listing1015" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_16" effect="bold">
+</emphasis>
+Set properties on the custom effect.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1015" display="block">      //Set various properties needed by the effect.
+      theEffect.theDuration = 4000;
+      theEffect.rotateAngleFrom = 0;
+      theEffect.rotateAngleTo = 720;
+      theEffect.wipeShowTarget = true;
+      theEffect.glowColor = 0xFF0000;
+      theEffect.glowInner = true;
+      theEffect.glowStrength = 255;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1135">
+Once again, this code is very similar to the code in Listing 13. There is one 
+major difference, however. The 
+
+<emphasis id="strong1135" effect="bold">
+targets
+
+</emphasis>
+ property for the effect 
+is not explicitly set to the buttons as is the case in Listing 13.
+
+</para>
+
+
+
+
+
+<para id="p1136">
+<emphasis id="strong1136" effect="bold">
+Apply the effect to the two buttons 
+individually
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1137">
+Listing 17 shows the major 
+difference between the two programs.
+
+</para>
+
+
+
+
+
+<example id="listing1016" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_17" effect="bold">
+</emphasis>
+Apply the effect to the two buttons  	  individually.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1016" display="block">      btnA.setStyle("mouseUpEffect",theEffect);
+      btnB.setStyle("mouseUpEffect",theEffect);
+
+    } //end constructor
+    //--------------------------------------------------//
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1138">
+<emphasis id="strong1137" effect="bold">
+Use the setStyle method and the effect trigger
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1139">
+Whereas the previous program explicitly sets the buttons as targets of the 
+effect and calls the 
+
+<emphasis id="strong1138" effect="bold">
+play
+
+</emphasis>
+ method on the effect, this program 
+uses the 
+
+<emphasis id="strong1139" effect="bold">
+setStyle
+
+</emphasis>
+ approach and associates the custom effect 
+with a 
+
+<emphasis id="strong1140" effect="bold">
+mouseUpEffect
+
+</emphasis>
+ trigger on each button individually. As a 
+result, when the mouse button is released while the mouse pointer is over one of 
+the buttons, the effect is played on that button alone.
+
+</para>
+
+
+
+
+
+<para id="p1140">
+<emphasis id="strong1141" effect="bold">
+May not be possible to specify multiple targets
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1141">
+I don't know of any easy way to use this approach to cause the effect to be 
+played on two or more components at the same time. The documentation hints that 
+this may not be possible.
+
+</para>
+
+
+
+
+
+<para id="p1142">
+<emphasis id="strong1142" effect="bold">
+The end of the program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1143">
+Listing 17 also signals the end of the 
+
+<emphasis id="strong1143" effect="bold">
+Driver
+
+</emphasis>
+ class and the 
+end of the program.
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Runtheprogram" effect="bold">
+
+
+</emphasis>
+
+
+<emphasis id="program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<para id="p1144">
+I encourage you to 
+
+<link id="a1052" target-id="Click">
+
+run
+
+</link>
+
+ this program from the web. Then copy the code from 
+Listing 18 through Listing 22. Use that code to create Flex projects. 
+Compile and run the projects. Experiment with the code, making changes, 
+and observing the results of your changes. Make certain that you can 
+explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1145">
+I will publish a list containing links to ActionScript resources as a separate document. Search for ActionScript Resources in the Connexions search box.
+
+</para>
+
+
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="CompleteProgramListings" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1146">
+Complete listings of the Flex applications discussed in this lesson are provided 
+below.
+
+</para>
+
+
+
+
+
+<example id="listing1017" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing" effect="bold">
+</emphasis>
+Common MXML code used for  	  both programs.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1017" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;!--CustomEffect02 11/26/09
+Illustrates a custom effect, which is the parallel
+playing of three standard effects:
+
+WipeRight
+Rotate
+Glow
+
+The effect is applied to two buttons each time either
+button is clicked.
+
+This version sets the targets on the effect and calls the
+play method on the effect.
+
+See the Flex 3 Cookbook, page 363
+Also see http://livedocs.adobe.com/flex/3/html/help.html?
+content=createeffects_2.html#178126
+Also see http://livedocs.adobe.com/flex/3/html/help.html?
+content=behaviors_04.html#275399
+--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;
+        </code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<example id="listing1018" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing1" effect="bold">
+</emphasis>
+Source code for the class  	  named CustomEffect.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1018" display="block">package CustomClasses{
+  import mx.effects.Effect;
+  import mx.effects.IEffectInstance;
+  import mx.events.EffectEvent;
+  
+  public class CustomEffect extends Effect{
+    
+    //Would prefer to make these private and use implicit
+    // setter methods, but I decided to leave them public
+    // to simplify the code.    
+    public var theDuration:Number = 2000;//default value
+    public var rotateAngleFrom:Number = 0;//default value
+    public var rotateAngleTo:Number = 360;//default value
+    public var wipeShowTarget:Boolean = true;//default 
+    public var glowColor:uint = 0xFF0000;//default value
+    public var glowInner:Boolean = true;//default value
+    public var glowStrength:Number = 255;//default value
+    
+    public function CustomEffect(target:Object=null){
+      super(target);
+      instanceClass = CustomEffectInstance;
+    } //end constructor
+    
+    override protected function initInstance(
+                           instance:IEffectInstance):void{
+      super.initInstance(instance);
+
+      CustomEffectInstance(instance).theDuration = 
+                                         this.theDuration;
+      CustomEffectInstance(instance).rotateAngleFrom = 
+                                     this.rotateAngleFrom;
+      CustomEffectInstance(instance).rotateAngleTo = 
+                                       this.rotateAngleTo;
+      CustomEffectInstance(instance).wipeShowTarget = 
+                                      this.wipeShowTarget;
+      CustomEffectInstance(instance).glowColor = 
+                                           this.glowColor;
+      CustomEffectInstance(instance).glowInner = 
+                                           this.glowInner;
+      CustomEffectInstance(instance).glowStrength = 
+                                        this.glowStrength;
+
+    } //end initInstance
+    //--------------------------------------------------//
+    
+    override public function 
+                            getAffectedProperties():Array{
+      return ["rotation","rotationX","rotationY","x","y"];
+    } //end getAffectedProperties
+    //--------------------------------------------------//
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<example id="listing1019" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing2" effect="bold">
+</emphasis>
+Source code for the class  	  named CustomEffectInstance.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1019" display="block">package CustomClasses{
+  import mx.effects.EffectInstance;
+  import mx.effects.Glow;
+  import mx.effects.Parallel;
+  import mx.effects.Rotate;
+  import mx.effects.WipeRight;
+  import mx.events.FlexEvent;
+  
+  public class CustomEffectInstance 
+                                   extends EffectInstance{
+    //Instantiate the individual effects that will be
+    // combined in parallel to produce the custom effect.
+    private var wipeEffect:WipeRight = new WipeRight();
+    private var rotateEffect:Rotate = new Rotate();
+    private var glowEffect:Glow = new Glow();
+    
+    //Variables for the storage of effect properties.
+    public var theDuration:Number;
+    public var rotateAngleFrom:Number;
+    public var rotateAngleTo:Number;
+    public var wipeShowTarget:Boolean;
+    public var glowColor:uint;
+    public var glowInner:Boolean;
+    public var glowStrength:Number;
+    
+    public function CustomEffectInstance(
+                                        theTarget:Object){
+      super(theTarget);
+
+      //Set the target for all three individual effects.
+      rotateEffect.target = theTarget;
+      wipeEffect.target = theTarget;
+      glowEffect.target = theTarget;
+    } //end constructor
+    
+    override public function play():void{
+      super.play();
+      
+      //Note: The following values cannot be set in the
+      // constructor because the variables aren't stable
+      // at that point in time.
+      
+      //Configure the rotate effect
+      rotateEffect.angleFrom = rotateAngleFrom;
+      rotateEffect.angleTo = rotateAngleTo;
+      rotateEffect.duration = theDuration;
+      
+      //Configure the wipe effect.
+      wipeEffect.showTarget = wipeShowTarget;
+      wipeEffect.duration = theDuration;
+      
+      //Configure the glow effect.
+      glowEffect.color = glowColor;
+      glowEffect.duration = theDuration;
+      glowEffect.inner = glowInner;
+      glowEffect.strength = glowStrength;
+      
+      //Play all three effects in parallel.
+      var parallel:Parallel = new Parallel();
+      parallel.addChild(rotateEffect);
+      parallel.addChild(glowEffect);
+      parallel.addChild(wipeEffect);
+      parallel.play();
+    } //end play
+    //--------------------------------------------------//
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<example id="listing1020" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing3" effect="bold">
+</emphasis>
+Driver class for the  	  program named CustomEffect02.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1020" display="block">/*CustomEffect02 11/26/09
+*********************************************************/
+
+package CustomClasses{
+
+  import mx.containers.VBox;
+  import mx.controls.Button;
+  import mx.controls.Label;
+  import mx.controls.Spacer;
+  import flash.events.MouseEvent;
+
+  public class Driver extends VBox{
+    //Instantiate and save references to all of the
+    // objects needed by the program.
+    private var title:Label = new Label();
+    private var btnA:Button = new Button();
+    private var btnB:Button = new Button();
+    private var spacer:Spacer = new Spacer();
+    private var theEffect:CustomEffect = 
+                                       new CustomEffect();
+    //--------------------------------------------------//
+    
+    public function Driver(){//constructor
+      //Make some space at the top of the display.
+      spacer.height = 40;
+      addChild(spacer);
+      
+      //Set title properties and add to the VBox.
+      title.setStyle("color","0xFFFF00");
+      title.setStyle("fontSize",14);
+      title.text = "Demo custom effect";
+      addChild(title);
+
+      //Instantiate two buttons and add them to the VBox.
+      // Register the same event listener on both of
+      // them.
+      btnA.label = "Click me and watch the effect.";
+      btnA.addEventListener(MouseEvent.CLICK,handler);
+      addChild(btnA);
+      
+      btnB.label = "Or click me instead.";
+      btnB.addEventListener(MouseEvent.CLICK,handler);
+      addChild(btnB);
+
+      //Specify both buttons to be the target for the
+      // same effect.
+      theEffect.targets = [btnA,btnB];
+      
+      //Set various properties needed by the effect.
+      theEffect.theDuration = 4000;
+      theEffect.rotateAngleFrom = 0;
+      theEffect.rotateAngleTo = 720;
+      theEffect.wipeShowTarget = true;
+      theEffect.glowColor = 0xFF0000;
+      theEffect.glowInner = true;
+      theEffect.glowStrength = 255;
+
+    } //end constructor
+    //--------------------------------------------------//
+    
+    public function handler(event:MouseEvent):void{
+      theEffect.play();
+    }//end handler
+
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<example id="listing1021" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing4" effect="bold">
+</emphasis>
+Driver class for the  	  program named CustomEffect03.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1021" display="block">/*CustomEffect03 11/27/09
+*********************************************************/
+
+package CustomClasses{
+
+  import mx.containers.VBox;
+  import mx.controls.Button;
+  import mx.controls.Label;
+  import mx.controls.Spacer;
+
+  public class Driver extends VBox{
+    //Instantiate and save references to all of the
+    // objects needed by the program.
+    private var title:Label = new Label();
+    private var btnA:Button = new Button();
+    private var btnB:Button = new Button();
+    private var spacer:Spacer = new Spacer();
+    private var theEffect:CustomEffect = 
+                                       new CustomEffect();
+    //--------------------------------------------------//
+    
+    public function Driver(){//constructor
+      //Make some space at the top of the display.
+      spacer.height = 40;
+      addChild(spacer);
+      
+      //Set title properties and add to the VBox.
+      title.setStyle("color","0xFFFF00");
+      title.setStyle("fontSize",14);
+      title.text = "Demo custom effect";
+      addChild(title);
+
+      //Instantiate two buttons and add them to the VBox.
+      // Register the same event listener on both of
+      // them.
+      btnA.label = "Click me and watch the effect.";
+      addChild(btnA);
+      
+      btnB.label = "Or click me instead.";
+      addChild(btnB);
+      
+      //Set various properties needed by the effect.
+      theEffect.theDuration = 4000;
+      theEffect.rotateAngleFrom = 0;
+      theEffect.rotateAngleTo = 720;
+      theEffect.wipeShowTarget = true;
+      theEffect.glowColor = 0xFF0000;
+      theEffect.glowInner = true;
+      theEffect.glowStrength = 255;
+      
+      //Apply the effect to the two buttons individually.
+      btnA.setStyle("mouseUpEffect",theEffect);
+      btnB.setStyle("mouseUpEffect",theEffect);
+
+    } //end constructor
+    //--------------------------------------------------//
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+<para id="p1147">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1002" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1144" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+
+
+<item id="li1061">
+Module name: Creating Custom Effects
+
+</item>
+
+
+
+
+<item id="li1062">
+Files:
+
+<list id="ul1013" list-type="bulleted">
+
+
+
+<item id="li1063">
+ActionScript0118\ActionScript0118.htm
+
+</item>
+
+
+
+
+<item id="li1064">
+ActionScript0118\Connexions\ActionScriptXhtml0118.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<note id="note1003" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1145" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+	
+
+
+
+<para id="p1148">
+-end-
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

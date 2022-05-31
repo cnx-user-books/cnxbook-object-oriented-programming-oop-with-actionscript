@@ -1,0 +1,4615 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Drag and Drop Basics</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34479</md:content-id>
+  <md:title>Drag and Drop Basics</md:title>
+  <md:abstract>Learn the basics of writing ActionScript 3 code to provide a drag and drop capability.</md:abstract>
+  <md:uuid>59899cc3-1fc7-434f-aea2-bdbb91ae038a</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="miscellaneous">
+
+
+
+
+
+	
+
+<emphasis id="Click" effect="bold">
+
+Click
+
+</emphasis>
+
+ 
+
+<link id="a1000" url="DragAndDrop01.html">
+
+DragAndDrop01
+
+</link>
+
+
+to run this ActionScript program. 
+
+<emphasis id="em1000" effect="italics">
+
+(Click the "Back" button in your browser
+to return to this page.)
+
+</emphasis>
+
+
+
+</note>
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+  
+
+<item id="li1000">
+<link id="a1001" target-id="Preface">
+
+Preface
+
+</link>
+
+ 
+    
+
+<list id="ul1001" list-type="bulleted">
+
+      
+
+<item id="li1001">
+<link id="a1002" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1002">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+ 
+        
+
+<list id="ul1002" list-type="bulleted">
+
+          
+
+<item id="li1003">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+          
+
+<item id="li1004">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+        
+
+</list>
+
+
+      
+
+</item>
+
+
+      
+
+<item id="li1005">
+<link id="a1006" target-id="Supplementary_material">
+
+Supplemental material
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1006">
+<link id="a1007" target-id="GeneralBackgroundInformation">
+
+General Background Information
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1007">
+<link id="a1008" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1008">
+<link id="a1009" target-id="DiscussionandSamplePrograms">
+
+Discussion and sample code
+
+</link>
+
+ 
+    
+
+<list id="ul1003" list-type="bulleted">
+
+      
+
+<item id="li1009">
+<link id="a1010" target-id="The_MXML_file">
+
+The MXML file
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1010">
+<link id="a1011" target-id="The_ActionScript_file">
+
+The ActionScript file
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1011">
+<link id="a1012" target-id="Runtheprogram">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1012">
+<link id="a1013" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1013">
+<link id="a1014" target-id="CompleteProgramListings">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1015" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+        
+
+<note id="note1001" type="miscellaneous">
+
+
+          
+
+
+            
+
+
+              
+
+All references to ActionScript in this lesson are 
+			  references to version 3 or later. 
+
+</note>
+
+            
+
+
+          
+
+
+
+        
+
+
+
+
+
+
+
+<para id="p1000">
+This tutorial lesson is 
+part of a series of lessons dedicated to object-oriented programming 
+(OOP) with ActionScript.
+
+</para>
+
+
+
+
+
+<para id="p1001">
+<emphasis id="strong1000" effect="bold">
+Several ways to create and launch ActionScript 
+programs
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1002">
+There are several ways to 
+create and launch programs written in the ActionScript programming language. 
+Many of the lessons in this series will use Adobe Flex as the launch pad for the 
+sample ActionScript programs.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+An earlier lesson titled 
+
+
+<emphasis id="strong1001" effect="bold">
+The Default 
+Application Container
+
+</emphasis>
+ provided information on how to get started programming 
+with Adobe's Flex Builder 3. 
+
+<emphasis id="em1001" effect="italics">
+(See 
+
+<link id="a1016" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming website
+
+</link>
+
+.)
+
+</emphasis>
+ 
+You should study that lesson before embarking on the lessons in this series.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1002" effect="bold">
+Some understanding of Flex MXML will be required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1005">
+I also recommend that you 
+study all of the lessons on Baldwin's Flex programming website in parallel with 
+your study of these ActionScript lessons. Eventually you will probably need to 
+understand both ActionScript and Flex and the relationships that exist between 
+them in order to become a successful ActionScript programmer.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1003" effect="bold">
+Will emphasize ActionScript code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+It is often possible to use 
+either ActionScript code or Flex MXML code to achieve the same result. Insofar 
+as this series of lessons is concerned, the emphasis will be on ActionScript 
+code even in those cases where Flex MXML code may be a suitable alternative.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1008">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily find and view the figures and 
+listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+  
+
+<item id="li1015">
+<link id="a1017" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Program output at startup.
+
+</item>
+
+
+  
+
+<item id="li1016">
+<link id="a1018" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Program file structure.
+
+</item>
+
+
+  
+
+<item id="li1017">
+<link id="a1019" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Program output after dragging the 
+  images.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+  
+
+<item id="li1018">
+<link id="a1020" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The MXML file for DragAndDrop01.
+
+</item>
+
+
+  
+
+<item id="li1019">
+<link id="a1021" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the Driver class for 
+  DragAndDrop01.
+
+</item>
+
+
+  
+
+<item id="li1020">
+<link id="a1022" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the constructor for the 
+  Driver class.
+
+</item>
+
+
+  
+
+<item id="li1021">
+<link id="a1023" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Prepare the three images.
+
+</item>
+
+
+  
+
+<item id="li1022">
+<link id="a1024" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Register a creationComplete event 
+  handler.
+
+</item>
+
+
+  
+
+<item id="li1023">
+<link id="a1025" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Beginning of the creationComplete 
+  event handler.
+
+</item>
+
+
+  
+
+<item id="li1024">
+<link id="a1026" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Register a mouseDown event handler on 
+  each Image object.
+
+</item>
+
+
+  
+
+<item id="li1025">
+<link id="a1027" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Register dragDrop and dragEnter event 
+  handlers on the Canvas object.
+
+</item>
+
+
+  
+
+<item id="li1026">
+<link id="a1028" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Beginning of the mouseDown event 
+  handler.
+
+</item>
+
+
+  
+
+<item id="li1027">
+<link id="a1029" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Get and save the drag initiator.
+
+</item>
+
+
+  
+
+<item id="li1028">
+<link id="a1030" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Populate a DragSource object with a 
+  copy of the image being dragged.
+
+</item>
+
+
+  
+
+<item id="li1029">
+<link id="a1031" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Initiate the drag and drop operation 
+  by calling the doDrag method.
+
+</item>
+
+
+  
+
+<item id="li1030">
+<link id="a1032" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. The dragEnter event handler.
+
+</item>
+
+
+  
+
+<item id="li1031">
+<link id="a1033" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. Beginning of the dragDrop event 
+  handler.
+
+</item>
+
+
+  
+
+<item id="li1032">
+<link id="a1034" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. Do the drop.
+
+</item>
+
+
+  
+
+<item id="li1033">
+<link id="a1035" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. The MXML file for DragAndDrop01.
+
+</item>
+
+
+  
+
+<item id="li1034">
+<link id="a1036" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. The ActionScript file for 
+  DragAndDrop01.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Supplementary_material" effect="bold">
+
+Supplemental material
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1009">
+I recommend that you also 
+study the other lessons in my extensive collection of online programming 
+tutorials. You will find a consolidated index at 
+
+<link id="a1037" url="http://www.dickbaldwin.com/toc.htm">
+
+www.DickBaldwin.com
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="GeneralBackgroundInformation" effect="bold">
+
+General Background Information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1010">
+For Adobe online 
+documentation on this topic, see 
+
+<link id="a1038" url="http://livedocs.adobe.com/flex/3/html/help.html?content=dragdrop_1.html">
+
+
+Using Drag and Drop
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1011">
+A drag and drop operation is carried out in three 
+stages:
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+  
+
+<item id="li1035">
+Initiation
+
+</item>
+
+
+  
+
+<item id="li1036">
+Dragging
+
+</item>
+
+
+  
+
+<item id="li1037">
+Dropping
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1004" effect="bold">
+Initiation
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+As you are probably already aware, initiation consists of the user pointing 
+to an item with the mouse and pressing the mouse button.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1005" effect="bold">
+Dragging
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+During the drag operation, the user drags the item to another location on the 
+screen without releasing the mouse button.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1006" effect="bold">
+Dropping
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+When the item has been dragged to the new location, the user releases the 
+mouse button causing the item to remain in the new location.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1007" effect="bold">
+Copying
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+It is also possible to copy an item using the drag and drop gestures, but 
+that capability won't be illustrated in this lesson. Instead, this lesson will 
+concentrate on moving a Flex component from one location in its container to a 
+different location in its container.
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1008" effect="bold">
+Classes and events
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1021">
+The sample program that I will explain in this lesson will use the following 
+classes, methods, and events:
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+  
+
+<item id="li1038">
+MouseEvent class 
+    
+
+<list id="ul1008" list-type="bulleted">
+
+      
+
+<item id="li1039">
+mouseDown event
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1040">
+DragEvent class 
+    
+
+<list id="ul1009" list-type="bulleted">
+
+      
+
+<item id="li1041">
+dragDrop event
+
+</item>
+
+
+      
+
+<item id="li1042">
+dragEnter event
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1043">
+DragManager class 
+    
+
+<list id="ul1010" list-type="bulleted">
+
+      
+
+<item id="li1044">
+acceptDragDrop method
+
+</item>
+
+
+      
+
+<item id="li1045">
+doDrag method
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1046">
+DragSource class 
+    
+
+<list id="ul1011" list-type="bulleted">
+
+      
+
+<item id="li1047">
+addData method
+
+</item>
+
+
+      
+
+<item id="li1048">
+hasFormat method
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1022">
+I will explain a program named 
+
+<emphasis id="strong1009" effect="bold">
+DragAndDrop01
+
+</emphasis>
+. This program illustrates the 
+fundamentals of drag and drop in ActionScript 3. The program places three images 
+in the upper-left corner of a 
+
+<emphasis id="strong1010" effect="bold">
+Canvas
+
+</emphasis>
+ object as shown in Figure 
+1.
+
+</para>
+
+
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Figure_1" effect="bold">
+</emphasis>
+Program output at startup.
+</title>
+
+
+
+
+
+<media id="media1000" alt="Program output at startup image." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/as0140a.jpg" width="456" height="526"/>
+</media>
+
+
+
+
+<caption>Program output at startup.</caption>
+</figure>
+
+
+
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1011" effect="bold">
+The program file structure
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1024">
+The program file structure, taken from the Flex Builder 3 Navigator panel is 
+as shown in Figure 2.
+
+</para>
+
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Figure_2" effect="bold">
+</emphasis>
+Program file structure.
+</title>
+
+
+
+
+
+<media id="media1001" alt="Program file structure." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/as0140b.jpg" width="317" height="290"/>
+</media>
+
+
+
+
+<caption>Program file structure.</caption>
+</figure>
+
+
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1012" effect="bold">
+Three image files
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1026">
+As you can see in Figure 2, 
+the program uses 
+
+<emphasis id="following" effect="bold">
+
+the following image files
+
+</emphasis>
+
+:
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+  
+
+<item id="li1049">
+0 - space.jpg
+
+</item>
+
+
+  
+
+<item id="li1050">
+1 - snowscene.jpg 
+
+</item>
+
+
+  
+
+<item id="li1051">
+2 - frog.jpg
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1013" effect="bold">
+The z-axes indices
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+The program sets the z-axis indices in the order shown in the above 
+
+
+<link id="a1039" target-id="following">
+
+list
+
+</link>
+
+ on the
+
+
+<emphasis id="strong1014" effect="bold">
+Image
+
+</emphasis>
+ objects produced using the image files. This causes the 
+
+
+<emphasis id="em1002" effect="italics">
+space
+
+</emphasis>
+ image to be in the back (0), the 
+
+<emphasis id="em1003" effect="italics">
+frog
+
+</emphasis>
+ image to be in the front 
+(2), and the 
+
+<emphasis id="em1004" effect="italics">
+snowscene
+
+</emphasis>
+ image to be in the middle (1).
+
+</para>
+
+
+
+
+
+<para id="p1029">
+The three images are initially placed in the upper-left corner of the canvas, 
+which is shown as a cyan rectangle in Figure 1.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1015" effect="bold">
+Any image can be dragged
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+If you 
+
+<link id="a1040" target-id="Click">
+
+run
+
+</link>
+
+ this program, you will see that any any of the images can be dragged and dropped anywhere within the canvas as 
+long as the mouse pointer doesn't leave the canvas. However, if the edge of the 
+dragged image goes outside the left edge or the top of the canvas, the drag and 
+drop operation is aborted.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+If the dragged image goes outside the right side or the bottom of the canvas, 
+scroll bars automatically appear on the canvas as shown in Figure 3.
+
+</para>
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1016" effect="bold">
+Program output after dragging the images
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+Figure 3 shows the program output after dragging the three images to 
+different locations.
+
+</para>
+
+
+
+
+
+
+<figure id="figure1002" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Figure_3" effect="bold">
+</emphasis>
+Program output after  dragging the images.
+</title>
+
+
+
+
+
+<media id="media1002" alt="Program output after dragging the images." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/as0140c.jpg" width="456" height="526"/>
+</media>
+
+
+
+
+<caption>Program output after  dragging the images.</caption>
+</figure>
+
+
+
+
+
+
+
+<para id="p1035">
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="DiscussionandSamplePrograms" effect="bold">
+
+
+</emphasis>
+
+Discussion and sample code
+
+</title>
+
+
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1017" effect="bold">
+Will explain in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+I will explain the code for this program in fragments. Complete listings of 
+the MXML code and the ActionScript code are provided in Listing 16 and Listing 
+17 near the end of the lesson.
+
+</para>
+
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="The_MXML_file" effect="bold">
+
+The MXML file
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1038">
+The MXML file is shown in 
+Listing 1 and also in Listing 16 for your convenience.
+
+</para>
+
+
+
+
+
+<example id="listing1000" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+he MXML file for DragAndDrop01.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1000" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!--DragAndDrop01--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1039">
+As you can see, the MXML file 
+is very simple because the program was coded almost entirely in ActionScript. 
+The MXML code simply instantiates an object of the 
+
+<emphasis id="strong1018" effect="bold">
+Driver
+
+</emphasis>
+ class. From that point 
+forward, the behavior of the program is controlled by ActionScript code.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="The_ActionScript_file" effect="bold">
+
+The ActionScript file
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1019" effect="bold">
+Beginning of the Driver class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+The Driver class begins in 
+Listing 2.
+
+</para>
+
+
+
+
+
+<example id="listing1001" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Beginning of the Driver class for DragAndDrop01.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1001" display="block">package CustomClasses{
+  import flash.events.MouseEvent;
+  
+  import mx.containers.Canvas;
+  import mx.controls.Image;
+  import mx.core.DragSource;
+  import mx.events.DragEvent;
+  import mx.events.FlexEvent;
+  import mx.managers.DragManager;
+
+  //====================================================//
+  
+  public class Driver extends Canvas {
+    private var imageA:Image = new Image();
+    private var imageB:Image = new Image();
+    private var imageC:Image = new Image();
+    private var localX:Number;
+    private var localY:Number;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1020" effect="bold">
+Extends the Canvas class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+As you can see in Listing 2, the 
+
+<emphasis id="strong1021" effect="bold">
+Driver
+
+</emphasis>
+ class extends the
+
+
+<emphasis id="strong1022" effect="bold">
+Canvas
+
+</emphasis>
+ class. Therefore, an object of the
+
+
+<emphasis id="strong1023" effect="bold">
+Driver
+
+</emphasis>
+ class is a 
+
+<emphasis id="strong1024" effect="bold">
+Canvas
+
+</emphasis>
+ object and has all of 
+the attributes associated with a 
+
+<emphasis id="strong1025" effect="bold">
+Canvas
+
+</emphasis>
+ object. Among those 
+attributes is the following, which was taken from the 
+
+<link id="a1041" url="http://livedocs.adobe.com/flex/3/langref/mx/containers/Canvas.html">
+
+
+documentation
+
+</link>
+
+:
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+<para id="p1044">
+"A Canvas layout container defines a rectangular 
+region in which you place child containers and controls. It is the only 
+container that lets you explicitly specify the location of its children within 
+the container by using the x and y properties of each child."
+
+</para>
+
+
+</quote>
+
+
+
+
+
+<para id="p1045">
+As you will see, the new location of each image is explicitly specified each 
+time it is dragged to a new location.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1026" effect="bold">
+Instantiate three new Image objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+The code in Listing 2 instantiates three new 
+
+<emphasis id="strong1027" effect="bold">
+Image
+
+</emphasis>
+ objects, 
+which will be loaded with the contents of the three image files listed 
+
+<link id="a1042" target-id="following">
+
+earlier
+
+</link>
+
+. The code in Listing 2 also declares two instance 
+variables that will be used to store the position of the mouse pointer within an 
+image when the drag operation is initiated.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1028" effect="bold">
+Beginning of the constructor for the Driver 
+class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+The constructor for the
+
+
+<emphasis id="strong1029" effect="bold">
+Driver
+
+</emphasis>
+ class begins in Listing 3.
+
+</para>
+
+
+
+
+
+<example id="listing1002" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+Beginning of the constructor for the Driver class.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1002" display="block">    public function Driver(){//constructor
+      setStyle("backgroundColor",0x00FFFF);
+      setStyle("backgroundAlpha",1.0);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1030" effect="bold">
+Make the canvas visible
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+Normally a
+
+
+<emphasis id="strong1031" effect="bold">
+Canvas
+
+</emphasis>
+ object is not visible. The code in Listing 3 sets the 
+alpha value for the 
+
+<emphasis id="strong1032" effect="bold">
+Canvas
+
+</emphasis>
+ object to 1.0 making it opaque and 
+visible. Listing 3 also sets the background color of the
+
+
+<emphasis id="strong1033" effect="bold">
+Canvas
+
+</emphasis>
+ object to cyan as shown in Figure 1.
+
+</para>
+
+
+
+
+
+<para id="p1052">
+The size of the
+
+
+<emphasis id="strong1034" effect="bold">
+Canvas
+
+</emphasis>
+ object will be set later when the
+
+
+<emphasis id="strong1035" effect="bold">
+Canvas
+
+</emphasis>
+ object and all of its children have been constructed.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1036" effect="bold">
+Prepare the three images
+
+</emphasis>
+<emphasis id="strong1037" effect="bold">
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1054">
+Listing 4 prepares the three images for use by the program.
+
+</para>
+
+
+
+
+
+<example id="listing1003" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+Prepare the three images.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1003" display="block">      //Embed the image files in the SWF file.
+      [Embed("snowscene.jpg")]
+      var imgA:Class;
+      
+      [Embed("space.jpg")]
+      var imgB:Class;
+      
+      [Embed("frog.jpg")]
+      var imgC:Class;
+      
+      //Load the images from the embedded image files
+      // into the Image objects.
+      imageA.load(imgA);
+      imageB.load(imgB);
+      imageC.load(imgC);
+      
+      // Set the z-axes indices such that the frog is
+      // in front, the snowscene is in the middle and the 
+      // space image is at the back.
+      addChildAt(imageB,0);//set index to 0
+      addChildAt(imageA,1);//set index to 1
+      addChildAt(imageC,2);//set index to 2</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1055">
+Listing 4 begins by embedding the three image files in the SWF file. Then it 
+loads the contents of the image files into the 
+
+<emphasis id="strong1038" effect="bold">
+Image
+
+</emphasis>
+ objects 
+instantiated in Listing 2. Finally Listing 3 adds the 
+
+<emphasis id="strong1039" effect="bold">
+Image
+
+</emphasis>
+
+objects as children of the 
+
+<emphasis id="strong1040" effect="bold">
+Canvas
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1041" effect="bold">
+Set the z-axis indices
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1057">
+The z-axis index of 
+each 
+
+<emphasis id="strong1042" effect="bold">
+Image
+
+</emphasis>
+ object is set in Figure 4 so as to place the space image at the 
+back, the frog image at the front, and the snowscene image between the other 
+two.
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1043" effect="bold">
+Register a creationComplete event handler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1059">
+Listing 5 registers a
+
+
+<emphasis id="strong1044" effect="bold">
+creationComplete
+
+</emphasis>
+ event handler on the 
+
+<emphasis id="strong1045" effect="bold">
+Canvas
+
+</emphasis>
+
+object. This event handler will be executed after the 
+
+<emphasis id="strong1046" effect="bold">
+Canvas
+
+</emphasis>
+
+object and all of its children are fully constructed.
+
+</para>
+
+
+
+
+
+<example id="listing1004" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+Register a creationComplete event handler.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1004" display="block">      this.addEventListener(FlexEvent.CREATION_COMPLETE,
+                                         completeHandler);
+    } //end constructor</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1047" effect="bold">
+Beginning of the creationComplete event handler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1061">
+The 
+
+<emphasis id="strong1048" effect="bold">
+creationComplete
+
+</emphasis>
+ event handler begins in Listing 6. This 
+handler is executed once when the 
+
+<emphasis id="strong1049" effect="bold">
+Canvas
+
+</emphasis>
+ object and all of its 
+children have been constructed.
+
+</para>
+
+
+
+
+
+<example id="listing1005" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Beginning of the creationComplete event handler.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1005" display="block">    private function completeHandler(
+                          event:mx.events.FlexEvent):void{
+      //Set the width and height of the canvas based on 
+      // the dimensions of imageB.
+      this.width = 1.3*imageB.width;
+      this.height = 1.3*imageB.height;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1050" effect="bold">
+Set the size of the Canvas object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1063">
+Listing 6 sets the width and 
+height of the 
+
+<emphasis id="strong1051" effect="bold">
+Canvas
+
+</emphasis>
+ object based on the dimensions of the
+
+
+<emphasis id="strong1052" effect="bold">
+Image
+
+</emphasis>
+ object referred to by 
+
+<emphasis id="strong1053" effect="bold">
+imageB
+
+</emphasis>
+. It was not 
+possible to reliably execute this code in the constructor because the code might 
+be executed before the contents of the image file were fully loaded into the 
+
+<emphasis id="strong1054" effect="bold">
+
+Image
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1055" effect="bold">
+Register a mouseDown event handler on each
+
+
+<emphasis id="strong1056" effect="bold">
+Image
+
+</emphasis>
+ object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+A drag and drop operation is heavily dependent on the handling of different 
+types of events. The remaining code in the 
+
+<emphasis id="strong1057" effect="bold">
+creationComplete
+
+</emphasis>
+
+event handler registers appropriate event handlers on the images and on the
+
+
+<emphasis id="strong1058" effect="bold">
+Canvas
+
+</emphasis>
+ object to support the drag and drop operation with the
+
+
+<emphasis id="strong1059" effect="bold">
+Canvas
+
+</emphasis>
+ object as the drag target.
+
+</para>
+
+
+
+
+
+<para id="p1066">
+As you will see later, a drag operation is initialized when an image 
+dispatches a 
+
+<emphasis id="strong1060" effect="bold">
+mouseDown
+
+</emphasis>
+ event. Listing 7 registers the same
+
+
+<emphasis id="strong1061" effect="bold">
+mouseDown
+
+</emphasis>
+ event handler on all three 
+
+<emphasis id="strong1062" effect="bold">
+Image
+
+</emphasis>
+
+objects.
+
+</para>
+
+
+
+
+
+<example id="listing1006" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+Register a mouseDown event handler on each Image object.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1006" display="block">      imageA.addEventListener(MouseEvent.MOUSE_DOWN,
+                                        mouseDownHandler);
+      imageB.addEventListener(MouseEvent.MOUSE_DOWN,
+                                        mouseDownHandler);
+      imageC.addEventListener(MouseEvent.MOUSE_DOWN,
+                                        mouseDownHandler);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1063" effect="bold">
+Register dragDrop and dragEnter event handlers on the
+
+
+<emphasis id="strong1064" effect="bold">
+Canvas
+
+</emphasis>
+ object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1068">
+Two different event handlers must be registered on the drag target, which is 
+the 
+
+<emphasis id="strong1065" effect="bold">
+Canvas
+
+</emphasis>
+ object in this case. The registration of those event 
+handlers on the 
+
+<emphasis id="strong1066" effect="bold">
+Canvas
+
+</emphasis>
+ object is accomplished in Listing 8.
+
+</para>
+
+
+
+
+
+<example id="listing1007" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_8" effect="bold">
+</emphasis>
+Register dragDrop and dragEnter event handlers on the  	  Canvas object.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1007" display="block">      this.addEventListener(DragEvent.DRAG_DROP,
+                                             dropHandler);
+      this.addEventListener(DragEvent.DRAG_ENTER,
+                                        enterHandler);
+    } //end completeHandler</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1067" effect="bold">
+Beginning of the mouseDown event handler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1070">
+The 
+
+<emphasis id="strong1068" effect="bold">
+mouseDown
+
+</emphasis>
+ event handler that was registered on the
+
+
+<emphasis id="strong1069" effect="bold">
+Image
+
+</emphasis>
+ objects in Listing 7 begins in Listing 9. This event 
+handler initiates the drag and drop operation on the 
+
+<emphasis id="strong1070" effect="bold">
+Image
+
+</emphasis>
+
+object that dispatches the event.
+
+</para>
+
+
+
+
+
+<example id="listing1008" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_9" effect="bold">
+</emphasis>
+Beginning of the mouseDown event handler.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1008" display="block">    private function mouseDownHandler(
+                                   event:MouseEvent):void{
+
+      //Save the location of the mouse within the image
+      // being dragged. This information will be used
+      // later to properly position the dropped image in
+      // the drop target.
+      this.localX = event.localX;
+      this.localY = event.localY;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1071" effect="bold">
+Positioning the dropped object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1072">
+The easiest approach simply drops the image with its upper-left corner at the 
+position of the mouse pointer when the mouse button is released. However, in my 
+opinion, that is somewhat less than satisfactory from a visual viewpoint.
+
+</para>
+
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1072" effect="bold">
+The drag proxy
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1074">
+When you drag an image, there is a default drag proxy that moves along with 
+the mouse. 
+
+<emphasis id="em1005" effect="italics">
+(It is possible to replace the default drag proxy with a drag proxy 
+of your choice.)
+
+</emphasis>
+ The default drag proxy is a partially transparent rectangle 
+that is the same size as the image.
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1073" effect="bold">
+Adjust the position of the upper-left 
+corner
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="tendency" effect="bold">
+
+My preference is to manually adjust
+
+</emphasis>
+
+ the 
+drop location of the image based on the upper-left corner of the drag proxy and 
+not based on the location of the mouse pointer. The code in Listing 9 gets and 
+saves the coordinates of the mouse pointer within the image when the event is 
+dispatched. As you will see later, I use these coordinates later to set the drop 
+location on the basis of the upper-left corner of the proxy.
+
+</para>
+
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1074" effect="bold">
+Get and save the drag initiator
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1078">
+The documentation refers to the object being dragged as the 
+
+<emphasis id="em1006" effect="italics">
+drag 
+initiator
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<example id="listing1009" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_10" effect="bold">
+</emphasis>
+Get  	  and save the drag initiator.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1009" display="block">      //Get the drag initiator component from the event
+      // object and cast it to the correct type.
+      var dragInitiator:Image = Image(
+                                     event.currentTarget);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1079">
+In this program, the drag 
+initiator could be any of the three images shown in Figure 1 and Figure 3.
+
+</para>
+
+
+
+
+
+<para id="p1080">
+The code in Listing 10 
+
+</para>
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+  
+
+<item id="li1052">
+Gets a reference to the
+    
+
+<emphasis id="strong1075" effect="bold">
+Image
+
+</emphasis>
+ object that dispatched the
+    
+
+<emphasis id="strong1076" effect="bold">
+mouseDown
+
+</emphasis>
+ event from the incoming method parameter
+
+</item>
+
+
+  
+
+<item id="li1053">
+Casts it to type
+    
+
+<emphasis id="strong1077" effect="bold">
+Image
+
+</emphasis>
+, and 
+
+</item>
+
+
+  
+
+<item id="li1054">
+Saves it in the variable 
+  named 
+
+<emphasis id="strong1078" effect="bold">
+dragInitiator
+
+</emphasis>
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1079" effect="bold">
+Populate a DragSource object with a copy of the image 
+being dragged
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1082">
+Here is part of what the 
+
+<link id="a1043" url="http://livedocs.adobe.com/flex/3/langref/mx/core/DragSource.html">
+
+
+documentation
+
+</link>
+
+
+has to say about the 
+
+<emphasis id="strong1080" effect="bold">
+DragSource
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1001" display="block">
+<para id="p1083">
+"The DragSource class contains the data being 
+dragged. The data can be in multiple formats, depending on the type of control 
+that initiated the drag.
+
+</para>
+
+
+
+
+
+<para id="p1084">
+Each format of data is identified with a string. ... 
+Data can be added directly using the addData() method, or indirectly using the 
+addHandler() method."
+
+</para>
+
+
+</quote>
+
+
+
+
+
+<para id="p1085">
+Listing 11 adds the image being dragged to a new 
+
+<emphasis id="strong1081" effect="bold">
+DragSource
+
+</emphasis>
+
+object and provides an identifier for the format as a string. You will see later 
+how this string is used to establish the drop target.
+
+</para>
+
+
+
+
+
+<example id="listing1010" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_11" effect="bold">
+</emphasis>
+Populate a DragSource object with a copy of the image being dragged.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1010" display="block">      var dragSource:DragSource = new DragSource();
+
+      dragSource.addData(dragInitiator,"imageObject");</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1082" effect="bold">
+Initiate the drag and drop operation by calling the doDrag 
+method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1087">
+Listing 12 initiates the drag and drop operation by calling the static
+
+
+<emphasis id="strong1083" effect="bold">
+doDrag 
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1084" effect="bold">
+DragManager 
+
+</emphasis>
+class.
+
+</para>
+
+
+
+
+
+<example id="listing1011" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_12" effect="bold">
+</emphasis>
+Initiate the drag and drop operation by calling the doDrag method.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1011" display="block">      DragManager.doDrag(dragInitiator,dragSource,event);
+
+    }//end mouseDownHandler</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1085" effect="bold">
+What does the documentation have to say 
+about the DragManager class?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1089">
+Here is part of what the 
+
+<link id="a1044" url="http://livedocs.adobe.com/flex/3/langref/mx/managers/DragManager.html">
+
+
+documentation
+
+</link>
+
+
+has to say about the 
+
+<emphasis id="strong1086" effect="bold">
+DragManager 
+
+</emphasis>
+class.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1002" display="block">
+<para id="p1090">
+"The 
+
+<emphasis id="strong1087" effect="bold">
+DragManager
+
+
+</emphasis>
+class manages drag and drop operations, which let you move data from 
+one place to another in a Flex application. For example, you can select an 
+object, such as an item in a List control or a Flex control, such as an Image 
+control, and then drag it over another component to add it to that component.
+
+</para>
+
+
+
+
+
+<para id="p1091">
+All methods and properties of the
+
+
+<emphasis id="strong1088" effect="bold">
+</emphasis>
+DragManager
+
+<emphasis id="strong1089" effect="bold">
+ 
+
+</emphasis>
+are static, so you do not need to 
+create an instance of it. ... 
+
+</para>
+
+
+
+
+
+<para id="p1092">
+When the user selects an item with the mouse, the 
+selected component is called the drag initiator. The image displayed during the 
+drag operation is called the drag proxy.
+
+</para>
+
+
+
+
+
+<para id="p1093">
+When the user moves the drag proxy over another 
+component, the 
+
+<emphasis id="dragEnter" effect="bold">
+
+dragEnter
+
+</emphasis>
+
+ event is sent to 
+that component. If the component accepts the drag, it becomes the drop target 
+and receives dragOver, dragExit, and 
+
+<emphasis id="strong1090" effect="bold">
+</emphasis>
+dragDrop
+
+<emphasis id="strong1091" effect="bold">
+
+
+
+</emphasis>
+events.
+
+</para>
+
+
+
+
+
+<para id="p1094">
+When the drag is complete, a dragComplete event is 
+sent to the drag initiator."
+
+</para>
+
+
+</quote>
+
+
+
+
+
+<para id="p1095">
+<emphasis id="strong1092" effect="bold">
+What about the doDrag method?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1096">
+The documentation states 
+simply that the 
+
+<emphasis id="strong1093" effect="bold">
+doDrag 
+
+</emphasis>
+ method 
+
+</para>
+
+
+
+
+
+<para id="p1097">
+"Initiates a 
+drag and drop operation."
+
+</para>
+
+
+
+
+
+<para id="p1098">
+<emphasis id="strong1094" effect="bold">
+The doDrag method parameters
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1099">
+The 
+
+<emphasis id="strong1095" effect="bold">
+doDrag 
+
+</emphasis>
+ method has several parameters with default 
+values in addition to the three shown in Listing 12. Here is part of what the 
+documentation has to say about the three parameters passed to the
+
+
+<emphasis id="strong1096" effect="bold">
+doDrag 
+
+</emphasis>
+ method in Listing 12.
+
+</para>
+
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1055">
+<emphasis id="strong1097" effect="bold">
+dragInitiator
+
+</emphasis>
+<emphasis id="strong1098" effect="bold">
+:IUIComponent
+
+</emphasis>
+
+- IUIComponent that specifies the component initiating the drag.
+
+</item>
+
+
+	
+
+<item id="li1056">
+<emphasis id="strong1099" effect="bold">
+dragSource
+
+</emphasis>
+<emphasis id="strong1100" effect="bold">
+:DragSource
+
+</emphasis>
+
+- DragSource object that contains the data being dragged.
+
+</item>
+
+
+	
+
+<item id="li1057">
+<emphasis id="strong1101" effect="bold">
+event:MouseEvent
+
+</emphasis>
+ - The MouseEvent 
+that contains the mouse information from the start of the drag.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1102" effect="bold">
+The end of the mouseDown event handler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1101">
+Listing 12 signals the end of the 
+
+<emphasis id="strong1103" effect="bold">
+mouseDown
+
+</emphasis>
+ event handler. 
+This leaves two more event handlers to be discussed. The remaining two event 
+handlers were registered on the drop target 
+
+<emphasis id="em1007" effect="italics">
+(
+
+</emphasis>
+<emphasis id="strong1104" effect="bold">
+<emphasis id="em1008" effect="italics">
+Canvas
+
+</emphasis>
+</emphasis>
+<emphasis id="em1009" effect="italics">
+ object)
+
+</emphasis>
+ by 
+the code in Listing 8.
+
+</para>
+
+
+
+
+
+<para id="p1102">
+<emphasis id="strong1105" effect="bold">
+The dragEnter event handler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1103">
+As you learned 
+
+<link id="a1045" target-id="dragEnter">
+
+earlier
+
+</link>
+
+, when the user moves the drag 
+proxy over another component, that component dispatches a
+
+
+<emphasis id="strong1106" effect="bold">
+dragEnter 
+
+</emphasis>
+event.
+
+</para>
+
+
+
+
+
+<para id="p1104">
+If a 
+
+<emphasis id="strong1107" effect="bold">
+dragEnter 
+
+</emphasis>
+event handler has been registered on that 
+component, the handler method is executed. If the code in the event handler 
+accepts the drag, it becomes the drop target and receives
+
+
+<emphasis id="strong1108" effect="bold">
+dragOver
+
+</emphasis>
+, 
+
+<emphasis id="strong1109" effect="bold">
+dragExit
+
+</emphasis>
+, and 
+
+<emphasis id="strong1110" effect="bold">
+dragDrop
+
+
+</emphasis>
+events.
+
+</para>
+
+
+
+
+
+<para id="p1105">
+In this case the intended drop target is the 
+
+<emphasis id="strong1111" effect="bold">
+Canvas
+
+</emphasis>
+ object 
+and the event handler shown in Listing 13 is registered on that object.
+
+</para>
+
+
+
+
+
+<example id="listing1012" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_13" effect="bold">
+</emphasis>
+The  	  dragEnter event handler.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1012" display="block">    private function enterHandler(event:DragEvent):void{
+      if (event.dragSource.hasFormat("imageObject")){
+          DragManager.acceptDragDrop(
+                             Canvas(event.currentTarget));
+      } //end if
+    } //end enterHandler</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1112" effect="bold">
+Confirm the correct format string
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1107">
+The code in Listing 13 checks to confirm that the format string in the
+
+
+<emphasis id="strong1113" effect="bold">
+DragSource
+
+</emphasis>
+ object matches "imageObject" (see Listing 11). If 
+so, it calls the static 
+
+<emphasis id="strong1114" effect="bold">
+acceptDragDrop 
+
+</emphasis>
+method on the
+
+
+<emphasis id="strong1115" effect="bold">
+DragManager 
+
+</emphasis>
+class, passing a reference to itself as a parameter 
+in the method call.
+
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1116" effect="bold">
+Accept the dragged object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1109">
+The call to the 
+
+<emphasis id="strong1117" effect="bold">
+acceptDragDrop
+
+</emphasis>
+ method notifies the
+
+
+<emphasis id="strong1118" effect="bold">
+DragManager 
+
+</emphasis>
+that the 
+
+<emphasis id="strong1119" effect="bold">
+Canvas
+
+</emphasis>
+ object is willing 
+to accept the contents of the 
+
+<emphasis id="strong1120" effect="bold">
+DragSource
+
+</emphasis>
+ object being dropped 
+onto itself.
+
+</para>
+
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1121" effect="bold">
+Beginning of the dragDrop event handler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1111">
+The 
+
+<emphasis id="strong1122" effect="bold">
+dragDrop
+
+
+</emphasis>
+event handler was registered on the 
+
+<emphasis id="strong1123" effect="bold">
+Canvas
+
+</emphasis>
+ object in 
+Listing 8. This method is executed after the 
+
+<emphasis id="strong1124" effect="bold">
+Canvas
+
+</emphasis>
+ object 
+accepts the drag and the user releases the mouse button while the drag proxy is 
+over the 
+
+<emphasis id="strong1125" effect="bold">
+Canvas
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1126" effect="bold">
+Correct the drop position for the image
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1113">
+The code in Listing 14 uses the current location of the mouse pointer along 
+with the values stored in 
+
+<emphasis id="strong1127" effect="bold">
+localX
+
+</emphasis>
+ and 
+
+<emphasis id="strong1128" effect="bold">
+localY
+
+</emphasis>
+
+to compute the new location for the upper-left corner of the image when it is 
+dropped on the canvas.
+
+</para>
+
+
+
+
+<quote id="blockquote1003" display="block">
+<para id="p1114">
+<emphasis id="em1010" effect="italics">
+(Recall that 
+
+</emphasis>
+ 
+
+<emphasis id="strong1129" effect="bold">
+<emphasis id="em1011" effect="italics">
+localX
+
+</emphasis>
+</emphasis>
+<emphasis id="em1012" effect="italics">
+ and
+
+
+</emphasis>
+
+
+
+<emphasis id="strong1130" effect="bold">
+<emphasis id="em1013" effect="italics">
+localY
+
+</emphasis>
+</emphasis>
+<emphasis id="em1014" effect="italics">
+ contain the coordinates of the mouse pointer relative to 
+the upper-left corner of the image when the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1131" effect="bold">
+<emphasis id="em1015" effect="italics">
+mouseDown
+
+</emphasis>
+</emphasis>
+<emphasis id="em1016" effect="italics">
+ event was 
+dispatched by the image and the drag and drop operation began.)
+
+</emphasis>
+</para>
+
+
+</quote>
+
+
+
+
+<para id="p1115">
+I explained the 
+need for this position adjustment 
+
+<link id="a1046" target-id="tendency">
+
+earlier
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<example id="listing1013" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_14" effect="bold">
+</emphasis>
+Beginning of the dragDrop event handler.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1013" display="block">    private function dropHandler(event:DragEvent):void{      
+
+      var cornerX:Number = (Canvas(event.currentTarget).
+                                         mouseX) - localX;
+      var cornerY:Number = (Canvas(event.currentTarget).
+                                         mouseY) - localY;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1116">
+<emphasis id="strong1132" effect="bold">
+Do the drop
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1117">
+Listing 15 checks to confirm that the location at which the upper-left corner 
+of the image will be placed is within the bounds of the canvas on the left side 
+and the top. If so, it sets the coordinates of the
+
+
+<emphasis id="strong1133" effect="bold">
+Image
+
+</emphasis>
+ object that dispatched the original
+
+
+<emphasis id="strong1134" effect="bold">
+mouseDown
+
+</emphasis>
+ event to the coordinates that were computed in 
+Listing 14. This causes that 
+
+<emphasis id="strong1135" effect="bold">
+Image
+
+</emphasis>
+ object to move to the new 
+position on the 
+
+<emphasis id="strong1136" effect="bold">
+Canvas
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<example id="listing1014" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_15" effect="bold">
+</emphasis>
+Do the  	  drop.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1014" display="block">      if((cornerX &gt; 0.0) &amp;&amp; (cornerY &gt; 0.0)){
+        Image(event.dragInitiator).x = cornerX;
+        Image(event.dragInitiator).y = cornerY
+      } //end if
+    } //end dropHandler
+    //--------------------------------------------------//
+      
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1137" effect="bold">
+The end of the program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1119">
+Listing 15 also signals the 
+end of the 
+
+<emphasis id="strong1138" effect="bold">
+dragDrop 
+
+</emphasis>
+event handler, the end of the
+
+
+<emphasis id="strong1139" effect="bold">
+Driver
+
+</emphasis>
+ class, and the end of the program.
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Runtheprogram" effect="bold">
+
+
+</emphasis>
+
+Run the program
+
+</title>
+
+
+
+
+
+
+
+<para id="p1120">
+I encourage you to 
+
+<link id="a1047" target-id="Click">
+
+run
+
+</link>
+
+ this program from the web. Then copy the code from 
+Listing 16 and Listing 17. Use that code to create a Flex project. 
+Compile and run the project. Experiment with the code, making changes, and 
+observing the results of your changes. Make certain that you can explain 
+why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1121">
+I will publish a list containing links to ActionScript 
+resources as a separate document. Search for ActionScript 
+Resources in the Connexions search box.
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="CompleteProgramListings" effect="bold">
+
+
+</emphasis>
+
+Complete program listings
+
+</title>
+
+
+
+
+
+
+<para id="p1122">
+Complete listings for the MXML and ActionScript code discussed in this lesson 
+are provided in Listing 16 and Listing 17 below.
+
+</para>
+
+
+
+
+
+<example id="listing1015" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_16" effect="bold">
+</emphasis>
+The MXML file for DragAndDrop01.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1015" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!--DragAndDrop01
+--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1123">
+</para>
+
+
+
+
+
+<example id="listing1016" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_17" effect="bold">
+</emphasis>
+The ActionScript file for DragAndDrop01.
+</title>
+
+
+
+
+
+
+    
+
+
+      
+
+
+        
+
+<code id="pre1016" display="block">/*DragAndDrop01
+Illustrates the fundamentals of drag and drop in
+ActionScript 3.
+
+Places three images in a Canvas object:
+
+0 - space.jpg - largest
+1 - snowscene.jpg - midsize
+2 - frog.jpg - smallest
+
+Sets the z-axis indices as shown above. This causes the 
+space image to be in the back, the frog image to be in the
+front, and the snowscene image to be in the middle.
+
+Any of the images can be dragged and dropped anywhere 
+within the canvas so long as the mouse pointer doesn't 
+leave the canvas. However, If the edge of the dragged 
+image goes outside the left edge or the top of the canvas,
+the drag and drop operation is aborted. If the dragged 
+image goes outside the right side or the bottom of the 
+canvas, scroll bars automatically appear on the canvas.
+
+The size of the canvas is based on the size of the space
+image so that other images can be substituted for mine 
+when the program is recompiled so long as the file names 
+and paths are the same.
+*********************************************************/
+package CustomClasses{
+  import flash.events.MouseEvent;
+  
+  import mx.containers.Canvas;
+  import mx.controls.Image;
+  import mx.core.DragSource;
+  import mx.events.DragEvent;
+  import mx.events.FlexEvent;
+  import mx.managers.DragManager;
+
+  //====================================================//
+  
+  public class Driver extends Canvas {
+    private var imageA:Image = new Image();
+    private var imageB:Image = new Image();
+    private var imageC:Image = new Image();
+    private var localX:Number;
+    private var localY:Number;
+    
+    public function Driver(){//constructor
+      //Make the Canvas visible.
+      setStyle("backgroundColor",0x00FFFF);
+      setStyle("backgroundAlpha",1.0);
+
+      //Embed the image files in the SWF file.
+      [Embed("snowscene.jpg")]
+      var imgA:Class;
+      
+      [Embed("space.jpg")]
+      var imgB:Class;
+      
+      [Embed("frog.jpg")]
+      var imgC:Class;
+      
+      //Load the images from the embedded image files
+      // into the Image objects.
+      imageA.load(imgA);
+      imageB.load(imgB);
+      imageC.load(imgC);
+      
+      // Set the z-axes indices such that the frog is
+      // in front, the snowscene is in the middle and the 
+      // space image is at the back.
+      addChildAt(imageB,0);//set index to 0
+      addChildAt(imageA,1);//set index to 1
+      addChildAt(imageC,2);//set index to 2
+
+      //Register an event handler that will be executed
+      // whcn the canvas and its children are fully 
+      // constructed.
+      this.addEventListener(FlexEvent.CREATION_COMPLETE,
+                                         completeHandler);
+    } //end constructor
+    //--------------------------------------------------//
+
+    //This handler method is executed when the Canvas and
+    // its children have been fully created.
+    private function completeHandler(
+                          event:mx.events.FlexEvent):void{
+      //Set the width and height of the canvas based on 
+      // the dimensions of imageB.
+      this.width = 1.3*imageB.width;
+      this.height = 1.3*imageB.height;
+      
+      //Register event listeners to support drag and drop 
+      // operations on all three images with the canvas
+      // as the drag target.
+      imageA.addEventListener(MouseEvent.MOUSE_DOWN,
+                                        mouseDownHandler);
+      imageB.addEventListener(MouseEvent.MOUSE_DOWN,
+                                        mouseDownHandler);
+      imageC.addEventListener(MouseEvent.MOUSE_DOWN,
+                                        mouseDownHandler);
+      
+      this.addEventListener(DragEvent.DRAG_DROP,
+                                             dropHandler);
+      this.addEventListener(DragEvent.DRAG_ENTER,
+                                        enterHandler);
+    } //end completeHandler
+    //--------------------------------------------------//
+    
+    // This event handler initiates the drag-and-drop \
+    // operation for the image that dispatches the 
+    // mouseDown event.
+    private function mouseDownHandler(
+                                   event:MouseEvent):void{
+
+      //Save the location of the mouse within the image
+      // being dragged. This information will be used
+      // later to properly position the dropped image in
+      // the drop target.
+      this.localX = event.localX;
+      this.localY = event.localY;
+
+      //Get the drag initiator component from the event
+      // object and cast it to the correct type.
+      var dragInitiator:Image = Image(
+                                     event.currentTarget);
+
+      //Add the image being dragged to a DragSource
+      // object and define an identifier as a string.
+      var dragSource:DragSource = new DragSource();
+      dragSource.addData(dragInitiator,"imageObject");
+           
+      //Call the static doDrag method on the DragManager
+      // class to manage the overall drag and drop 
+      // operation.
+      DragManager.doDrag(dragInitiator,dragSource,event);
+    }//end mouseDownHandler
+    //--------------------------------------------------//
+    
+    //This dragEnter event handler causes the canvas to
+    // be a suitable drop target.
+    private function enterHandler(event:DragEvent):void{
+      if (event.dragSource.hasFormat("imageObject")){
+          DragManager.acceptDragDrop(
+                             Canvas(event.currentTarget));
+      } //end if
+    } //end enterHandler
+    //--------------------------------------------------//
+    
+    //Execute the dragDrop event handler to drop the image
+    // in its new location. Compensate for the fact that
+    // the mouse pointer is not at the upper-left corner 
+    // of the image. Also don't allow the image to be 
+    // dragged off the left side of the canvas or off the 
+    // top of the canvas.
+    private function dropHandler(event:DragEvent):void{
+      
+      //Compute the position of the upper-left corner of
+      // the dropped image.
+      var cornerX:Number = (Canvas(event.currentTarget).
+                                         mouseX) - localX;
+      var cornerY:Number = (Canvas(event.currentTarget).
+                                         mouseY) - localY;
+      if((cornerX &gt; 0.0) &amp;&amp; (cornerY &gt; 0.0)){
+        Image(event.dragInitiator).x = cornerX;
+        Image(event.dragInitiator).y = cornerY
+      } //end if
+    } //end dropHandler
+    //--------------------------------------------------//
+      
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+	
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1124">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1002" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1140" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+
+
+<item id="li1058">
+Module name: Drag and Drop Basics
+
+</item>
+
+
+
+
+<item id="li1059">
+Files:
+
+<list id="ul1016" list-type="bulleted">
+
+
+
+<item id="li1060">
+ActionScript0140\ActionScript0140.htm
+
+</item>
+
+
+
+
+<item id="li1061">
+ActionScript0140\Connexions\ActionScriptXhtml0140.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<note id="note1003" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1141" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1125">
+-end-
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

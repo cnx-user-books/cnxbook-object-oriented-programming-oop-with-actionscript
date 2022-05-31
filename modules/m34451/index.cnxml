@@ -1,0 +1,5160 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Interface Polymorphism - The Big Picture</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34451</md:content-id>
+  <md:title>Interface Polymorphism - The Big Picture</md:title>
+  <md:abstract>Learn how to use runtime polymorphism based on the ActionScript interface.</md:abstract>
+  <md:uuid>46e60141-ea4b-48aa-8da0-c030f4f30737</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<note id="note1000" type="miscellaneous">
+
+
+  
+
+
+  
+
+
+  
+
+
+  	  Click 
+
+<link id="a1000" url="Interface01.html">
+
+Interface01
+
+</link>
+
+
+	  to run this ActionScript program. (Click the "Back" button in your browser 
+	  to return to this page.)
+	  
+
+</note>
+
+
+
+
+	  
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1001" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1002" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1002">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+		
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1003">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1004">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1005">
+<link id="a1006" target-id="Supplementary_material">
+
+Supplemental material
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1007" target-id="General_Background_Information">
+
+General background 
+	information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1008" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1009" target-id="Discussion_and_Sample_Programs">
+
+Discussion and sample code
+
+</link>
+
+
+	
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1009">
+<link id="a1010" target-id="The_file_named_Interface01.mxml">
+
+The file named Interface01.mxml
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1011" target-id="The_file_named_Driver.as">
+
+The file named Driver.as
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1012" target-id="The_file_named_IArea.as">
+
+The file named IArea.as
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1013" target-id="The_file_named_IVolume.as">
+
+The file named IVolume.as
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1014" target-id="The_file_named_ICircumference.as">
+
+The file named ICircumference.as
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1015" target-id="The_file_named_MyCircle.as">
+
+The file named MyCircle.as
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="The_file_named_MyRectangle.as">
+
+The file named MyRectangle.as
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1017" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1018" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1019" target-id="Complete_Program_Listings">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+	  
+
+<item id="li1019">
+<link id="a1020" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+ 
+
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+
+<section id="h21000">
+<title>
+ 
+
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+  
+
+<note id="note1001" type="miscellaneous">
+
+
+  
+
+
+  	  All references to ActionScript in this lesson are references to 
+	  version 3 or later.
+
+
+</note>
+
+
+
+
+
+
+
+
+<para id="p1000">
+This tutorial lesson is part of a continuing series of lessons dedicated to 
+object-oriented programming 
+
+<emphasis id="em1000" effect="italics">
+(OOP)
+
+</emphasis>
+ with ActionScript.
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="strong1000" effect="bold">
+The three main characteristics of an object-oriented 
+program
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1002">
+Object-oriented programs exhibit three main characteristics:
+
+</para>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1020">
+Encapsulation
+
+</item>
+
+
+	
+
+<item id="li1021">
+Inheritance
+
+</item>
+
+
+	
+
+<item id="li1022">
+Polymorphism
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1003">
+There are two different ways to implement polymorphism:
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1023">
+Polymorphism based on class inheritance
+
+</item>
+
+
+	
+
+<item id="li1024">
+Polymorphism based on interface inheritance
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1004">
+I explained encapsulation, inheritance, and polymorphism based on class 
+inheritance in previous lessons. 
+
+<emphasis id="em1001" effect="italics">
+(See
+
+
+
+<link id="a1021" url="http://www.dickbaldwin.com/tocActionScript.htm">
+
+Baldwin's ActionScript 
+programming website
+
+</link>
+
+.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1005">
+I will explain and illustrate polymorphism based on interface inheritance in 
+this lesson.
+
+</para>
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1001" effect="bold">
+Several ways to create and launch ActionScript 
+programs
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1007">
+There are several ways to create and launch programs written in the 
+ActionScript programming language. Many of the lessons in this series will 
+use Adobe Flex as the launch pad for the sample ActionScript programs.
+
+</para>
+
+
+
+
+<para id="p1008">
+An earlier lesson titled 
+
+
+<emphasis id="strong1002" effect="bold">
+The Default 
+Application Container
+
+</emphasis>
+ provided information on how to get started programming 
+with Adobe's Flex Builder 3. 
+
+<emphasis id="em1002" effect="italics">
+
+(See 
+
+<link id="a1022" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming 
+website
+
+</link>
+
+.)
+
+</emphasis>
+ You should study that lesson before embarking on the 
+lessons in this series.
+
+</para>
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1003" effect="bold">
+Some understanding of Flex MXML will be required
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1010">
+I also recommend that you study all of the lessons on
+
+
+<link id="a1023" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming 
+website
+
+</link>
+
+ in parallel with your study of these ActionScript lessons. 
+Eventually you will probably need to understand both ActionScript and Flex and 
+the relationships that exist between them in order to become a successful 
+ActionScript programmer. 
+
+</para>
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1004" effect="bold">
+Will emphasize ActionScript code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1012">
+It is often possible to use either ActionScript code or Flex MXML code to 
+achieve the same result. Insofar as this series of lessons is concerned, 
+the emphasis will be on ActionScript code even in those cases where Flex MXML 
+code may be a suitable alternative.
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+ 
+
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+ I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the figures 
+and listings while you are reading about them.
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+ 
+
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1025">
+<link id="a1024" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Project file structure. 
+	
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1025" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Program output at startup.
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1026" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Output after clicking the Area Button 
+	for circle.
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1027" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Output after clicking the Area Button 
+	for rectangle.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+ 
+
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1029">
+<link id="a1028" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the class named Driver.
+
+<emphasis id="strong1005" effect="bold">
+ 
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1029" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the constructor for the 
+	Driver class.
+
+</item>
+
+
+	
+
+<item id="li1031">
+<link id="a1030" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The remainder of the constructor for 
+	the Driver class.
+
+</item>
+
+
+	
+
+<item id="li1032">
+<link id="a1031" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The getRandomValues method.
+
+</item>
+
+
+	
+
+<item id="li1033">
+<link id="a1032" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The event handler method named 
+	areaButtonHandler.
+
+</item>
+
+
+	
+
+<item id="li1034">
+<link id="a1033" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. The other two click event handler 
+	methods.
+
+</item>
+
+
+	
+
+<item id="li1035">
+<link id="a1034" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. The interface named IArea.
+
+</item>
+
+
+	
+
+<item id="li1036">
+<link id="a1035" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. The interface named IVolume.
+
+</item>
+
+
+	
+
+<item id="li1037">
+<link id="a1036" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. The class named MyCircle. 
+
+</item>
+
+
+	
+
+<item id="li1038">
+<link id="a1037" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Listing for the file named 
+	Interface01.mxml. 
+
+</item>
+
+
+	
+
+<item id="li1039">
+<link id="a1038" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Listing for the file named 
+	Driver.as.
+
+</item>
+
+
+	
+
+<item id="li1040">
+<link id="a1039" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Listing for the file named 
+	IArea.as.
+
+</item>
+
+
+	
+
+<item id="li1041">
+<link id="a1040" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Listing for the file named 
+	IVolume.as.
+
+</item>
+
+
+	
+
+<item id="li1042">
+<link id="a1041" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. Listing for the file named 
+	ICircumference.as.
+
+</item>
+
+
+	
+
+<item id="li1043">
+<link id="a1042" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. Listing for the file named 
+	MyCircle.as.
+
+</item>
+
+
+	
+
+<item id="li1044">
+<link id="a1043" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. Listing for the file named 
+	MyRectangle.as.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+ 
+
+<emphasis id="Supplementary_material" effect="bold">
+
+Supplemental material
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+ I recommend that you also study the other lessons in my extensive collection 
+of online programming tutorials. You will find a consolidated index at
+
+ 
+
+<link id="a1044" url="http://www.dickbaldwin.com/toc.htm">
+
+
+www.DickBaldwin.com
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h11002">
+<title>
+ 
+
+<emphasis id="General_Background_Information" effect="bold">
+
+General background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1006" effect="bold">
+What is an ActionScript interface?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1016">
+In an earlier lesson titled 
+
+<emphasis id="em1003" effect="italics">
+"Inheritance - The Big Picture"
+
+</emphasis>
+, I told 
+you that unlike C++,
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+	
+
+<para id="p1017">
+<emphasis id="em1004" effect="italics">
+"ActionScript 3 does not support multiple inheritance. Instead 
+	it supports a different mechanism called an interface that provides most of 
+	the benefits of multiple inheritance without most of the problems."
+
+</emphasis>
+</para>
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1018">
+I promised to explain the ActionScript interface in a future lesson, and that 
+time has come.
+
+</para>
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1007" effect="bold">
+What does the documentation have to say?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1020">
+According to
+
+
+<link id="a1045" url="http://livedocs.adobe.com/flex/3/html/help.html?content=mxmlcomponents_advanced_5.html">
+
+
+About interfaces
+
+</link>
+
+,
+
+</para>
+
+
+
+
+<quote id="blockquote1001" display="block">
+
+	
+
+<para id="p1021">
+<emphasis id="em1005" effect="italics">
+"Interfaces are a type of class that you design to act as an outline 
+	for your components. When you write an interface, you provide only the names 
+	of public methods rather than any implementation. For example, if you define 
+	two methods in an interface and then implement that interface, the 
+	implementing class must provide implementations of those two methods.
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1022">
+<emphasis id="em1006" effect="italics">
+Interfaces in ActionScript can declare methods and properties only by 
+	using setter and getter methods; they cannot specify constants. The benefit 
+	of interfaces is that you can define a contract that all classes that 
+	implement that interface must follow. Also, if your class implements an 
+	interface, instances of that class can also be cast to that interface."
+
+</emphasis>
+</para>
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1023">
+According to
+
+
+<link id="a1046" url="http://livedocs.adobe.com/flex/3/html/help.html?content=04_OO_Programming_10.html#135768">
+
+
+Interfaces
+
+</link>
+
+,
+
+</para>
+
+
+
+
+<quote id="blockquote1002" display="block">
+
+	
+
+<para id="p1024">
+<emphasis id="em1007" effect="italics">
+"An interface is a collection of method declarations that allows 
+	unrelated objects to communicate with one another...
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1025">
+<emphasis id="em1008" effect="italics">
+Interfaces are based on the distinction between a method's interface 
+	and its implementation. A method's interface includes all the information 
+	necessary to invoke that method, including the name of the method, all of 
+	its parameters, and its return type. A method's implementation includes not 
+	only the interface information, but also the executable statements that 
+	carry out the method's behavior. An interface definition contains only 
+	method interfaces, and any class that implements the interface is 
+	responsible for defining the method implementations...
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1026">
+<emphasis id="em1009" effect="italics">
+Another way to describe an interface is to say that it defines a data 
+	type just as a class does. Accordingly, an interface can be used as a type 
+	annotation, just as a class can. As a data type, an interface can also be 
+	used with operators, such as the is and as operators, that require a data 
+	type. Unlike a class, however, an interface cannot be instantiated. This 
+	distinction has led many programmers to think of interfaces as abstract data 
+	types and classes as concrete data types."
+
+</emphasis>
+</para>
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1008" effect="bold">
+According to this author...
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1028">
+An interface is like a class in which all of the methods are abstract, 
+meaning that only their user interface is declared. Their behavior or 
+implementation is not defined. 
+
+<emphasis id="em1010" effect="italics">
+(Recall from an earlier lesson that it 
+is not possible to declare an abstract method in an ActionScript class. 
+All methods must be defined as concrete methods in ActionScript classes.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1009" effect="bold">
+A form of multiple inheritance
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1030">
+In ActionScript, a class can inherit from 
+
+<emphasis id="em1011" effect="italics">
+(extend)
+
+</emphasis>
+ only one other 
+class. However, a class can inherit from 
+
+<emphasis id="em1012" effect="italics">
+(implement)
+
+</emphasis>
+ any number of 
+interfaces. Furthermore, each interface can extend any number of other 
+interfaces.
+
+</para>
+
+
+
+
+<para id="p1031">
+Therefore, an ActionScript class can inherit any number of 
+
+<emphasis id="em1013" effect="italics">
+concrete
+
+</emphasis>
+ 
+methods from one superclass and can inherit any number of 
+
+<emphasis id="em1014" effect="italics">
+
+abstract
+
+</emphasis>
+ methods from any number of interfaces.
+
+</para>
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1010" effect="bold">
+Concrete methods are required
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1033">
+Any class that inherits an abstract method must provide a concrete definition 
+for the method or the class cannot be compiled.
+
+</para>
+
+
+
+
+<para id="p1034">
+ActionScript classes cannot be declared abstract. Therefore, the 
+abstract method cannot be passed down the class hierarchy for definition by a 
+subclass as is the case in Java. The concrete version must be defined in 
+the class in which it is inherited. This means that it must be defined in 
+the class that implements the interface.
+
+</para>
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1011" effect="bold">
+What is a concrete method?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1036">
+As a minimum, a concrete method is a method signature followed by a pair of 
+matching curly braces 
+
+<emphasis id="em1015" effect="italics">
+(possibly containing a return statement)
+
+</emphasis>
+. 
+Normally the body of the method is coded between the curly braces defining the 
+behavior of the method.
+
+</para>
+
+
+
+
+<para id="p1037">
+If the return type is void, the matching curly braces may be empty. In 
+that case, the concrete method exhibits no observable behavior. It returns 
+immediately without doing anything when it is called.
+
+</para>
+
+
+
+
+<para id="p1038">
+If the return type is not void, there must be a return statement that returns 
+a value of the correct type.
+
+</para>
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1012" effect="bold">
+Do empty methods have any value?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1040">
+It is not uncommon for a class to implement an interface for which some of 
+the interface methods are of no interest with regard to an object of the new 
+class. However, the implementing class must provide concrete definitions 
+for all of the methods inherited from the interface.
+
+</para>
+
+
+
+
+<para id="p1041">
+In that case, it is common practice to simply define the uninteresting 
+methods as empty methods in the new class. If they ever do get called, 
+they will simply return immediately without doing anything.
+
+</para>
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1042">
+The program named 
+
+<emphasis id="strong1013" effect="bold">
+Interface01
+
+</emphasis>
+ that I will explain in this lesson is an 
+update of the program named 
+
+<emphasis id="strong1014" effect="bold">
+Polymorph02
+
+</emphasis>
+ that I explained in the earlier 
+lesson titled 
+
+<emphasis id="em1016" effect="italics">
+"Polymorphism - The Big Picture" (see
+
+
+
+<link id="a1047" url="http://www.dickbaldwin.com/tocActionScript.htm">
+
+Baldwin's ActionScript 
+programming website
+
+</link>
+
+).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1043">
+The earlier program illustrated runtime polymorphism based on class 
+inheritance and the overriding of inherited concrete methods.
+
+</para>
+
+
+
+
+<para id="p1044">
+This program will illustrate runtime polymorphism based on interface 
+inheritance and the concrete definition of inherited abstract methods.
+
+</para>
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1015" effect="bold">
+The project file structure
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1046">
+The project file structure is shown in Figure 1.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+  
+
+<title>
+<emphasis id="Figure_1" effect="bold">
+</emphasis>
+Project file structure.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/as0112a.jpg" width="314" height="326"/>
+</media>
+
+
+      
+
+<caption>Project file structure.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1016" effect="bold">
+Six ActionScript files
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1048">
+This project consists of one MXML file named 
+
+<emphasis id="strong1017" effect="bold">
+Interface01
+
+</emphasis>
+, three class 
+files, and three interface files. The class files are named:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1045">
+<emphasis id="strong1018" effect="bold">
+MyRectangle.as
+
+</emphasis>
+</item>
+
+
+
+
+<item id="li1046">
+<emphasis id="strong1019" effect="bold">
+MyCircle.as
+
+</emphasis>
+</item>
+
+
+
+
+<item id="li1047">
+<emphasis id="strong1020" effect="bold">
+Driver.as
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1049">
+The interface files are named:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1048">
+<emphasis id="strong1021" effect="bold">
+IVolume.as
+
+</emphasis>
+</item>
+
+
+
+
+<item id="li1049">
+<emphasis id="strong1022" effect="bold">
+ICircumference.as
+
+</emphasis>
+</item>
+
+
+
+
+<item id="li1050">
+<emphasis id="strong1023" effect="bold">
+IArea.as
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1024" effect="bold">
+Interface can declare any number of methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1051">
+An interface can declare any number of methods including setter and getter 
+methods. As you will see later, the interface named 
+
+<emphasis id="strong1025" effect="bold">
+IArea
+
+</emphasis>
+ declares 
+two methods named 
+
+<emphasis id="strong1026" effect="bold">
+area
+
+</emphasis>
+ and 
+
+<emphasis id="strong1027" effect="bold">
+id
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1052">
+The interface named 
+
+<emphasis id="strong1028" effect="bold">
+IVolume
+
+</emphasis>
+ declares one method named 
+
+<emphasis id="strong1029" effect="bold">
+volume
+
+</emphasis>
+. 
+Likewise, the interface named 
+
+<emphasis id="strong1030" effect="bold">
+ICircumference
+
+</emphasis>
+ declares one method named 
+
+<emphasis id="strong1031" effect="bold">
+
+circumference
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1032" effect="bold">
+The rules of the road
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1054">
+Any number of classes can implement the same interface. This makes it 
+possible to treat objects instantiated from different classes as the common 
+interface type.
+
+</para>
+
+
+
+
+<para id="p1055">
+A class can implement any number of interfaces. In this program, 
+however, the classes named 
+
+<emphasis id="strong1033" effect="bold">
+MyRectangle
+
+</emphasis>
+ and 
+
+<emphasis id="strong1034" effect="bold">
+MyCircle
+
+</emphasis>
+ each implement 
+only one interface named 
+
+<emphasis id="strong1035" effect="bold">
+IArea
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1036" effect="bold">
+Can extend any number of interfaces
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1057">
+An interface can extend any number of other interfaces. In this 
+program, the 
+
+<emphasis id="strong1037" effect="bold">
+IArea
+
+</emphasis>
+ interface extends both the 
+
+<emphasis id="strong1038" effect="bold">
+IVolume
+
+</emphasis>
+ interface 
+and the 
+
+<emphasis id="strong1039" effect="bold">
+
+ICircumference
+
+</emphasis>
+ interface.
+
+</para>
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1040" effect="bold">
+<emphasis id="The_bottom_line" effect="bold">
+
+The bottom line
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1059">
+Implementing the 
+
+<emphasis id="strong1041" effect="bold">
+IArea
+
+</emphasis>
+ interface causes both the 
+
+<emphasis id="strong1042" effect="bold">
+MyRectangle
+
+</emphasis>
+ 
+class and the 
+
+<emphasis id="strong1043" effect="bold">
+MyCircle
+
+</emphasis>
+ class to inherit the following abstract methods:
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1051">
+<emphasis id="strong1044" effect="bold">
+area
+
+</emphasis>
+</item>
+
+
+
+
+<item id="li1052">
+<emphasis id="strong1045" effect="bold">
+id
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1053">
+<emphasis id="strong1046" effect="bold">
+circumference
+
+</emphasis>
+</item>
+
+
+
+
+<item id="li1054">
+<emphasis id="strong1047" effect="bold">
+volume
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1060">
+The first two methods are inherited directly from the interface named 
+
+<emphasis id="strong1048" effect="bold">
+
+IArea
+
+</emphasis>
+. The last two are inherited from the interfaces named 
+
+<emphasis id="strong1049" effect="bold">
+
+ICircumference
+
+</emphasis>
+ and
+
+
+<emphasis id="strong1050" effect="bold">
+IVolume
+
+</emphasis>
+ by way of 
+
+<emphasis id="strong1051" effect="bold">
+IArea
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1061">
+Each of the two classes must provide concrete definitions for all four of the 
+inherited abstract methods.
+
+</para>
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1052" effect="bold">
+Program output at startup
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1063">
+Figure 2 shows the program output at startup.
+
+</para>
+
+
+
+ 
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_2" effect="bold">
+</emphasis>
+Program output at startup.
+</title>
+
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/as0112b.jpg" width="311" height="350"/>
+</media>
+
+
+      
+
+<caption>Program output at startup.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1053" effect="bold">
+The program GUI
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1065">
+The program GUI consists of one 
+
+<emphasis id="em1017" effect="italics">
+label
+
+</emphasis>
+, three 
+
+<emphasis id="em1018" effect="italics">
+buttons
+
+</emphasis>
+ and a 
+
+
+<emphasis id="em1019" effect="italics">
+text area
+
+</emphasis>
+. 
+When a button is clicked, a random process is used to instantiate an object of 
+either the 
+
+<emphasis id="strong1054" effect="bold">
+MyCircle
+
+</emphasis>
+ class or the 
+
+<emphasis id="strong1055" effect="bold">
+MyRectangle
+
+</emphasis>
+ class. The new 
+object's reference is saved in a variable of the interface type 
+
+<emphasis id="strong1056" effect="bold">
+IArea
+
+</emphasis>
+. 
+This is possible because both classes implement the common 
+
+<emphasis id="strong1057" effect="bold">
+IArea 
+
+</emphasis>
+
+interface.
+
+</para>
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1058" effect="bold">
+Call methods using the reference of type IArea
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1067">
+Then, as a result of a click on a button, the program calls the 
+
+<emphasis id="strong1059" effect="bold">
+id
+
+</emphasis>
+ method on the object whose reference is 
+stored in the variable of type 
+
+<emphasis id="strong1060" effect="bold">
+IArea
+
+</emphasis>
+. Depending on which button is 
+clicked, the program then calls either the 
+
+<emphasis id="strong1061" effect="bold">
+area
+
+</emphasis>
+ method, the 
+
+<emphasis id="strong1062" effect="bold">
+
+circumference
+
+</emphasis>
+ method, or the 
+
+<emphasis id="strong1063" effect="bold">
+volume
+
+</emphasis>
+ method on the object.
+
+</para>
+
+
+
+
+<para id="p1068">
+
+ 
+
+<emphasis id="strong1064" effect="bold">
+Output after clicking the Area Button for circle
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1069">
+Clicking the button labeled Area, for example causes the output to change to 
+something similar to either Figure 3 or Figure 4. An output similar to 
+Figure 3 is produced if the random process instantiates an object of the 
+
+<emphasis id="strong1065" effect="bold">
+
+MyCircle
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+ 
+
+
+<figure id="figure1002" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_3" effect="bold">
+</emphasis>
+Output after clicking the Area Button for   circle.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1002" alt="Missing image" display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/as0112c.jpg" width="311" height="350"/>
+</media>
+
+
+      
+
+<caption>Output after clicking the Area Button for   circle.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1070">
+
+ 
+
+<emphasis id="strong1066" effect="bold">
+Output after clicking the Area Button for rectangle
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1071">
+An output similar to Figure 4 is produced if the random process instantiates 
+an object of the 
+
+<emphasis id="strong1067" effect="bold">
+MyRectangle
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+ 
+
+<figure id="figure1003" type="figure">
+<label>Figure</label>
+
+
+ 
+
+<title>
+<emphasis id="Figure_4" effect="bold">
+</emphasis>
+Output after clicking the Area Button for   rectangle.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1003" alt="Missing image" display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/as0112d.jpg" width="311" height="350"/>
+</media>
+
+
+      
+
+<caption>Output after clicking the Area Button for   rectangle.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1068" effect="bold">
+Random radius, width, and height
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1073">
+I use the word similar because a random process is also used to establish the 
+radius for the circle and to establish the width and height for the rectangle.
+
+</para>
+
+
+
+
+<para id="p1074">
+Both the 
+
+<emphasis id="strong1069" effect="bold">
+MYCircle
+
+</emphasis>
+ object and the 
+
+<emphasis id="strong1070" effect="bold">
+MyRectangle
+
+</emphasis>
+ object contain 
+concrete versions of the four methods listed
+
+
+<link id="a1048" target-id="The_bottom_line">
+
+above
+
+</link>
+
+. However, the behavior of those four 
+methods in one object is different from the behavior of the four methods having 
+the same names in the other object.
+
+</para>
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1071" effect="bold">
+Polymorphism kicks in
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1076">
+The compiler can't possibly know which type of object will be instantiated as 
+a result of the random process following each button click when the program is 
+compiled. Therefore, the decision as to which set of methods to call as a 
+result of each button click cannot be determined until runtime. This is 
+the essence of 
+
+<emphasis id="em1020" effect="italics">
+runtime polymorphism
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1072" effect="bold">
+The cardinal rule
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1078">
+The type of the object's reference determines which set of method names can 
+be called on that reference. In this case, the set consists of the four 
+methods declared in and inherited into the interface named 
+
+<emphasis id="strong1073" effect="bold">
+IArea
+
+</emphasis>
+, which 
+are shown in the above 
+
+<link id="a1049" target-id="The_bottom_line">
+
+
+list
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1079">
+The type of the object determines which method from the set of allowable 
+names is actually executed.
+
+</para>
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1074" effect="bold">
+Run the program
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1081">
+You can 
+
+<link id="a1050" url="Interface01.html">
+
+run
+
+</link>
+
+ the program to 
+see the outputs produced by repeatedly clicking each of the three buttons in 
+Figure 2. 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+ 
+
+<emphasis id="Discussion_and_Sample_Programs" effect="bold">
+
+
+</emphasis>
+
+
+Discussion and sample code
+
+</title>
+
+
+
+
+
+
+<para id="p1082">
+ 
+
+<emphasis id="strong1075" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1083">
+ I will break the longer files in this application down and 
+discuss them in fragments. Complete listings of all of the files are 
+provided in Listing 10 through Listing 16 near the end of the lesson.
+
+</para>
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="The_file_named_Interface01.mxml" effect="bold">
+
+The file named Interface01.mxml
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1084">
+In keeping with my plan to emphasize ActionScript over Flex in this series of 
+lessons, the MXML file for this application is very simple, instantiating only a 
+single object of type
+
+
+<emphasis id="strong1076" effect="bold">
+Driver
+
+</emphasis>
+. A listing of the MXML file is provided in Listing 10 near 
+the end of the lesson.
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="The_file_named_Driver.as" effect="bold">
+
+The file named Driver.as
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1085">
+The class named 
+
+<emphasis id="strong1077" effect="bold">
+Driver
+
+</emphasis>
+ begins in Listing 1. A complete listing 
+of the file is provided in Listing 11 near the end of the lesson.
+
+</para>
+
+
+
+
+
+
+<example id="listing1000" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+Beginning of the class named Driver.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1000" display="block">package CustomClasses{
+  import flash.events.*;
+  
+  import mx.containers.HBox;
+  import mx.containers.VBox;
+  import mx.controls.Button;
+  import mx.controls.Label;
+  import mx.controls.TextArea;
+  
+  public class Driver extends VBox{
+    private var textArea:TextArea = new TextArea();
+    private var myShape:IArea;
+    
+    private var randomChoice:Number;
+    private var radius:uint;
+    private var rectWidth:uint;
+    private var rectHeight:uint;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1086">
+Listing 1 declares several new instance variables. The most interesting 
+variable is named 
+
+<emphasis id="strong1078" effect="bold">
+myShape
+
+</emphasis>
+ because it is declared to be of type 
+
+<emphasis id="strong1079" effect="bold">
+
+IArea
+
+</emphasis>
+, which is the name of an interface.
+
+</para>
+
+
+
+
+<para id="p1087">
+References to objects of the classes 
+
+<emphasis id="strong1080" effect="bold">
+MyCircle
+
+</emphasis>
+ and 
+
+<emphasis id="strong1081" effect="bold">
+MyRectangle
+
+</emphasis>
+ 
+will be stored in this variable.
+
+</para>
+
+
+
+
+<para id="p1088">
+
+
+
+<emphasis id="strong1082" effect="bold">
+Beginning of the constructor for the Driver class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1089">
+The constructor for the 
+
+<emphasis id="strong1083" effect="bold">
+Driver
+
+</emphasis>
+ class begins in Listing 2.
+
+</para>
+
+
+
+
+
+<example id="listing1001" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Beginning of the constructor for the  Driver class.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1001" display="block">    public function Driver(){//constructor
+      var label:Label = new Label();
+      label.text = "Interface Polymorphism Demo";
+      label.setStyle("fontSize",14);
+      label.setStyle("color",0xFFFF00);
+      addChild(label);
+      
+      //Put three buttons in an HBox
+      var hbox:HBox = new HBox();
+      addChild(hbox);
+      
+      var areaButton:Button = new Button();
+      areaButton.label = "Area";
+      hbox.addChild(areaButton);
+      
+      var circButton:Button = new Button();
+      circButton.label = "Circumference";
+      hbox.addChild(circButton);
+      
+      var volumeButton:Button = new Button();
+      volumeButton.label = "Volume";
+      hbox.addChild(volumeButton);
+      
+      //Put the text area below the HBox.
+      textArea.width = 245;
+      textArea.height = 80;
+      addChild(textArea);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1090">
+You shouldn't find any surprises in Listing 2. The code in Listing 2 
+simply constructs the GUI shown in Figure 2, placing the label, the buttons, and 
+the text area in their respective locations.
+
+</para>
+
+
+
+
+<para id="p1091">
+
+
+
+<emphasis id="strong1084" effect="bold">
+The remainder of the constructor for the Driver class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1092">
+The remainder of the constructor for the 
+
+<emphasis id="strong1085" effect="bold">
+Driver
+
+</emphasis>
+ class is shown in 
+Listing 3.
+
+</para>
+
+
+
+
+
+<example id="listing1002" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+The remainder of the constructor for the  Driver class.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1002" display="block">      //Register a click event handler on each of the
+      // buttons
+      areaButton.addEventListener(
+                     MouseEvent.CLICK,areaButtonHandler);
+                         
+      circButton.addEventListener(
+                     MouseEvent.CLICK,circButtonHandler);
+                         
+      volumeButton.addEventListener(
+                   MouseEvent.CLICK,volumeButtonHandler);
+    }//end constructor</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1093">
+Listing 3 registers a 
+
+<emphasis id="strong1086" effect="bold">
+click
+
+</emphasis>
+ event handler on each of the buttons shown 
+in Figure 2.
+
+</para>
+
+
+
+
+<para id="p1094">
+
+
+
+<emphasis id="strong1087" effect="bold">
+The getRandomValues method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1095">
+The method named 
+
+<emphasis id="strong1088" effect="bold">
+getRandomValues
+
+</emphasis>
+ is shown in Listing 4.
+
+</para>
+
+
+
+
+
+
+<example id="listing1003" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+The getRandomValues method.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1003" display="block">    //Local utility method for getting and saving four
+    // random values.
+    private function getRandomValues():void{
+      randomChoice = Math.random();
+      radius = uint(10*Math.random() + 1);
+      rectWidth = uint(10*Math.random() + 1);
+      rectHeight = uint(10*Math.random() + 1);
+    }//end getRandomValues</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1096">
+This method is called by each of the event handler methods to get and save 
+four random values that are subsequently used by the event handler. The 
+random values are saved in the instance variables that are declared in Listing 
+1.
+
+</para>
+
+
+
+
+<para id="p1097">
+
+
+
+<emphasis id="strong1089" effect="bold">
+The event handler method named areaButtonHandler
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1098">
+The 
+
+<emphasis id="strong1090" effect="bold">
+click
+
+</emphasis>
+ event handler that is registered on the button labeled 
+
+<emphasis id="strong1091" effect="bold">
+
+Area
+
+</emphasis>
+ in Figure 2 is shown in Listing 5.
+
+</para>
+
+
+
+
+
+<example id="listing1004" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+The event handler method named  areaButtonHandler.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1004" display="block">    //Define click event handler methods.
+    private function areaButtonHandler(
+                                  event:MouseEvent):void{
+      getRandomValues();
+       
+      if(randomChoice &lt; 0.5){
+        myShape = new MyCircle(radius);
+      }else{
+        myShape = new MyRectangle(rectWidth,rectHeight);
+      }//end else
+      
+      textArea.text = myShape.id() + myShape.area();
+    }//end areaButtonHandler</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1092" effect="bold">
+Decide between two classes
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1100">
+The code in Listing 5 uses the random value stored in 
+
+<emphasis id="strong1093" effect="bold">
+randomChoice
+
+</emphasis>
+ to 
+decide whether to instantiate an object of the class named 
+
+<emphasis id="strong1094" effect="bold">
+MyCircle
+
+</emphasis>
+ or 
+the class named 
+
+<emphasis id="strong1095" effect="bold">
+MyRectangle
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1096" effect="bold">
+Store object's reference as type IArea
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1102">
+The object's reference is stored in the instance variable named 
+
+<emphasis id="strong1097" effect="bold">
+myShape
+
+</emphasis>
+, 
+which is type 
+
+<emphasis id="strong1098" effect="bold">
+IArea
+
+</emphasis>
+. Storage of the reference in a variable of that 
+type is possible only because both objects implement the interface named 
+
+<emphasis id="strong1099" effect="bold">
+
+IArea
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1100" effect="bold">
+Call the id method using the reference
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1104">
+Then the code in Listing 5 uses the reference stored in 
+
+<emphasis id="strong1101" effect="bold">
+myShape
+
+</emphasis>
+ to 
+call the 
+
+<emphasis id="strong1102" effect="bold">
+id
+
+</emphasis>
+ method and the 
+
+<emphasis id="strong1103" effect="bold">
+area
+
+</emphasis>
+ method on the object. The 
+returned values are used to construct a new text string for the text area shown 
+in Figure 3.
+
+</para>
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1104" effect="bold">
+How is this possible?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1106">
+Calling these methods using the reference of type 
+
+<emphasis id="strong1105" effect="bold">
+IArea
+
+</emphasis>
+ is possible 
+only because abstract versions of both methods are inherited into both classes 
+from the interface named 
+
+<emphasis id="strong1106" effect="bold">
+IArea
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1107">
+
+
+
+<emphasis id="strong1107" effect="bold">
+The other two click event handler methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1108">
+The 
+
+<emphasis id="strong1108" effect="bold">
+click
+
+</emphasis>
+ event handler methods that are registered on the 
+
+<emphasis id="strong1109" effect="bold">
+
+Circumference
+
+</emphasis>
+ button and the 
+
+<emphasis id="strong1110" effect="bold">
+Volume
+
+</emphasis>
+ button in Figure 2 are shown in 
+Listing 6.
+
+</para>
+
+
+
+
+
+
+<example id="listing1005" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+The other two click event handler methods.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1005" display="block">    private function circButtonHandler(
+                                  event:MouseEvent):void{
+      getRandomValues();
+       
+      if(randomChoice &lt; 0.5){
+        myShape = new MyCircle(radius);
+      }else{
+        myShape = new MyRectangle(rectWidth,rectHeight);
+      }//end else
+      textArea.text = myShape.id() + 
+                                 myShape.circumference();
+    }//end circButtonHandler
+    
+    
+    private function volumeButtonHandler(
+                                  event:MouseEvent):void{
+      getRandomValues();
+       
+      if(randomChoice &lt; 0.5){
+        myShape = new MyCircle(radius);
+      }else{
+        myShape = new MyRectangle(rectWidth,rectHeight);
+      }//end else
+      textArea.text = myShape.id() + myShape.volume();
+    }//end circButtonHandler
+
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1109">
+<emphasis id="strong1111" effect="bold">
+The same methodology
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1110">
+The methodology behind these two event handlers is the same as the 
+methodology behind the event handler method shown in Listing 5.
+
+</para>
+
+
+
+
+<para id="p1111">
+<emphasis id="strong1112" effect="bold">
+The main differences between the event handlers
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1112">
+The main differences appear in the two statements that begin with 
+
+<emphasis id="strong1113" effect="bold">
+
+"textArea.text = "
+
+</emphasis>
+. In addition to using 
+the reference of type 
+
+<emphasis id="strong1114" effect="bold">
+IArea
+
+</emphasis>
+ to call the 
+
+<emphasis id="strong1115" effect="bold">
+id
+
+</emphasis>
+ method on the objects, 
+these two event handler methods call the 
+
+<emphasis id="strong1116" effect="bold">
+circumference
+
+</emphasis>
+ method or the 
+
+<emphasis id="strong1117" effect="bold">
+
+volume
+
+</emphasis>
+ method on the objects. Once again, this is possible only 
+because the objects inherit those methods from the 
+
+<emphasis id="strong1118" effect="bold">
+IArea
+
+</emphasis>
+ interface.
+
+</para>
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1119" effect="bold">
+The end of the Driver class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1114">
+Listing 6 also signals the end of the class named 
+
+<emphasis id="strong1120" effect="bold">
+Driver
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="The_file_named_IArea.as" effect="bold">
+
+The file named IArea.as
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1115">
+Since I mentioned the interface named 
+
+<emphasis id="strong1121" effect="bold">
+IArea
+
+</emphasis>
+ several times above, I 
+will discuss it next.
+
+</para>
+
+
+
+
+<para id="p1116">
+The interface named 
+
+<emphasis id="strong1122" effect="bold">
+IArea
+
+</emphasis>
+ is shown in Listing 7.
+
+</para>
+
+
+
+
+
+
+<example id="listing1006" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+The interface named IArea.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1006" display="block">package CustomClasses{
+  public interface IArea extends IVolume,ICircumference{
+    function area():String;
+    function id():String;
+  }//end interface
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1117">
+<emphasis id="strong1123" effect="bold">
+General information about an interface
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1118">
+The syntax for an interface looks a lot like the syntax for a class. 
+However, the keyword 
+
+<emphasis id="strong1124" effect="bold">
+class
+
+</emphasis>
+ is replaced by the keyword 
+
+<emphasis id="strong1125" effect="bold">
+interface
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1119">
+An interface may contain only method declarations 
+
+<emphasis id="em1021" effect="italics">
+(with no bodies)
+
+</emphasis>
+ and 
+setter and getter method declarations. All method declarations are 
+implicitly 
+
+<emphasis id="strong1126" effect="bold">
+public
+
+</emphasis>
+, and the concrete definition of an interface method in 
+a class must be declared 
+
+<emphasis id="strong1127" effect="bold">
+public
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1120">
+You cannot instantiate an object of an interface.
+
+</para>
+
+
+
+
+<para id="p1121">
+An interface cannot extend a class, but can extend any number of other 
+interfaces.
+
+</para>
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1128" effect="bold">
+IArea declares two methods and extends two 
+interfaces
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1123">
+The interface shown in Listing 7 declares the abstract methods named 
+
+<emphasis id="strong1129" effect="bold">
+area
+
+</emphasis>
+ 
+and
+
+
+<emphasis id="strong1130" effect="bold">
+id
+
+</emphasis>
+. It also extends the interfaces named 
+
+<emphasis id="strong1131" effect="bold">
+IVolume
+
+</emphasis>
+ and 
+
+<emphasis id="strong1132" effect="bold">
+
+ICircumference
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1124">
+<emphasis id="strong1133" effect="bold">
+Concrete method definitions are required
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1125">
+Any class that implements the interface named 
+
+<emphasis id="strong1134" effect="bold">
+IArea
+
+</emphasis>
+ must provide 
+concrete definitions for the methods named 
+
+<emphasis id="strong1135" effect="bold">
+id
+
+</emphasis>
+ and 
+
+<emphasis id="strong1136" effect="bold">
+area
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1126">
+The class must also provide concrete definitions for any methods inherited 
+into 
+
+<emphasis id="strong1137" effect="bold">
+
+IArea
+
+</emphasis>
+ from the interfaces that it extends. The class also inherits 
+those methods by way of 
+
+<emphasis id="strong1138" effect="bold">
+IArea
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="The_file_named_IVolume.as" effect="bold">
+
+The file named IVolume.as
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1127">
+The interface named 
+
+<emphasis id="strong1139" effect="bold">
+IVolume
+
+</emphasis>
+ is shown in its entirety in Listing 8.
+
+</para>
+
+
+
+
+
+
+<example id="listing1007" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_8" effect="bold">
+</emphasis>
+The interface named IVolume.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1007" display="block">package CustomClasses{
+  public interface IVolume{
+    function volume():String;
+  }//end interface
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1128">
+This interface declares the method named 
+
+<emphasis id="strong1140" effect="bold">
+volume
+
+</emphasis>
+. Because this 
+interface is extended by the interface named 
+
+<emphasis id="strong1141" effect="bold">
+IArea
+
+</emphasis>
+, any class that 
+implements 
+
+<emphasis id="strong1142" effect="bold">
+IArea
+
+</emphasis>
+ inherits the abstract method named 
+
+<emphasis id="strong1143" effect="bold">
+volume
+
+</emphasis>
+ and must 
+provide a concrete definition for the method.
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="The_file_named_ICircumference.as" effect="bold">
+
+The file named ICircumference.as
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1129">
+The interface named 
+
+<emphasis id="strong1144" effect="bold">
+ICircumference
+
+</emphasis>
+ is very similar to the interface 
+named 
+
+
+<emphasis id="strong1145" effect="bold">
+IVolume
+
+</emphasis>
+. The code for this interface is provided in Listing 14 near 
+the end of the lesson.
+
+</para>
+
+
+
+
+<para id="p1130">
+This interface declares the method named 
+
+<emphasis id="strong1146" effect="bold">
+circumference
+
+</emphasis>
+. Once 
+again, because this interface is extended by the interface named 
+
+<emphasis id="strong1147" effect="bold">
+IArea
+
+</emphasis>
+, 
+any class that implements 
+
+<emphasis id="strong1148" effect="bold">
+IArea
+
+</emphasis>
+ inherits the abstract method named 
+
+<emphasis id="strong1149" effect="bold">
+
+circumference 
+
+</emphasis>
+and must provide a concrete definition for the method.
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="The_file_named_MyCircle.as" effect="bold">
+
+The file named MyCircle.as
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1131">
+The class named 
+
+<emphasis id="strong1150" effect="bold">
+MyCircle
+
+</emphasis>
+ is shown in its entirety in Listing 9
+
+</para>
+
+
+
+
+
+
+<example id="listing1008" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_9" effect="bold">
+</emphasis>
+The class named MyCircle.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1008" display="block">package CustomClasses{
+  public class MyCircle implements IArea{
+    private var radius:Number;
+  
+    public function MyCircle(radius:Number){//constructor
+      this.radius = radius;
+    }//end constructor
+  
+    public function area():String{
+      return "Radius = " + radius + "\n" +
+             "Area = " + Math.PI * radius * radius;
+    }//end area
+    
+    public function id():String{
+      return "Circle\n";
+    }//end id    
+    
+    public function circumference():String{
+      return "Radius = " + radius + "\n" +
+             "Circumference = " + 2 * Math.PI * radius;
+    }//end function circumference
+    
+    public function volume():String{
+      //Assumes that the shape is a cylinder with a 
+      // depth of ten units.
+      return "Radius = " + radius + "\n" +
+             "Depth = 10\n" +
+             "Volume = " + 10 * Math.PI * radius * radius;
+    }//end area
+    
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1132">
+<emphasis id="strong1151" effect="bold">
+Inherits four abstract methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1133">
+As you can see, this class implements the interface named 
+
+<emphasis id="strong1152" effect="bold">
+IArea
+
+</emphasis>
+, 
+causing it to inherit 
+
+<emphasis id="the_following_abstract_methods" effect="bold">
+
+the following 
+abstract methods
+
+</emphasis>
+
+:
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1055">
+<emphasis id="strong1153" effect="bold">
+area
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1056">
+<emphasis id="strong1154" effect="bold">
+id
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1057">
+<emphasis id="strong1155" effect="bold">
+circumference
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1058">
+<emphasis id="strong1156" effect="bold">
+volume
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1134">
+The 
+
+<emphasis id="strong1157" effect="bold">
+area
+
+</emphasis>
+ and 
+
+<emphasis id="strong1158" effect="bold">
+id
+
+</emphasis>
+ methods are declared in the 
+
+<emphasis id="strong1159" effect="bold">
+IArea
+
+</emphasis>
+ 
+interface and are inherited directly into the 
+
+<emphasis id="strong1160" effect="bold">
+MyCircle
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+<para id="p1135">
+The 
+
+<emphasis id="strong1161" effect="bold">
+circumference
+
+</emphasis>
+ and 
+
+<emphasis id="strong1162" effect="bold">
+volume
+
+</emphasis>
+ methods are declared in the 
+interfaces named 
+
+<emphasis id="strong1163" effect="bold">
+ICircumference
+
+</emphasis>
+ and 
+
+<emphasis id="strong1164" effect="bold">
+IVolume
+
+</emphasis>
+, both of which are 
+extended by the 
+
+<emphasis id="strong1165" effect="bold">
+IArea
+
+</emphasis>
+ interface. Therefore, the 
+
+<emphasis id="strong1166" effect="bold">
+MyCircle
+
+</emphasis>
+ 
+class inherits those abstract methods by way the 
+
+<emphasis id="strong1167" effect="bold">
+IArea
+
+</emphasis>
+ interface.
+
+</para>
+
+
+
+
+<para id="p1136">
+<emphasis id="strong1168" effect="bold">
+Concrete definitions for four methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1137">
+Listing 9 provides concrete versions of the four inherited abstract methods. 
+As a practical matter, this amounts to overriding inherited abstract methods. 
+Note however, that unlike the case of overriding a concrete method inherited 
+from a class, the keyword 
+
+<emphasis id="strong1169" effect="bold">
+override
+
+</emphasis>
+ is 
+
+<emphasis id="strong1170" effect="bold">
+<emphasis id="em1022" effect="italics">
+not
+
+</emphasis>
+</emphasis>
+ required when overriding an 
+abstract method inherited from an interface.
+
+</para>
+
+
+
+
+<para id="p1138">
+Other than the fact that this class implements an interface and overrides 
+inherited abstract methods, there is nothing in Listing 9 that should be new to 
+you.
+
+</para>
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="The_file_named_MyRectangle.as" effect="bold">
+
+The file named MyRectangle.as
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1139">
+The class named 
+
+<emphasis id="strong1171" effect="bold">
+MyRectangle
+
+</emphasis>
+ is defined in Listing 16 near the end of 
+the lesson. This class is very similar to the 
+
+<emphasis id="strong1172" effect="bold">
+MyCircle
+
+</emphasis>
+ class shown 
+in Listing 9. As with the 
+
+<emphasis id="strong1173" effect="bold">
+MyCircle
+
+</emphasis>
+ class, it implements the 
+
+<emphasis id="strong1174" effect="bold">
+
+IArea
+
+</emphasis>
+ interface. Therefore, it inherits and overrides the same four 
+abstract methods shown in the above 
+
+<link id="a1051" target-id="the_following_abstract_methods">
+
+
+list
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+
+</emphasis>
+
+Run the program
+
+</title>
+
+
+
+
+
+
+<para id="p1140">
+I encourage you to
+
+
+<link id="a1052" url="Interface01.html">
+
+run
+
+</link>
+
+ this program from the web. 
+Then copy the code from Listing 10 through Listing 16. Use that 
+code to create a Flex project. Compile and run the project. 
+Experiment with the code, making changes, and observing the results of your 
+changes. Make certain that you can explain why your changes behave as they 
+do.
+
+</para>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1141">
+I will publish a list containing links to ActionScript 
+resources as a separate document. Search for ActionScript Resources in the 
+Connexions search box.
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+ 
+
+<emphasis id="Complete_Program_Listings" effect="bold">
+
+
+</emphasis>
+
+Complete program listings
+
+</title>
+
+
+
+
+
+
+<para id="p1142">
+Complete listings of the ActionScript and MXML files discussed in this lesson 
+are provided in Listing 10 through Listing 16 below.
+
+</para>
+
+
+
+
+<example id="listing1009" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_10" effect="bold">
+</emphasis>
+Listing for the file named  Interface01.mxml.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1009" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;!--Illustrates polymorphism using an interface.--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1143">
+</para>
+
+
+
+
+
+
+<example id="listing1010" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_11" effect="bold">
+</emphasis>
+Listing for the file named Driver.as.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1010" display="block">package CustomClasses{
+  import flash.events.*;
+  
+  import mx.containers.HBox;
+  import mx.containers.VBox;
+  import mx.controls.Button;
+  import mx.controls.Label;
+  import mx.controls.TextArea;
+  
+  public class Driver extends VBox{
+    private var textArea:TextArea = new TextArea();
+    private var myShape:IArea;
+    
+    private var randomChoice:Number;
+    private var radius:uint;
+    private var rectWidth:uint;
+    private var rectHeight:uint;
+    
+    public function Driver(){//constructor
+      var label:Label = new Label();
+      label.text = "Interface Polymorphism Demo";
+      label.setStyle("fontSize",14);
+      label.setStyle("color",0xFFFF00);
+      addChild(label);
+      
+      //Put three buttons in an HBox
+      var hbox:HBox = new HBox();
+      addChild(hbox);
+      
+      var areaButton:Button = new Button();
+      areaButton.label = "Area";
+      hbox.addChild(areaButton);
+      
+      var circButton:Button = new Button();
+      circButton.label = "Circumference";
+      hbox.addChild(circButton);
+      
+      var volumeButton:Button = new Button();
+      volumeButton.label = "Volume";
+      hbox.addChild(volumeButton);
+      
+      //Put the text area below the HBox.
+      textArea.width = 245;
+      textArea.height = 80;
+      addChild(textArea);
+      
+      //Register a click event handler on each of the
+      // buttons
+      areaButton.addEventListener(
+                     MouseEvent.CLICK,areaButtonHandler);
+                         
+      circButton.addEventListener(
+                     MouseEvent.CLICK,circButtonHandler);
+                         
+      volumeButton.addEventListener(
+                   MouseEvent.CLICK,volumeButtonHandler);
+    }//end constructor
+    
+    //Local utility method for getting and saving four
+    // random values.
+    private function getRandomValues():void{
+      randomChoice = Math.random();
+      radius = uint(10*Math.random() + 1);
+      rectWidth = uint(10*Math.random() + 1);
+      rectHeight = uint(10*Math.random() + 1);
+    }//end getRandomValues
+    
+    //Define click event handler methods.
+    private function areaButtonHandler(
+                                  event:MouseEvent):void{
+      getRandomValues();
+       
+      if(randomChoice &lt; 0.5){
+        myShape = new MyCircle(radius);
+      }else{
+        myShape = new MyRectangle(rectWidth,rectHeight);
+      }//end else
+      textArea.text = myShape.id() + myShape.area();
+    }//end areaButtonHandler
+
+    private function circButtonHandler(
+                                  event:MouseEvent):void{
+      getRandomValues();
+       
+      if(randomChoice &lt; 0.5){
+        myShape = new MyCircle(radius);
+      }else{
+        myShape = new MyRectangle(rectWidth,rectHeight);
+      }//end else
+      textArea.text = myShape.id() + 
+                                 myShape.circumference();
+    }//end circButtonHandler
+    
+    private function volumeButtonHandler(
+                                  event:MouseEvent):void{
+      getRandomValues();
+       
+      if(randomChoice &lt; 0.5){
+        myShape = new MyCircle(radius);
+      }else{
+        myShape = new MyRectangle(rectWidth,rectHeight);
+      }//end else
+      textArea.text = myShape.id() + myShape.volume();
+    }//end circButtonHandler
+
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1144">
+</para>
+
+
+
+
+
+
+<example id="listing1011" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_12" effect="bold">
+</emphasis>
+Listing for the file named IArea.as.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1011" display="block">package CustomClasses{
+  public interface IArea extends IVolume,ICircumference{
+    function area():String;
+    function id():String;
+  }//end interface
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1145">
+</para>
+
+
+
+
+
+<example id="listing1012" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_13" effect="bold">
+</emphasis>
+Listing for the file named IVolume.as.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1012" display="block">package CustomClasses{
+  public interface IVolume{
+    function volume():String;
+  }//end interface
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1146">
+</para>
+
+
+
+
+
+<example id="listing1013" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_14" effect="bold">
+</emphasis>
+Listing for the file named  ICircumference.as.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1013" display="block">package CustomClasses{
+  public interface ICircumference{
+    function circumference():String;
+  }//end interface
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1147">
+</para>
+
+
+
+
+
+
+<example id="listing1014" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_15" effect="bold">
+</emphasis>
+Listing for the file named MyCircle.as.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1014" display="block">package CustomClasses{
+  public class MyCircle implements IArea{
+    private var radius:Number;
+  
+    public function MyCircle(radius:Number){//constructor
+      this.radius = radius;
+    }//end constructor
+  
+    public function area():String{
+      return "Radius = " + radius + "\n" +
+             "Area = " + Math.PI * radius * radius;
+    }//end area
+    
+    public function id():String{
+      return "Circle\n";
+    }//end id    
+    
+    public function circumference():String{
+      return "Radius = " + radius + "\n" +
+             "Circumference = " + 2 * Math.PI * radius;
+    }//end function circumference
+    
+    public function volume():String{
+      //Assumes that the shape is a cylinder with a 
+      // depth of ten units.
+      return "Radius = " + radius + "\n" +
+             "Depth = 10\n" +
+             "Volume = " + 10 * Math.PI * radius * radius;
+    }//end area
+    
+  }//end class
+}//end package
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1148">
+</para>
+
+
+
+
+
+<example id="listing1015" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_16" effect="bold">
+</emphasis>
+Listing for the file named  MyRectangle.as.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1015" display="block">package CustomClasses{
+  public class MyRectangle implements IArea{
+    private var width:Number;
+    private var height:Number;
+  
+    public function MyRectangle(
+                width:Number,height:Number){//constructor
+      this.width = width;
+      this.height = height;
+    }//end constructor
+  
+    public function area():String{
+      return "Width = " + width + "\n" +
+             "Height = " + height + "\n" +
+             "Area = " + width * height;
+    }//end area
+    
+    public function id():String{
+      return "Rectangle\n";
+    }//end id
+    
+    public function circumference():String{
+      return "Width = " + width + "\n" +
+             "Height = " + height + "\n" +
+             "Circumference = " + 2 * (width + height);
+    }//end function circumference
+    
+    public function volume():String{
+      //Assumes that the shape is a rectangular solid
+      // with a depth of ten units.
+      return "Width = " + width + "\n" +
+             "Height = " + height + "\n" +
+             "Depth = 10\n" +
+             "Volume = " + 10 * width * height;
+    }//end area
+    
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1149">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1002" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1175" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+
+
+<item id="li1059">
+Module name: Interface Polymorphism - The Big Picture
+
+</item>
+
+
+
+
+<item id="li1060">
+Files:
+
+<list id="ul1013" list-type="bulleted">
+
+
+
+<item id="li1061">
+ActionScript0112\ActionScript0112.htm
+
+</item>
+
+
+
+
+<item id="li1062">
+ActionScript0112\Connexions\ActionScriptXhtml0112.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<note id="note1003" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1176" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+  
+
+<para id="p1150">
+-end- 
+
+</para>
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

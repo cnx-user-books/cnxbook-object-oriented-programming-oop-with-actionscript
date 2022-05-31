@@ -1,0 +1,2698 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Handling Keyboard Events</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34519</md:content-id>
+  <md:title>Handling Keyboard Events</md:title>
+  <md:abstract>Learn about focus and keyboard events.</md:abstract>
+  <md:uuid>3c2f859e-eb30-4eef-acc4-832d5e1e0297</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="miscellaneous">
+
+
+
+
+
+	
+
+<emphasis id="Click" effect="bold">
+
+Click
+
+</emphasis>
+
+ 
+
+<link id="a1000" url="KeyboardEvent02.html">
+
+KeyboardEvent02
+
+</link>
+
+
+to run the ActionScript program from this lesson. 
+
+<emphasis id="em1000" effect="italics">
+
+(Click the "Back" button in your browser
+to return to this page.)
+
+</emphasis>
+
+
+
+</note>
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1001" target-id="Preface">
+
+Preface
+
+</link>
+
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1002" target-id="General">
+
+General
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+				
+
+<item id="li1003">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+				
+
+<item id="li1004">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1005">
+<link id="a1006" target-id="Supplemental_material">
+
+Supplemental material
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1007" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1008" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1009" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1009">
+<link id="a1010" target-id="The_MXML_code">
+
+The MXML code
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1011" target-id="The_ActionScript_code">
+
+The ActionScript code
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1012" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1013" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1014" target-id="Complete_program_listing">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1015" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+ 
+
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+
+<section id="h21000">
+<title>
+ 
+
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+
+<para id="p1000">
+This tutorial lesson is part of a series of lessons dedicated to 
+object-oriented programming 
+
+<emphasis id="em1001" effect="italics">
+(OOP)
+
+</emphasis>
+ with ActionScript.
+
+</para>
+
+
+	
+
+
+<note id="note1001" type="miscellaneous">
+
+
+
+
+
+	All references to ActionScript in this lesson are references to version 3.0 or later.
+
+
+</note>
+
+
+
+
+	
+
+
+<para id="p1001">
+<emphasis id="strong1000" effect="bold">
+Several ways to create and launch ActionScript programs
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1002">
+There are several ways to create and launch programs written in the 
+ActionScript programming language. Many of the lessons in this series will 
+use Adobe Flex as the launch pad for the sample ActionScript programs.
+
+</para>
+
+
+
+
+<para id="p1003">
+An earlier lesson titled 
+
+
+<emphasis id="strong1001" effect="bold">
+The Default 
+Application Container
+
+</emphasis>
+ provided information on how to get started programming 
+with Adobe's Flex Builder 3. The lesson titled
+
+
+<emphasis id="strong1002" effect="bold">
+Using Flex 3 in 
+a Flex 4 World
+
+</emphasis>
+ was added later to accommodate the release of Flash Builder 
+4. 
+
+<emphasis id="em1002" effect="italics">
+
+(See 
+
+<link id="a1016" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming 
+website
+
+</link>
+
+.)
+
+</emphasis>
+ You should study those lessons before embarking on the 
+lessons in this series.
+
+</para>
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1003" effect="bold">
+Some understanding of Flex MXML will be required
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<para id="p1005">
+I also recommend that you study all of the lessons on
+
+
+<link id="a1017" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming 
+website
+
+</link>
+
+ in parallel with your study of these ActionScript lessons. 
+Eventually you will probably need to understand both ActionScript and Flex and 
+the relationships that exist between them in order to become a successful 
+ActionScript programmer. 
+
+</para>
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1004" effect="bold">
+Will emphasize ActionScript code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1007">
+It is often possible to use either ActionScript code or Flex MXML code to 
+achieve the same result. Insofar as this series of lessons is concerned, 
+the emphasis will be on ActionScript code even in those cases where Flex MXML 
+code may be a suitable alternative.
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+ 
+
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+ I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the figures 
+and listings while you are reading about them.
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+ 
+
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1015">
+<link id="a1018" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. KeyboardEvent02 output at startup. 
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1019" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. KeyboardEvent02 output after clicking 
+	the Canvas and pressing a key.
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1020" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Project file structure for 
+	KeyboardEvent02. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+ 
+
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1018">
+<link id="a1021" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Code for the file named Main.mxml.
+
+</item>
+
+
+	
+
+<item id="li1019">
+<link id="a1022" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the Driver Class. 
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1023" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The constructor for the Driver 
+	class. 
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1024" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The MouseEvent.CLICK listener. 
+
+</item>
+
+
+	
+
+<item id="li1022">
+<link id="a1025" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The KeyboardEvent.KEY_DOWN listener. 
+
+</item>
+
+
+	
+
+<item id="li1023">
+<link id="a1026" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Code for the file named Main.mxml.
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1027" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Source code for the class named 
+	Driver.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+ 
+
+<emphasis id="Supplemental_material" effect="bold">
+
+Supplemental material
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+ I recommend that you also study the other lessons in my extensive collection 
+of online programming tutorials. You will find a consolidated index at
+
+
+<link id="a1028" url="http://www.dickbaldwin.com/toc.htm">
+
+
+www.DickBaldwin.com
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h11002">
+<title>
+ 
+
+<emphasis id="General_background_information" effect="bold">
+
+General background 
+information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+In the past few lessons, you have learned how to handle mouse events under a 
+variety of circumstances. Up to this point, however, I haven't discussed much if 
+anything about keyboard events.
+
+</para>
+
+
+
+
+<para id="p1011">
+Handling keyboard events differs from handling mouse events in one major 
+respect -- focus.
+
+</para>
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1005" effect="bold">
+What is focus?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1013">
+At any instant in time, only one object in only one application of 
+potentially many running applications can have the focus. The object 
+that has the focus is the only object that can respond to the keyboard. 
+Therefore, before an object can fire events of type 
+
+<emphasis id="strong1006" effect="bold">
+KeyboardEvent
+
+</emphasis>
+, 
+that object must have the focus.
+
+</para>
+
+
+
+
+<para id="p1014">
+There is more than one way to cause an object to gain the focus. I will show 
+you one way in this lesson. Then I will show you how to handle events of type
+
+
+<emphasis id="strong1007" effect="bold">
+KeyboardEvent
+
+</emphasis>
+ fired by that object.
+
+</para>
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1008" effect="bold">
+Run the ActionScript program named KeyboardEvent02
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1016">
+If you have the Flash Player plug-in 
+
+<emphasis id="em1003" effect="italics">
+(version 10 or later)
+
+</emphasis>
+ installed 
+in your browser, click 
+
+<link id="a1029" target-id="Click">
+
+here
+
+</link>
+
+ to 
+run the program that I will explain in this lesson.
+
+</para>
+
+
+
+
+<para id="p1017">
+If you don't have the proper Flash Player installed, you should be notified 
+of that fact and given an opportunity to download and install the Flash Player 
+plug-in program.
+
+</para>
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1009" effect="bold">
+Program output as startup
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1019">
+The image in Figure 1 is similar to what you should see in your browser when 
+you start the program named 
+
+<emphasis id="strong1010" effect="bold">
+KeyboardEvent02
+
+</emphasis>
+ running.
+
+</para>
+
+
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Figure_1" effect="bold">
+</emphasis>
+KeyboardEvent02 output at startup.
+</title>
+
+
+
+			
+
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/as0115a.jpg" width="359" height="229"/>
+</media>
+
+
+
+
+<caption>KeyboardEvent02 output at startup.</caption>
+</figure>
+
+
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1011" effect="bold">
+The objects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1021">
+The yellow rectangle in Figure 1 is a
+
+<emphasis id="strong1012" effect="bold">
+ Canvas
+
+</emphasis>
+ object with a 
+yellow background color.
+
+</para>
+
+
+
+
+<para id="p1022">
+The text in the upper-left corner is the text on a 
+
+<emphasis id="strong1013" effect="bold">
+Label
+
+</emphasis>
+ 
+object.
+
+</para>
+
+
+
+
+<para id="p1023">
+The text in the white rectangle is text in an object of the class 
+
+<emphasis id="strong1014" effect="bold">
+
+TextArea
+
+</emphasis>
+. This object allows the user to enter text, but that isn't the 
+purpose of the object in this program. The purpose of the object in this program 
+is simply to provide an output consisting of multi-line operating instructions.
+
+</para>
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1015" effect="bold">
+The operating instructions
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1025">
+At startup, the program will not respond to keyboard input. Clicking the 
+yellow 
+
+<emphasis id="strong1016" effect="bold">
+Canvas
+
+</emphasis>
+ object with the mouse causes it to gain the focus. 
+Once it has the focus, the canvas will respond to keyboard input.
+
+</para>
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1017" effect="bold">
+Output after clicking the Canvas and pressing a key
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1027">
+Figure 2 shows the program output after clicking the yellow 
+
+<emphasis id="strong1018" effect="bold">
+Canvas
+
+</emphasis>
+ 
+object with the mouse and then pressing the "a" key.
+
+</para>
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+	
+
+
+		
+
+
+			
+
+<title>
+<emphasis id="Figure_2" effect="bold">
+</emphasis>
+KeyboardEvent02 output after  			clicking the Canvas and pressing a key.
+</title>
+
+		
+
+
+	
+
+
+
+	
+
+
+		
+
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/as0115b.jpg" width="359" height="229"/>
+</media>
+
+
+		
+
+<caption>KeyboardEvent02 output after  			clicking the Canvas and pressing a key.</caption>
+</figure>
+
+	
+
+
+
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1019" effect="bold">
+The output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1029">
+As you can see, this caused the letter "a" to be displayed in a large font 
+size in the lower-left corner of the canvas. This will work for any of the 
+letter or number keys, with or without holding down the shift key. Other keys, 
+such as the arrow keys, don't produce a visible output however.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1020" effect="bold">
+The project file structure
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1031">
+The final project file structure, captured from the FlashDevelop project 
+window, is shown in Figure 3.
+
+</para>
+
+
+
+
+<figure id="figure1002" type="figure">
+<label>Figure</label>
+
+
+	
+
+
+		
+
+
+			
+
+<title>
+<emphasis id="Figure_3" effect="bold">
+</emphasis>
+Project file structure for  			KeyboardEvent02.
+</title>
+
+		
+
+
+	
+
+
+
+	
+
+
+		
+
+<media id="media1002" alt="Missing image" display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/as0115c.jpg" width="254" height="338"/>
+</media>
+
+
+		
+
+<caption>Project file structure for  			KeyboardEvent02.</caption>
+</figure>
+
+	
+
+
+
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1021" effect="bold">
+Will explain in fragments
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1033">
+I will explain the code for 
+this program in fragments. Complete listings of the MXML code and the 
+ActionScript code are provided in Listing 6 and Listing 7 near the end of the 
+lesson.
+
+</para>
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="The_MXML_code" effect="bold">
+
+The MXML code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+The MXML code is shown in Listing 1 and again in Listing 6 near the end of 
+the lesson.
+
+</para>
+
+
+
+
+<example id="listing1000" type="listing">
+<label>Listing</label>
+
+
+	
+
+
+		
+
+
+			
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+Code for the file named  			Main.mxml.
+</title>
+
+		
+
+
+	
+
+
+
+	
+
+
+		
+
+
+		
+
+<code id="pre1000" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;!--
+KeyboardEvent02
+See explanation in the file named Driver.as
+--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+		
+
+</example>
+
+	
+
+
+
+
+
+
+
+
+<para id="p1035">
+As is often the case in this series of lessons, the MXML file is very simple 
+because the program was coded almost entirely in ActionScript. The MXML code 
+simply instantiates an object of the 
+
+<emphasis id="strong1022" effect="bold">
+Driver
+
+</emphasis>
+ class. From that 
+point forward, the behavior of the program is controlled by ActionScript code.
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="The_ActionScript_code" effect="bold">
+
+The ActionScript code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1023" effect="bold">
+Beginning of the Driver class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1037">
+The driver class begins in Listing 2.
+
+</para>
+
+
+
+
+<example id="listing1001" type="listing">
+<label>Listing</label>
+
+
+	
+
+
+		
+
+
+			
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Beginning of the Driver  			Class.
+</title>
+
+		
+
+
+	
+
+
+
+	
+
+
+		
+
+
+		
+
+<code id="pre1001" display="block">/*KeyboardEvent02 06/03/10
+Illustrates the use of KeyboardEvent, charCode values,
+absolute positioning on a Canvas object, focus, and a 
+TextArea object among other things.
+
+See http://livedocs.adobe.com/flex/3/langref/flash/events
+/KeyboardEvent.html
+*********************************************************/
+package CustomClasses{
+  import flash.events.KeyboardEvent;
+  import flash.events.MouseEvent;
+  import mx.containers.Canvas;
+  import mx.controls.Label;
+  import mx.controls.TextArea;
+
+  public class Driver extends Canvas{
+    //Instantiate and save references to the
+    // objects needed by the program.
+    private var instrArea:TextArea = new TextArea();
+    private var targetLabel:Label = new Label();
+    private var canvasLabel:Label = new Label();</code>
+
+
+		
+
+</example>
+
+	
+
+
+
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1024" effect="bold">
+Extending the Canvas class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1039">
+With the possible exception of the fact that the 
+
+<emphasis id="strong1025" effect="bold">
+Driver
+
+</emphasis>
+ 
+class extends the 
+
+<emphasis id="strong1026" effect="bold">
+Canvas
+
+</emphasis>
+ class, there is nothing new in Listing 
+2. An object of the 
+
+<emphasis id="strong1027" effect="bold">
+Driver
+
+</emphasis>
+ class is a 
+
+<emphasis id="strong1028" effect="bold">
+Canvas
+
+</emphasis>
+ 
+object.
+
+</para>
+
+
+
+
+<para id="p1040">
+I elected to extend the 
+
+<emphasis id="strong1029" effect="bold">
+Canvas
+
+</emphasis>
+ class because this makes it 
+possible to position objects added as children of that class using absolute 
+location coordinates.
+
+</para>
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1030" effect="bold">
+The constructor for the Driver class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1042">
+The constructor is shown in its entirety in Listing 3.
+
+</para>
+
+
+
+
+<example id="listing1002" type="listing">
+<label>Listing</label>
+
+
+	
+
+
+		
+
+
+			
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+The constructor for the  			Driver class.
+</title>
+
+		
+
+
+	
+
+
+
+	
+
+
+		
+
+
+		
+
+<code id="pre1002" display="block">    public function Driver() {//constructor
+      //Set the size of the Canvas object.
+      this.width = 300;
+      this.height = 120;
+      
+      //Prepare the TextArea and the labels.
+      canvasLabel.text = "This is a 300x120 Canvas";
+
+      instrArea.text = "First click the yellow canvas "
+          + "with the mouse\nThen press a key to display "
+          + "the character.";
+      instrArea.width = 298;
+      instrArea.height = 40;
+      instrArea.x = 1;
+      instrArea.y = 26;
+      
+      targetLabel.setStyle("fontSize", 30);
+      targetLabel.x = 10;
+      targetLabel.y = 78
+      //Display an empty string at startup.
+      targetLabel.text = "";
+      
+      //Add the labels and TextArea to the Canvas.
+      this.addChild(canvasLabel);
+      this.addChild(instrArea);
+      this.addChild(targetLabel);
+      
+      //Set the Canvas background color to yellow.
+      this.setStyle("backgroundColor", "0xFFFF00");
+      
+      //Register two event listeners on the canvas.
+      this.addEventListener(
+                          MouseEvent.CLICK, clickHandler);
+      this.addEventListener(
+                     KeyboardEvent.KEY_DOWN,eventHandler);
+
+    } //end constructor
+</code>
+
+
+		
+
+</example>
+
+	
+
+
+
+
+
+
+
+
+<para id="p1043">
+There are several things in Listing 3 that deserve an explanation beyond the 
+embedded comments.
+
+</para>
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1031" effect="bold">
+Set the size
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1045">
+The constructor in Listing 3 begins by setting the 
+
+<emphasis id="strong1032" effect="bold">
+width
+
+</emphasis>
+ and
+
+
+<emphasis id="strong1033" effect="bold">
+height
+
+</emphasis>
+ properties of the 
+
+<emphasis id="strong1034" effect="bold">
+Canvas
+
+</emphasis>
+ object to set the overall 
+dimensions of the object in pixels.
+
+</para>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1035" effect="bold">
+Set the text for the upper-left Label object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1047">
+The constructor sets the 
+
+<emphasis id="strong1036" effect="bold">
+text
+
+</emphasis>
+ property of the 
+
+<emphasis id="strong1037" effect="bold">
+Label
+
+</emphasis>
+ 
+object referred to by 
+
+<emphasis id="strong1038" effect="bold">
+canvasLabel
+
+</emphasis>
+ to the small text shown in 
+the upper-left corner of Figure 1. Since the x and y coordinate values for this 
+object are not purposely set, they will each have a default value of zero. This will cause 
+them to be placed in the upper-left corner of the canvas as shown in Figure 1.
+
+</para>
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1039" effect="bold">
+Set various properties for the TextArea object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1049">
+Then the constructor sets various property values for the 
+
+<emphasis id="strong1040" effect="bold">
+TextArea
+
+</emphasis>
+ 
+object, including its text, its dimensions, and its location coordinates. As I 
+mentioned earlier, the sole purpose of this object in this program is to provide 
+operating instructions.
+
+</para>
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1041" effect="bold">
+Set various properties for the target Label object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+The 
+
+<emphasis id="strong1042" effect="bold">
+Label
+
+</emphasis>
+ object that is referred to by 
+
+<emphasis id="strong1043" effect="bold">
+targetLabel
+
+</emphasis>
+ 
+in Listing 3 is used to display the character for the key that is pressed as 
+shown by the large lower-case "a" in Figure 2.
+
+</para>
+
+
+
+
+<para id="p1052">
+The constructor sets various properties for this object including a font size 
+of 30 points and an initial string value that is an empty string.
+
+</para>
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1044" effect="bold">
+Add the objects to the Canvas
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1054">
+Then the constructor calls the 
+
+<emphasis id="strong1045" effect="bold">
+addChild
+
+</emphasis>
+ method on the
+
+
+<emphasis id="strong1046" effect="bold">
+Canvas
+
+</emphasis>
+ object three times 
+in succession to add the three objects to the canvas in the locations specified 
+by their location coordinates.
+
+</para>
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1047" effect="bold">
+Set the background color to yellow
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1056">
+The constructor sets the background color of the canvas to yellow. Otherwise, 
+it would be indistinguishable from the gray background color of the Flash 
+window.
+
+</para>
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1048" effect="bold">
+Register event listeners
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1058">
+Finally, the constructor registers two event listeners on the 
+
+<emphasis id="strong1049" effect="bold">
+Canvas
+
+</emphasis>
+ 
+object.
+
+</para>
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1050" effect="bold">
+A MouseEvent.CLICK listener
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1060">
+The first event listener that is registered is one that will handle events of 
+the type 
+
+<emphasis id="strong1051" effect="bold">
+MouseEvent.CLICK
+
+</emphasis>
+. As you will see shortly, this 
+handler causes the 
+
+<emphasis id="strong1052" effect="bold">
+Canvas
+
+</emphasis>
+ object to gain the focus when the 
+user clicks the canvas with the mouse.
+
+</para>
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1053" effect="bold">
+A KeyboardEvent.KEY_DOWN listener
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1062">
+The second listener that is registered is one that will handle events of the 
+type 
+
+<emphasis id="strong1054" effect="bold">
+KeyboardEvent.KEY_DOWN
+
+</emphasis>
+ and display the character for the 
+key that is pressed as shown by the large lower-case "a" in Figure 2.
+
+</para>
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1055" effect="bold">
+The MouseEvent.CLICK listener
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1064">
+This listener is shown in its entirety in Listing 4.
+
+</para>
+
+
+
+
+<example id="listing1003" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+The MouseEvent.CLICK listener.
+</title>
+
+
+
+
+
+
+
+<code id="pre1003" display="block">    private function clickHandler(event:MouseEvent):void {
+      stage.focus = this;
+    }//end clickHandler
+</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+<para id="p1065">
+As I explained earlier, the sole purpose of this event listener is to make it 
+possible for the user to cause the yellow canvas object to gain the focus.
+
+</para>
+
+
+
+
+<para id="p1066">
+Rather than attempt to explain the one statement in the method in Listing 4, I will 
+refer you to the page in the Adobe
+
+
+<link id="a1030" url="http://livedocs.adobe.com/flex/3/langref/flash/events/KeyboardEvent.html">
+
+
+documentation
+
+</link>
+
+ that explains it.
+
+</para>
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1056" effect="bold">
+The KeyboardEvent.KEY_DOWN listener
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1068">
+The method shown in Listing 5 is executed each time any key is pressed. 
+However, some of the keys, such as the shift key, aren't represented by a character that 
+can be displayed.
+
+</para>
+
+
+
+
+<example id="listing1004" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+The KeyboardEvent.KEY_DOWN listener.
+</title>
+
+
+
+
+
+
+
+<code id="pre1004" display="block">    private function eventHandler(
+                               event:KeyboardEvent):void {
+      targetLabel.text = 
+                      String.fromCharCode(event.charCode);
+    } //end eventHandler
+</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1057" effect="bold">
+The charCode property
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1070">
+Each time the method is called, it receives a reference to an object of type
+
+
+<emphasis id="strong1058" effect="bold">
+KeyboardEvent
+
+</emphasis>
+. This object encapsulates several types of information 
+about the key that was pressed. One such piece of information is a property 
+named 
+
+<emphasis id="strong1059" effect="bold">
+charCode
+
+</emphasis>
+. Here is some of what the
+
+
+<link id="a1031" url="http://livedocs.adobe.com/flex/3/langref/flash/events/KeyboardEvent.html#charCode">
+
+documentation
+
+</link>
+
+ has to say about this property:
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+<emphasis id="em1004" effect="italics">
+"Contains the character code value of the key pressed or 
+released. The character code values are English keyboard values. For example, if 
+you press Shift+3, charCode is # on a Japanese keyboard, just as it is on an 
+English keyboard."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1060" effect="bold">
+The keyCode property
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1072">
+Another interesting property of the incoming object is the property named
+
+
+<link id="a1032" url="http://livedocs.adobe.com/flex/3/langref/flash/events/KeyboardEvent.html#keyCode">
+
+keyCode
+
+</link>
+
+. 
+This property can be used to identity any key on the keyboard, including those 
+that are not represented by printable characters such as the shift key and the 
+arrow keys.
+
+</para>
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1061" effect="bold">
+Modify the text in targetLabel
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1074">
+The objective of the code in Listing 5 is to modify the text in the label 
+referred to by 
+
+<emphasis id="strong1062" effect="bold">
+targetLabel
+
+</emphasis>
+ to cause it to reflect the character 
+for the key that was pressed.
+
+</para>
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1063" effect="bold">
+Convert charCode to a string
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1076">
+The 
+
+<emphasis id="strong1064" effect="bold">
+text
+
+</emphasis>
+ property of the label is type 
+
+<emphasis id="strong1065" effect="bold">
+String
+
+</emphasis>
+. 
+That means that the value of 
+
+<emphasis id="strong1066" effect="bold">
+charCode
+
+</emphasis>
+ must be converted to type
+
+
+<emphasis id="strong1067" effect="bold">
+String
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1077">
+This is accomplished by calling the static 
+
+<emphasis id="strong1068" effect="bold">
+fromCharCode
+
+</emphasis>
+ method of the 
+
+
+<link id="a1033" url="http://livedocs.adobe.com/flash/9.0/ActionScriptLangRefV3/String.html">
+
+String
+
+</link>
+
+ class.
+
+</para>
+
+
+
+
+<para id="p1078">
+Because this 
+is a static method, it can be called by joining its name to the name of the 
+class to which it belongs: 
+
+<emphasis id="strong1069" effect="bold">
+String
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1070" effect="bold">
+Assign the returned String value to the text property
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1080">
+The method returns a 
+reference to a 
+
+<emphasis id="strong1071" effect="bold">
+String
+
+</emphasis>
+ object containing the character whose 
+
+
+<emphasis id="strong1072" effect="bold">
+charCode
+
+</emphasis>
+ is passed as a parameter to the method. This string is then assigned to 
+the 
+
+<emphasis id="strong1073" effect="bold">
+text
+
+</emphasis>
+ property of the target label, producing the output 
+shown in Figure 2.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1081">
+I encourage you to
+
+
+<link id="a1034" target-id="Click">
+
+run
+
+</link>
+
+ this program from the web. 
+Then copy the code from Listing 6 and Listing 7. Use that code to 
+create your own project. Compile and run the project. Experiment with 
+the code, making changes, and observing the results of your changes. Make 
+certain that you can explain why your changes behave as they do. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1082">
+I will publish a list containing links to ActionScript resources as a 
+separate document. Search for ActionScript Resources in the 
+Connexions search box.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+ 
+
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1083">
+ Complete listings of the programs discussed in this lesson 
+are provided below.
+
+</para>
+
+
+
+
+
+<example id="listing1005" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Code for the file named Main.mxml.
+</title>
+
+
+
+
+
+
+
+<code id="pre1005" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;!--
+KeyboardEvent02
+See explanation in the file named Driver.as
+--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+<para id="p1084">
+</para>
+
+
+
+
+<example id="listing1006" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+Source code for the class named Driver.
+</title>
+
+
+
+
+
+
+
+<code id="pre1006" display="block">/*Prob04 06/03/10
+Illustrates the use of KeyboardEvent, charCode values,
+absolute positioning on a Canvas object, focus, and a 
+TextArea object among other things.
+
+See http://livedocs.adobe.com/flex/3/langref/flash/events
+/KeyboardEvent.html
+*********************************************************/
+package CustomClasses{
+  import flash.events.KeyboardEvent;
+  import flash.events.MouseEvent;
+  import mx.containers.Canvas;
+  import mx.controls.Label;
+  import mx.controls.TextArea;
+
+  public class Driver extends Canvas{
+    //Instantiate and save references to the
+    // objects needed by the program.
+    private var instrArea:TextArea = new TextArea();
+    private var targetLabel:Label = new Label();
+    private var canvasLabel:Label = new Label();
+    //--------------------------------------------------//
+    
+    public function Driver() {//constructor
+      //Set the size of the Canvas object.
+      this.width = 300;
+      this.height = 120;
+      
+      //Prepare the TextArea and the labels.
+      canvasLabel.text = "This is a 300x120 Canvas";
+
+      instrArea.text = "First click the yellow canvas "
+          + "with the mouse\nThen press a key to display "
+          + "the character.";
+      instrArea.width = 298;
+      instrArea.height = 40;
+      instrArea.x = 1;
+      instrArea.y = 26;
+      
+      targetLabel.setStyle("fontSize", 30);
+      targetLabel.x = 10;
+      targetLabel.y = 78
+      //Display an empty string at startup.
+      targetLabel.text = "";
+      
+      //Add the labels and TextArea to the Canvas.
+      this.addChild(canvasLabel);
+      this.addChild(instrArea);
+      this.addChild(targetLabel);
+      
+      //Set the Canvas background color to yellow.
+      this.setStyle("backgroundColor", "0xFFFF00");
+      
+      //Register two event listeners on the canvas.
+      this.addEventListener(
+                          MouseEvent.CLICK, clickHandler);
+      this.addEventListener(
+                     KeyboardEvent.KEY_DOWN,eventHandler);
+
+    } //end constructor
+    //--------------------------------------------------//
+
+    //This method is executed when any key is pressed.
+    // Note, however, that some keys, such as the shift
+    // key, don't have displayable charCode values.
+    private function eventHandler(
+                               event:KeyboardEvent):void {
+      targetLabel.text = 
+                      String.fromCharCode(event.charCode);
+    } //end eventHandler
+    //--------------------------------------------------//
+    
+    //This event handler is required to cause the Canvas
+    // to gain the focus and respond to keyboard events.
+    // See the URL listed earlier. (Note that focus can
+    // also be gained by pressing the tab key.)
+    private function clickHandler(event:MouseEvent):void {
+      stage.focus = this;
+    }//end clickHandler
+    //--------------------------------------------------//
+
+  } //end class
+} //end package</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+<para id="p1085">
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1086">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1002" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1074" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+
+
+<item id="li1025">
+Module name: Handling Keyboard Events
+
+</item>
+
+
+
+
+<item id="li1026">
+Files:
+
+<list id="ul1008" list-type="bulleted">
+
+
+
+<item id="li1027">
+ActionScript0115\ActionScript0115.htm
+
+</item>
+
+
+
+
+<item id="li1028">
+ActionScript0115\Connexions\ActionScriptXhtml0115.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<note id="note1003" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1075" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1087">
+-end- 
+
+</para>
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

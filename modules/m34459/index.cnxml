@@ -1,0 +1,3149 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Bitmap Basics</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34459</md:content-id>
+  <md:title>Bitmap Basics</md:title>
+  <md:abstract>Learn about the different requirements for displaying bitmap data in Flex projects and ActionScript projects.</md:abstract>
+  <md:uuid>3120898a-00dd-4d32-86d7-b1ef0f1e4b7e</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="miscellaneous">
+
+
+
+
+
+	
+
+<emphasis id="Click" effect="bold">
+
+Click
+
+</emphasis>
+
+ 
+
+<link id="a1000" url="Bitmap03.html">
+
+Bitmap03
+
+</link>
+
+ or 
+
+<link id="a1001" url="Bitmap04.html">
+
+Bitmap04
+
+</link>
+
+
+to run the ActionScript programs from this lesson. 
+
+<emphasis id="em1000" effect="italics">
+
+(Click the "Back" button in your browser
+to return to this page.)
+
+</emphasis>
+
+
+
+</note>
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+  
+
+<item id="li1000">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+ 
+    
+
+<list id="ul1001" list-type="bulleted">
+
+      
+
+<item id="li1001">
+<link id="a1003" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1002">
+<link id="a1004" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+ 
+        
+
+<list id="ul1002" list-type="bulleted">
+
+          
+
+<item id="li1003">
+<link id="a1005" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+          
+
+<item id="li1004">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+        
+
+</list>
+
+
+      
+
+</item>
+
+
+      
+
+<item id="li1005">
+<link id="a1007" target-id="Supplementary_material">
+
+Supplemental material
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1006">
+<link id="a1008" target-id="GeneralBackgroundInformation">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1007">
+<link id="a1009" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1008">
+<link id="a1010" target-id="DiscussionandSamplePrograms">
+
+Discussion and sample code
+
+</link>
+
+ 
+    
+
+<list id="ul1003" list-type="bulleted">
+
+      
+
+<item id="li1009">
+<link id="a1011" target-id="program">
+
+The program named Bitmap03
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1010">
+<link id="a1012" target-id="program1">
+
+The program named Bitmap04
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1011">
+<link id="a1013" target-id="Runtheprogram">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1012">
+<link id="a1014" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1013">
+<link id="a1015" target-id="CompleteProgramListings">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1016" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1000">
+</para>
+
+
+
+        
+
+<note id="note1001" type="miscellaneous">
+
+
+          
+
+
+            
+
+
+              
+
+All references to ActionScript in this lesson are 
+			  references to version 3 or later. 
+
+</note>
+
+            
+
+
+          
+
+
+
+        
+
+
+
+
+
+
+<para id="p1001">
+This tutorial lesson is 
+part of a series of lessons dedicated to object-oriented programming 
+(OOP) with ActionScript. The purpose of this particular lesson is to provide you 
+with about fifteen minutes of instruction that may save you hours of debugging 
+when you first start creating programs that use the
+
+
+<emphasis id="strong1000" effect="bold">
+Bitmap
+
+</emphasis>
+ and 
+
+<emphasis id="strong1001" effect="bold">
+BitmapData
+
+</emphasis>
+ classes.
+
+</para>
+
+
+
+
+
+<para id="p1002">
+<emphasis id="strong1002" effect="bold">
+Several ways to create and launch ActionScript 
+programs
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1003">
+There are several ways to 
+create and launch programs written in the ActionScript programming language. 
+Most of the lessons in this series will use Adobe Flex as the launch pad for the 
+sample ActionScript programs.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+An earlier lesson titled 
+
+
+<emphasis id="strong1003" effect="bold">
+The Default 
+Application Container
+
+</emphasis>
+ provided information on how to get started programming 
+with Adobe's Flex Builder 3. 
+
+<emphasis id="em1001" effect="italics">
+(See 
+
+<link id="a1017" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming website
+
+</link>
+
+.)
+
+</emphasis>
+ 
+You should study that lesson before embarking on the lessons in this series.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1004" effect="bold">
+Some understanding of Flex MXML will be required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1006">
+I also recommend that you 
+study all of the lessons on Baldwin's Flex programming website in parallel with 
+your study of these ActionScript lessons. Eventually you will probably need to 
+understand both ActionScript and Flex and the relationships that exist between 
+them in order to become a successful ActionScript programmer.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1005" effect="bold">
+Will emphasize ActionScript code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+It is often possible to use 
+either ActionScript code or Flex MXML code to achieve the same result. Insofar 
+as this series of lessons is concerned, the emphasis will be on ActionScript 
+code even in those cases where Flex MXML code may be a suitable alternative.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1009">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily find and view the figures and 
+listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+  
+
+<item id="li1015">
+<link id="a1018" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Screen output from the program named 
+  Bitmap03.
+
+</item>
+
+
+  
+
+<item id="li1016">
+<link id="a1019" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Screen output from the program named 
+  Bitmap04.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+  
+
+<item id="li1017">
+<link id="a1020" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the class named Bitmap03.
+
+</item>
+
+
+  
+
+<item id="li1018">
+<link id="a1021" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Draw a yellow cross on the background.
+
+</item>
+
+
+  
+
+<item id="li1019">
+<link id="a1022" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Encapsulate the BitmapData object in a 
+  Bitmap object and add it to the display.
+
+</item>
+
+
+  
+
+<item id="li1020">
+<link id="a1023" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. MXML code for the program named 
+  Bitmap04.
+
+</item>
+
+
+  
+
+<item id="li1021">
+<link id="a1024" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Beginning of the Driver class for the 
+  program named Bitmap04.
+
+</item>
+
+
+  
+
+<item id="li1022">
+<link id="a1025" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Draw a yellow cross on the background.
+
+</item>
+
+
+  
+
+<item id="li1023">
+<link id="a1026" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Encapsulate the bitmap data in a 
+  Bitmap object and add it to the display.
+
+</item>
+
+
+  
+
+<item id="li1024">
+<link id="a1027" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Source code for the program named 
+  Bitmap03.
+
+</item>
+
+
+  
+
+<item id="li1025">
+<link id="a1028" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. MXML code for the program named 
+  Bitmap04.
+
+</item>
+
+
+  
+
+<item id="li1026">
+<link id="a1029" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Source code for the Driver class in 
+  the program named Bitmap04.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Supplementary_material" effect="bold">
+
+Supplemental material
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1010">
+I recommend that you also 
+study the other lessons in my extensive collection of online programming 
+tutorials. You will find a consolidated index at 
+
+<link id="a1030" url="http://www.dickbaldwin.com/toc.htm">
+
+www.DickBaldwin.com
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="GeneralBackgroundInformation" effect="bold">
+
+General background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1011">
+The ActionScript documentation provides sample programs on the following web 
+pages that cannot be run without modification in a Flex application, even when 
+the entire application is programmed in 
+
+
+<emphasis id="ActionScript" effect="bold">
+
+ActionScript
+
+</emphasis>
+
+.
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+  
+
+<item id="li1027">
+<link id="a1031" url="http://livedocs.adobe.com/flex/3/html/Working_with_Bitmaps_04.html#156970">
+
+
+  Manipulating pixels
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1028">
+<link id="a1032" url="http://livedocs.adobe.com/flex/3/langref/flash/display/Bitmap.html">
+
+
+  Bitmap
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1012">
+The problem is that these two 
+sample programs were written to be compiled and run as pure ActionScript 
+programs. There are some additional requirements that you must adhere to when 
+writing bitmap programs to run as Flex applications.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1013">
+I will explain two sample programs in this lesson. Both programs are scaled 
+down versions of the sample program provided in the first link listed 
+
+
+<link id="a1033" target-id="ActionScript">
+
+above
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+The first program that I will explain can be compiled and run as a pure 
+ActionScript program. The second program can be compiled and run as a Flex 
+application with the majority of the code being written in ActionScript.
+
+</para>
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1006" effect="bold">
+Run the online version of the programs
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1016">
+I encourage you to 
+
+<link id="a1034" target-id="Click">
+
+run
+
+</link>
+
+ the online versions of the 
+two programs before continuing with this discussion.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1007" effect="bold">
+Screen output from 
+the program named Bitmap03
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+Both programs are designed to 
+display a red square, 100 pixels on a side, with a yellow cross in the square. 
+The screen output for the pure ActionScript program named 
+
+<emphasis id="strong1008" effect="bold">
+Bitmap03
+
+</emphasis>
+ is shown in 
+Figure 1. 
+
+<emphasis id="em1002" effect="italics">
+(Note that the yellow cross is much more visible in the original than in 
+this screen shot.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Figure_1" effect="bold">
+</emphasis>
+Screen output from the program named Bitmap03.
+</title>
+
+
+
+
+
+<media id="media1000" alt="as0130.jpg" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/as0130a.jpg" width="469" height="555"/>
+</media>
+
+
+
+
+<caption>Screen output from the program named Bitmap03.</caption>
+</figure>
+
+
+
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1009" effect="bold">
+The size and position of the square varies
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+If you run the online version of this program, you will note that the size 
+and position of the square varies depending on the width and height of the 
+browser window.
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1010" effect="bold">
+Screen output from the program named 
+Bitmap04
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1022">
+The program named 
+
+<emphasis id="strong1011" effect="bold">
+Bitmap04
+
+</emphasis>
+ places the red square in a 
+
+<emphasis id="strong1012" effect="bold">
+VBox
+
+</emphasis>
+ container with 
+a cyan background. The screen output is shown in Figure 2.
+
+</para>
+
+
+
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Figure_2" effect="bold">
+</emphasis>
+Screen output from the program named Bitmap04.
+</title>
+
+
+
+
+
+<media id="media1001" alt="as0130b.jpg" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/as0130b.jpg" width="386" height="390"/>
+</media>
+
+
+
+
+<caption>Screen output from the program named Bitmap04.</caption>
+</figure>
+
+
+
+
+
+
+
+
+<para id="p1023">
+Although the 
+
+<emphasis id="strong1013" effect="bold">
+VBox
+
+</emphasis>
+ moves horizontally to remain centered in 
+the browser window, neither the 
+
+<emphasis id="strong1014" effect="bold">
+VBox
+
+</emphasis>
+ nor the red square change 
+size as the width and height of the browser window is changed.
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="DiscussionandSamplePrograms" effect="bold">
+
+
+</emphasis>
+
+Discussion and sample code
+
+</title>
+
+
+	
+
+<para id="p1024">
+I will explain two programs in the remainder of this 
+	lesson.
+
+</para>
+
+
+
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="program" effect="bold">
+
+The program named Bitmap03
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1015" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1026">
+I will explain the code for these two programs in fragments. Complete 
+listings of all the code for both of the programs are provided beginning with 
+Listing 8 near the end of the lesson.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1016" effect="bold">
+Beginning of the class named Bitmap03
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+This program consists of a single class definition file named 
+
+<emphasis id="strong1017" effect="bold">
+Bitmap03
+
+</emphasis>
+, which 
+begins in Listing 1.
+
+</para>
+
+
+
+
+
+<example id="listing1000" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+Beginning  	  of the class named Bitmap03.
+</title>
+
+
+
+
+        
+
+<code id="pre1000" display="block">package {
+  import flash.display.Sprite
+  import flash.display.Bitmap;
+  import flash.display.BitmapData;
+    
+  public class Bitmap03 extends Sprite {
+
+    public function Bitmap03(){
+      var bitmapData:BitmapData = 
+                new BitmapData(100, 100, false, 0xFF0000);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1018" effect="bold">
+The two main bitmap classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+The two main ActionScript classes that are used with bitmaps are:
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+  
+
+<item id="li1029">
+<link id="a1035" url="http://livedocs.adobe.com/flex/3/langref/flash/display/BitmapData.html">
+
+
+  BitmapData
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1030">
+<link id="a1036" url="http://livedocs.adobe.com/flex/3/langref/flash/display/Bitmap.html">
+
+
+  Bitmap
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1019" effect="bold">
+What is the difference between the two classes?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+Briefly, an object of the 
+
+<emphasis id="strong1020" effect="bold">
+BitmapData
+
+</emphasis>
+ class encapsulates the 
+actual pixel color and transparency values that represent an image. An object of 
+the 
+
+<emphasis id="strong1021" effect="bold">
+Bitmap
+
+</emphasis>
+ class is a subclass of the
+
+
+<emphasis id="strong1022" effect="bold">
+DisplayObject
+
+</emphasis>
+ class, meaning that it can be placed on the 
+display list. A 
+
+<emphasis id="strong1023" effect="bold">
+Bitmap
+
+</emphasis>
+ object encapsulates a
+
+
+<emphasis id="strong1024" effect="bold">
+BitmapData
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+</para>
+
+
+
+        
+
+<note id="note1002" type="miscellaneous">
+
+
+          
+
+
+            
+
+
+              
+
+<emphasis id="strong1025" effect="bold">
+A 32-bit ARGB color value: 
+                
+
+</emphasis>
+I will have a lot more to say about pixels, color 
+			  values, etc. in future lessons. My objective for this lesson is 
+			  simply to get you to the point that you can create and display 
+			  bitmap data.
+
+</note>
+
+            
+
+
+          
+
+
+
+        
+
+
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1026" effect="bold">
+A new object of the BitmapData class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+The constructor for the Bitmap03 class begins in Listing 1. The constructor 
+instantiates a new object of the 
+
+<emphasis id="strong1027" effect="bold">
+BitmapData
+
+</emphasis>
+ class with a red 
+opaque background. The constructor parameters for a 
+
+<emphasis id="strong1028" effect="bold">
+BitmapData
+
+</emphasis>
+
+object are:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1031">
+<emphasis id="strong1029" effect="bold">
+width
+
+</emphasis>
+:int -- The width of the bitmap image in pixels. The width is specified 
+as 100 pixels in Listing 1.
+
+</item>
+
+
+	
+
+<item id="li1032">
+<emphasis id="strong1030" effect="bold">
+height
+
+</emphasis>
+:int -- The height of the bitmap image in pixels. The height is 
+specified as 100 pixels in Listing 1.
+
+</item>
+
+
+	
+
+<item id="li1033">
+<emphasis id="strong1031" effect="bold">
+transparent
+
+</emphasis>
+ -- Boolean (default = true) -- Specifies whether the bitmap image 
+supports per-pixel transparency. The default value is true (transparent). A 
+value of false (opaque) is specified in Listing 1.
+
+</item>
+
+
+	
+
+<item id="li1034">
+<emphasis id="strong1032" effect="bold">
+fillColor
+
+</emphasis>
+:uint (default = 0xFFFFFFFF -- A 32-bit ARGB color value that you 
+use to fill the bitmap image area. The color red is specified in Listing 1.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1033" effect="bold">
+Draw a yellow cross on the background
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+A
+
+
+<emphasis id="strong1034" effect="bold">
+BitmapData
+
+</emphasis>
+ object encapsulates a rectangular array of pixel 
+data. The class provides several methods that make it possible for you to 
+
+
+<emphasis id="strong1035" effect="bold">
+get
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1036" effect="bold">
+set
+
+</emphasis>
+ individual pixel values in terms of color and transparency.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+One of those methods is the 
+method named 
+
+<emphasis id="strong1037" effect="bold">
+setPixel
+
+</emphasis>
+ that lets you replace 
+
+<emphasis id="em1003" effect="italics">
+(or merge with 
+transparency)
+
+</emphasis>
+ an existing pixel with a new pixel on the basis of the 
+horizontal and vertical coordinates of the pixel.
+
+</para>
+
+
+
+
+
+<para id="p1039">
+Listing 2 uses a 
+
+<emphasis id="strong1038" effect="bold">
+for
+
+</emphasis>
+ loop to replace some of the red pixels 
+in the 
+
+<emphasis id="strong1039" effect="bold">
+BitmapData
+
+</emphasis>
+ object with yellow pixels to form a yellow 
+cross as shown in Figure 1.
+
+</para>
+
+
+
+
+
+<example id="listing1001" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Draw a  	  yellow cross on the background.
+</title>
+
+
+
+
+        
+
+<code id="pre1001" display="block">      var yellow:uint = 0xFFFF00;
+
+      for(var cnt:uint = 0; cnt &lt; 100; cnt++){
+        bitmapData.setPixel(cnt, cnt, yellow);
+        bitmapData.setPixel(100 - cnt, cnt, yellow);
+      } //end for loop</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1040" effect="bold">
+The setPixel method
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1041">
+The 
+
+<emphasis id="strong1041" effect="bold">
+setPixel
+
+</emphasis>
+ method requires three parameters. The first 
+	two are the horizontal and vertical coordinates of the pixel whose color 
+	values are to be set. The third is an unsigned integer value that specifies 
+	the color that will be assigned to the pixel at that location.
+
+</para>
+
+
+
+
+<para id="p1042">
+Without getting into the details at this point, suffice it to say that the 
+value assigned to the 
+
+<emphasis id="strong1042" effect="bold">
+yellow
+
+</emphasis>
+ variable in Listing 2 specifies 
+the visible color of yellow.
+
+</para>
+
+
+
+
+<para id="p1043">
+
+
+
+<emphasis id="strong1043" effect="bold">
+Encapsulate the BitmapData object in a Bitmap object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1044">
+The constructor for the 
+
+<emphasis id="strong1044" effect="bold">
+Bitmap
+
+</emphasis>
+ class has three parameters, 
+but they all have default values. The first parameter, if provided, must be a 
+reference to an object of type 
+
+<emphasis id="strong1045" effect="bold">
+BitmapData
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+Continuing with the constructor for the 
+
+<emphasis id="strong1046" effect="bold">
+Bitmap03
+
+</emphasis>
+ class, Listing 3 
+instantiates a new 
+
+<emphasis id="strong1047" effect="bold">
+Bitmap
+
+</emphasis>
+ object passing the
+
+
+<emphasis id="strong1048" effect="bold">
+BitmapData
+
+</emphasis>
+ object prepared in Listing 2 as a parameter.
+
+</para>
+
+
+
+
+
+<example id="listing1002" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+Encapsulate the BitmapData object in a Bitmap object and add it to the  	  display.
+</title>
+
+
+
+
+        
+
+<code id="pre1002" display="block">      var bitmapObj:Bitmap = new Bitmap(bitmapData);
+
+      addChild(bitmapObj);
+
+    } //end constructor
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1049" effect="bold">
+Add the new Bitmap object to the display
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+Then Listing 3 calls the 
+
+<emphasis id="strong1050" effect="bold">
+addChild
+
+</emphasis>
+ method on the
+
+
+<emphasis id="strong1051" effect="bold">
+Sprite
+
+</emphasis>
+ object to add the new 
+
+<emphasis id="strong1052" effect="bold">
+Bitmap
+
+</emphasis>
+ object to the display. This 
+produces the screen output shown in Figure 1.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1053" effect="bold">
+Simple enough?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+This seems simple enough - right? However, there is a potential problem. In 
+particular, an ActionScript project does not have access to any of those great 
+Flex components. Therefore, if you are going to create ActionScript projects, 
+you will need to have access to similar resources from some other source.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1054" effect="bold">
+Not compatible with Flex
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+This is the form of the sample programs provided in the ActionScript 
+documentation on the two web pages listed 
+
+<link id="a1037" target-id="ActionScript">
+
+above
+
+</link>
+
+. 
+Unfortunately, I didn't see a warning on either of those pages to the effect 
+that the programs are not compatible with Flex. I finally found a comment at the 
+bottom of a different documentation page that gave me the first clue about the 
+compatibility problem.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="program1" effect="bold">
+
+The program named Bitmap04
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1052">
+In this program, I will show you how to update the program named 
+
+<emphasis id="strong1055" effect="bold">
+Bitmap03
+
+</emphasis>
+ to 
+make it compatible with Flex.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1056" effect="bold">
+MXML code for the program named Bitmap04
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1054">
+We will begin with the MXML 
+code shown in Listing 4 and repeated in Listing 9 for your convenience.
+
+</para>
+
+
+
+
+
+<example id="listing1003" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+MXML code  	  for the program named Bitmap04.
+</title>
+
+
+
+
+        
+
+<code id="pre1003" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1057" effect="bold">
+Two files
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1056">
+This program consists of two files. One file, named 
+
+<emphasis id="strong1058" effect="bold">
+Bitmap04.mxml
+
+</emphasis>
+ contains 
+the code shown in Listing 4. The other file named 
+
+<emphasis id="strong1059" effect="bold">
+Driver.as
+
+</emphasis>
+ contains the 
+definition of a class named 
+
+<emphasis id="strong1060" effect="bold">
+Driver
+
+</emphasis>
+. It is located in a package 
+folder named 
+
+<emphasis id="strong1061" effect="bold">
+CustomClasses
+
+</emphasis>
+, leading to the namespace 
+declaration in Listing 4.
+
+</para>
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1062" effect="bold">
+Instantiate an object of the Driver class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+As you can see, the MXML code in Listing 4 simply instantiates an object of 
+the 
+
+<emphasis id="strong1063" effect="bold">
+Driver
+
+</emphasis>
+ class. Beyond that point, the behavior of the 
+program is completely controlled by ActionScript code.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1064" effect="bold">
+Beginning of the Driver class for the program 
+named Bitmap04
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+The 
+
+<emphasis id="strong1065" effect="bold">
+Driver
+
+</emphasis>
+
+class begins in Listing 5. The code in Listing 5 is very similar to the code in 
+Listing 1 with a few exceptions.
+
+</para>
+
+
+
+
+
+<example id="listing1004" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+Beginning  	  of the Driver class for the program named Bitmap04.
+</title>
+
+
+
+
+        
+
+<code id="pre1004" display="block">package CustomClasses{
+  import mx.containers.VBox;
+  import flash.display.Bitmap;
+  import flash.display.BitmapData;
+  import mx.core.UIComponent;
+    
+  public class Driver extends VBox{
+    //Note that this class extends Sprite, nothing shows
+    // on the display. Therefore it extends VBox instead.
+
+    public function Driver(){
+      //Prepare the display area. This is window dressing.
+      setStyle("backgroundAlpha",1.0);
+      setStyle("backgroundColor",0x00FFFF);
+      width = 150;
+      height = 150;
+      
+      //Create a BitmapData object with a red opaque
+      // background.
+      var bitmapData:BitmapData = 
+                new BitmapData(100, 100, false, 0xFF0000);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1066" effect="bold">
+Extend the VBox class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1062">
+This class extends 
+
+<emphasis id="strong1067" effect="bold">
+VBox
+
+</emphasis>
+ instead of extending
+
+
+<emphasis id="strong1068" effect="bold">
+Sprite
+
+</emphasis>
+ as is the case in the previous program. Although this 
+program will compile and run by extending 
+
+<emphasis id="strong1069" effect="bold">
+Sprite
+
+</emphasis>
+, nothing 
+appears on the output screen.
+
+</para>
+
+
+
+
+
+<para id="p1063">
+Apparently the reason is that Flex requires user interface display objects to 
+be subclasses of the class named 
+
+<emphasis id="strong1070" effect="bold">
+UIComponent
+
+</emphasis>
+, and the
+
+
+<emphasis id="strong1071" effect="bold">
+Sprite
+
+</emphasis>
+ class is not a subclass of that class. This is the first 
+major difference between this program and the previous one.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1072" effect="bold">
+Some window dressing
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+The code at the beginning of the constructor in Listing 5 sets the height, 
+width, background color, and transparency of the 
+
+<emphasis id="strong1073" effect="bold">
+VBox
+
+</emphasis>
+
+container so that it can be seen in the display. As indicated in the comments, 
+this is window dressing and is not a requirement for the program to execute 
+properly. The cyan rectangle in Figure 2 is the 
+
+<emphasis id="strong1074" effect="bold">
+VBox
+
+</emphasis>
+
+container.
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1075" effect="bold">
+A new BitmapData object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1067">
+The last statement in Listing 5 instantiates a new
+
+
+<emphasis id="strong1076" effect="bold">
+BitmapData
+
+</emphasis>
+ object identical to the one instantiated in the 
+previous program.
+
+</para>
+
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1077" effect="bold">
+Draw a yellow cross on the background
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+The code is listing 6 is identical to the code in Listing 2. This code draws 
+the yellow cross on the red background that you see in Figure 2.
+
+</para>
+
+
+
+
+
+<example id="listing1005" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Draw a  	  yellow cross on the background.
+</title>
+
+
+
+
+        
+
+<code id="pre1005" display="block">      var yellow:uint = 0xFFFF00;
+
+      for(var cnt:uint = 0; cnt &lt; 100; cnt++){
+        bitmapData.setPixel(cnt, cnt, yellow);
+        bitmapData.setPixel(100 - cnt, cnt, yellow);
+      } //end for loop</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1078" effect="bold">
+Encapsulate the bitmap data in a Bitmap object 
+and add it to the display
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1071">
+This is where the second 
+major difference between the two programs arises. Although both programs 
+encapsulate the bitmap data in the 
+
+<emphasis id="strong1079" effect="bold">
+Bitmap
+
+</emphasis>
+ object using the same 
+code, the code required to add the 
+
+<emphasis id="strong1080" effect="bold">
+Bitmap
+
+</emphasis>
+ object to the output 
+display is very different.
+
+</para>
+
+
+
+
+
+<example id="listing1006" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+Encapsulate the bitmap data in a Bitmap object and add it to the display.
+</title>
+
+
+
+
+        
+
+<code id="pre1006" display="block">      var bitmapObj:Bitmap = new Bitmap(bitmapData);
+      
+      var uiComponent:UIComponent = new UIComponent();
+      uiComponent.addChild(bitmapObj);
+
+      addChild(uiComponent);
+    } //end constructor
+
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1081" effect="bold">
+Call the addChild method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+In the previous ActionScript program, it was possible to simply call the
+
+
+<emphasis id="strong1082" effect="bold">
+addChild
+
+</emphasis>
+ method to add the 
+
+<emphasis id="strong1083" effect="bold">
+Bitmap
+
+</emphasis>
+ object to the output display. However, 
+that is not possible in a Flex application. If you try to do so, your program 
+will throw a runtime error indicating an incompatible type.
+
+</para>
+
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1084" effect="bold">
+Two requirements
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1075">
+In order to add a child to a 
+
+<emphasis id="strong1085" effect="bold">
+VBox
+
+</emphasis>
+ object, that child:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+  
+
+<item id="li1035">
+Must be a subclass of the 
+
+<emphasis id="strong1086" effect="bold">
+DisplayObject
+
+</emphasis>
+ class and 
+
+</item>
+
+
+  
+
+<item id="li1036">
+Must implement the 
+
+<emphasis id="strong1087" effect="bold">
+IUIComponent
+
+</emphasis>
+ interface.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1076">
+While a 
+
+<emphasis id="strong1088" effect="bold">
+Bitmap
+
+</emphasis>
+ object is a subclass of
+
+
+<emphasis id="strong1089" effect="bold">
+DisplayObject
+
+</emphasis>
+, it does not implement the
+
+
+<emphasis id="strong1090" effect="bold">
+IUIComponent
+
+</emphasis>
+ interface. Therefore, it is not compatible with 
+being added directly to the 
+
+<emphasis id="strong1091" effect="bold">
+VBox
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1092" effect="bold">
+Use a UIComponent object as an intermediary
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1078">
+One way to handle this is to add the 
+
+<emphasis id="strong1093" effect="bold">
+Bitmap
+
+</emphasis>
+ object to a new
+
+
+<emphasis id="strong1094" effect="bold">
+UIComponent
+
+</emphasis>
+ object and then add the
+
+
+<emphasis id="strong1095" effect="bold">
+UIComponent
+
+</emphasis>
+ object to the 
+
+<emphasis id="strong1096" effect="bold">
+VBox
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1079">
+That is what I did in Listing 7. The result is shown in Figure 2 with the red 
+
+<emphasis id="strong1097" effect="bold">
+
+Bitmap
+
+</emphasis>
+ object contained in the cyan 
+
+<emphasis id="strong1098" effect="bold">
+VBox
+
+</emphasis>
+
+object.
+
+</para>
+
+
+
+
+
+<para id="p1080">
+This is the second major difference between the two programs.
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1099" effect="bold">
+The end of the program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1082">
+Listing 7 also signals the end of the class and the end of the program.
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Runtheprogram" effect="bold">
+
+
+</emphasis>
+
+Run the program
+
+</title>
+
+
+
+
+
+
+
+<para id="p1083">
+I encourage you to 
+
+<link id="a1038" target-id="Click">
+
+run
+
+</link>
+
+ this program from the web. Then copy the code from 
+Listing 8 through Listing 10. Use that code to create an ActionScript 
+project and a Flex project. Compile and run the projects. Experiment 
+with the code, making changes, and observing the results of your changes. 
+Make certain that you can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1084">
+I will publish a list containing links to ActionScript resources as a 
+separate document. Search for ActionScript Resources in the Connexions search 
+box.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="CompleteProgramListings" effect="bold">
+
+
+</emphasis>
+
+Complete program listings
+
+</title>
+
+
+
+
+
+<para id="p1085">
+Complete listings of the source code for the two programs discussed in this 
+lesson are provided below.
+
+</para>
+
+
+
+
+
+
+
+<example id="listing1007" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_8" effect="bold">
+</emphasis>
+Source code  	  for the program named Bitmap03.
+</title>
+
+
+
+
+        
+
+<code id="pre1007" display="block">/*********************************************************
+ * Bitmap03 11/29/09
+ * Can be run as an ActionScript project. However, some
+ * changes are required to convert it to a Flex project.
+ * 
+ * For some reason, the size and position of the 100x100
+ * pixel red square depends on the size and the height to 
+ * width ration of the browser window.
+*********************************************************/
+package {
+  import flash.display.Sprite
+  import flash.display.Bitmap;
+  import flash.display.BitmapData;
+    
+  public class Bitmap03 extends Sprite {
+
+    public function Bitmap03(){
+      //Create a BitmapData object with a red opaque
+      // background.
+      var bitmapData:BitmapData = 
+                new BitmapData(100, 100, false, 0xFF0000);
+      
+      //Draw a yellow cross on the background
+      var yellow:uint = 0xFFFF00;
+      for(var cnt:uint = 0; cnt &lt; 100; cnt++){
+        bitmapData.setPixel(cnt, cnt, yellow);
+        bitmapData.setPixel(100 - cnt, cnt, yellow);
+      } //end for loop
+      
+      //Encapsulate the bitmap data into a new Bitmap
+      // object and add it to the display. For some
+      // reason, the red square displays as 50x50 instead
+      // of 100x100.
+      var bitmapObj:Bitmap = new Bitmap(bitmapData);
+      addChild(bitmapObj);
+
+    } //end constructor
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1086">
+</para>
+
+
+
+
+
+<example id="listing1008" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_9" effect="bold">
+</emphasis>
+MXML code  	  for the program named Bitmap04.
+</title>
+
+
+
+
+        
+
+<code id="pre1008" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!--Bitmap04
+--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1087">
+</para>
+
+
+
+
+
+<example id="listing1009" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_10" effect="bold">
+</emphasis>
+Source  	  code for the Driver class in the program named Bitmap04.
+</title>
+
+
+
+
+        
+
+<code id="pre1009" display="block">/*********************************************************
+ * Bitmap04 11/29/09
+ * This is an update to Bitmap03 to make it possible to 
+ * compile and run it as a Flex project. Unlike Bitmap03
+ * the red square produced by this program displays at the
+ * correct size of 100x100 pixels.
+*********************************************************/
+package CustomClasses{
+  import mx.containers.VBox;
+  import flash.display.Bitmap;
+  import flash.display.BitmapData;
+  import mx.core.UIComponent;
+    
+  public class Driver extends VBox{
+    //Note that this class extends Sprite, nothing shows
+    // on the display. Therefore it extends VBox instead.
+
+    public function Driver(){
+      //Prepare the display area. This is window dressing.
+      setStyle("backgroundAlpha",1.0);
+      setStyle("backgroundColor",0x00FFFF);
+      width = 150;
+      height = 150;
+      
+      //Create a BitmapData object with a red opaque
+      // background.
+      var bitmapData:BitmapData = 
+                new BitmapData(100, 100, false, 0xFF0000);
+      
+      //Draw a yellow cross on the background
+      var yellow:uint = 0xFFFF00;
+      for(var cnt:uint = 0; cnt &lt; 100; cnt++){
+        bitmapData.setPixel(cnt, cnt, yellow);
+        bitmapData.setPixel(100 - cnt, cnt, yellow);
+      } //end for loop
+      
+      //Encapsulate the bitmap data into a new Bitmap
+      // object and add it to the display.
+      var bitmapObj:Bitmap = new Bitmap(bitmapData);
+      
+      //The following is necessary because the Bitmap
+      // class is not a subclass of UIComponent.
+      var uiComponent:UIComponent = new UIComponent();
+      uiComponent.addChild(bitmapObj);
+      addChild(uiComponent);
+    } //end constructor
+
+  } //end class
+} //end package </code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1088">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1003" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1100" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+
+
+<item id="li1037">
+Module name: Bitmap Basics
+
+</item>
+
+
+
+
+<item id="li1038">
+Files:
+
+<list id="ul1011" list-type="bulleted">
+
+
+
+<item id="li1039">
+ActionScript0130\ActionScript0130.htm
+
+</item>
+
+
+
+
+<item id="li1040">
+ActionScript0130\Connexions\ActionScriptXhtml0130.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<note id="note1004" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1101" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+
+	
+
+<para id="p1089">
+-end-
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

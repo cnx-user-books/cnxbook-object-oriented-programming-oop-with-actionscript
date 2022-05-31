@@ -1,0 +1,3702 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Sound in ActionScript</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34496</md:content-id>
+  <md:title>Sound in ActionScript</md:title>
+  <md:abstract>Learn to play sounds in ActionScript, both continuously and on call. Also learn how handle events fired by SoundChannel objects.</md:abstract>
+  <md:uuid>36071d76-2dbf-4357-8668-5728c9b4ba5d</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="miscellaneous">
+
+
+
+
+
+	
+
+<emphasis id="Click" effect="bold">
+
+Click
+
+</emphasis>
+
+ 
+
+<link id="a1000" url="Sound03.html">
+
+Sound03
+
+</link>
+
+
+to run the ActionScript program from this lesson. 
+
+<emphasis id="em1000" effect="italics">
+
+(Click the "Back" button in your browser
+to return to this page.)
+
+</emphasis>
+
+
+
+</note>
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1001" target-id="Preface">
+
+Preface
+
+</link>
+
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1002" target-id="General">
+
+General
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+				
+
+<item id="li1003">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+				
+
+<item id="li1004">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1005">
+<link id="a1006" target-id="Supplemental_material">
+
+Supplemental material
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1007" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1008" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1009" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1009">
+<link id="a1010" target-id="The_MXML_code">
+
+The MXML code
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1011" target-id="The_ActionScript_code">
+
+The ActionScript code
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1012" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1013" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1014" target-id="Complete_program_listing">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1015" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+ 
+
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+
+<section id="h21000">
+<title>
+ 
+
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+
+<para id="p1000">
+This tutorial lesson is part of a series of lessons dedicated to 
+object-oriented programming 
+
+<emphasis id="em1001" effect="italics">
+(OOP)
+
+</emphasis>
+ with ActionScript.
+
+</para>
+
+
+	
+
+
+<note id="note1001" type="miscellaneous">
+
+
+
+
+
+	All references to ActionScript in this lesson are references to version 3.0 or later.
+
+
+</note>
+
+
+
+
+	
+
+
+<para id="p1001">
+<emphasis id="strong1000" effect="bold">
+Several ways to create and launch ActionScript programs
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1002">
+There are several ways to create and launch programs written in the 
+ActionScript programming language. Many of the lessons in this series will 
+use Adobe Flex as the launch pad for the sample ActionScript programs.
+
+</para>
+
+
+
+
+<para id="p1003">
+An earlier lesson titled 
+
+
+<emphasis id="strong1001" effect="bold">
+The Default 
+Application Container
+
+</emphasis>
+ provided information on how to get started programming 
+with Adobe's Flex Builder 3. The lesson titled
+
+
+<emphasis id="strong1002" effect="bold">
+Using Flex 3 in 
+a Flex 4 World
+
+</emphasis>
+ was added later to accommodate the release of Flash Builder 
+4. 
+
+<emphasis id="em1002" effect="italics">
+
+(See 
+
+<link id="a1016" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming 
+website
+
+</link>
+
+.)
+
+</emphasis>
+ You should study those lessons before embarking on the 
+lessons in this series.
+
+</para>
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1003" effect="bold">
+Some understanding of Flex MXML will be required
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<para id="p1005">
+I also recommend that you study all of the lessons on
+
+
+<link id="a1017" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming 
+website
+
+</link>
+
+ in parallel with your study of these ActionScript lessons. 
+Eventually you will probably need to understand both ActionScript and Flex and 
+the relationships that exist between them in order to become a successful 
+ActionScript programmer. 
+
+</para>
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1004" effect="bold">
+Will emphasize ActionScript code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1007">
+It is often possible to use either ActionScript code or Flex MXML code to 
+achieve the same result. Insofar as this series of lessons is concerned, 
+the emphasis will be on ActionScript code even in those cases where Flex MXML 
+code may be a suitable alternative.
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+ 
+
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+ I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the figures 
+and listings while you are reading about them.
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+ 
+
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1015">
+<link id="a1018" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Sound03 image. 
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1019" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Project file structure for Sound03.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+ 
+
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1017">
+<link id="a1020" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. MXML code for the project named 
+	Sound03.
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1021" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Import directives for the Driver 
+	class
+
+</item>
+
+
+	
+
+<item id="li1019">
+<link id="a1022" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the Driver class 
+	proper. 
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1023" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The constructor for the Driver 
+	class. 
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1024" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. A CREATION_COMPLETE event handler. 
+
+</item>
+
+
+	
+
+<item id="li1022">
+<link id="a1025" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Beginning of the Timer event 
+	handler. 
+
+</item>
+
+
+	
+
+<item id="li1023">
+<link id="a1026" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Play an occasional wind sound. 
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1027" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Play an occasional sizzle sound. 
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1028" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. The SOUND_COMPLETE event handler. 
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1029" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. MXML code for the project named 
+	Sound03.
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1030" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Class named Driver for the project 
+	named Sound03.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+ 
+
+<emphasis id="Supplemental_material" effect="bold">
+
+Supplemental material
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+ I recommend that you also study the other lessons in my extensive collection 
+of online programming tutorials. You will find a consolidated index at
+
+
+<link id="a1031" url="http://www.dickbaldwin.com/toc.htm">
+
+
+www.DickBaldwin.com
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h11002">
+<title>
+ 
+
+<emphasis id="General_background_information" effect="bold">
+
+General background 
+information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+A sound in ActionScript is represented by an object of the class named
+
+
+<emphasis id="strong1005" effect="bold">
+Sound
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1011">
+When the information encapsulated in a 
+
+<emphasis id="strong1006" effect="bold">
+Sound
+
+</emphasis>
+ object is 
+
+<emphasis id="em1003" effect="italics">
+
+played
+
+</emphasis>
+, that process is represented by an object of the class named 
+
+<emphasis id="strong1007" effect="bold">
+
+SoundChannel
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1012">
+According to the
+
+
+<link id="a1032" url="http://livedocs.adobe.com/flash/9.0/ActionScriptLangRefV3/">
+
+
+documentation
+
+</link>
+
+:
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+<emphasis id="em1004" effect="italics">
+"The Sound class lets you work with sound in an application. The 
+Sound class lets you create a new Sound object, load and play an external MP3 
+file into that object, close the sound stream, and access data about the sound, 
+such as information about the number of bytes in the stream and ID3 metadata. 
+More detailed control of the sound is performed through the sound source -- the 
+SoundChannel or Microphone object for the sound -- and through the properties in 
+the SoundTransform class that control the output of the sound to the computer's 
+speakers."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1013">
+The program that I will explain in this lesson makes use of events and 
+methods of the 
+
+<emphasis id="strong1008" effect="bold">
+Sound
+
+</emphasis>
+ class and the 
+
+<emphasis id="strong1009" effect="bold">
+SoundChannel
+
+</emphasis>
+ 
+class.
+
+</para>
+
+
+
+
+<para id="p1014">
+You will find a lot of interesting and useful information in the document 
+titled 
+
+<emphasis id="strong1010" effect="bold">
+Basics of working with sound
+
+</emphasis>
+ on the Adobe website, including the following:
+
+</para>
+
+
+
+
+<quote id="blockquote1001" display="block">
+<emphasis id="em1005" effect="italics">
+"Although there are various sound file formats used to encode 
+digital audio, ActionScript 3.0 and Flash Player support sound files that are 
+stored in the mp3 format. They cannot directly load or play sound files in other 
+formats like WAV or AIFF."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1015">
+A variety of different sound file converter programs are available on the web 
+that can be used to convert other sound file formats into mp3 format.
+
+</para>
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1011" effect="bold">
+Run the ActionScript program named Sound03
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1017">
+If you have the Flash Player plug-in 
+
+<emphasis id="em1006" effect="italics">
+(version 10 or later)
+
+</emphasis>
+ installed 
+in your browser, click 
+
+<link id="a1033" target-id="Click">
+
+here
+
+</link>
+
+ to run the program named
+
+
+<emphasis id="strong1012" effect="bold">
+Sound03
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1018">
+If you don't have the proper Flash Player installed, you should be notified 
+of that fact and given an opportunity to download and install the Flash Player 
+plug-in program.
+
+</para>
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1013" effect="bold">
+Demonstrates the use of sound with ActionScript
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1020">
+This project is intended to demonstrate the use of sound with ActionScript. It also displays 
+the image of a cloudy sky shown in Figure 1, but the only purpose of the image is to make it obvious when the program starts running.
+
+</para>
+
+
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Figure_1" effect="bold">
+</emphasis>
+Sound03 image.
+</title>
+
+
+
+			
+
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/as0160a.jpg" width="320" height="240"/>
+</media>
+
+
+
+
+<caption>Sound03 image.</caption>
+</figure>
+
+
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1014" effect="bold">
+Stormy weather
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1022">
+The project is designed to give you the impression of the sounds that you 
+might hear while sitting on your covered deck looking at the sky during a thunder 
+storm.
+
+</para>
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1015" effect="bold">
+Four stormy-weather sounds
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1024">
+The project plays the following sounds extracted from mp3 files:
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1028">
+rain
+
+</item>
+
+
+	
+
+<item id="li1029">
+wind
+
+</item>
+
+
+	
+
+<item id="li1030">
+sizzle
+
+</item>
+
+
+	
+
+<item id="li1031">
+thunder
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1025">
+The 
+
+<emphasis id="strong1016" effect="bold">
+rain
+
+</emphasis>
+ sound is continuous.
+
+</para>
+
+
+
+
+<para id="p1026">
+The 
+
+<emphasis id="strong1017" effect="bold">
+wind
+
+</emphasis>
+ sound is played on startup and then occasionally 
+thereafter on the basis of a random number generator.
+
+</para>
+
+
+
+
+<para id="p1027">
+The 
+
+<emphasis id="strong1018" effect="bold">
+sizzle
+
+</emphasis>
+ sound is also played occasionally on the basis of a random number generator.
+
+
+<emphasis id="em1007" effect="italics">
+(You will probably need to be patient to hear this sound because it isn't 
+played very often.)
+
+</emphasis>
+ As soon as the sizzle sound finishes, the sound of a
+
+
+<emphasis id="strong1019" effect="bold">
+thunder
+
+</emphasis>
+ clap is played.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+ 
+
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+	
+
+
+<note id="note1002" type="miscellaneous">
+
+
+
+
+
+	If you develop this project using
+	
+
+<link id="a1034" url="http://www.flashdevelop.org/wikidocs/index.php?title=Main_Page">
+
+
+	FlashDevelop
+
+</link>
+
+, you will need to manually copy all of the sound files into 
+	the bin folder.
+
+
+</note>
+
+
+
+
+	
+	
+
+<para id="p1028">
+
+	
+
+<emphasis id="strong1020" effect="bold">
+The project file structure
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1029">
+
+	The final project file structure, captured from the FlashDevelop project 
+	window, is shown in Figure 2.
+
+</para>
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Figure_2" effect="bold">
+</emphasis>
+Project file structure for Sound03.
+</title>
+
+
+
+			
+
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/as0160b.jpg" width="261" height="497"/>
+</media>
+
+
+
+
+<caption>Project file structure for Sound03.</caption>
+</figure>
+
+
+
+
+
+
+
+<para id="p1030">
+As you can see in Figure 2, all of the sound and image files are stored in 
+the folder named 
+
+<emphasis id="strong1021" effect="bold">
+src
+
+</emphasis>
+. In addition, all of the sound files were 
+manually copied into the folder named 
+
+<emphasis id="strong1022" effect="bold">
+bin
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1031">
+
+	
+
+<emphasis id="strong1023" effect="bold">
+Will explain in fragments
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1032">
+I will explain the code 
+	for this program in fragments. Complete listings of the MXML code and the 
+	ActionScript code are provided in Listing 10 and Listing 11 near the end of 
+	the lesson.
+
+</para>
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="The_MXML_code" effect="bold">
+
+The 
+MXML code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1033">
+The MXML code is shown in 
+Listing 1 and also in Listing 10 for your convenience.
+
+</para>
+
+
+
+
+
+<example id="listing1000" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+MXML code for the project named Sound03.
+</title>
+
+
+
+
+
+
+
+<code id="pre1000" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!--
+This project is intended to demonstrate the use of sound 
+with ActionScript. See the file named Driver.as for more
+information
+--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+<para id="p1034">
+As is often the case in this series of tutorial lessons, the MXML file is 
+very simple because the program was coded almost entirely in ActionScript. The 
+MXML code simply instantiates an object of the 
+
+<emphasis id="strong1024" effect="bold">
+Driver
+
+</emphasis>
+ class. 
+From that point forward, the behavior of the program is controlled by 
+ActionScript code.
+
+</para>
+
+
+	
+
+</section>
+<section id="h21004">
+<title>
+
+	
+
+<emphasis id="The_ActionScript_code" effect="bold">
+
+The ActionScript code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1035">
+<emphasis id="strong1025" effect="bold">
+Import directives for the Driver class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1036">
+The code for the 
+
+<emphasis id="strong1026" effect="bold">
+Driver
+
+</emphasis>
+ class begins in Listing 2, which shows the 
+package declaration and the import directives.
+
+</para>
+
+
+	
+
+
+<example id="listing1001" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Import directives for the Driver class
+</title>
+
+
+
+
+
+
+
+<code id="pre1001" display="block">package CustomClasses{
+  import flash.display.Bitmap;
+  import mx.containers.Canvas;
+  import mx.controls.Image;
+  import mx.events.FlexEvent;
+  import flash.events.TimerEvent;
+  import flash.utils.Timer;
+  import flash.media.Sound;
+  import flash.net.URLRequest;
+  import flash.media.SoundChannel;
+  import flash.events.Event;
+</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1027" effect="bold">
+New to this lesson
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1038">
+The directives to import the 
+
+<emphasis id="strong1028" effect="bold">
+Sound
+
+</emphasis>
+ class, the
+
+
+<emphasis id="strong1029" effect="bold">
+URLRequest
+
+</emphasis>
+ class, the 
+
+<emphasis id="strong1030" effect="bold">
+SoundChannel
+
+</emphasis>
+ class, and 
+possibly the 
+
+<emphasis id="strong1031" effect="bold">
+Event
+
+</emphasis>
+ class are all new to this lesson.
+
+</para>
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1032" effect="bold">
+Beginning of the Driver class proper
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1040">
+The definition of the 
+
+<emphasis id="strong1033" effect="bold">
+Driver
+
+</emphasis>
+ class begins in Listing 
+3.
+
+</para>
+
+
+
+
+<example id="listing1002" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+Beginning of the Driver class proper.
+</title>
+
+
+
+
+
+
+
+<code id="pre1002" display="block">  public class Driver extends Canvas {
+    //Extending Canvas makes it possible to locate
+    // images with absolute coordinates. The default
+    // location is 0,0;
+    
+    private var smallSky:Image = new Image();    
+
+    //Instantiate a Timer object that will fire ten events
+    // per second.
+    private var timer:Timer = new Timer(100);
+    
+    //Declare a counter that will keep track of the number
+    // of timer events that have been fired.
+    private var loopCntr:uint;
+    
+    //Declare variables for the four sounds.
+    private var sizzle:Sound;
+    private var thunder:Sound;
+    private var wind:Sound;
+    private var rain:Sound;
+    
+    //Declare variables that are used to control when the
+    // thunder sound is played.
+    private var channel:SoundChannel;
+    private var sizzlePlaying:Boolean = false;
+</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1034" effect="bold">
+Nothing new here
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1042">
+There is nothing new in Listing 3. I will call your attention to the 
+declaration of variables of type 
+
+<emphasis id="strong1035" effect="bold">
+Sound
+
+</emphasis>
+ and 
+
+<emphasis id="strong1036" effect="bold">
+SoundChannel
+
+</emphasis>
+. 
+Otherwise, no explanation beyond the embedded comments should be required.
+
+</para>
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1037" effect="bold">
+The constructor for the Driver class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1044">
+The constructor for the 
+
+<emphasis id="strong1038" effect="bold">
+Driver
+
+</emphasis>
+ class is shown in its 
+entirety in Listing 4.
+
+</para>
+
+
+
+
+<example id="listing1003" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+The constructor for the Driver class.
+</title>
+
+
+
+
+
+
+
+<code id="pre1003" display="block">    public function Driver(){//constructor
+      //Load the sky image.
+      //Note the use of a / to eliminate the "Unable to 
+      // resolve asset for transcoding" Compiler Error
+      [Embed("/smallsky.jpg")]
+      var imgSmall:Class;
+      smallSky.load(imgSmall);
+      
+      //Load four sound files and play two of them now.
+      sizzle = new Sound();
+      sizzle.load(new URLRequest("sizzle.mp3"));
+      
+      thunder = new Sound();
+      thunder.load(new URLRequest("thunder.mp3"));
+      
+      wind = new Sound();
+      wind.load(new URLRequest("wind.mp3"));
+      //Play the wind sound through twice at startup.
+      wind.play(0,2);
+      
+      rain = new Sound();
+      rain.load(new URLRequest("rain.mp3"));
+      //Play the rain sound forever
+      rain.play(0,int.MAX_VALUE);   
+      
+      //Register an event listener on the CREATION_
+      // COMPLETE event.
+      this.addEventListener(FlexEvent.CREATION_COMPLETE,
+                                 creationCompleteHandler);
+    } //end constructor
+</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+<para id="p1045">
+There are quite a few things in Listing 4 that are new to this lesson.
+
+</para>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1039" effect="bold">
+Embed the image file
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1047">
+Although the code required to embed the image file in the swf file is not new 
+to this lesson, it is worth highlighting the need to include the slash character 
+to make the code compatible with the FlashDevelop IDE.
+
+</para>
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1040" effect="bold">
+Load the sizzle sound
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1049">
+Listing 4 instantiates a new 
+
+<emphasis id="strong1041" effect="bold">
+Sound
+
+</emphasis>
+ object and stores the 
+object's 
+reference in the instance variable named 
+
+<emphasis id="strong1042" effect="bold">
+sizzle
+
+</emphasis>
+. Then it calls 
+the 
+
+<emphasis id="strong1043" effect="bold">
+load
+
+</emphasis>
+ method on that object to load the contents of the 
+sound file named 
+
+<emphasis id="strong1044" effect="bold">
+sizzle.mp3
+
+</emphasis>
+ into the new 
+
+<emphasis id="strong1045" effect="bold">
+Sound
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1046" effect="bold">
+The load method of the Sound class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1051">
+Here is part of what the
+
+
+<link id="a1035" url="http://livedocs.adobe.com/flash/9.0/ActionScriptLangRefV3/flash/media/Sound.html#load%28%29">
+
+
+documentation
+
+</link>
+
+ has to say about the 
+
+<emphasis id="strong1047" effect="bold">
+load
+
+</emphasis>
+ 
+method of the class named 
+
+<emphasis id="strong1048" effect="bold">
+Sound
+
+</emphasis>
+:
+
+</para>
+
+
+
+
+<quote id="blockquote1002" display="block">
+<emphasis id="em1008" effect="italics">
+"Initiates loading of an external MP3 file from the specified 
+URL. If you provide a valid URLRequest object to the Sound constructor, the 
+constructor calls Sound.load() for you. You only need to call Sound.load() 
+yourself if you don't pass a valid URLRequest object to the Sound constructor or 
+you pass a null value. 
+
+</emphasis>
+</quote>
+
+
+
+
+<quote id="blockquote1003" display="block">
+
+	
+
+<emphasis id="em1009" effect="italics">
+Once load() is called on a Sound object, you can't later load a 
+	different sound file into that Sound object. To load a different sound file, 
+	create a new Sound object."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1052">
+Because I didn't provide a 
+
+<emphasis id="strong1049" effect="bold">
+URLRequest
+
+</emphasis>
+ object to the 
+constructor when I instantiated the object of the 
+
+<emphasis id="strong1050" effect="bold">
+Sound
+
+</emphasis>
+ class, 
+it was necessary for me to call the 
+
+<emphasis id="strong1051" effect="bold">
+load
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1052" effect="bold">
+
+Sound
+
+</emphasis>
+ object to load the sound file named 
+
+<emphasis id="strong1053" effect="bold">
+sizzle.mp3
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1054" effect="bold">
+Required parameter for the load method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1054">
+Only one parameter is required by the 
+
+<emphasis id="strong1055" effect="bold">
+load
+
+</emphasis>
+ method and it 
+must be of type 
+
+<emphasis id="strong1056" effect="bold">
+URLRequest
+
+</emphasis>
+. To make a long story short, at 
+least for the case where the sound file is located in the 
+
+<emphasis id="strong1057" effect="bold">
+src
+
+</emphasis>
+ 
+folder as shown in Figure 2, you can create the required 
+
+<emphasis id="strong1058" effect="bold">
+URLRequest
+
+</emphasis>
+ 
+object by calling the constructor for the 
+
+<emphasis id="strong1059" effect="bold">
+URLRequest
+
+</emphasis>
+ class and 
+passing the name of the sound file as a 
+
+<emphasis id="strong1060" effect="bold">
+String
+
+</emphasis>
+ parameter to the 
+constructor as shown in Listing 4.
+
+</para>
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1061" effect="bold">
+Don't play the sizzle sound yet
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1056">
+The sizzle sound and the thunder sound are both encapsulated in 
+
+<emphasis id="strong1062" effect="bold">
+Sound
+
+</emphasis>
+ 
+objects by the constructor in Listing 4. However, those sounds are not played by 
+the constructor.
+
+</para>
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1063" effect="bold">
+Encapsulate and play the wind wound
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1058">
+Listing 4 uses similar code to encapsulate the contents of the file named
+
+
+<emphasis id="strong1064" effect="bold">
+wind.mp3
+
+</emphasis>
+ in an object of type 
+
+<emphasis id="strong1065" effect="bold">
+Sound
+
+</emphasis>
+ referred 
+to by the instance variable named 
+
+<emphasis id="strong1066" effect="bold">
+wind
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1059">
+Then Listing 4 calls the 
+
+<emphasis id="strong1067" effect="bold">
+play
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1068" effect="bold">
+wind
+
+</emphasis>
+ 
+object to cause the wind sound to be played from beginning to end twice when the 
+program first starts running. 
+
+<emphasis id="em1010" effect="italics">
+(It will be played again later at random 
+times.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1069" effect="bold">
+The play method of the Sound class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1061">
+Here is part of what the
+
+
+<link id="a1036" url="http://livedocs.adobe.com/flash/9.0/ActionScriptLangRefV3/flash/media/Sound.html#play%28%29">
+
+
+documentation
+
+</link>
+
+ has to say about the 
+
+<emphasis id="strong1070" effect="bold">
+play
+
+</emphasis>
+ method of the
+
+
+<emphasis id="strong1071" effect="bold">
+Sound
+
+</emphasis>
+ class:
+
+</para>
+
+
+
+
+<quote id="blockquote1004" display="block">
+<emphasis id="em1011" effect="italics">
+"Generates a new SoundChannel object to play back the sound. 
+This method returns a SoundChannel object, which you access to stop the sound 
+and to monitor volume. (To control the volume, panning, and balance, access the 
+SoundTransform object assigned to the sound channel.) "
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1062">
+In other words, the play method causes the sound to start playing through a
+
+
+<emphasis id="strong1072" effect="bold">
+SoundChannel
+
+</emphasis>
+ object, which you can manipulate to achieve 
+various effects.
+
+</para>
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1073" effect="bold">
+Didn't save a reference to SoundChannel object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1064">
+Because I didn't have any need to manipulate the wind sound by way of the
+
+
+<emphasis id="strong1074" effect="bold">
+SoundChannel
+
+</emphasis>
+ object, I didn't capture and save a reference to 
+the object returned by the 
+
+<emphasis id="strong1075" effect="bold">
+play
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1076" effect="bold">
+Parameters of the play method of the Sound class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1066">
+The 
+
+<emphasis id="strong1077" effect="bold">
+play
+
+</emphasis>
+ method has three parameters, each of which has a 
+default value. By default 
+
+<emphasis id="em1012" effect="italics">
+(and this doesn't seem to agree with the 
+documentation)
+
+</emphasis>
+, if you call the 
+
+<emphasis id="strong1078" effect="bold">
+play
+
+</emphasis>
+ method on a 
+
+<emphasis id="strong1079" effect="bold">
+
+Sound
+
+</emphasis>
+ object and don't pass any parameters, the sound encapsulated in 
+the object will be played once, starting at the beginning of the sound.
+
+</para>
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1080" effect="bold">
+The first parameter
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1068">
+The first parameter is the initial position in milliseconds at which playback 
+should start. The default value for this parameter is 0, which causes the sound 
+to start at the beginning by default.
+
+</para>
+
+
+
+
+<para id="p1069">
+As is always the case with default parameters, if you want to provide a 
+non-default value for the second parameter, you must also provide a value for 
+the first parameter. When the 
+
+<emphasis id="strong1081" effect="bold">
+play
+
+</emphasis>
+ method is called on the
+
+
+<emphasis id="strong1082" effect="bold">
+wind
+
+</emphasis>
+ sound in Listing 4, a value of 0 is passed as the first 
+parameter to cause the sound to play from the beginning.
+
+</para>
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1083" effect="bold">
+The second parameter
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1071">
+Instead of telling you what the documentation seems to say about the second 
+parameter, I'm going to tell you how the second parameter behaves, which doesn't 
+seem to agree with the documentation.
+
+</para>
+
+
+
+
+<para id="p1072">
+The value of the second parameter defines the number of times the sound will 
+be played before the sound channel stops playback. For example, a value of 2 is 
+passed as the second parameter when the 
+
+<emphasis id="strong1084" effect="bold">
+play
+
+</emphasis>
+ method is called 
+on the 
+
+<emphasis id="strong1085" effect="bold">
+wind
+
+</emphasis>
+ sound in Listing 4. This parameter, in conjunction 
+with the first parameter, causes the 
+
+<emphasis id="strong1086" effect="bold">
+wind
+
+</emphasis>
+ sound to be played through twice from the beginning 
+to the end when 
+the program starts running.
+
+</para>
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1087" effect="bold">
+Rain, rain, go away: not any time soon
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1074">
+The maximum possible integer value is passed as the second parameter when the 
+
+<emphasis id="strong1088" effect="bold">
+play
+
+</emphasis>
+  method is called on the 
+
+<emphasis id="strong1089" effect="bold">
+rain
+
+</emphasis>
+ sound in 
+Listing 4. This causes the rain sound to play over and over for a length of time 
+that is probably longer than anyone would want to listen to it.
+
+</para>
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1090" effect="bold">
+A CREATION_COMPLETE event listener
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1076">
+The last statement in the constructor in Listing 4 registers a 
+
+<emphasis id="strong1091" effect="bold">
+
+CREATION_COMPLETE
+
+</emphasis>
+ event handler on the 
+
+<emphasis id="strong1092" effect="bold">
+Canvas
+
+</emphasis>
+ object. 
+You are already familiar with event listeners of this type. The code for the 
+listener is shown in its entirety in Listing 5.
+
+</para>
+
+
+
+
+<example id="listing1004" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+A CREATION_COMPLETE event handler.
+</title>
+
+
+
+
+
+
+
+<code id="pre1004" display="block">    private function creationCompleteHandler(
+                          event:mx.events.FlexEvent):void{
+      
+      //Set the width and height of the Canvas object
+      // based on the size of the bitmap in the smallSky
+      // image.
+      this.width = Bitmap(smallSky.content).width;
+      this.height = Bitmap(smallSky.content).height;
+      
+      //Add the image to this Canvas object.
+      this.addChild(smallSky);
+      
+      //Register a timer listener and start the timer
+      // running.
+      timer.addEventListener(TimerEvent.TIMER, onTimer);
+      timer.start();      
+
+    } //end creationCompleteHandler
+</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+<para id="p1077">
+As you learned in earlier lessons, this handler method is executed when 
+the 
+
+<emphasis id="strong1093" effect="bold">
+Canvas
+
+</emphasis>
+ object has been fully created.
+
+</para>
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1094" effect="bold">
+Nothing new here
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1079">
+There is nothing new in Listing 5. The code in Listing 5:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1032">
+Sets the width and the height of the 
+
+<emphasis id="strong1095" effect="bold">
+Canvas
+
+</emphasis>
+ object to match the width 
+	and the height of the image that is displayed while the program is running.
+
+</item>
+
+
+	
+
+<item id="li1033">
+Adds the image to the 
+
+<emphasis id="strong1096" effect="bold">
+Canvas
+
+</emphasis>
+ object.
+
+</item>
+
+
+	
+
+<item id="li1034">
+Registers an event listener on the 
+
+<emphasis id="strong1097" effect="bold">
+Timer
+
+</emphasis>
+ object that 
+	was instantiated in Listing 3 and starts the timer running to fire ten 
+	events per second.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1098" effect="bold">
+Beginning of the TIMER event handler
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1081">
+The event handler that is registered on the 
+
+<emphasis id="strong1099" effect="bold">
+Timer
+
+</emphasis>
+ object 
+begins in Listing 6. This method is executed each time the 
+
+<emphasis id="strong1100" effect="bold">
+Timer
+
+</emphasis>
+ 
+object fires an event.
+
+</para>
+
+
+
+
+<example id="listing1005" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Beginning of the Timer event handler.
+</title>
+
+
+
+
+
+
+
+<code id="pre1005" display="block">    public function onTimer(event:TimerEvent):void {
+      
+      //Update the loop counter.
+      loopCntr++;
+      if (loopCntr == int.MAX_VALUE - 1) {
+        //Guard against numeric overflow.
+        loopCntr = 0;
+      }//end if
+</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1101" effect="bold">
+Update the loop counter
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1083">
+Among other things, the code in the 
+
+<emphasis id="strong1102" effect="bold">
+Timer
+
+</emphasis>
+ event handler 
+maintains a count of the number of events that have been fired by the timer. The 
+code in Listing 6 increments the timer each time the event-handler method is 
+executed, and sets the value back to zero when it reaches a very large value to 
+guard against binary overflow.
+
+</para>
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1103" effect="bold">
+Play an occasional wind sound
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1085">
+According to the code in Listing 3, the 
+
+<emphasis id="strong1104" effect="bold">
+Timer
+
+</emphasis>
+ object will 
+fire an event every 100 milliseconds, or ten times per second. That causes the 
+event handler to be called ten times per second.
+
+</para>
+
+
+
+
+<para id="p1086">
+The code in Listing 7 uses the modulus operator to identify every 25th call 
+to the event handler. This occurs approximately once every 2.5 seconds, 
+depending on the accuracy of the timer.
+
+</para>
+
+
+
+
+<example id="listing1006" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+Play an occasional wind sound.
+</title>
+
+
+
+
+
+
+
+<code id="pre1006" display="block">      if ((loopCntr % 25 == 0) &amp;&amp; (Math.random() &gt; 0.75)){
+        wind.play();
+      }//end if
+</code>
+
+
+
+
+</example>
+
+
+
+
+
+	
+
+<para id="p1087">
+<emphasis id="strong1105" effect="bold">
+Let the wind blow: or maybe not
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1088">
+When the code in Listing 7 determines that 2.5 seconds have passed since the 
+last attempt to play the 
+
+<emphasis id="strong1106" effect="bold">
+wind
+
+</emphasis>
+ sound, it gets a random value of 
+type 
+
+<emphasis id="strong1107" effect="bold">
+Number
+
+</emphasis>
+ with a value between 0 and 1.0. If that random 
+value is greater than 0.75, it calls the 
+
+<emphasis id="strong1108" effect="bold">
+play
+
+</emphasis>
+ method on the
+
+
+<emphasis id="strong1109" effect="bold">
+wind
+
+</emphasis>
+ sound to cause the sound to be played once from start to 
+finish.
+
+</para>
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1110" effect="bold">
+One wind sound every ten seconds on average
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1090">
+Assuming that the random values are uniformly distributed, about one out of 
+every four random values will be greater than 0.75. Therefore, the wind sound 
+should be played about once every ten seconds on average.
+
+</para>
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1111" effect="bold">
+Play an occasional sizzle sound
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1092">
+Listing 8 uses a similar process to play an occasional sizzle sound. Listing 
+8 also causes the sizzle sound to be 
+followed immediately by a clap of thunder.
+
+</para>
+
+
+
+
+<example id="listing1007" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_8" effect="bold">
+</emphasis>
+Play an occasional sizzle sound.
+</title>
+
+
+
+
+
+
+
+<code id="pre1007" display="block">      if ((loopCntr % 35 == 0) &amp;&amp; (Math.random() &gt; 0.5) 
+                            &amp;&amp; (sizzlePlaying == false)) {
+        //Don't play another sizzle sound until this one 
+        // finishes.
+        sizzlePlaying = true;
+        
+        //Play the sizzle sound and get a reference to the
+        // SoundChannel object through which it is being
+        // played.
+        channel = sizzle.play();
+        
+        //Register an event listener that will be called
+        // when the sizzle sound finishes playing.
+        channel.addEventListener(
+              Event.SOUND_COMPLETE, soundCompleteHandler);
+      }//end if
+      
+    }//end onTimer
+</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1112" effect="bold">
+Save the SoundChannel reference
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1094">
+Listing 8 saves the 
+
+<emphasis id="strong1113" effect="bold">
+SoundChannel
+
+</emphasis>
+ reference returned by the
+
+
+<emphasis id="strong1114" effect="bold">
+play
+
+</emphasis>
+ method in an instance variable named
+
+<emphasis id="strong1115" effect="bold">
+ channel
+
+</emphasis>
+ 
+when the 
+
+<emphasis id="strong1116" effect="bold">
+play
+
+</emphasis>
+ method is called to play the 
+
+<emphasis id="strong1117" effect="bold">
+sizzle
+
+</emphasis>
+ 
+sound.
+
+</para>
+
+
+
+
+<para id="p1095">
+<emphasis id="strong1118" effect="bold">
+Don't corrupt the reference to the SoundChannel object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1096">
+In order to preclude the possibility of corrupting this reference by changing 
+its value while the sound is playing, Listing 8 uses a
+
+<emphasis id="strong1119" effect="bold">
+ Boolean
+
+</emphasis>
+ 
+instance variable named
+
+<emphasis id="strong1120" effect="bold">
+ sizzlePlaying
+
+</emphasis>
+ to guarantee that a new 
+sizzle sound is not played before the previous one finishes.
+
+</para>
+
+
+
+
+<para id="p1097">
+The value of 
+
+<emphasis id="strong1121" effect="bold">
+sizzlePlaying
+
+</emphasis>
+ is set to true when the sizzle 
+sound starts playing in Listing 8 and is set to false later when the sizzle 
+sound finishes playing. Because the value of 
+
+<emphasis id="strong1122" effect="bold">
+sizzlePlaying
+
+</emphasis>
+ is 
+tested by the conditional clause in the 
+
+<emphasis id="strong1123" effect="bold">
+if
+
+</emphasis>
+ statement in Listing 
+8, that conditional clause will never return true while 
+
+<emphasis id="strong1124" effect="bold">
+sizzlePlaying
+
+</emphasis>
+ 
+is true.
+
+</para>
+
+
+
+
+<para id="p1098">
+<emphasis id="strong1125" effect="bold">
+Register a SOUND_COMPLETE event handler
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1099">
+The 
+
+<emphasis id="strong1126" effect="bold">
+SoundChannel
+
+</emphasis>
+ object fires a 
+
+<emphasis id="strong1127" effect="bold">
+SOUND_COMPLETE
+
+</emphasis>
+ 
+event when the sound that it is playing finishes. Listing 8 registers an event 
+listener on the 
+
+<emphasis id="strong1128" effect="bold">
+SoundChannel
+
+</emphasis>
+ object that is called each time 
+the sizzle sound finishes playing. As you will see shortly, the code in the 
+event handler sets the value of 
+
+<emphasis id="strong1129" effect="bold">
+sizzlePlaying
+
+</emphasis>
+ to false and also 
+causes the thunder sound to be played as soon as the sizzle sound finishes.
+
+</para>
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1130" effect="bold">
+The SOUND_COMPLETE event handler
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1101">
+The 
+
+<emphasis id="strong1131" effect="bold">
+SOUND_COMPLETE
+
+</emphasis>
+ event handler is shown in its entirety in 
+Listing 9. This method is called each time the sizzle sound finishes playing.
+
+</para>
+
+
+
+
+<example id="listing1008" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_9" effect="bold">
+</emphasis>
+The SOUND_COMPLETE event handler.
+</title>
+
+
+
+
+
+
+
+<code id="pre1008" display="block">    private function soundCompleteHandler(e:Event):void {
+      //Allow another sizzle sound to be played now that 
+      // this one is finished.
+      sizzlePlaying = false;
+      //Play the thunder immediately following the end of
+      // the sizzle sound.
+      thunder.play();
+    }//end soundCompleteHandler
+    //--------------------------------------------------//
+        
+  } //end class
+} //end package</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+<para id="p1102">
+<emphasis id="strong1132" effect="bold">
+Allow another sizzle sound to be played
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1103">
+Listing 9 begins by setting the value of 
+
+<emphasis id="strong1133" effect="bold">
+sizzlePlaying
+
+</emphasis>
+ to 
+false. This makes it possible for the sizzle sound to be played again when the 
+other two expressions in the conditional clause of the 
+
+<emphasis id="strong1134" effect="bold">
+if
+
+</emphasis>
+ 
+statement in Listing 8 return true.
+
+</para>
+
+
+
+
+<para id="p1104">
+<emphasis id="strong1135" effect="bold">
+Play a thunder clap
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1105">
+Then Listing 9 calls the 
+
+<emphasis id="strong1136" effect="bold">
+play
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1137" effect="bold">
+thunder
+
+</emphasis>
+ 
+sound to cause the thunder sound to be played once immediately following the 
+completion of each sizzle sound.
+
+</para>
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1138" effect="bold">
+The end of the program
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1107">
+Listing 9 also signals the end of the 
+
+<emphasis id="strong1139" effect="bold">
+Driver
+
+</emphasis>
+ class and the 
+end of the program.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1108">
+I encourage you to
+
+
+<link id="a1037" target-id="Click">
+
+run
+
+</link>
+
+ this program from the web. 
+Then copy the code from Listing 10 and Listing 11. Use that code to 
+create your own project. Compile and run the project. Experiment with 
+the code, making changes, and observing the results of your changes. Make 
+certain that you can explain why your changes behave as they do. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1109">
+I will publish a list containing links to ActionScript resources as a 
+separate document. Search for ActionScript Resources in the 
+Connexions search box.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+ 
+
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1110">
+ Complete listings of the programs discussed in this lesson 
+are provided below.
+
+</para>
+
+
+
+
+
+<example id="listing1009" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_10" effect="bold">
+</emphasis>
+MXML code for the project named Sound03.
+</title>
+
+
+
+
+
+
+
+<code id="pre1009" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!--
+This project is intended to demonstrate the use of sound 
+with ActionScript. See the file named Driver.as for more
+information
+--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+<para id="p1111">
+</para>
+
+
+
+
+<example id="listing1010" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_11" effect="bold">
+</emphasis>
+Class named Driver for the project named  	Sound03.
+</title>
+
+
+
+
+
+
+
+<code id="pre1010" display="block">/*Project Sound03
+This project is intended to demonstrate the use of sound 
+with ActionScript. It also displays an image of a cloudy 
+sky but the only purpose of the image is to make it 
+obvious when the program starts running.
+
+This project plays the following sounds extracted from
+mp3 files.
+
+rain
+wind
+sizzle
+thunder
+
+The rain sound is continuous.
+
+The wind sound is played occasionally on the basis of a 
+random number generator.
+
+The sizzle sound is also played occasionally on the basis
+of a random number generator. As soon as the sizzle sound
+finishes, a thunder clap sound is played.
+
+Note that with FlashDevelop, you must manually put a copy
+of the sound files in the bin folder.
+*********************************************************/
+package CustomClasses{
+  import flash.display.Bitmap;
+  import mx.containers.Canvas;
+  import mx.controls.Image;
+  import mx.events.FlexEvent;
+  import flash.events.TimerEvent;
+  import flash.utils.Timer;
+  import flash.media.Sound;
+  import flash.net.URLRequest;
+  import flash.media.SoundChannel;
+  import flash.events.Event;
+  
+  //====================================================//
+  
+  public class Driver extends Canvas {
+    //Extending Canvas makes it possible to locate
+    // images with absolute coordinates. The default
+    // location is 0,0;
+    
+    private var smallSky:Image = new Image();    
+
+    //Instantiate a Timer object that will fire ten events
+    // per second.
+    private var timer:Timer = new Timer(100);
+    
+    //Declare a counter that will keep track of the number
+    // of timer events that have been fired.
+    private var loopCntr:uint;
+    
+    //Declare variables for the four sounds.
+    private var sizzle:Sound;
+    private var thunder:Sound;
+    private var wind:Sound;
+    private var rain:Sound;
+    
+    //Declare variables that are used to control when the
+    // thunder sound is played.
+    private var channel:SoundChannel;
+    private var sizzlePlaying:Boolean = false;
+    //--------------------------------------------------//
+    
+    public function Driver(){//constructor
+      //Load the sky image.
+      //Note the use of a / to eliminate the "Unable to 
+      // resolve asset for transcoding" Compiler Error
+      [Embed("/smallsky.jpg")]
+      var imgSmall:Class;
+      smallSky.load(imgSmall);
+      
+      //Load four sound files and play two of them now.
+      sizzle = new Sound();
+      sizzle.load(new URLRequest("sizzle.mp3"));
+      
+      thunder = new Sound();
+      thunder.load(new URLRequest("thunder.mp3"));
+      
+      wind = new Sound();
+      wind.load(new URLRequest("wind.mp3"));
+      //Play the wind sound through twice at startup.
+      wind.play(0,2);
+      
+      rain = new Sound();
+      rain.load(new URLRequest("rain.mp3"));
+      //Play the rain sound forever
+      rain.play(0,int.MAX_VALUE);   
+      
+      //Register an event listener on the CREATION_
+      // COMPLETE event.
+      this.addEventListener(FlexEvent.CREATION_COMPLETE,
+                                 creationCompleteHandler);
+    } //end constructor
+    //--------------------------------------------------//
+
+    //This handler method is executed when the Canvas has
+    // been fully created.
+    private function creationCompleteHandler(
+                          event:mx.events.FlexEvent):void{
+      
+      //Set the width and height of the Canvas object
+      // based on the size of the bitmap in the smallSky
+      // image.
+      this.width = Bitmap(smallSky.content).width;
+      this.height = Bitmap(smallSky.content).height;
+      
+      //Add the image to this Canvas object.
+      this.addChild(smallSky);
+      
+      //Register a timer listener and start the timer
+      // running.
+      timer.addEventListener(TimerEvent.TIMER, onTimer);
+      timer.start();      
+
+    } //end creationCompleteHandler
+    //--------------------------------------------------//
+    
+    //TimerEvent handler. This method is executed each
+    // time the Timer object fires an event.
+    public function onTimer(event:TimerEvent):void {
+      
+      //Update the loop counter.
+      loopCntr++;
+      if (loopCntr == int.MAX_VALUE - 1) {
+        //Guard against numeric overflow.
+        loopCntr = 0;
+      }//end if
+      
+      //Play an occasional wind sound.
+      if ((loopCntr % 25 == 0) &amp;&amp; (Math.random() &gt; 0.75)){
+        wind.play();
+      }//end if
+      
+      //Play an occasional sizzle sound followed 
+      // immediately by a clap of thunder.
+      if ((loopCntr % 35 == 0) &amp;&amp; (Math.random() &gt; 0.5) 
+                            &amp;&amp; (sizzlePlaying == false)) {
+        //Don't play another sizzle sound until this one 
+        // finishes.
+        sizzlePlaying = true;
+        //Play the sizzle sound and get a reference to the
+        // SoundChannel object through which it is being
+        // played.
+        channel = sizzle.play();
+        //Register an event listener that will be called
+        // when the sizzle sound finishes playing.
+        channel.addEventListener(
+              Event.SOUND_COMPLETE, soundCompleteHandler);
+      }//end if
+      
+    }//end onTimer
+    //--------------------------------------------------//
+    
+    //This method is called each time the sizzle sound
+    // finishes playing. Each time it is called, it plays
+    // a thunder sound.
+    private function soundCompleteHandler(e:Event):void {
+      //Allow another sizzle sound to be played now that 
+      // this one is finished.
+      sizzlePlaying = false;
+      //Play the thunder immediately following the end of
+      // the sizzle sound.
+      thunder.play();
+    }//end soundCompleteHandler
+    //--------------------------------------------------//
+        
+  } //end class
+} //end package</code>
+
+
+
+
+</example>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1112">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1003" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1140" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+
+
+<item id="li1035">
+Module name: Sound in ActionScript
+
+</item>
+
+
+
+
+<item id="li1036">
+Files:
+
+<list id="ul1010" list-type="bulleted">
+
+
+
+<item id="li1037">
+ActionScript00160\ActionScript00160.htm
+
+</item>
+
+
+
+
+<item id="li1038">
+ActionScript00160\Connexions\ActionScriptXhtml00160.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<note id="note1004" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1141" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1113">
+-end- 
+
+</para>
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

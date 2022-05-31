@@ -1,0 +1,4968 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Polymorphism - The Big Picture</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34447</md:content-id>
+  <md:title>Polymorphism - The Big Picture</md:title>
+  <md:abstract>Learn the essence of runtime polymorphism.</md:abstract>
+  <md:uuid>b2ebe9b6-b32a-49be-a4e4-301f7f7cc0c1</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="miscellaneous">
+
+
+  
+
+
+    
+
+
+      
+
+Click 
+
+<link id="a1000" url="Polymorph02.html">
+
+Polymorph02
+
+</link>
+
+  to run this ActionScript program. (Click the "Back" button in your browser to return to this page.)
+
+</note>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+  
+
+<item id="li1000">
+<link id="a1001" target-id="Preface">
+
+Preface
+
+</link>
+
+ 
+    
+
+<list id="ul1001" list-type="bulleted">
+
+      
+
+<item id="li1001">
+<link id="a1002" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1002">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+ 
+        
+
+<list id="ul1002" list-type="bulleted">
+
+          
+
+<item id="li1003">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+          
+
+<item id="li1004">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+        
+
+</list>
+
+
+      
+
+</item>
+
+
+      
+
+<item id="li1005">
+<link id="a1006" target-id="Supplementary_material">
+
+Supplemental material
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1006">
+<link id="a1007" target-id="GeneralBackgroundInformation">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1007">
+<link id="a1008" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1008">
+<link id="a1009" target-id="DiscussionandSamplePrograms">
+
+Discussion and sample code
+
+</link>
+
+
+    
+
+<list id="ul1003" list-type="bulleted">
+
+      
+
+<item id="li1009">
+<link id="a1010" target-id="The_file_named_Polymorph02.mxml">
+
+The file named 
+	  Polymorph02.mxml
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1010">
+<link id="a1011" target-id="The_file_named_Driver.as_">
+
+The file named Driver.as
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1011">
+<link id="a1012" target-id="The_file_named_MyShape.as">
+
+The file named MyShape.as
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1012">
+<link id="a1013" target-id="The_file_named_MyCircle.as">
+
+The file named MyCircle.as
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1013">
+<link id="a1014" target-id="The_file_named_MyRectangle.as">
+
+The file named MyRectangle.as
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1014">
+<link id="a1015" target-id="Runtheprogram">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1015">
+<link id="a1016" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1016">
+<link id="a1017" target-id="CompleteProgramListings">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1018" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+        
+
+<note id="note1001" type="miscellaneous">
+
+
+          
+
+
+            
+
+
+              
+
+All references to ActionScript in this lesson are 
+			  references to version 3 or later. 
+
+</note>
+
+            
+
+
+          
+
+
+
+        
+
+
+
+
+
+
+<para id="p1000">
+This tutorial lesson is part of a continuing series of lessons dedicated to 
+object-oriented programming 
+
+<emphasis id="em1000" effect="italics">
+(OOP)
+
+</emphasis>
+ with ActionScript.
+
+</para>
+
+
+
+
+
+<para id="p1001">
+<emphasis id="strong1000" effect="bold">
+The three main characteristics of an object-oriented 
+program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1002">
+Object-oriented programs exhibit three main characteristics:
+
+</para>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+  
+
+<item id="li1018">
+Encapsulation
+
+</item>
+
+
+  
+
+<item id="li1019">
+Inheritance
+
+</item>
+
+
+  
+
+<item id="li1020">
+Polymorphism
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1003">
+I explained both encapsulation and inheritance from a big-picture viewpoint 
+in previous lessons. 
+
+<emphasis id="em1001" effect="italics">
+(See 
+
+<link id="a1019" url="http://www.dickbaldwin.com/tocActionScript.htm">
+
+Baldwin's ActionScript 
+programming website
+
+</link>
+
+.)
+
+</emphasis>
+ There are two different ways to implement 
+polymorphism:
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+  
+
+<item id="li1021">
+Polymorphism based on class inheritance
+
+</item>
+
+
+  
+
+<item id="li1022">
+Polymorphism based on interface inheritance
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1004">
+I will explain and illustrate polymorphism based on class inheritance in this 
+lesson and will explain and illustrate polymorphism based on interface 
+inheritance in the next lesson.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1001" effect="bold">
+Several ways to create and launch ActionScript 
+programs
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1006">
+There are several ways to create and launch programs written in the 
+ActionScript programming language. Most of the lessons in this series will 
+use Adobe Flex as the launch pad for the sample ActionScript programs.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+An earlier lesson titled 
+
+<emphasis id="strong1002" effect="bold">
+The Default 
+Application Container
+
+</emphasis>
+ provided information on how to get started programming 
+with Adobe's Flex Builder 3. 
+
+<emphasis id="em1002" effect="italics">
+(See 
+
+<link id="a1020" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming website
+
+</link>
+
+.)
+
+</emphasis>
+ 
+You should study that lesson before embarking on the lessons in this series.
+
+</para>
+
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1003" effect="bold">
+Some understanding of Flex MXML will be required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1009">
+I also recommend that you study all of the lessons on 
+
+<link id="a1021" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming website
+
+</link>
+
+ 
+in parallel with your study of these ActionScript lessons. Eventually you 
+will probably need to understand both ActionScript and Flex and the 
+relationships that exist between them in order to become a successful 
+ActionScript programmer. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1004" effect="bold">
+Will emphasize ActionScript code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+It is often possible to use either ActionScript code or Flex MXML code to 
+achieve the same result. Insofar as this series of lessons is concerned, 
+the emphasis will be on ActionScript code even in those cases where Flex MXML 
+code may be a suitable alternative.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1012">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily find and view the figures and 
+listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+  
+
+<item id="li1023">
+<link id="a1022" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. File structure for Polymorph02.
+
+</item>
+
+
+  
+
+<item id="li1024">
+<link id="a1023" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Program output at startup.
+
+</item>
+
+
+  
+
+<item id="li1025">
+<link id="a1024" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Sample output from area method of a 
+  MyShape object.
+
+</item>
+
+
+  
+
+<item id="li1026">
+<link id="a1025" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Sample output from area method of a 
+  MyCircle object.
+
+</item>
+
+
+  
+
+<item id="li1027">
+<link id="a1026" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Sample output from area method of a 
+  MyRectangle object.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+  
+
+<item id="li1028">
+<link id="a1027" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Source code for the file named 
+  Polymorph02.mxml.
+
+</item>
+
+
+  
+
+<item id="li1029">
+<link id="a1028" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class named Driver.
+
+</item>
+
+
+  
+
+<item id="li1030">
+<link id="a1029" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The constructor for the class named 
+  Driver.
+
+</item>
+
+
+  
+
+<item id="li1031">
+<link id="a1030" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Beginning of the method named 
+  buttonHandler.
+
+</item>
+
+
+  
+
+<item id="li1032">
+<link id="a1031" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Instantiate an object.
+
+</item>
+
+
+  
+
+<item id="li1033">
+<link id="a1032" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Call the area method on the object.
+
+</item>
+
+
+  
+
+<item id="li1034">
+<link id="a1033" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. The class named MyShape.
+
+</item>
+
+
+  
+
+<item id="li1035">
+<link id="a1034" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. The class named MyCircle.
+
+</item>
+
+
+  
+
+<item id="li1036">
+<link id="a1035" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Listing of the file named 
+  Polymorph02.mxml. 
+
+</item>
+
+
+  
+
+<item id="li1037">
+<link id="a1036" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Listing of the file named Driver.as.
+
+</item>
+
+
+  
+
+<item id="li1038">
+<link id="a1037" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Listing of the file named 
+  MyShape.as.
+
+</item>
+
+
+  
+
+<item id="li1039">
+<link id="a1038" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Listing of the file named 
+  MyCircle.as.
+
+</item>
+
+
+  
+
+<item id="li1040">
+<link id="a1039" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Listing of the file named 
+  MyRectangle.as
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Supplementary_material" effect="bold">
+
+Supplemental material
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1013">
+I recommend that you also study the other lessons in my extensive collection 
+of online programming tutorials. You will find a consolidated index at 
+
+<link id="a1040" url="http://www.dickbaldwin.com/toc.htm">
+
+www.DickBaldwin.com
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="GeneralBackgroundInformation" effect="bold">
+
+General background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1014">
+The first of three major characteristics of an object-oriented program is 
+encapsulation, which I explained in a previous lesson. The second of the three 
+major characteristics is inheritance, and the third is polymorphism. I 
+also explained inheritance in a previous lesson. I will explain 
+polymorphism from a big-picture viewpoint in this lesson.
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1005" effect="bold">
+Not as complicated as it sounds
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1016">
+Upon first reading, you may conclude that polymorphism sounds extremely 
+complicated. However, polymorphism is more difficult to explain than it is 
+to program. Once you have read the description and have seen the concept 
+applied to an actual program, you will 
+
+<emphasis id="em1003" effect="italics">
+(hopefully)
+
+</emphasis>
+ conclude that it is 
+not as complicated as it sounds.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1006" effect="bold">
+What is polymorphism?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+Polymorphism is a word taken from the Greek, meaning "many forms", or words 
+to that effect. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+The purpose of polymorphism as it applies to OOP is to allow one name to be 
+used to specify a general class of actions. Within that general class of 
+actions, the specific action that is applied in any particular situation is 
+determined by the type of data involved. 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+Polymorphism in ActionScript comes into play when inherited methods are 
+overridden to cause them to behave differently for different types of subclass 
+objects. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1007" effect="bold">
+Overriding versus overloading methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1022">
+If you read much in the area of OOP, you will find the words 
+
+<emphasis id="em1004" effect="italics">
+override
+
+</emphasis>
+
+and 
+
+<emphasis id="em1005" effect="italics">
+overload
+
+</emphasis>
+ used frequently. 
+
+<emphasis id="em1006" effect="italics">
+(This lesson deals with overriding 
+methods and does not deal with overloading.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+Some programming languages such as C++, Java, and C# support a concept known 
+as method or constructor overloading. However, ActionScript 3 does not 
+support method or constructor overloading. Overriding a method is an 
+entirely different thing from overloading a method even for those languages that 
+support overloading.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1008" effect="bold">
+Modify the behavior of an inherited method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1025">
+Polymorphism can exist when a subclass modifies or customizes the behavior of 
+a method inherited from its superclass in order to meet the special requirements 
+of objects instantiated from the subclass. This is known as
+
+
+<emphasis id="em1007" effect="italics">
+overriding 
+
+</emphasis>
+ a method and requires the use of the 
+
+<emphasis id="strong1009" effect="bold">
+override
+
+</emphasis>
+ keyword 
+in ActionScript.
+
+</para>
+
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1010" effect="bold">
+Override methods differently for different 
+subclasses
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+ActionScript supports the notion of 
+
+<emphasis id="em1008" effect="italics">
+overriding 
+
+</emphasis>
+ a method inherited 
+from a superclass to cause the named method to behave differently when called on 
+objects of different subclasses, each of which extends the same superclass and 
+overrides the same method name.
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1011" effect="bold">
+Example - compute the area of different geometrical 
+shapes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+For example, consider the computation of the area of a geometrical shape in a 
+situation where the type of geometrical shape is not known when the program is 
+compiled. Polymorphism is a tool that can be used to handle this 
+situation.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1012" effect="bold">
+Circle and Rectangle extend Shape
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+Assume that classes named 
+
+<emphasis id="strong1013" effect="bold">
+Circle
+
+</emphasis>
+ and 
+
+<emphasis id="strong1014" effect="bold">
+Rectangle
+
+</emphasis>
+ each extend a 
+class named 
+
+<emphasis id="strong1015" effect="bold">
+Shape
+
+</emphasis>
+. Assume that the 
+
+<emphasis id="strong1016" effect="bold">
+Shape
+
+</emphasis>
+ class defines a 
+method named 
+
+<emphasis id="strong1017" effect="bold">
+area
+
+</emphasis>
+. Assume further that the 
+
+<emphasis id="strong1018" effect="bold">
+area
+
+</emphasis>
+ method is 
+properly overridden in the 
+
+<emphasis id="strong1019" effect="bold">
+Circle
+
+</emphasis>
+ and 
+
+<emphasis id="strong1020" effect="bold">
+Rectangle
+
+</emphasis>
+ classes to return 
+the correct area for a circle or a rectangle respectively.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1021" effect="bold">
+Three types of objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+In this case, a 
+
+<emphasis id="strong1022" effect="bold">
+Circle
+
+</emphasis>
+ object is a 
+
+<emphasis id="strong1023" effect="bold">
+Shape
+
+</emphasis>
+ object because the
+
+
+<emphasis id="strong1024" effect="bold">
+Circle
+
+</emphasis>
+ class extends the 
+
+<emphasis id="strong1025" effect="bold">
+Shape
+
+</emphasis>
+ class. Similarly, a
+
+
+<emphasis id="strong1026" effect="bold">
+Rectangle
+
+</emphasis>
+ object is also a 
+
+<emphasis id="strong1027" effect="bold">
+Shape
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+Therefore, an object of the 
+
+<emphasis id="strong1028" effect="bold">
+Shape
+
+</emphasis>
+ class, the 
+
+<emphasis id="strong1029" effect="bold">
+Circle
+
+</emphasis>
+ class, or 
+the 
+
+<emphasis id="strong1030" effect="bold">
+Rectangle
+
+</emphasis>
+ class can be instantiated and any one of the three can be 
+saved in a variable of type 
+
+<emphasis id="strong1031" effect="bold">
+Shape
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1032" effect="bold">
+Flip a virtual random coin
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1036">
+Assume that the program flips a virtual coin and, depending on the outcome of 
+the flip, instantiates an object of either the 
+
+<emphasis id="strong1033" effect="bold">
+Circle
+
+</emphasis>
+ class or the
+
+
+<emphasis id="strong1034" effect="bold">
+Rectangle
+
+</emphasis>
+ class and saves it in a variable of type 
+
+<emphasis id="strong1035" effect="bold">
+Shape
+
+</emphasis>
+. 
+Assuming that the coin flip is truly random, the compiler cannot possibly know 
+at compile time which type of object will be stored in the variable at runtime.
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1036" effect="bold">
+<emphasis id="Two_versions_of_the_area_method" effect="bold">
+
+Two 
+versions of the area method
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+Regardless of which type of object is stored in the variable, the object will 
+contain two versions of the method named 
+
+<emphasis id="strong1037" effect="bold">
+area
+
+</emphasis>
+. One version is the 
+version that is defined in the 
+
+<emphasis id="strong1038" effect="bold">
+Shape
+
+</emphasis>
+ class, and this version will be the 
+same regardless of whether the object is a circle or a rectangle.
+
+</para>
+
+
+
+
+
+<para id="p1039">
+Also, this version can't return a valid area because a general shape doesn't 
+have a valid area. However, if the area method is defined to return a 
+value, even this version must return a value even if it isn't valid. 
+
+<emphasis id="em1009" effect="italics">
+
+(Other programming languages get around this problem with something called an 
+abstract class, which isn't allowed in ActionScript 3.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1040">
+The other version of the 
+
+<emphasis id="strong1039" effect="bold">
+area
+
+</emphasis>
+ method will be different for a
+
+
+<emphasis id="strong1040" effect="bold">
+Circle
+
+</emphasis>
+ object and a 
+
+<emphasis id="strong1041" effect="bold">
+Rectangle
+
+</emphasis>
+ object due simply to the fact the 
+algorithm for computing the area of a circle is different from the algorithm for 
+computing the area of a rectangle.
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1042" effect="bold">
+Call the area method on the object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1042">
+If the program calls the 
+
+<emphasis id="strong1043" effect="bold">
+area
+
+</emphasis>
+ method on the object stored in the 
+variable of type 
+
+<emphasis id="strong1044" effect="bold">
+Shape
+
+</emphasis>
+ at runtime, the correct version of the
+
+
+<emphasis id="strong1045" effect="bold">
+area
+
+</emphasis>
+ method will be selected and executed and will return the correct 
+area for the type of object stored in that variable. This is 
+
+<emphasis id="em1010" effect="italics">
+runtime 
+polymorphism
+
+</emphasis>
+ based on method overriding.
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1046" effect="bold">
+A more general description of runtime polymorphism
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1044">
+A reference variable of a superclass type can be used to reference an object 
+instantiated from any subclass of the superclass.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+If an overridden method in a subclass object is called using a 
+superclass-type reference variable, the system will determine, at runtime, which 
+version of the method to use based on the true type of the object, and not based 
+on the type of reference variable used to call the method.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1047" effect="bold">
+The general rule
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+The type of the reference determines the names of the methods that can be 
+called on the object. The actual type of the object determines which of 
+possibly several methods having the same name will be executed.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1048" effect="bold">
+Selection at runtime
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+Therefore, it is possible 
+
+<emphasis id="em1011" effect="italics">
+(at runtime)
+
+</emphasis>
+ to select among a family of 
+overridden methods and determine which method to execute based on the type of 
+the subclass object pointed to by the superclass-type reference when the 
+overridden method is called on the superclass-type reference.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1049" effect="bold">
+Runtime polymorphism
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+In some situations, it is possible to identify and call an overridden method 
+at runtime that cannot be identified at compile time. In those situations, 
+the identification of the required method cannot be made until the program is 
+actually running. This is often referred to as 
+
+<emphasis id="em1012" effect="italics">
+late binding
+
+</emphasis>
+, 
+
+<emphasis id="em1013" effect="italics">
+dynamic 
+binding
+
+</emphasis>
+, or 
+
+<emphasis id="em1014" effect="italics">
+run-time polymorphism
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1050" effect="bold">
+Project file structure
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1053">
+Figure 1 shows the project file structure for the Flex project named
+
+
+<emphasis id="strong1051" effect="bold">
+Polymorph02
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+
+
+
+
+
+
+
+
+<title>
+<emphasis id="Figure_1" effect="bold">
+</emphasis>
+File structure for Polymorph02.
+</title>
+
+
+
+
+
+
+
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/as0110a.jpg" width="250" height="267"/>
+</media>
+
+
+<caption>File structure for Polymorph02.</caption>
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1054">
+The image in Figure 1 was captured from the Flex Navigator panel of Flex 
+Builder 3.
+
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1052" effect="bold">
+Program output at startup
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<para id="p1056">
+Figure 2 shows the program output at startup. 
+
+</para>
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+
+
+
+
+
+
+
+
+<title>
+<emphasis id="Figure_2" effect="bold">
+</emphasis>
+Program output at startup.
+</title>
+
+
+
+
+
+
+
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/as0110b.jpg" width="280" height="329"/>
+</media>
+
+
+<caption>Program output at startup.</caption>
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1053" effect="bold">
+The program GUI
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+As you can see, the program GUI consists of a label, a button and an empty 
+text area. Each time the user clicks the button, an object is 
+instantiated, and information about that object 
+
+<emphasis id="em1015" effect="italics">
+(similar to the information 
+shown in Figure 3)
+
+</emphasis>
+ is displayed in the text area.
+
+</para>
+
+
+
+
+<figure id="figure1002" type="figure">
+<label>Figure</label>
+
+
+
+
+
+
+
+
+
+
+<title>
+<emphasis id="Figure_3" effect="bold">
+</emphasis>
+Sample output from area method of a MyShape  object.
+</title>
+
+
+
+
+
+
+
+<media id="media1002" alt="Missing image" display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/as0110c.jpg" width="280" height="329"/>
+</media>
+
+
+<caption>Sample output from area method of a MyShape  object.</caption>
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1054" effect="bold">
+Program class definitions
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+This program defines the following four classes as shown in the folder named
+
+
+<emphasis id="strong1055" effect="bold">
+CustomClasses
+
+</emphasis>
+ in Figure 1:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+  
+
+<item id="li1041">
+<emphasis id="strong1056" effect="bold">
+Driver
+
+</emphasis>
+</item>
+
+
+  
+
+<item id="li1042">
+<emphasis id="strong1057" effect="bold">
+MyCircle
+
+</emphasis>
+</item>
+
+
+  
+
+<item id="li1043">
+<emphasis id="strong1058" effect="bold">
+MyRectangle
+
+</emphasis>
+</item>
+
+
+  
+
+<item id="li1044">
+<emphasis id="strong1059" effect="bold">
+MyShape
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1061">
+As the name implies, the 
+
+<emphasis id="strong1060" effect="bold">
+Driver
+
+</emphasis>
+ class is the driver for the entire 
+program. For example, it creates the GUI shown in Figure 2 at startup and 
+updates the GUI each time the user clicks the 
+
+<emphasis id="strong1061" effect="bold">
+GO
+
+</emphasis>
+ button as shown in 
+Figure 3.
+
+</para>
+
+
+
+
+
+<para id="p1062">
+The classes named 
+
+<emphasis id="strong1062" effect="bold">
+MyCircle
+
+</emphasis>
+ and 
+
+<emphasis id="strong1063" effect="bold">
+MyRectangle
+
+</emphasis>
+ each extend the 
+class named 
+
+<emphasis id="strong1064" effect="bold">
+MyShape
+
+</emphasis>
+. Therefore, specialized shape objects can be 
+instantiated from these two classes.
+
+</para>
+
+
+
+
+
+<para id="p1063">
+The class named 
+
+<emphasis id="strong1065" effect="bold">
+MyShape
+
+</emphasis>
+ defines an instance method named 
+
+<emphasis id="strong1066" effect="bold">
+area
+
+</emphasis>
+, 
+which returns the text shown in Figure 3 each time it is executed.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1067" effect="bold">
+Sample output from area method of a MyCircle object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+The class named 
+
+<emphasis id="strong1068" effect="bold">
+MyCircle
+
+</emphasis>
+ overrides the inherited 
+
+<emphasis id="strong1069" effect="bold">
+area
+
+</emphasis>
+ method to 
+return a text string similar to that shown in Figure 4 each time it is executed.
+
+</para>
+
+
+
+ 
+
+
+
+<figure id="figure1003" type="figure">
+<label>Figure</label>
+
+
+
+
+
+
+
+
+
+
+<title>
+<emphasis id="Figure_4" effect="bold">
+</emphasis>
+Sample output from area method of a MyCircle  object.
+</title>
+
+
+
+
+
+
+
+<media id="media1003" alt="Missing image" display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/as0110d.jpg" width="280" height="329"/>
+</media>
+
+
+<caption>Sample output from area method of a MyCircle  object.</caption>
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1070" effect="bold">
+The radius is a random value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1067">
+Note, however, that the value of radius is established from a random number 
+generator each time an object of the 
+
+<emphasis id="strong1071" effect="bold">
+MyCircle
+
+</emphasis>
+ class is instantiated, so 
+the actual values for 
+
+<emphasis id="em1016" effect="italics">
+Radius
+
+</emphasis>
+ and 
+
+<emphasis id="em1017" effect="italics">
+Area
+
+</emphasis>
+ in Figure 4 will change each 
+time the button is clicked.
+
+</para>
+
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1072" effect="bold">
+Sample output from area method of a MyRectangle 
+object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+The class named 
+
+<emphasis id="strong1073" effect="bold">
+MyRectangle
+
+</emphasis>
+ also overrides the inherited 
+
+<emphasis id="strong1074" effect="bold">
+area
+
+</emphasis>
+
+method to return a text string similar to that shown in Figure 5 each time it is 
+executed.
+
+</para>
+
+
+
+ 
+
+
+
+<figure id="figure1004" type="figure">
+<label>Figure</label>
+
+
+
+
+
+
+
+
+
+
+<title>
+<emphasis id="Figure_5" effect="bold">
+</emphasis>
+Sample output from area method of a  MyRectangle object.
+</title>
+
+
+
+
+
+
+
+<media id="media1004" alt="Missing image" display="block">
+<image id="img1004" mime-type="image/jpeg" src="../../media/as0110e.jpg" width="280" height="329"/>
+</media>
+
+
+<caption>Sample output from area method of a  MyRectangle object.</caption>
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1075" effect="bold">
+Width and height are random values
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1071">
+Once again, however, the values of Width and Height are established from a 
+random number generator each time an object of the 
+
+<emphasis id="strong1076" effect="bold">
+MyRectangle
+
+</emphasis>
+ class is 
+instantiated, so the actual values for 
+
+<emphasis id="em1018" effect="italics">
+Width
+
+</emphasis>
+, 
+
+<emphasis id="em1019" effect="italics">
+Height
+
+</emphasis>
+, and
+
+
+<emphasis id="em1020" effect="italics">
+Area
+
+</emphasis>
+ in Figure 5 will change each time the button is clicked.
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1077" effect="bold">
+A click event handler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+A 
+
+<emphasis id="strong1078" effect="bold">
+click
+
+</emphasis>
+ event handler is registered on the button shown in Figure 5. 
+Each time the button is clicked, the event handler uses the output from a random 
+number generator to instantiate an object of one of the 
+
+
+<emphasis id="following_classes" effect="bold">
+
+following classes
+
+</emphasis>
+
+ and 
+saves it in a variable of type 
+
+<emphasis id="strong1079" effect="bold">
+MyShape
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+  
+
+<item id="li1045">
+<emphasis id="strong1080" effect="bold">
+MyShape
+
+</emphasis>
+</item>
+
+
+  
+
+<item id="li1046">
+<emphasis id="strong1081" effect="bold">
+MyCircle
+
+</emphasis>
+</item>
+
+
+  
+
+<item id="li1047">
+<emphasis id="strong1082" effect="bold">
+MyRectangle
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1083" effect="bold">
+Multiple versions of the method named area
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1075">
+As I explained 
+
+<link id="a1041" target-id="Two_versions_of_the_area_method">
+
+earlier
+
+</link>
+
+, an 
+object of the 
+
+<emphasis id="strong1084" effect="bold">
+MyShape
+
+</emphasis>
+ class will contain one version of the 
+
+<emphasis id="strong1085" effect="bold">
+area
+
+</emphasis>
+
+method, but objects of the other two classes will each contain two versions of 
+the 
+
+<emphasis id="strong1086" effect="bold">
+area
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1076">
+One version of the method is common among all three objects, and that is the 
+version that returns the text shown in Figure 3. 
+
+</para>
+
+
+
+
+
+<para id="p1077">
+However, the other version in each of the 
+
+<emphasis id="strong1087" effect="bold">
+MyCircle
+
+</emphasis>
+ and
+
+
+<emphasis id="strong1088" effect="bold">
+MyRectangle
+
+</emphasis>
+ classes is unique to its class returning values similar to 
+those shown in Figure 4 and Figure 5.
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1089" effect="bold">
+No selection requirement for object of type MyShape
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1079">
+When the
+
+<emphasis id="strong1090" effect="bold">
+area
+
+</emphasis>
+ method is called on an object of the 
+
+<emphasis id="strong1091" effect="bold">
+MyShape
+
+</emphasis>
+
+class, there is no requirement to select a 
+
+<emphasis id="em1021" effect="italics">
+"correct"
+
+</emphasis>
+ version of the 
+method because that object only contains one version of the method.
+
+</para>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1092" effect="bold">
+Polymorphism kicks in...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1081">
+Because the 
+
+<emphasis id="strong1093" effect="bold">
+area
+
+</emphasis>
+ method is defined in the 
+
+<emphasis id="strong1094" effect="bold">
+MyShape
+
+</emphasis>
+ class and 
+overridden in the 
+
+<emphasis id="strong1095" effect="bold">
+MyCircle
+
+</emphasis>
+ class and the 
+
+<emphasis id="strong1096" effect="bold">
+MyRectangle
+
+</emphasis>
+ class, and 
+because the objects of the 
+
+<emphasis id="strong1097" effect="bold">
+MyCircle
+
+</emphasis>
+ class and the 
+
+<emphasis id="strong1098" effect="bold">
+MyRectangle
+
+</emphasis>
+
+class are saved as type 
+
+<emphasis id="strong1099" effect="bold">
+MyShape
+
+</emphasis>
+, polymorphism kicks in when the
+
+
+<emphasis id="strong1100" effect="bold">
+area
+
+</emphasis>
+ method is called on those objects. The overridden method is 
+selected for execution in those cases where the object contains an overridden 
+version of the method.
+
+</para>
+
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1101" effect="bold">
+Could easily expand the shape system
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1083">
+Because of polymorphism, I could easily expand this system of shapes by 
+defining new classes for new shapes 
+
+<emphasis id="em1022" effect="italics">
+(such as triangle, octagon, hexagon, 
+etc.)
+
+</emphasis>
+, without any requirement to modify the 
+
+<emphasis id="strong1102" effect="bold">
+MyShape
+
+</emphasis>
+ class, the
+
+
+<emphasis id="strong1103" effect="bold">
+MyCircle
+
+</emphasis>
+ class, or the 
+
+<emphasis id="strong1104" effect="bold">
+MyRectangle
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1084">
+Assuming that I cause the classes for the new shapes to extend the
+
+
+<emphasis id="strong1105" effect="bold">
+MyShape
+
+</emphasis>
+ class and properly override the 
+
+<emphasis id="strong1106" effect="bold">
+area
+
+</emphasis>
+ method to return the 
+correct values, I could then instantiate objects of the new classes, save them 
+as type 
+
+<emphasis id="strong1107" effect="bold">
+MyShape
+
+</emphasis>
+, call the 
+
+<emphasis id="strong1108" effect="bold">
+area
+
+</emphasis>
+ method on those new objects and 
+expect the correct version of the 
+
+<emphasis id="strong1109" effect="bold">
+area
+
+</emphasis>
+ method to be executed.
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1110" effect="bold">
+The most powerful concept...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1086">
+This is runtime polymorphism in all its glory, and is probably the most 
+powerful concept in all of OOP.
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="DiscussionandSamplePrograms" effect="bold">
+
+
+</emphasis>
+
+Discussion 
+and sample code
+
+</title>
+
+
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1111" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1088">
+I will discuss the code in the five files shown in Figure 1 in fragments. 
+Complete listings of those files are provided in Listing 9 through Listing 13 
+near the end of the lesson.
+
+</para>
+
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="The_file_named_Polymorph02.mxml" effect="bold">
+
+The file named Polymorph02.mxml
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1089">
+The complete MXML code for the file named 
+
+<emphasis id="strong1112" effect="bold">
+Polymorph02.mxml
+
+</emphasis>
+ is provided 
+in Listing 1 and also in Listing 9.
+
+</para>
+
+
+
+
+
+<example id="listing1000" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+Source code for the file named  	  Polymorph02.mxml.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1000" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;!--Illustrates polymorphism.--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1090">
+In keeping with my objective of emphasizing ActionScript programming rather 
+than Flex MXML programming in this series of tutorial lessons, this program is 
+written almost entirely in ActionScript. The MXML file serves simply as a 
+launch pad for the program by instantiating an object of the class named
+
+
+<emphasis id="strong1113" effect="bold">
+Driver
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="The_file_named_Driver.as_" effect="bold">
+
+The file named Driver.as
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1091">
+A complete listing of this file is provided in Listing 10 near the end of the 
+lesson. The class named 
+
+<emphasis id="strong1114" effect="bold">
+Driver
+
+</emphasis>
+ begins in Listing 2.
+
+</para>
+
+
+
+
+
+<example id="listing1001" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Beginning of the class named  	  Driver.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1001" display="block">package CustomClasses{
+  import flash.events.*;
+  
+  import mx.containers.VBox;
+  import mx.controls.Button;
+  import mx.controls.Label;
+  import mx.controls.TextArea;
+  
+  public class Driver extends VBox{
+    private var textArea:TextArea = new TextArea();
+
+    </code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1115" effect="bold">
+A Driver object is a VBox object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1093">
+The class named 
+
+<emphasis id="strong1116" effect="bold">
+Driver
+
+</emphasis>
+ extends the 
+
+<emphasis id="strong1117" effect="bold">
+VBox
+
+</emphasis>
+ class. As a 
+result, components added to the objects are arranged vertically with left 
+justification as shown in Figure 2.
+
+</para>
+
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1118" effect="bold">
+The TextArea object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1095">
+Listing 2 instantiates the 
+
+<emphasis id="strong1119" effect="bold">
+TextArea
+
+</emphasis>
+ object shown in Figure 2 and saves 
+its reference in an instance variable named 
+
+<emphasis id="strong1120" effect="bold">
+textArea
+
+</emphasis>
+. The reference 
+was saved in an instance variable to make it available to both the constructor 
+and a 
+
+<emphasis id="strong1121" effect="bold">
+click
+
+</emphasis>
+ event handler method later.
+
+</para>
+
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1122" effect="bold">
+The constructor for the class named Driver
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1097">
+The constructor for the class named 
+
+<emphasis id="strong1123" effect="bold">
+Driver
+
+</emphasis>
+ is shown in Listing 3.
+
+</para>
+
+
+
+
+
+<example id="listing1002" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+The constructor for the class  	  named Driver.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1002" display="block">    public function Driver(){//constructor
+      var label:Label = new Label();
+      label.text = "Polymorphism Demonstration";
+      label.setStyle("fontSize",14);
+      label.setStyle("color",0xFFFF00);
+      addChild(label);
+      
+      var button:Button = new Button();
+      button.label = "GO";
+      addChild(button);
+      
+      textArea.width = 200;
+      textArea.height = 70;
+      addChild(textArea);
+      
+      button.addEventListener(
+                         MouseEvent.CLICK,buttonHandler);
+    }//end constructor</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1098">
+<emphasis id="strong1124" effect="bold">
+Nothing new here
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1099">
+I don't believe there is anything in Listing 3 that you haven't seen in 
+previous lessons. The code in the constructor simply constructs the GUI 
+pictured in Figure 2.
+
+</para>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1125" effect="bold">
+A click event handler method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1101">
+Probably the most important thing to note about listing 3 is the registration 
+of the 
+
+<emphasis id="strong1126" effect="bold">
+click
+
+</emphasis>
+ event handler method named
+
+
+<emphasis id="strong1127" effect="bold">
+buttonHandler
+
+</emphasis>
+ on the button shown in Figure 2. Once the GUI is 
+constructed, further action occurs only when the user clicks the button, causing 
+the method named 
+
+<emphasis id="strong1128" effect="bold">
+buttonHandler
+
+</emphasis>
+ to be executed.
+
+</para>
+
+
+
+
+
+<para id="p1102">
+<emphasis id="strong1129" effect="bold">
+Beginning of the method named buttonHandler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1103">
+The method named 
+
+<emphasis id="strong1130" effect="bold">
+buttonHandler
+
+</emphasis>
+ begins in Listing 4. This method 
+is executed each time the user clicks the button shown in Figure 2.
+
+</para>
+
+
+
+
+
+<example id="listing1003" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+Beginning of the method named  	  buttonHandler.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1003" display="block">    private function buttonHandler(
+                                  event:MouseEvent):void{
+      var randomChoice:Number = Math.random();
+      
+      var radius:uint = uint(10*Math.random() + 1);
+      var width:uint = uint(10*Math.random() + 1);
+      var height:uint = uint(10*Math.random() + 1);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1104">
+<emphasis id="strong1131" effect="bold">
+Four local variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1105">
+The most interesting thing in Listing 4 is the declaration and population of 
+the following four local variables:
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+  
+
+<item id="li1048">
+<emphasis id="strong1132" effect="bold">
+<emphasis id="randomChoice" effect="bold">
+
+randomChoice
+
+</emphasis>
+
+
+</emphasis>
+</item>
+
+
+  
+
+<item id="li1049">
+<emphasis id="strong1133" effect="bold">
+radius
+
+</emphasis>
+</item>
+
+
+  
+
+<item id="li1050">
+<emphasis id="strong1134" effect="bold">
+width
+
+</emphasis>
+</item>
+
+
+  
+
+<item id="li1051">
+<emphasis id="strong1135" effect="bold">
+height
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1136" effect="bold">
+A random value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1107">
+The variable named 
+
+<emphasis id="strong1137" effect="bold">
+randomChoice
+
+</emphasis>
+ is of type 
+
+<emphasis id="strong1138" effect="bold">
+Number
+
+</emphasis>
+ and is 
+populated with the return value from a call to the 
+
+<emphasis id="strong1139" effect="bold">
+random
+
+</emphasis>
+ method of the
+
+
+<emphasis id="strong1140" effect="bold">
+Math
+
+</emphasis>
+ class. The documentation tells us that this method:
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+  
+
+<para id="p1108">
+<emphasis id="em1023" effect="italics">
+"Returns a pseudo-random number n, where 0 LTE n LT 1. The number returned 
+  is calculated in an undisclosed manner, and pseudo-random because the 
+  calculation inevitably contains some element of non-randomness."
+
+</emphasis>
+</para>
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1109">
+Note that LTE and LT represent 
+
+<emphasis id="em1024" effect="italics">
+"less than or equal"
+
+</emphasis>
+ and 
+
+<emphasis id="em1025" effect="italics">
+"less 
+than"
+
+</emphasis>
+ respectively. 
+
+<emphasis id="em1026" effect="italics">
+(Lots of problems arise from including angle 
+brackets and ampersands in html text so I avoid doing that when I can.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1141" effect="bold">
+A fractional random value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1111">
+Thus, the return value is a fractional value that is greater than or equal to 
+zero and less than 1.0. This value will be used later to decide which type 
+of object to instantiate.
+
+</para>
+
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1142" effect="bold">
+Three more random values
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1113">
+The last three variables in the above 
+
+<link id="a1042" target-id="randomChoice">
+
+list
+
+</link>
+
+ are 
+also populated with random values, but not with fractional values in the range 
+from 0 to 0.999... Instead, these variables are populated with unsigned 
+integer values in the range of 1 to 10 inclusive. This is accomplished by 
+multiplying the original random value by 10, adding 1 to that product, and 
+casting the result to an unsigned integer.
+
+</para>
+
+
+
+
+
+<para id="p1114">
+<emphasis id="strong1143" effect="bold">
+A local variable of type MyShape
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1115">
+Listing 5 begins by declaring a variable of type 
+
+<emphasis id="strong1144" effect="bold">
+MyShape
+
+</emphasis>
+ that will be 
+used to hold a reference to an object instantiated from one of the following 
+classes: 
+
+<emphasis id="strong1145" effect="bold">
+MyShape
+
+</emphasis>
+, 
+
+<emphasis id="strong1146" effect="bold">
+MyCircle
+
+</emphasis>
+, or 
+
+<emphasis id="strong1147" effect="bold">
+MyRectangle
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<example id="listing1004" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+Instantiate an object.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1004" display="block">      var myShape:MyShape;
+      
+      if(randomChoice &lt; 0.33333){
+        myShape = new MyShape();
+      }else if(randomChoice &lt; 0.66666){
+        myShape = new MyCircle(radius);
+      }else{
+        myShape = new MyRectangle(width,height);
+      }//end else</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1116">
+<emphasis id="strong1148" effect="bold">
+Instantiate an object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1117">
+Then Listing 5 uses the random value stored in the variable named
+
+
+<emphasis id="strong1149" effect="bold">
+randomChoice
+
+</emphasis>
+ to make a decision and to instantiate an object of one of 
+the three classes listed 
+
+<link id="a1043" target-id="following_classes">
+
+above
+
+</link>
+
+. The decision as to 
+which type of object to instantiate and store in the variable named 
+
+<emphasis id="strong1150" effect="bold">
+myShape
+
+</emphasis>
+ 
+is completely random and completely unknown to the compiler when the program is 
+compiled.
+
+</para>
+
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1151" effect="bold">
+Random values for radius, width, and height
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1119">
+Note also that Listing 5 also uses the other values stored in the other 
+variables in the above 
+
+<link id="a1044" target-id="randomChoice">
+
+list
+
+</link>
+
+ to specify the radius of 
+the circle, or to specify the width and the height of the rectangle.
+
+</para>
+
+
+
+
+
+<para id="p1120">
+<emphasis id="strong1152" effect="bold">
+Call the area method on the object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1121">
+Finally, 
+
+<emphasis id="em1027" effect="italics">
+(and this is the essence of runtime polymorphism)
+
+</emphasis>
+, Listing 
+6 calls the 
+
+<emphasis id="strong1153" effect="bold">
+area
+
+</emphasis>
+ method on the randomly instantiated object and writes 
+the return value into the text area shown in Figure 2.
+
+</para>
+
+
+
+
+
+<example id="listing1005" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Call the area method on the  	  object.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1005" display="block">      textArea.text = myShape.area();
+    }//end buttonHandler
+
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1154" effect="bold">
+And the result will be...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1123">
+The result will be similar to Figure 3, Figure 4, or Figure 5, depending on 
+which type of object is instantiated and depending on the random values passed 
+for radius, width, and height.
+
+</para>
+
+
+
+
+
+<para id="p1124">
+<emphasis id="strong1155" effect="bold">
+The end of the class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1125">
+Listing 6 also signals the end of the class named 
+
+<emphasis id="strong1156" effect="bold">
+Driver
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="The_file_named_MyShape.as" effect="bold">
+
+The file named MyShape.as
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1126">
+The class named 
+
+<emphasis id="strong1157" effect="bold">
+MyShape
+
+</emphasis>
+ is shown in its entirety in Listing 7, and 
+also in Listing 11 near the end of the lesson.
+
+</para>
+
+
+
+
+
+<example id="listing1006" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+The class named MyShape.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1006" display="block">package CustomClasses{
+  public class MyShape{
+
+    public function area():String{
+      return "General Shape\n" + 
+             "Unable to compute area.";
+    }// end area method
+    
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1127">
+<emphasis id="strong1158" effect="bold">
+The sole purpose
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1128">
+The sole purpose of the class named 
+
+<emphasis id="strong1159" effect="bold">
+MyShape
+
+</emphasis>
+ is to serve as the root of 
+a hierarchy of more specialized shape classes and to provide a default version 
+of the 
+
+<emphasis id="strong1160" effect="bold">
+area
+
+</emphasis>
+ method that can be overridden in the subclasses.
+
+</para>
+
+
+
+
+
+<para id="p1129">
+The class accomplishes those things well, and beyond that, there isn't much 
+to say about the code in Listing 7. Note that the class doesn't even 
+define a constructor but instead uses the default constructor that is provided 
+by the compiler.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="The_file_named_MyCircle.as" effect="bold">
+
+The file named MyCircle.as
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1130">
+The class named 
+
+<emphasis id="strong1161" effect="bold">
+MyCircle
+
+</emphasis>
+ is shown in its entirety in Listing 8, and 
+also in Listing 12 near the end of the lesson.
+
+</para>
+
+
+
+
+
+<example id="listing1007" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_8" effect="bold">
+</emphasis>
+The class named MyCircle.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1007" display="block">package CustomClasses{
+  public class MyCircle extends MyShape{
+    private var radius:Number;
+  
+    public function MyCircle(radius:Number){//constructor
+      this.radius = radius;
+    }//end constructor
+  
+    override public function area():String{
+      return "Circle\n" + 
+             "Radius = " + radius + "\n" +
+             "Area = " + Math.PI * radius * radius;
+    }//end area
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1131">
+The class named 
+
+<emphasis id="strong1162" effect="bold">
+MyCircle
+
+</emphasis>
+ is only slightly more complicated than the 
+class named 
+
+<emphasis id="strong1163" effect="bold">
+MyShape
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1132">
+<emphasis id="strong1164" effect="bold">
+The constructor
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1133">
+The constructor for the class named 
+
+<emphasis id="strong1165" effect="bold">
+MyCircle
+
+</emphasis>
+ receives an incoming 
+value for the radius and saves that value in a private instance variable named
+
+
+<emphasis id="strong1166" effect="bold">
+radius
+
+</emphasis>
+. Saving the value in an instance variable makes it available 
+to the 
+
+<emphasis id="strong1167" effect="bold">
+area
+
+</emphasis>
+ method that will be executed later.
+
+</para>
+
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1168" effect="bold">
+Type coercion
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1135">
+Recall from Listing 4 and Listing 5 that the value that is actually passed to 
+the constructor is of type 
+
+<emphasis id="strong1169" effect="bold">
+uint
+
+</emphasis>
+, which is an unsigned integer. That 
+value is coerced to type 
+
+<emphasis id="strong1170" effect="bold">
+Number
+
+</emphasis>
+ by passing it as an argument that is 
+defined to be of type 
+
+<emphasis id="strong1171" effect="bold">
+Number
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1136">
+<emphasis id="strong1172" effect="bold">
+An overridden area method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1137">
+Note that the method named 
+
+<emphasis id="strong1173" effect="bold">
+area
+
+</emphasis>
+ is declared to be an 
+
+<emphasis id="strong1174" effect="bold">
+override.
+
+</emphasis>
+ This syntax is 
+required by ActionScript when a method in a subclass overrides an inherited 
+method.
+
+</para>
+
+
+
+
+
+<para id="p1138">
+<emphasis id="strong1175" effect="bold">
+Return a String object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1139">
+The code in the 
+
+<emphasis id="strong1176" effect="bold">
+area
+
+</emphasis>
+ method concatenates several individual strings
+
+
+<emphasis id="em1028" effect="italics">
+(including the computed area of the circle)
+
+</emphasis>
+ into a single 
+
+<emphasis id="strong1177" effect="bold">
+String
+
+</emphasis>
+
+object and returns a reference to that object. A sample of the returned 
+value is shown displayed in the text area of Figure 4.
+
+</para>
+
+
+
+
+
+<para id="p1140">
+<emphasis id="strong1178" effect="bold">
+Concatenation of strings with numeric values
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1141">
+The computed value of the area and the stored value of the radius are both 
+numeric values. When a numeric value is concatenated with a string, the 
+numeric value is coerced into a string of characters, decimal points, etc., and 
+the two strings are concatenated into a single string.
+
+</para>
+
+
+
+
+
+<para id="p1142">
+<emphasis id="strong1179" effect="bold">
+Computation of the area
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1143">
+As you can see in Listing 8, the area of the circle is computed as the square 
+of the radius multiplied by the constant PI. 
+
+<emphasis id="em1029" effect="italics">
+(Hopefully you recall that 
+formula from your high school geometry class.)
+
+</emphasis>
+ As mentioned earlier, 
+the resulting area value is concatenated with the string to its left where it 
+becomes part of the larger 
+
+<emphasis id="strong1180" effect="bold">
+String
+
+</emphasis>
+ object that is returned by the method.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="The_file_named_MyRectangle.as" effect="bold">
+
+The file named MyRectangle.as
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1144">
+The class named 
+
+<emphasis id="strong1181" effect="bold">
+MyRectangle
+
+</emphasis>
+ is so similar to the class named
+
+
+<emphasis id="strong1182" effect="bold">
+MyCircle
+
+</emphasis>
+ that it doesn't warrant a detailed explanation. A complete 
+listing of the file is provided in Listing 13 near the end of the lesson.
+
+</para>
+
+
+
+
+
+<para id="p1145">
+The constructor receives and saves numeric values for the width and the 
+height of the rectangle.
+
+</para>
+
+
+
+
+
+<para id="p1146">
+The overridden 
+
+<emphasis id="strong1183" effect="bold">
+area
+
+</emphasis>
+ method computes the area as the product of the 
+width and the height and concatenates that information into a returned
+
+
+<emphasis id="strong1184" effect="bold">
+String
+
+</emphasis>
+ object where it is displayed in the format shown in Figure 5. 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Runtheprogram" effect="bold">
+
+
+</emphasis>
+
+Run the program
+
+</title>
+
+
+
+
+
+
+
+<para id="p1147">
+I encourage you to 
+
+<link id="a1045" url="Polymorph02.html">
+
+run
+
+</link>
+
+ this program from the 
+web. Then copy the code from Listing 9 through Listing 13. Use that 
+code to create a Flex project. Compile and run the project. 
+Experiment with the code, making changes, and observing the results of your 
+changes. Make certain that you can explain why your changes behave as they 
+do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1148">
+I will publish a list containing links to ActionScript 
+resources as a separate document. Search for ActionScript Resources in the 
+Connexions search box.
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="CompleteProgramListings" effect="bold">
+
+
+</emphasis>
+
+Complete program listing
+
+</title>
+
+
+
+
+<para id="p1149">
+
+Complete listings of the Flex and ActionScript files used in this program are 
+provided in Listing 9 through Listing 13 below.
+
+</para>
+
+
+
+
+
+
+
+<example id="listing1008" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_9" effect="bold">
+</emphasis>
+Listing of the file named  	  Polymorph02.mxml.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1008" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;!--Illustrates polymorphism.--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1150">
+</para>
+
+
+
+
+
+<example id="listing1009" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_10" effect="bold">
+</emphasis>
+Listing of the file named  	  Driver.as.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1009" display="block">package CustomClasses{
+  import flash.events.*;
+  
+  import mx.containers.VBox;
+  import mx.controls.Button;
+  import mx.controls.Label;
+  import mx.controls.TextArea;
+  
+  public class Driver extends VBox{
+    private var textArea:TextArea = new TextArea();
+
+    
+    public function Driver(){//constructor
+      var label:Label = new Label();
+      label.text = "Polymorphism Demonstration";
+      label.setStyle("fontSize",14);
+      label.setStyle("color",0xFFFF00);
+      addChild(label);
+      
+      var button:Button = new Button();
+      button.label = "GO";
+      addChild(button);
+      
+      textArea.width = 200;
+      textArea.height = 70;
+      addChild(textArea);
+      
+      button.addEventListener(
+                         MouseEvent.CLICK,buttonHandler);
+    }//end constructor
+    
+    private function buttonHandler(
+                                  event:MouseEvent):void{
+      var randomChoice:Number = Math.random();
+      var radius:uint = uint(10*Math.random() + 1);
+      var width:uint = uint(10*Math.random() + 1);
+      var height:uint = uint(10*Math.random() + 1);
+      var myShape:MyShape;
+       
+      if(randomChoice &lt; 0.33333){
+        myShape = new MyShape();
+      }else if(randomChoice &lt; 0.66666){
+        myShape = new MyCircle(radius);
+      }else{
+        myShape = new MyRectangle(width,height);
+      }
+      textArea.text = myShape.area();
+    }//end buttonHandler
+
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1151">
+</para>
+
+
+
+
+
+<example id="listing1010" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_11" effect="bold">
+</emphasis>
+Listing of the file named  	  MyShape.as.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1010" display="block">package CustomClasses{
+  public class MyShape{
+
+    public function area():String{
+      return "General Shape\n" + 
+             "Unable to compute area.";
+    }// end area method
+  }//end class
+
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1152">
+</para>
+
+
+
+
+
+<example id="listing1011" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_12" effect="bold">
+</emphasis>
+Listing of the file named  	  MyCircle.as.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1011" display="block">package CustomClasses{
+  public class MyCircle extends MyShape{
+    private var radius:Number;
+  
+    public function MyCircle(radius:Number){//constructor
+      this.radius = radius;
+    }//end constructor
+  
+    override public function area():String{
+      return "Circle\n" + 
+             "Radius = " + radius + "\n" +
+             "Area = " + Math.PI * radius * radius;
+    }//end area
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1153">
+</para>
+
+
+
+
+
+<example id="listing1012" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_13" effect="bold">
+</emphasis>
+Listing of the file named  	  MyRectangle.as
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1012" display="block">package CustomClasses{
+  public class MyRectangle extends MyShape{
+    private var width:Number;
+    private var height:Number;
+  
+    public function MyRectangle(
+                width:Number,height:Number){//constructor
+      this.width = width;
+      this.height = height;
+    }//end constructor
+  
+    override public function area():String{
+      return "Rectangle\n" + 
+             "Width = " + width + "\n" +
+             "Height = " + height + "\n" +
+             "Area = " + width * height;
+    }//end area
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1154">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1002" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1185" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+
+
+<item id="li1052">
+Module name: Polymorphism - The Big Picture
+
+</item>
+
+
+
+
+<item id="li1053">
+Files:
+
+<list id="ul1012" list-type="bulleted">
+
+
+
+<item id="li1054">
+ActionScript0110\ActionScript0110.htm
+
+</item>
+
+
+
+
+<item id="li1055">
+ActionScript0110\Connexions\ActionScriptXhtml0110.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<note id="note1003" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1186" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+
+
+<para id="p1155">
+-end- 
+
+</para>
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

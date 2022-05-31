@@ -1,0 +1,1294 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>What is ActionScript and Why Should I Care?</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34441</md:content-id>
+  <md:title>What is ActionScript and Why Should I Care?</md:title>
+  <md:abstract>This tutorial lesson is the first in a continuing series of lessons dedicated to teaching object-oriented programming (OOP) with ActionScript.</md:abstract>
+  <md:uuid>5ce0b1d1-5b1b-428d-8529-0661ed9e7834</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+  
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1001">
+<link id="a1001" target-id="What_is_ActionScript">
+
+What is ActionScript?
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1002">
+<link id="a1002" target-id="Why_should_I_care">
+
+Why should I care?
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1003">
+<link id="a1003" target-id="Prerequisites_for_the_course">
+
+Prerequisites for study
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1004">
+<link id="a1004" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+      
+        
+
+
+
+
+<para id="p1000">
+This tutorial lesson is the first in a continuing 
+series of lessons dedicated to teaching object-oriented programming 
+
+<emphasis id="em1000" effect="italics">
+(OOP)
+
+</emphasis>
+ with 
+ActionScript. 
+ 
+
+</para>
+
+
+        
+
+<note id="note1000" type="miscellaneous">
+
+
+          
+
+
+            
+
+
+              
+
+Note that all references to ActionScript in this lesson are 
+        references to version 3 or later. 
+
+</note>
+
+            
+
+
+          
+
+
+
+        
+
+
+
+
+
+
+<para id="p1001">
+
+
+
+<emphasis id="strong1000" effect="bold">
+Developing ActionScript 
+programs
+ 
+
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1002">
+There are several ways to develop programs using 
+the ActionScript programming language. For most of the lessons in this 
+series, I will use Adobe's 
+
+
+<link id="a1006" url="http://www.adobe.com/products/flashbuilder/?sdid=FCLYC">
+
+Flash Builder 4
+
+</link>
+
+ 
+or the free
+
+
+<link id="a1007" url="http://www.flashdevelop.org/wikidocs/index.php?title=Main_Page">
+
+
+FlashDevelop
+
+</link>
+
+ as an integrated development environment 
+
+<emphasis id="em1001" effect="italics">
+(IDE)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+An earlier lesson titled 
+
+<emphasis id="strong1001" effect="bold">
+The Default 
+Application Container
+
+</emphasis>
+ provided information on how to get started programming 
+with Adobe's Flex Builder 3, which was the predecessor to Flash Builder 4. 
+
+<emphasis id="em1002" effect="italics">
+(See 
+
+<link id="a1008" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming website.
+
+</link>
+
+)
+
+</emphasis>
+ 
+You should read that lesson before embarking on the lessons in this series.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="What_is_ActionScript" effect="bold">
+
+What is ActionScript?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1004">
+According to the 
+
+<link id="a1009" url="http://www.adobe.com/devnet/actionscript/">
+
+ActionScript Technology Center,
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+"Adobe ActionScript is the programming language 
+of the Adobe Flash Platform. Originally developed as a way for developers to 
+program interactivity, ActionScript enables efficient programming of Adobe Flash 
+Platform applications for everything from simple animations to complex, 
+data-rich, interactive application interfaces.
+
+</quote>
+
+
+
+
+
+<quote id="blockquote1001" display="block">
+First introduced in Flash Player 9, ActionScript 
+3.0 is an object-oriented programming (OOP) language based on ECMAScript -- the 
+same standard that is the basis for JavaScript -- and provides incredible gains 
+in runtime performance and developer productivity."
+
+</quote>
+
+
+
+
+<para id="p1005">
+
+
+
+<emphasis id="strong1002" effect="bold">
+What is the Adobe Flash 
+Platform?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1006">
+According to 
+
+<link id="a1010" url="http://www.adobe.com/flashplatform/">
+
+Adobe Flash Platform
+
+</link>
+
+,
+
+</para>
+
+
+
+
+
+<quote id="blockquote1002" display="block">
+
+  
+
+<para id="p1007">
+"The Adobe Flash Platform is an integrated 
+  set of technologies surrounded by an established ecosystem of support 
+  programs, business partners, and enthusiastic user communities. Together, they 
+  provide everything you need to create and deliver the most compelling 
+  applications, content, and video to the widest possible audience."
+
+</para>
+
+
+
+
+</quote>
+
+
+
+
+
+<para id="p1008">
+The primary delivery mechanisms for applications 
+built with the Adobe Flash Platform are the 
+
+<link id="a1011" url="http://www.adobe.com/products/flashplayer/?promoid=DJDWD">
+
+Adobe Flash 
+Player
+
+</link>
+
+ and 
+
+<link id="a1012" url="http://www.adobe.com/products/air/?promoid=DJDTL">
+
+Adobe 
+Air
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1009">
+
+
+
+<emphasis id="strong1003" effect="bold">
+What is the Adobe Flash 
+Player?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+According to 
+
+<link id="a1013" url="http://www.adobe.com/products/flashplayer/?promoid=DJDWD">
+
+Adobe Flash 
+Player
+
+</link>
+
+,
+
+</para>
+
+
+
+
+
+<quote id="blockquote1003" display="block">
+
+  
+
+<para id="p1011">
+"Flash Player is a cross-platform browser 
+  plug-in that delivers breakthrough Web experiences to over 99% of Internet 
+  users."
+
+</para>
+
+
+
+
+</quote>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1004" effect="bold">
+What is Adobe Air?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+According to 
+
+<link id="a1014" url="http://www.adobe.com/products/air/?promoid=DJDTL">
+
+Adobe Air
+
+</link>
+
+,
+
+</para>
+
+
+
+
+
+<quote id="blockquote1004" display="block">
+
+  
+
+<para id="p1014">
+"The Adobe AIR runtime lets developers use 
+  proven web technologies to build rich Internet applications that run outside 
+  the browser on multiple operating systems."
+
+</para>
+
+
+
+
+</quote>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1005" effect="bold">
+What about game 
+programming?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1016">
+As of November 2009, a significant portion of the 
+game programming marketplace involved Flash games that are launched from 
+Facebook and similar social networking sites. According to the 
+
+<link id="a1015" url="http://www.adobe.com/devnet/facebook/">
+
+Adobe Facebook page
+
+</link>
+
+,
+
+
+</para>
+
+
+
+
+
+<quote id="blockquote1005" display="block">
+
+  
+
+<para id="p1017">
+"The Adobe Flash Platform and Facebook 
+  Platform provide the ideal solution for building rich, social experiences on 
+  the web. Flash is available on more than 98% of Internet-connected PCs, so 
+  people can immediately access the applications, content, and video that enable 
+  social interactions. The Facebook Platform is used by millions of people every 
+  day to connect and share with the people in their lives. Together, both 
+  platforms allow you to:
+
+</para>
+
+
+  
+
+<list id="ul1001" list-type="bulleted">
+
+    
+
+<item id="li1006">
+<emphasis id="strong1006" effect="bold">
+Share: 
+
+</emphasis>
+Create rich 
+  interactions for users to share with friends.
+
+</item>
+
+
+    
+
+<item id="li1007">
+<emphasis id="strong1007" effect="bold">
+Have fun: 
+
+</emphasis>
+Make games 
+  social; let users compete against their friends.
+
+</item>
+
+
+    
+
+<item id="li1008">
+<emphasis id="strong1008" effect="bold">
+Connect:
+
+</emphasis>
+ Let users 
+  connect to your RIAs with Facebook Connect.
+
+</item>
+
+
+    
+
+<item id="li1009">
+<emphasis id="strong1009" effect="bold">
+Solve problems:
+
+</emphasis>
+ Build 
+  RIAs that harness the power of community.
+
+</item>
+
+
+    
+
+<item id="li1010">
+<emphasis id="strong1010" effect="bold">
+Reach people: 
+
+</emphasis>
+Reach 
+  millions of Facebook users through social distribution.
+
+</item>
+
+
+  
+
+</list>
+
+
+
+  
+
+<para id="p1018">
+The new ActionScript 3.0 Client Library for 
+  Facebook Platform API, fully supported by Facebook and Adobe, makes it easy to 
+  build applications that combine the strengths of the Flash Platform and 
+  Facebook Platform."
+
+</para>
+
+
+
+
+</quote>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1011" effect="bold">
+What about 
+iPhone programming
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+According to Adobe Labs 
+
+<link id="a1016" url="http://labs.adobe.com/technologies/flashcs5/appsfor_iphone/">
+
+Applications 
+for iPhone
+
+</link>
+
+,
+
+</para>
+
+
+
+
+
+<quote id="blockquote1006" display="block">
+
+  
+
+<para id="p1021">
+"Flash Professional CS5 will 
+  enable you to build applications for iPhone and iPod touch using
+  
+
+<emphasis id="strong1012" effect="bold">
+ActionScript 3
+
+</emphasis>
+. These applications can be delivered to iPhone and iPod 
+  touch users through the Apple App Store.*
+
+</para>
+
+
+
+  
+
+<para id="p1022">
+A public beta of Flash Professional CS5 with 
+  prerelease support for building applications for iPhone is planned for later 
+  this year."
+
+</para>
+
+
+
+
+</quote>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Why_should_I_care" effect="bold">
+
+Why should I care?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1023">
+Adobe ActionScript is the programming language of 
+the Adobe Flash Platform.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+Applications developed with the Adobe Flash 
+Platform are primarily delivered to the client via the Adobe Flash Player.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+The Adobe Flash Player is a cross-platform 
+browser plug-in that delivers Web experiences to over 98% of Internet users.
+
+</para>
+
+
+
+
+
+<para id="p1026">
+Flash Professional CS5 will enable you to build 
+applications for iPhone and iPod touch using ActionScript 3.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+Therefore, if you want to learn a programming 
+language that allows you to tap into a market consisting of more than 98% of 
+Internet users or if you want to learn a programming language that will enable 
+you to build applications for iPhone and iPod touch, ActionScript may be the 
+programming language for you.
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1013" effect="bold">
+Examples of Rich 
+Internet Applications 
+
+<emphasis id="em1003" effect="italics">
+(RIAs)
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+Here are some websites that use Rich Internet 
+Applications built with the Adobe Flash Platform 
+
+<emphasis id="em1004" effect="italics">
+(November 2009)
+
+</emphasis>
+:
+
+</para>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+
+  
+
+<item id="li1011">
+<link id="a1017" url="http://www.adobe.com/flashplatform/">
+
+Adobe Flash Platform
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1012">
+<link id="a1018" url="http://www.adobe.com/products/flashplayer/?promoid=DJDWD">
+
+Adobe Flash 
+  Player
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1013">
+<link id="a1019" url="http://www.adobe.com/flashplatform/apps/directv/">
+
+Flash Platform and 
+  DIRECTV
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1014">
+<link id="a1020" url="http://www.adobe.com/flashplatform/apps/demandbase/">
+
+Flash Platform 
+  and Demandbase
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1015">
+<link id="a1021" url="http://www.adobe.com/flashplatform/apps/finetune/">
+
+Flash Platform and 
+  Finetune
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1016">
+<link id="a1022" url="http://www.adobe.com/flashplatform/apps/nasdaq/">
+
+Flash Platform and 
+  NASDAQ
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1017">
+<link id="a1023" url="http://www.adobe.com/flashplatform/apps/playfish/">
+
+Flash Platform and 
+  Playfish
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1018">
+<link id="a1024" url="http://www.adobe.com/flashplatform/apps/sap/">
+
+Flash Platform and SAP 
+  BusinessObjects Xcelsius
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1019">
+<link id="a1025" url="http://www.adobe.com/flashplatform/apps/sharp/">
+
+Flash Platform and 
+  Sharp Electronics
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1020">
+<link id="a1026" url="http://www.cnn.com/live/">
+
+CNN.com 
+  Live
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1021">
+<link id="a1027" url="http://interactive.foxnews.com/livestream/live.html">
+
+Fox News Live 
+  Stream
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1022">
+<link id="a1028" url="http://www.channelsurfing.net/watch-nbc.html">
+
+NBC - 
+  WWW.CHANNELSURFING.NET
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1014" effect="bold">
+Live streaming TV feeds
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+There are many other live streaming TV feeds that 
+were built with the Adobe Flash Platform. You can find them with a Google 
+search.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Prerequisites_for_the_course" effect="bold">
+
+Prerequisites for study
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1032">
+In the event that you will be studying this 
+material for the purpose of learning about OOP with ActionScript, there are a 
+few thing that you need to know.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1015" effect="bold">
+Not for beginners
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+First, this is not a beginners programming 
+course. In developing this material, I will assume that you already know 
+how to program in some procedural programming language and that you already 
+understand such fundamental concepts as programming logic, functions, parameter 
+passing, etc.
+
+</para>
+
+
+
+
+
+<para id="p1035">
+Instead, this series of lessons will be designed 
+to teach more advanced concepts involving object-oriented programming 
+
+<emphasis id="em1005" effect="italics">
+(OOP)
+
+</emphasis>
+
+using ActionScript.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1016" effect="bold">
+ActionScript 3 or later 
+will be required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+The lessons in this series will emphasize OOP and 
+will be based on ActionScript 3 or a later version. No attempt will be 
+made to achieve backward compatibility with ActionScript 1 or ActionScript 2.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1038">
+I will publish a list containing links to ActionScript 
+resources as a separate document. Search for ActionScript Resources in the 
+Connexions search box.
+
+</para>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1039">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1001" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1017" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+
+
+<item id="li1023">
+Module name: What is ActionScript and Why Should I care?
+
+</item>
+
+
+
+
+<item id="li1024">
+Files:
+
+<list id="ul1004" list-type="bulleted">
+
+
+
+<item id="li1025">
+ActionScript0102\ActionScript0102.htm
+
+</item>
+
+
+
+
+<item id="li1026">
+ActionScript0102\Connexions\ActionScriptXhtml0102.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<note id="note1002" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1018" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1040">
+-end-
+
+</para>
+
+
+
+
+
+<para id="p1041">
+</para>
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

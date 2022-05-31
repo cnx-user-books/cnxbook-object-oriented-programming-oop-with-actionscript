@@ -1,0 +1,1020 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Online resources for ActionScript and Flex</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34499</md:content-id>
+  <md:title>Online resources for ActionScript and Flex</md:title>
+  <md:abstract>The purpose of this module is to provide a list of links to online ActionScript and Flex resources to supplement the other lessons in the series.</md:abstract>
+  <md:uuid>d42086d8-5d07-4aa5-889b-00cb67511ced</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+ 
+
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1000">
+This document is part of a series of lessons dedicated to 
+object-oriented programming 
+
+<emphasis id="em1000" effect="italics">
+(OOP)
+
+</emphasis>
+ with ActionScript.
+
+</para>
+
+
+
+
+<para id="p1001">
+The purpose of this document is to provide a list of links to online 
+ActionScript and Flex resources to supplement the other lessons in the series.
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1003">
+<link id="a1003" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex 
+	programming website
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" url="http://www.dickbaldwin.com/tocActionScript.htm">
+
+Baldwin's 
+	ActionScript programming website
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" url="http://www.adobe.com/products/flex/?promoid=BPDEQ">
+
+Adobe Flex 
+	Home
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" url="http://www.adobe.com/cfusion/entitlement/index.cfm?e=flex3sdk">
+
+
+	Download free open-source Adobe Flex 3.5 SDK
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1007">
+
+		
+
+<link id="a1007" url="http://www.adobe.com/support/documentation/en/flex/3/releasenotes_flex3_sdk.html#installation">
+
+
+		Adobe Flex SDK Installation and Release Notes
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1008">
+
+		
+
+<link id="a1008" url="http://livedocs.adobe.com/flex/3/html/help.html?content=Part3_deploy_1.html">
+
+
+		Application Deployment
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1009">
+
+	
+
+<link id="a1009" url="http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+4">
+
+
+	Download free open-source Adobe Flex 4 SDK
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+
+	
+
+<link id="a1010" url="http://www.flashdevelop.org/wikidocs/index.php?title=Main_Page">
+
+
+	Download free FlashDevelop IDE
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1011">
+
+		
+
+<link id="a1011" url="http://www.flashdevelop.org/wikidocs/index.php?title=Getting_Started">
+
+
+		Getting Started with FlashDevelop
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" url="https://freeriatools.adobe.com/flex/">
+
+Download Adobe Flash 
+	Builder 4 Standard for students
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" url="http://www.adobe.com/support/flashplayer/downloads.html">
+
+Download Adobe Flash Player
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1014" url="http://www.adobe.com/support/flashplayer/downloads.html">
+
+Download Adobe Flash Player Uninstallers
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1015">
+<link id="a1015" url="http://get.adobe.com/air/">
+
+Download Adobe Air
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1016" url="http://www.adobe.com/downloads/">
+
+Download various Adobe 
+	products
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1017" url="http://www.adobe.com/devnet/flex/">
+
+Flex Developer Center
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1018" url="http://www.adobe.com/devnet/flex/videotraining/">
+
+Flex in a Week 
+	video training
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1019">
+<link id="a1019" url="http://learn.adobe.com/wiki/display/Flex/Getting+Started">
+
+Adobe 
+	Flex Builder 3 - Getting Started
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1020">
+
+	
+
+<link id="a1020" url="http://www.adobe.com/devnet/flex/pdfs/getting_started_with_Flex3.pdf">
+
+Getting Started with Flex 3 - online O'Reilly book by Jack Herrington and 
+	Emily Kim
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1021" url="http://livedocs.adobe.com/flex/3/html/help.html">
+
+Adobe Flex 3 
+	Help
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1022">
+<link id="a1022" url="http://livedocs.adobe.com/flex/3/langref/index.html">
+
+Adobe 
+		Flex 3.5 Language Reference
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1023">
+
+		
+
+<link id="a1023" url="http://livedocs.adobe.com/flex/3/html/help.html?content=Part3_Build_Deploy_1.html">
+
+Building and Deploying Flex 3 Applications
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1024">
+
+		
+
+<link id="a1024" url="http://livedocs.adobe.com/flex/3/html/help.html?content=Part6_ProgAS_1.html">
+
+Programming ActionScript 3.0
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1025">
+
+		
+
+<link id="a1025" url="http://livedocs.adobe.com/flex/3/html/help.html?content=03_Language_and_Syntax_01.html">
+
+ActionScript language and syntax
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1026" url="http://flex.org/">
+
+Flex.org
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1027" url="http://en.wikipedia.org/wiki/MXML">
+
+Wikipedia on MXML
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1028" url="http://www.adobe.com/devnet/actionscript/as3.html">
+
+ActionScript 
+	3 guides, tutorials, and samples
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1029" url="http://www.actionscript.org/index.php">
+
+ActionScript.org
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1030" url="http://www.artima.com/lejava/articles/actionscript.html">
+
+ActionScript 3: The Language of Flex
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1031">
+
+	
+
+<link id="a1031" url="http://livedocs.adobe.com/flex/3/html/help.html?content=Part3_as_components_1.html">
+
+ActionScript Custom Components
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1032">
+
+	
+
+<link id="a1032" url="http://livedocs.adobe.com/flex/3/html/help.html?content=03_Language_and_Syntax_01.html">
+
+ActionScript language and syntax
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1033">
+
+	
+
+<link id="a1033" url="http://livedocs.adobe.com/flex/3/html/help.html?content=usingas_4.html">
+
+Comparing, including, and importing ActionScript code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1034">
+
+	
+
+<link id="a1034" url="http://livedocs.adobe.com/flex/3/html/help.html?content=Part6_ProgAS_1.html">
+
+Programming ActionScript 3.0
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1035">
+
+	
+
+<link id="a1035" url="http://bauhouse.wordpress.com/2008/07/06/getting-started-with-actionscript-30/">
+
+Getting Started with ActionScript 3.0
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1036">
+
+	
+
+<link id="a1036" url="http://livedocs.adobe.com/flex/3/html/help.html?content=modular_2.html">
+
+Modular applications overview 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1037">
+
+	
+
+<link id="a1037" url="http://livedocs.adobe.com/specs/actionscript/3/wwhelp/wwhimpl/js/html/wwhelp.htm?href=as3_specification.html">
+
+ActionScript 3 Language Specification
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1038">
+<link id="a1038" url="http://www.senocular.com/flash/tutorials/as3withmxmlc/">
+
+Beginners Guide to Getting Started with AS33
+
+</link>
+
+
+	
+
+<emphasis id="em1001" effect="italics">
+(Running the compiler 
+	from the command line.)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1039">
+
+	
+
+<link id="a1039" url="http://www.adobe.com/devnet/actionscript/articles/actionscript_tips.html">
+
+Tips for learning ActionScript 3.0
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1040">
+<link id="a1040" url="http://www.adobe.com/devnet/actionscript/">
+
+ActionScript 
+	Technology Center
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1041">
+<link id="a1041" url="http://www.adobe.com/flashplatform/">
+
+Adobe Flash Platform
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1042">
+<link id="a1042" url="http://www.adobe.com/products/flashplayer/?promoid=DJDWD">
+
+Adobe 
+	Flash Player
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1043">
+<link id="a1043" url="http://www.adobe.com/products/air/?promoid=DJDTL">
+
+Adobe Air
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1044">
+<link id="a1044" url="http://www.adobe.com/devnet/actionscript/references/">
+
+ActionScript language references
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1045">
+
+	
+
+<link id="a1045" url="http://livedocs.adobe.com/flex/3/html/help.html?content=04_OO_Programming_05.html">
+
+Class property attributes 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1046">
+<link id="a1046" url="http://www.bit-101.com/blog/?p=853">
+
+Embedding Resources with AS3
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1047">
+
+	
+
+<link id="a1047" url="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0470135603.html">
+
+ActionScript 3.0 Bible
+
+</link>
+
+ by Braunstein
+
+</item>
+
+
+	
+
+<item id="li1048">
+
+	
+
+<link id="a1048" url="http://help.adobe.com/en_US/ActionScript/3.0_ProgrammingAS3/WS5b3ccc516d4fbf351e63e3d118a9b90204-7d27.html">
+
+Basics of working with sound
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1000" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1000" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+
+
+<item id="li1049">
+Module name: Online resources for ActionScript and Flex
+
+</item>
+
+
+
+
+<item id="li1050">
+Files:
+
+<list id="ul1006" list-type="bulleted">
+
+
+
+<item id="li1051">
+ActionScript0180\ActionScript0180.htm
+
+</item>
+
+
+
+
+<item id="li1052">
+ActionScript0180\Connexions\ActionScriptXhtml0180.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<note id="note1001" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1001" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1003">
+-end- 
+
+</para>
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

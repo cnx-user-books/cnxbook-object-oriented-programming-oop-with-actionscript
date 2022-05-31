@@ -1,0 +1,7653 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Fundamentals of Image Pixel Processing</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34461</md:content-id>
+  <md:title>Fundamentals of Image Pixel Processing</md:title>
+  <md:abstract>Learn how to write skeleton code for creating a Bitmap object from an image file and how to display the bitmap. Learn two different ways to handle the image file, one of which results in a security issue that must be handled at compile time. Learn how to extract the BitmapData object from the Bitmap object and how to use the getPixels, setPixels, and setPixel32 methods to process the pixels in the bitmap. Learn how to apply a color inversion algorithm to invert the colors in a BitmapData object.</md:abstract>
+  <md:uuid>93c6fcf9-a309-434a-9ce3-88ddb3897eea</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="miscellaneous">
+
+
+
+
+
+	
+
+<emphasis id="Click" effect="bold">
+
+Click
+
+</emphasis>
+
+ 
+
+<link id="a1000" url="Bitmap05.html">
+
+Bitmap05
+
+</link>
+
+ or 
+
+<link id="a1001" url="Bitmap06.html">
+
+
+	Bitmap06
+
+</link>
+
+
+to run the ActionScript programs from this lesson. 
+
+<emphasis id="em1000" effect="italics">
+
+(Click the "Back" button in your browser
+to return to this page.)
+
+</emphasis>
+
+
+
+</note>
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+  
+
+<item id="li1000">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+ 
+    
+
+<list id="ul1001" list-type="bulleted">
+
+      
+
+<item id="li1001">
+<link id="a1003" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1002">
+<link id="a1004" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+ 
+        
+
+<list id="ul1002" list-type="bulleted">
+
+          
+
+<item id="li1003">
+<link id="a1005" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+          
+
+<item id="li1004">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+        
+
+</list>
+
+
+      
+
+</item>
+
+
+      
+
+<item id="li1005">
+<link id="a1007" target-id="Supplementary_material">
+
+Supplemental material
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1006">
+<link id="a1008" target-id="GeneralBackgroundInformation">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1007">
+<link id="a1009" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1008">
+<link id="a1010" target-id="DiscussionandSamplePrograms">
+
+Discussion and sample code
+
+</link>
+
+ 
+    
+
+<list id="ul1003" list-type="bulleted">
+
+      
+
+<item id="li1009">
+<link id="a1011" target-id="program">
+
+The program named Bitmap05
+
+</link>
+
+ 
+        
+
+<list id="ul1004" list-type="bulleted">
+
+          
+
+<item id="li1010">
+<link id="a1012" target-id="MXML_code_for_the_program_named_Bitmap05">
+
+MXML code for the program named Bitmap05
+
+</link>
+
+
+</item>
+
+
+          
+
+<item id="li1011">
+<link id="a1013" target-id="ActionScript_code_for_the_program_named_Birtmap05">
+
+ActionScript code for the program named 
+		  Bitmap05
+
+</link>
+
+
+</item>
+
+
+        
+
+</list>
+
+
+      
+
+</item>
+
+
+      
+
+<item id="li1012">
+<link id="a1014" target-id="The_program_named_Bitmap06">
+
+The program named Bitmap06
+
+</link>
+
+ 
+        
+
+<list id="ul1005" list-type="bulleted">
+
+          
+
+<item id="li1013">
+<link id="a1015" target-id="MXML_code_for_the_program_named_Bitmap06">
+
+MXML code for the program named Bitmap06
+
+</link>
+
+
+</item>
+
+
+          
+
+<item id="li1014">
+<link id="a1016" target-id="ActionScript_code_for_the_program_named_Bitmap06">
+
+ActionScript code for the program named 
+		  Bitmap06
+
+</link>
+
+
+</item>
+
+
+        
+
+</list>
+
+
+      
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1015">
+<link id="a1017" target-id="Runtheprogram">
+
+Run the programs
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1016">
+<link id="a1018" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1017">
+<link id="a1019" target-id="CompleteProgramListings">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1020" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+        
+
+<note id="note1001" type="miscellaneous">
+
+
+          
+
+
+            
+
+
+              
+
+All references to ActionScript in this lesson are 
+			  references to version 3 or later. 
+
+</note>
+
+            
+
+
+          
+
+
+
+        
+
+
+
+
+
+
+<para id="p1000">
+This tutorial lesson is 
+part of a series of lessons dedicated to object-oriented programming 
+(OOP) with ActionScript.
+
+</para>
+
+
+
+
+
+<para id="p1001">
+<emphasis id="strong1000" effect="bold">
+Several ways to create and launch ActionScript 
+programs
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1002">
+There are several ways to 
+create and launch programs written in the ActionScript programming language. 
+Many of the lessons in this series will use Adobe Flex as the launch pad for the 
+sample ActionScript programs.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+An earlier lesson titled 
+
+
+<emphasis id="strong1001" effect="bold">
+The Default 
+Application Container
+
+</emphasis>
+ provided information on how to get started programming 
+with Adobe's Flex Builder 3. 
+
+<emphasis id="em1001" effect="italics">
+(See 
+
+<link id="a1021" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming website
+
+</link>
+
+.)
+
+</emphasis>
+ 
+You should study that lesson before embarking on the lessons in this series.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1002" effect="bold">
+Some understanding of Flex MXML will be required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1005">
+I also recommend that you 
+study all of the lessons on Baldwin's Flex programming website in parallel with 
+your study of these ActionScript lessons. Eventually you will probably need to 
+understand both ActionScript and Flex and the relationships that exist between 
+them in order to become a successful ActionScript programmer.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1003" effect="bold">
+Will emphasize ActionScript code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+It is often possible to use 
+either ActionScript code or Flex MXML code to achieve the same result. Insofar 
+as this series of lessons is concerned, the emphasis will be on ActionScript 
+code even in those cases where Flex MXML code may be a suitable alternative.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1008">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily find and view the figures and 
+listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+  
+
+<item id="li1019">
+<link id="a1022" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Screen output for both programs.
+
+</item>
+
+
+  
+
+<item id="li1020">
+<link id="a1023" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Program file structure for the program 
+  named Bitmap05.
+  
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+  
+
+<item id="li1021">
+<link id="a1024" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. MXML code for the program named 
+  Bitmap05.
+
+</item>
+
+
+  
+
+<item id="li1022">
+<link id="a1025" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the ActionScript Driver 
+  class.
+
+</item>
+
+
+  
+
+<item id="li1023">
+<link id="a1026" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Start the process of loading the image 
+  file.
+
+</item>
+
+
+  
+
+<item id="li1024">
+<link id="a1027" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Beginning of the complete event 
+  handler.
+
+</item>
+
+
+  
+
+<item id="li1025">
+<link id="a1028" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Encapsulate the Bitmap in an Image 
+  object.
+
+</item>
+
+
+  
+
+<item id="li1026">
+<link id="a1029" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Clone the original Bitmap to create a 
+  duplicate Bitmap.
+
+</item>
+
+
+  
+
+<item id="li1027">
+<link id="a1030" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Modify the duplicate Bitmap.
+
+</item>
+
+
+  
+
+<item id="li1028">
+<link id="a1031" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Beginning of the modify method.
+
+</item>
+
+
+  
+
+<item id="li1029">
+<link id="a1032" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Process pixels using the getPixels and 
+  setPixels methods.
+
+</item>
+
+
+  
+
+<item id="li1030">
+<link id="a1033" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Modify the pixels in the rectangular 
+  region.
+
+</item>
+
+
+  
+
+<item id="li1031">
+<link id="a1034" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Put the modified pixel data back 
+  into the same rectangular region.
+
+</item>
+
+
+  
+
+<item id="li1032">
+<link id="a1035" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Process pixels using the setPixel32 
+  method.
+
+</item>
+
+
+  
+
+<item id="li1033">
+<link id="a1036" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Put borders on the top and bottom 
+  edges.
+
+</item>
+
+
+  
+
+<item id="li1034">
+<link id="a1037" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. Return to the complete event 
+  handler.
+
+</item>
+
+
+  
+
+<item id="li1035">
+<link id="a1038" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. Beginning of the invert method.
+
+</item>
+
+
+  
+
+<item id="li1036">
+<link id="a1039" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. Apply the inversion algorithm.
+
+</item>
+
+
+  
+
+<item id="li1037">
+<link id="a1040" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. Put the modified pixel data back 
+  into the BitmapData object.
+
+</item>
+
+
+  
+
+<item id="li1038">
+<link id="a1041" target-id="Listing_18">
+
+Listing 18
+
+</link>
+
+. Code that is different in the 
+  program named Bitmap06.
+
+</item>
+
+
+  
+
+<item id="li1039">
+<link id="a1042" target-id="Listing_19">
+
+Listing 19
+
+</link>
+
+. MXML code for the program named 
+  Bitmap05.
+
+</item>
+
+
+  
+
+<item id="li1040">
+<link id="a1043" target-id="Listing_20">
+
+Listing 20
+
+</link>
+
+. ActionScript code for the program 
+  named Bitmap05.
+
+</item>
+
+
+  
+
+<item id="li1041">
+<link id="a1044" target-id="Listing_21">
+
+Listing 21
+
+</link>
+
+. ActionScript code for the program 
+  named Bitmap06.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Supplementary_material" effect="bold">
+
+Supplemental material
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1009">
+I recommend that you also 
+study the other lessons in my extensive collection of online programming 
+tutorials. You will find a consolidated index at 
+
+<link id="a1045" url="http://www.dickbaldwin.com/toc.htm">
+
+www.DickBaldwin.com
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="GeneralBackgroundInformation" effect="bold">
+
+General background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1010">
+In an earlier lesson titled 
+
+<emphasis id="strong1004" effect="bold">
+Bitmap Basics
+
+</emphasis>
+, I explained the differences between Flex projects and 
+ActionScript projects. I also introduced you to the classes named 
+
+<emphasis id="strong1005" effect="bold">
+Bitmap
+
+</emphasis>
+ 
+and
+
+
+<emphasis id="strong1006" effect="bold">
+BitmapData
+
+</emphasis>
+. Now it's time to put that knowledge to work. In 
+this lesson, I will show you how to:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+  
+
+<item id="li1042">
+Load the contents of an image file into a 
+
+<emphasis id="strong1007" effect="bold">
+BitmapData
+
+</emphasis>
+
+    object encapsulated in a 
+
+<emphasis id="strong1008" effect="bold">
+Bitmap
+
+</emphasis>
+ object.
+
+</item>
+
+
+  
+
+<item id="li1043">
+Use the 
+
+<emphasis id="strong1009" effect="bold">
+setPixel32
+
+</emphasis>
+, 
+
+<emphasis id="strong1010" effect="bold">
+getPixels
+
+</emphasis>
+, and
+    
+
+<emphasis id="strong1011" effect="bold">
+setPixels
+
+</emphasis>
+ methods to access and modify the color content of 
+  the individual pixels that make up an image.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1011">
+Before getting into that, however, it will be useful to explain how image 
+information is stored in files and in the computer's memory.
+
+</para>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1012" effect="bold">
+Vector graphics versus bitmap graphics
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+Graphics programming typically involves two main types of data: bitmaps and 
+vector graphics. This lesson deals with bitmap data only. I will deal with 
+vector graphics in a future lesson.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1013" effect="bold">
+A rectangular array of pixels
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+When you take a picture with your digital camera, the scene is converted into 
+a rectangular array containing millions of uniformly spaced colored dots. Those 
+dots or picture elements 
+
+<emphasis id="em1002" effect="italics">
+(pixels)
+
+</emphasis>
+ are stored on the memory card in your camera 
+until you download them into your computer.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1014" effect="bold">
+Width, height, and color depth
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+An image that is stored in this way is defined by the width and height of the 
+array of pixels along with the number of bits that are used to define the color.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+Up to a point, the more pixels that the camera produces to represent a given 
+field of view, the better will be the image. Similarly, the more bits that are 
+used to store the color, the better will be the overall quality of the image, 
+particularly in terms of subtle shades of color.
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1015" effect="bold">
+The resolution
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+The number of pixels per unit area is commonly referred to as resolution. For 
+example, the display monitor that I am currently using displays an array of 1280 
+x1024 pixels in a rectangular area with a diagonal measurement of 19 inches. 
+(This is not a particularly high resolution monitor.)
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1016" effect="bold">
+The color depth
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1022">
+The number of bits used to represent the color of a pixel is commonly 
+referred to as the color depth. Most modern computers routinely use a color 
+depth of 32 bits. Note, however, that some file formats used for the storage and 
+transmission of bitmap graphics data use fewer than 32 bits for the 
+representation of each pixel in an image.
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1017" effect="bold">
+The RGB or ARGB color model
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1024">
+ActionScript supports a computer color model commonly known as the RGB model 
+or the ARGB model. With this model, the color of each pixel is represented by 
+three numeric color values and an optional transparency value 
+
+<emphasis id="em1003" effect="italics">
+(alpha)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+Each of the three color values represents the contribution or strength of a 
+primary color: 
+
+<emphasis id="em1004" effect="italics">
+red, green, and blue.
+
+</emphasis>
+ The final color of the pixel is a mixture 
+of the primary colors. This is similar to a kindergarten student mixing red, 
+green, and blue clay to produce a color that is different from red, green or 
+blue. 
+
+<emphasis id="em1005" effect="italics">
+(I don't have a clay analogy for transparency, however.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1018" effect="bold">
+The effect of the transparency value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+In some cases, the pixel also contains another value referred to as the 
+
+<emphasis id="em1006" effect="italics">
+alpha
+
+</emphasis>
+ 
+value 
+
+<emphasis id="em1007" effect="italics">
+(ARGB)
+
+</emphasis>
+ that represents the transparency of the pixel.
+
+</para>
+
+
+
+
+
+<para id="p1028">
+Transparency comes into play when you draw a new image over an existing 
+image. If the alpha value for a pixel is zero, there is no change in the color 
+of the existing pixel because the new pixel is totally transparent. 
+
+<emphasis id="em1008" effect="italics">
+(Although 
+the effect is commonly referred to as transparency, the numeric value is 
+actually proportional to opacity, which is the inverse of transparency.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1019" effect="bold">
+Total opacity
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+If the alpha value indicates total opacity 
+
+<emphasis id="L2629" effect="bold">
+
+
+<emphasis id="em1009" effect="italics">
+(often 
+represented as either 1.0 or 255)
+
+</emphasis>
+</emphasis>
+
+, the color of the existing pixel is 
+completely replaced by the color of the new pixel. 
+
+<emphasis id="em1010" effect="italics">
+(I will explain the 
+difference between 1.0 and 255 later.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1020" effect="bold">
+Partial opacity
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+If the alpha value falls between 0 and 1.0 
+
+<emphasis id="em1011" effect="italics">
+(0 and 255)
+
+</emphasis>
+, the colors 
+of the existing pixel and the new pixel are combined to produce a new blended 
+color. The result is as if you are viewing the original scene through colored 
+glass.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1021" effect="bold">
+An unsigned 32-bit chunk of memory
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+Typically, a pixel is represented in the computer by an unsigned 32-bit chunk 
+of memory. Each of the three primary colors and the alpha value are represented 
+by an eight-bit unsigned byte. The bytes are concatenated to form the 32-bit 
+chunk of memory. 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1022" effect="bold">
+256 levels
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1036">
+This results in 256 levels of intensity for each of the primary colors along 
+with 256 levels of transparency for the alpha byte. For example, if the red, 
+green, and alpha bytes are equal to 255 and the blue byte is zero, the pixel 
+will be displayed as bright yellow on a typical computer screen.
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1023" effect="bold">
+Bitmap image file formats
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+Different file formats are commonly used to store and transmit image data. It 
+is usually desirable to reduce the size of the file required to store a given 
+image while maintaining the quality of the image. This often results in a 
+tradeoff between file size and image quality.
+
+</para>
+
+
+
+
+
+<para id="p1039">
+Different formats use different compression algorithms to reduce the size of 
+the file. The bitmap image formats supported by Adobe Flash Player and Adobe Air 
+are GIF, JPG, and PNG.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1024" effect="bold">
+The GIF format
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+The Graphics Interchange Format 
+
+<emphasis id="em1012" effect="italics">
+(GIF)
+
+</emphasis>
+ is a format that is often used to store 
+low quality images in very small files. The format can store a maximum of 256 
+different colors and can designate one of those colors to represent a fully 
+transparent pixel. By comparison, the typical ARGB format can represent more 
+than sixteen million colors with 256 levels of transparency for each pixel.
+
+</para>
+
+
+
+
+
+<para id="p1042">
+The GIF format would not be very satisfactory for images produced by your 
+digital camera, but it is fine for many purposes such as screen icons where high 
+color quality is not an important consideration.
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1025" effect="bold">
+The JPEG format
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1044">
+This format, which is often written as JPG, was developed by the Joint 
+Photographic Experts Group 
+
+<emphasis id="em1013" effect="italics">
+(JPEG)
+
+</emphasis>
+. This image format uses a lossy compression 
+algorithm to allow 24-bit color depth with a small file size.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+Lossy compression means that what comes out of the compressed file is not 
+identical to what went in. The loss in picture quality is often acceptable, 
+however, given that the format allows for different degrees of lossiness which 
+is inversely related to the size of the compressed file. All of the digital 
+cameras that I have owned produce JPEG files as the standard output and some of 
+them allow the user to select the degree of compression and hence the degree of 
+lossiness.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+The JPEG format does not support alpha transparency. Therefore, it is not 
+suitable as a file format for transmitting images with alpha data between 
+computers.
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1026" effect="bold">
+The PNG format
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1048">
+Apparently there are some patent issues with the GIF format. The Portable 
+Network Graphics 
+
+<emphasis id="em1014" effect="italics">
+(PNG)
+
+</emphasis>
+ format was produced as an open-source alternative to the 
+GIF file format.
+
+</para>
+
+
+
+
+
+<para id="p1049">
+The PNG format supports at least sixteen million colors and uses lossless 
+compression. The PNG format also supports alpha transparency allowing for up to 
+256 levels of transparency in a compressed format.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1027" effect="bold">
+The BitmapData class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+The 
+
+<emphasis id="strong1028" effect="bold">
+BitmapData
+
+</emphasis>
+ class in ActionScript 3 supports a 32-bit 
+ARGB color model with more than sixteen million colors and 256 levels of alpha 
+transparency per pixel.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1052">
+I will explain two different 
+programs in this lesson. One is named 
+
+<emphasis id="strong1029" effect="bold">
+Bitmap05
+
+</emphasis>
+ and the other is named 
+
+
+<emphasis id="strong1030" effect="bold">
+Bitmap06
+
+</emphasis>
+. 
+Both programs produce the same output, which is shown in Figure 1.
+
+</para>
+
+
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Figure_1" effect="bold">
+</emphasis>
+Screen output for both programs.
+</title>
+
+
+
+
+
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/as0132a.jpg" width="316" height="925"/>
+</media>
+
+
+
+
+<caption>Screen output for both programs.</caption>
+</figure>
+
+
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1031" effect="bold">
+Program file structure
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1054">
+Figure 2 shows the program file structure taken from the Flex Builder 3 
+Navigator panel for the program named 
+
+<emphasis id="strong1032" effect="bold">
+Bitmap05
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Figure_2" effect="bold">
+</emphasis>
+Program file structure for the program named  Bitmap05.
+</title>
+
+
+
+
+
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/as0132b.jpg" width="193" height="229"/>
+</media>
+
+
+
+
+<caption>Program file structure for the program named  Bitmap05.</caption>
+</figure>
+
+
+
+
+
+
+
+<para id="p1055">
+The program file structure for 
+
+<emphasis id="strong1033" effect="bold">
+Bitmap06
+
+</emphasis>
+ is the same except for the name of 
+MXML file.
+
+</para>
+
+
+
+
+
+<para id="p1056">
+I will use the programs named 
+
+<emphasis id="strong1034" effect="bold">
+Bitmap05
+
+</emphasis>
+ and 
+
+<emphasis id="strong1035" effect="bold">
+Bitmap06
+
+</emphasis>
+ to explain a variety of 
+topics.
+
+</para>
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1036" effect="bold">
+Skeleton code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+First, I will provide skeleton code for creating a 
+
+<emphasis id="strong1037" effect="bold">
+Bitmap
+
+</emphasis>
+
+object from an image file. You will learn how to use the skeleton code to create 
+and display a bitmap from an image file as shown by the top image in Figure 1.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1038" effect="bold">
+Extract the BitmapData object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+I will show you how to extract the 
+
+<emphasis id="strong1039" effect="bold">
+BitmapData
+
+</emphasis>
+ object from 
+the 
+
+<emphasis id="strong1040" effect="bold">
+Bitmap
+
+</emphasis>
+ object so that you can modify the pixels in the 
+image. Once you are able to extract the 
+
+<emphasis id="strong1041" effect="bold">
+BitmapData
+
+</emphasis>
+ object, you 
+will have the bitmap data exposed to the point that you can implement a variety 
+of image processing algorithms such as the following:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+  
+
+<item id="li1044">
+Smoothing
+
+</item>
+
+
+  
+
+<item id="li1045">
+Sharpening
+
+</item>
+
+
+  
+
+<item id="li1046">
+Edge detection
+
+</item>
+
+
+  
+
+<item id="li1047">
+Color filtering
+
+</item>
+
+
+  
+
+<item id="li1048">
+Color inversion
+
+</item>
+
+
+  
+
+<item id="li1049">
+Redeye correction
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1061">
+<emphasis id="em1015" effect="italics">
+(For more information on how to implement image processing algorithms in 
+general, see the tutorial lessons beginning with Lesson 340 in the section 
+titled 
+
+<emphasis id="strong1042" effect="bold">
+Multimedia Programming with Java 
+
+</emphasis>
+on my
+
+
+<link id="a1046" url="http://www.dickbaldwin.com/tocadv.htm">
+
+web site
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1043" effect="bold">
+Using the getPixels, setPixels, and setPixel32 
+methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1063">
+I will explain how to use the 
+
+<emphasis id="strong1044" effect="bold">
+getPixels
+
+</emphasis>
+,
+
+
+<emphasis id="strong1045" effect="bold">
+setPixels
+
+</emphasis>
+, and 
+
+<emphasis id="strong1046" effect="bold">
+setPixel32
+
+</emphasis>
+ methods for 
+modifying the pixels in a bitmap as shown by the middle image in Figure 1. If 
+you compare the middle image with the top image, you will see that two colored 
+bars were added near the upper-left corner. In addition, colored borders were 
+added to the middle image.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1047" effect="bold">
+Color inversion
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+Finally, I will explain how to implement a color inversion algorithm as shown 
+by the bottom image in Figure 1. If you compare the bottom image with the middle 
+image, you will see that the colors of all of the pixels in the top half of the 
+bottom image have been changed. The colors of the pixels were changed using a 
+particular algorithm known widely as a color inversion algorithm.
+
+</para>
+
+
+
+
+
+<para id="p1066">
+The color inversion algorithm produces an output that is very similar to an 
+old fashioned color film negative. The algorithm is economical to implement and 
+totally reversible. Therefore, it is used by several major software products to 
+highlight an image and show that the image has been selected for processing.
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="DiscussionandSamplePrograms" effect="bold">
+
+
+</emphasis>
+
+Discussion and sample code
+
+</title>
+
+
+
+
+
+
+
+<para id="p1067">
+As mentioned earlier, I will explain two different programs in this lesson. 
+One is named 
+
+<emphasis id="strong1048" effect="bold">
+Bitmap05
+
+</emphasis>
+ and the other is named 
+
+<emphasis id="strong1049" effect="bold">
+Bitmap06
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="program" effect="bold">
+
+The program named Bitmap05
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1050" effect="bold">
+Will explain in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+I will explain the code for both programs in fragments. Both programs use the 
+same MXML code but use different ActionScript code. Complete listings of the 
+MXML file and the ActionScript files are provided in Listing 19 through Listing 
+21 near the end of the lesson.
+
+</para>
+
+
+
+
+
+<section id="h31002">
+<title>
+
+
+
+<emphasis id="MXML_code_for_the_program_named_Bitmap05" effect="bold">
+
+MXML code for the program named 
+Bitmap05
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1070">
+The MXML code for this program 
+
+<emphasis id="em1016" effect="italics">
+(and the program named 
+
+</emphasis>
+<emphasis id="strong1051" effect="bold">
+<emphasis id="em1017" effect="italics">
+Bitmap06
+
+</emphasis>
+</emphasis>
+<emphasis id="em1018" effect="italics">
+ as well)
+
+</emphasis>
+ is 
+shown in Listing 1 and also in Listing 19 for your convenience.
+
+</para>
+
+
+
+
+
+<example id="listing1000" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+MXML code  	  for the program named Bitmap05.
+</title>
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1000" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!--
+This program illustrates loading an image and
+modifying the pixels in the image.
+--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1071">
+Both programs are written almost entirely in ActionScript. As you can see, 
+the MXML code instantiates a single object of the 
+
+<emphasis id="strong1052" effect="bold">
+Driver
+
+</emphasis>
+
+class. Beyond that point, the behavior of both programs is controlled 
+entirely by ActionScript code in the 
+
+<emphasis id="strong1053" effect="bold">
+Driver
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+
+
+
+<emphasis id="ActionScript_code_for_the_program_named_Birtmap05" effect="bold">
+
+ActionScript code for the program named Birtmap05
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1054" effect="bold">
+<emphasis id="security" effect="bold">
+
+A security 
+issue
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+Let me begin by saying that I make no claims of expertise regarding security 
+issues and the Flash Player.
+
+</para>
+
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1055" effect="bold">
+No embedded image
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1075">
+I did not embed the image file shown in Figure 1 in the SWF file for the 
+program named 
+
+<emphasis id="strong1056" effect="bold">
+Bitmap05
+
+</emphasis>
+. Instead, I included it as a separate file in the
+
+
+<emphasis id="em1019" effect="italics">
+Release Build
+
+</emphasis>
+ of the program. As a result, it was necessary for 
+me to change one of the XML elements in the following configuration file to make 
+it possible for you to download and 
+
+<link id="a1047" target-id="Click">
+
+run
+
+</link>
+
+ the online 
+version of the program.
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1057" effect="bold">
+C:\Program Files\Adobe\Flex Builder 
+3\sdks\3.2.0\frameworks\flex-config.xml
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1077">
+<emphasis id="em1020" effect="italics">
+(Note that the configuration file may be in a different location on your 
+computer.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1058" effect="bold">
+The required change
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1079">
+The required change was to set the value in the following element to false 
+instead of true:
+
+</para>
+
+
+
+
+<table id="table1000" summary="This is a table." pgwide="477">
+<tgroup cols="1">
+
+
+<tbody id="tbody1000">
+<row id="tr1000">
+<entry id="td1000">
+
+
+
+<code id="pre1001" display="block">&lt;use-network&gt;false&lt;/use-network&gt;</code>
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1059" effect="bold">
+Why am I telling you this?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1081">
+The ActionScript documentation seems to take for granted that you must modify 
+the configuration file to handle the security issue. However, it took a very 
+long time and a lot of searching for me to discover that in order to select 
+certain compiler options, it is necessary to physically modify the configuration 
+file shown above.
+
+</para>
+
+
+
+
+
+<para id="p1082">
+I knew generally the kind of change that was required, but I was expecting to 
+find an option in the Flex Builder 3 IDE to allow me to change the compiler 
+options on a project by project basis. If that capability exists in the IDE, I 
+was unable to find it. 
+
+<emphasis id="em1021" effect="italics">
+(Of course, once you know about the requirement, you can 
+Google "flex-config.xml" and find hundreds of references to the topic.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1083">
+I am telling you this in the hope that this information will save you 
+countless hours of searching through the documentation to discover why you get a 
+runtime error when you replicate this project and then try to download and run 
+it in the Flash Player plugin.
+
+</para>
+
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1060" effect="bold">
+Beginning of the ActionScript Driver class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1085">
+The MXML code shown in Listing 1 instantiates an object of the
+
+
+<emphasis id="strong1061" effect="bold">
+Driver
+
+</emphasis>
+ class. The ActionScript 
+
+<emphasis id="strong1062" effect="bold">
+Driver
+
+</emphasis>
+ class 
+begins in Listing 2.
+
+</para>
+
+
+
+
+
+  
+
+<example id="listing1001" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Beginning  	  of the ActionScript Driver class.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1002" display="block">package CustomClasses{
+  import flash.display.Bitmap;
+  import flash.display.BitmapData;
+  import flash.display.Loader;
+  import flash.events.*;
+  import flash.geom.Rectangle;
+  import flash.net.URLRequest;
+  import flash.utils.ByteArray;
+  
+  import mx.containers.VBox;
+  import mx.controls.Image;
+  import flash.system.Security;
+  //====================================================//
+  
+  public class Driver extends VBox {
+    private var url:String = "snowscene.jpg";//image file
+    
+    public function Driver(){//constructor
+      //Make the VBox visible.
+      setStyle("backgroundColor",0xFFFF00);
+      setStyle("backgroundAlpha",1.0);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1063" effect="bold">
+Establish the name and path of the image file
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1087">
+The class definition in Listing 2 begins by declaring and populating an 
+instance variable named 
+
+<emphasis id="strong1064" effect="bold">
+url
+
+</emphasis>
+ with the name of the image file 
+shown in Figure 2. As you can see in Figure 2, this file was located in the same 
+folder as the MXML file. Therefore, no path information was required to specify 
+the location of the image file.
+
+</para>
+
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1065" effect="bold">
+The constructor
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1089">
+The constructor for the class also begins in Listing 2. This class extends 
+the 
+
+<emphasis id="strong1066" effect="bold">
+VBox
+
+</emphasis>
+ class. The code in Listing 2 causes the background 
+color of the 
+
+<emphasis id="strong1067" effect="bold">
+VBox
+
+</emphasis>
+ object to be yellow and also causes the 
+yellow background to be completely opaque. You can see the opaque yellow 
+background of the 
+
+<emphasis id="strong1068" effect="bold">
+VBox
+
+</emphasis>
+ object in Figure 1.
+
+</para>
+
+
+
+
+
+<para id="p1090">
+<emphasis id="strong1069" effect="bold">
+Opacity is often represented as either 
+1.0 or 255
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1091">
+Remember that I told you 
+
+<link id="a1048" target-id="L2629">
+
+earlier
+
+</link>
+
+ that the opacity value 
+is 
+
+<emphasis id="em1022" effect="italics">
+"often represented as either 1.0 or 255."
+
+</emphasis>
+ Usually when you set the alpha 
+value as a property of a Flex component, you must specify a value ranging from 
+0.0 to 1.0 with a value of 1.0 being completely opaque. On the other hand, when 
+you are dealing with the actual alpha value in bitmap data, you must specify a 
+value ranging from 0 to 255 with a value of 255 being completely opaque.
+
+</para>
+
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1070" effect="bold">
+Start the process of loading the image file
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1093">
+Listing 3 starts the process of loading the image file. As I mentioned 
+earlier, this program does not embed the image file in the SWF file. 
+
+<emphasis id="em1023" effect="italics">
+(The 
+program named 
+
+<emphasis id="strong1071" effect="bold">
+Bitmap06
+
+</emphasis>
+, which I will explain later, does embed the image file in 
+the SWF file.)
+
+</emphasis>
+ Instead, the image file for this program ends up as a separate file on the server 
+that must be downloaded in addition to the SWF file. 
+
+<emphasis id="em1024" effect="italics">
+(The ActionScript 
+literature contains numerous discussions regarding the pros and cons of 
+embedding versus not embedding resource files.)
+
+</emphasis>
+</para>
+
+
+
+  
+
+<example id="listing1002" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+Start the  	  process of loading the image file.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1003" display="block">      var loader:Loader = new Loader();
+
+      //Register event listeners on the load process
+      loader.contentLoaderInfo.addEventListener(
+                          Event.COMPLETE,completeHandler);
+      loader.contentLoaderInfo.addEventListener(
+                    IOErrorEvent.IO_ERROR,ioErrorHandler);
+    
+      var request:URLRequest = new URLRequest(url);
+      loader.load(request);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1072" effect="bold">
+Straightforward code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1095">
+The code in Listing 3 is fairly straightforward. You should be able to 
+understand it if you analyze it using the ActionScript documentation.
+
+</para>
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1073" effect="bold">
+The Event.COMPLETE event handler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1097">
+The main thing that I want to emphasize from Listing 3 is the registration of 
+the 
+
+<emphasis id="strong1074" effect="bold">
+Event.COMPLETE
+
+</emphasis>
+ event handler. Note that this event handler is 
+registered on the 
+
+<emphasis id="strong1075" effect="bold">
+contentLoaderInfo
+
+</emphasis>
+ property of the
+
+
+<emphasis id="strong1076" effect="bold">
+Loader
+
+</emphasis>
+ object and not on the 
+
+<emphasis id="strong1077" effect="bold">
+Loader
+
+</emphasis>
+ object 
+itself. The documentation has this to say about this property:
+
+</para>
+
+
+
+
+
+<para id="p1098">
+<emphasis id="em1025" effect="italics">
+"Returns a LoaderInfo object corresponding to 
+the object being loaded. LoaderInfo objects are shared between the Loader object 
+and the loaded content object. The LoaderInfo object supplies loading progress 
+information and statistics about the loaded file.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="em1026" effect="italics">
+Events related to the load are dispatched by the 
+LoaderInfo object referenced by the contentLoaderInfo property of the Loader 
+object. The contentLoaderInfo property is set to a valid LoaderInfo object, even 
+before the content is loaded, so that you can add event listeners to the object 
+prior to the load."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1078" effect="bold">
+The Event.COMPLETE event
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1101">
+The documentation has this to say about the 
+
+<emphasis id="strong1079" effect="bold">
+Event.COMPLETE 
+
+</emphasis>
+event:
+
+</para>
+
+
+
+
+
+<para id="p1102">
+<emphasis id="em1027" effect="italics">
+"Dispatched when data has loaded successfully. 
+In other words, it is dispatched when all the content has been downloaded and 
+the loading has finished. The complete event is always dispatched after the init 
+event. The init event is dispatched when the object is ready to access, though 
+the content may still be downloading."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1080" effect="bold">
+Beginning of the complete event handler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1104">
+The 
+
+<emphasis id="strong1081" effect="bold">
+complete
+
+</emphasis>
+ event handler that is registered in Listing 3 
+begins in Listing 4. This handler is executed when the load process is complete 
+and the image data is available.
+
+</para>
+
+
+
+  
+
+<example id="listing1003" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+Beginning  	  of the complete event handler.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1004" display="block">    private function completeHandler(event:Event):void{
+
+      //Get, cast, and save a reference to a Bitmap object
+      // containing the content of the image file.
+      var original:Bitmap = Bitmap(
+                             event.target.loader.content);
+      
+      //Set the width and height of the VBox object based
+      // on the size of the original bitmap.
+      this.width = original.width + 10;
+      this.height = 3*original.height + 12;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1082" effect="bold">
+Get a reference to the Bitmap object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1106">
+The handler begins by using the incoming reference to the
+
+
+<emphasis id="strong1083" effect="bold">
+Event
+
+</emphasis>
+ object to execute a complex statement that ends up with a 
+reference to the 
+
+<emphasis id="strong1084" effect="bold">
+Bitmap
+
+</emphasis>
+ object. However, that reference is 
+received as type 
+
+<emphasis id="strong1085" effect="bold">
+DisplayObject
+
+</emphasis>
+ and must be cast to type
+
+
+<emphasis id="strong1086" effect="bold">
+Bitmap
+
+</emphasis>
+ to be used for its intended purpose in this program. The 
+reference is cast to type 
+
+<emphasis id="strong1087" effect="bold">
+Bitmap
+
+</emphasis>
+ and saved in the variable 
+named 
+
+<emphasis id="strong1088" effect="bold">
+original
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1107">
+When the first statement in Listing 4 finishes executing, the variable named
+
+
+<emphasis id="strong1089" effect="bold">
+original
+
+</emphasis>
+ refers to a 
+
+<emphasis id="strong1090" effect="bold">
+Bitmap
+
+</emphasis>
+ object containing 
+the image from the image file specified in Listing 2.
+
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1091" effect="bold">
+Set the dimensions of the VBox object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1109">
+After creating the new 
+
+<emphasis id="strong1092" effect="bold">
+Bitmap
+
+</emphasis>
+ object, Listing 4 uses the 
+dimensions of the 
+
+<emphasis id="strong1093" effect="bold">
+Bitmap
+
+</emphasis>
+ object to set the dimensions of the
+
+
+<emphasis id="strong1094" effect="bold">
+VBox
+
+</emphasis>
+ object, which is shown by the yellow background in Figure 
+1.
+
+</para>
+
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1095" effect="bold">
+Can use almost any image
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1111">
+All of the placement information for the images shown in Figure 1 is based on 
+the dimensions of the 
+
+<emphasis id="strong1096" effect="bold">
+Bitmap
+
+</emphasis>
+ object. Therefore, you should be 
+able to substitute any JPEG, PNG, or GIF image file in place of my file so long 
+as the name of the file matches the name and location of the file specified in 
+Listing 2. Note however that your image file will need to be wide enough and 
+tall enough to prevent the magenta and green color bars added to the center 
+image in Figure 1 from extending outside the image.
+
+</para>
+
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1097" effect="bold">
+Dealing with a type compatibility issue
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1113">
+In the earlier lesson titled 
+
+<emphasis id="strong1098" effect="bold">
+Bitmap Basics
+
+</emphasis>
+, I explained that in order to add a child to a 
+
+<emphasis id="strong1099" effect="bold">
+VBox
+
+</emphasis>
+
+object, that child:
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+  
+
+<item id="li1050">
+Must be a subclass of the 
+
+<emphasis id="strong1100" effect="bold">
+DisplayObject
+
+</emphasis>
+ class and
+
+</item>
+
+
+  
+
+<item id="li1051">
+Must implement the 
+
+<emphasis id="strong1101" effect="bold">
+IUIComponent
+
+</emphasis>
+ interface.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1114">
+While a 
+
+<emphasis id="strong1102" effect="bold">
+Bitmap
+
+</emphasis>
+ object is a subclass of
+
+
+<emphasis id="strong1103" effect="bold">
+DisplayObject
+
+</emphasis>
+, it does not implement the
+
+
+<emphasis id="strong1104" effect="bold">
+IUIComponent
+
+</emphasis>
+ interface. Therefore, it is not compatible with 
+being added directly to the 
+
+<emphasis id="strong1105" effect="bold">
+VBox
+
+</emphasis>
+ object. I resolved the issue 
+in that lesson by encapsulating the 
+
+<emphasis id="strong1106" effect="bold">
+Bitmap
+
+</emphasis>
+ object in an object 
+of the 
+
+<emphasis id="strong1107" effect="bold">
+UIComponent
+
+</emphasis>
+ class, which implements the
+
+
+<emphasis id="strong1108" effect="bold">
+IUIComponent
+
+</emphasis>
+ interface.
+
+</para>
+
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1109" effect="bold">
+Encapsulate the Bitmap in an Image object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1116">
+In this lesson, I decided to be more specific and encapsulate the
+
+
+<emphasis id="strong1110" effect="bold">
+Bitmap
+
+</emphasis>
+ object in an object of the 
+
+<emphasis id="strong1111" effect="bold">
+Image
+
+</emphasis>
+
+class. This is allowable because the 
+
+<emphasis id="strong1112" effect="bold">
+Image
+
+</emphasis>
+ class is a subclass 
+of the 
+
+<emphasis id="strong1113" effect="bold">
+UIComponent
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1117">
+Listing 5 encapsulates the 
+
+<emphasis id="strong1114" effect="bold">
+Bitmap
+
+</emphasis>
+ in an
+
+
+<emphasis id="strong1115" effect="bold">
+Image
+
+</emphasis>
+ object and adds it to the 
+
+<emphasis id="strong1116" effect="bold">
+VBox
+
+</emphasis>
+ object to 
+be displayed at the top of and five pixels to the right of the left edge of the 
+
+<emphasis id="strong1117" effect="bold">
+
+VBox
+
+</emphasis>
+ as shown by the top image in Figure 1.
+
+</para>
+
+
+
+  
+
+<example id="listing1004" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+Encapsulate the Bitmap in an Image object.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1005" display="block">      //Encapsulate the bitmap in an Image object and add
+      // the Image object to the VBox. Display it at
+      // x=5 and y=0
+      original.x = 5;
+      original.y = 0;
+      var imageA:Image = new Image();
+      imageA.addChild(original);
+      this.addChild(imageA);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1118" effect="bold">
+A curious situation
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1119">
+This brings up a curious situation regarding the placement of the
+
+
+<emphasis id="strong1119" effect="bold">
+Image
+
+</emphasis>
+ objects in the 
+
+<emphasis id="strong1120" effect="bold">
+VBox
+
+</emphasis>
+ object. Normally, if 
+you instantiate 
+
+<emphasis id="strong1121" effect="bold">
+Image
+
+</emphasis>
+ objects and populate them directly from 
+the contents of image files 
+
+<emphasis id="em1028" effect="italics">
+(
+
+</emphasis>
+<emphasis id="calling" effect="bold">
+
+
+<emphasis id="em1029" effect="italics">
+by calling the load 
+method on the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1122" effect="bold">
+<emphasis id="em1030" effect="italics">
+Image
+
+</emphasis>
+</emphasis>
+<emphasis id="em1031" effect="italics">
+ object)
+
+</emphasis>
+</emphasis>
+
+, you can add them to a
+
+
+<emphasis id="strong1123" effect="bold">
+VBox
+
+</emphasis>
+ object without the requirement to specify the locations at 
+which the images will be displayed. The layout management rules of the
+
+
+<emphasis id="strong1124" effect="bold">
+VBox
+
+</emphasis>
+ object determine how they are displayed.
+
+</para>
+
+
+
+
+
+<para id="p1120">
+<emphasis id="strong1125" effect="bold">
+This case is different
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1121">
+In this case, however, if you instantiate 
+
+<emphasis id="strong1126" effect="bold">
+Image
+
+</emphasis>
+ objects and 
+populate them with 
+
+<emphasis id="strong1127" effect="bold">
+Bitmap
+
+</emphasis>
+ objects by calling the
+
+
+<emphasis id="strong1128" effect="bold">
+addChild
+
+</emphasis>
+ method as shown in Listing 5, you must specify the 
+display locations of the 
+
+<emphasis id="strong1129" effect="bold">
+Bitmap
+
+</emphasis>
+ objects within the
+
+
+<emphasis id="strong1130" effect="bold">
+VBox
+
+</emphasis>
+ object. If you don't, they all end up in the upper-left 
+corner of the 
+
+<emphasis id="strong1131" effect="bold">
+VBox
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1132" effect="bold">
+Honoring the boundaries of the VBox 
+object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1123">
+Also, if you specify the dimensions of the 
+
+<emphasis id="strong1133" effect="bold">
+VBox
+
+</emphasis>
+ object and 
+add more images of the 
+
+<link id="a1049" target-id="calling">
+
+first type
+
+</link>
+
+ than the size of the
+
+
+<emphasis id="strong1134" effect="bold">
+VBox
+
+</emphasis>
+ object can accommodate, scroll bars automatically appear 
+on the 
+
+<emphasis id="strong1135" effect="bold">
+VBox
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1124">
+In this case, however, if you specify the locations such that the
+
+
+<emphasis id="strong1136" effect="bold">
+Image
+
+</emphasis>
+ objects won't all fit within the boundaries of the
+
+
+<emphasis id="strong1137" effect="bold">
+VBox
+
+</emphasis>
+ object, the images extend outside the bounds of the
+
+
+<emphasis id="strong1138" effect="bold">
+VBox
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1125">
+I will leave it as an exercise for the student to sort through all of that.
+
+</para>
+
+
+
+
+
+<para id="p1126">
+<emphasis id="strong1139" effect="bold">
+Clone the original
+
+
+<emphasis id="strong1140" effect="bold">
+Bitmap
+
+</emphasis>
+ to create a duplicate Bitmap
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1127">
+We have now reached the point 
+where we could access the 
+
+<emphasis id="strong1141" effect="bold">
+BitmapData
+
+</emphasis>
+ object encapsulated in the 
+
+<emphasis id="strong1142" effect="bold">
+
+Bitmap
+
+</emphasis>
+ object and modify the pixel data that comprises the image. 
+However, instead of modifying the pixels in the original
+
+
+<emphasis id="strong1143" effect="bold">
+Bitmap
+
+</emphasis>
+, I elected to create a duplicate bitmap and modify the 
+pixels in the duplicate. That makes it possible to compare the unmodified image 
+
+
+<emphasis id="em1032" effect="italics">
+(top image in Figure 1)
+
+</emphasis>
+ with the modified image 
+
+<emphasis id="em1033" effect="italics">
+(middle image in Figure 1).
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1128">
+Listing 6 calls the 
+
+<emphasis id="strong1144" effect="bold">
+clone
+
+</emphasis>
+ method on the original
+
+
+<emphasis id="strong1145" effect="bold">
+Bitmap
+
+</emphasis>
+ object to create a duplicate 
+
+<emphasis id="strong1146" effect="bold">
+Bitmap
+
+</emphasis>
+
+object, and saves the duplicate 
+
+<emphasis id="strong1147" effect="bold">
+Bitmap
+
+</emphasis>
+ object's reference in 
+the variable named 
+
+<emphasis id="strong1148" effect="bold">
+duplicateB
+
+</emphasis>
+.
+
+</para>
+
+
+
+  
+
+<example id="listing1005" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Clone the  	  original Bitmap to create a duplicate Bitmap.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1006" display="block">      var duplicateB:Bitmap = new Bitmap(
+                             original.bitmapData.clone());
+
+      duplicateB.x = 5;
+      duplicateB.y = original.height;
+      
+      var imageB:Image = new Image();
+      imageB.addChild(duplicateB);
+      this.addChild(imageB);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1129">
+<emphasis id="strong1149" effect="bold">
+Display the duplicate bitmap
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1130">
+Then Listing 6 adds the duplicate bitmap to a new 
+
+<emphasis id="strong1150" effect="bold">
+Image
+
+</emphasis>
+
+object, positions the duplicate bitmap immediately below the top image in Figure 
+1 and adds the new image to the 
+
+<emphasis id="strong1151" effect="bold">
+VBox
+
+</emphasis>
+. This is the middle image 
+in Figure 1.
+
+</para>
+
+
+
+
+
+<para id="p1131">
+<emphasis id="strong1152" effect="bold">
+Another curious circumstance
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1132">
+Curiously, the middle image in Figure 1 is five or six pixels further down 
+than I expected it to be. This produces a gap of five or six pixels between the 
+top two images in Figure 1. I am unable to explain the reason for the gap at 
+this time, but I suspect that it may have something to do with the layout rules 
+of the 
+
+<emphasis id="strong1153" effect="bold">
+VBox
+
+</emphasis>
+ container object. When I place two or more ordinary 
+
+<emphasis id="strong1154" effect="bold">
+
+Image
+
+</emphasis>
+ objects in a 
+
+<emphasis id="strong1155" effect="bold">
+VBox
+
+</emphasis>
+ container, they appear in a 
+vertical stack separated by about five or six pixels. However, that is total 
+speculation on my part.
+
+</para>
+
+
+
+
+
+<para id="p1133">
+<emphasis id="strong1156" effect="bold">
+Modify the duplicate Bitmap
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1134">
+Listing 7 calls the
+
+
+<emphasis id="strong1157" effect="bold">
+modify
+
+</emphasis>
+ method passing a reference to
+
+
+<emphasis id="strong1158" effect="bold">
+duplicateB
+
+</emphasis>
+ as a parameter. This causes the middle image in 
+Figure 1 to be modified in two different ways. 
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+  
+
+<item id="li1052">
+First, the magenta and 
+  green rows of pixels are inserted near the upper left corner. 
+
+</item>
+
+
+  
+
+<item id="li1053">
+Then a colored border two 
+  pixels thick is inserted around the four edges of the bitmap.
+
+</item>
+
+
+
+
+</list>
+
+
+
+  
+
+<example id="listing1006" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+Modify  	  the duplicate Bitmap.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1007" display="block">      modify(duplicateB);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1135">
+<emphasis id="strong1159" effect="bold">
+Explain the modify method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1136">
+At this point, I will put the explanation of the 
+
+<emphasis id="strong1160" effect="bold">
+complete
+
+</emphasis>
+
+event handler on hold and explain the method named 
+
+<emphasis id="strong1161" effect="bold">
+modify
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1137">
+<emphasis id="strong1162" effect="bold">
+Beginning of the modify method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1138">
+The 
+
+<emphasis id="strong1163" effect="bold">
+modify
+
+</emphasis>
+
+method begins in Listing 8.
+
+</para>
+
+
+
+  
+
+<example id="listing1007" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_8" effect="bold">
+</emphasis>
+Beginning  	  of the modify method.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1008" display="block">    private function modify(bitmap:Bitmap):void{
+
+      var bitmapData:BitmapData = bitmap.bitmapData;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1139">
+The incoming 
+
+<emphasis id="strong1164" effect="bold">
+Bitmap
+
+</emphasis>
+ object encapsulates a
+
+
+<emphasis id="strong1165" effect="bold">
+BitmapData
+
+</emphasis>
+ object, which is referenced by a property of the
+
+
+<emphasis id="strong1166" effect="bold">
+Bitmap
+
+</emphasis>
+ object named 
+
+<emphasis id="strong1167" effect="bold">
+bitmapData
+
+</emphasis>
+. Listing 8 gets 
+a copy of that reference and saves it in a local variable named
+
+
+<emphasis id="strong1168" effect="bold">
+bitmapData
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1140">
+<emphasis id="strong1169" effect="bold">
+Process pixels using the getPixels and 
+setPixels methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1141">
+Listing 9 begins by 
+instantiating a new empty object of type 
+
+<emphasis id="strong1170" effect="bold">
+ByteArray
+
+</emphasis>
+.
+
+</para>
+
+
+
+  
+
+<example id="listing1008" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_9" effect="bold">
+</emphasis>
+Process  	  pixels using the getPixels and setPixels methods.
+</title>
+
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1009" display="block">      var rawBytes:ByteArray = new ByteArray();
+      rawBytes = bitmapData.getPixels(
+                               new Rectangle(10,10,50,8));</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1142">
+<emphasis id="strong1171" effect="bold">
+The ByteArray class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1143">
+According to the 
+
+<link id="a1050" url="http://livedocs.adobe.com/flex/3/langref/flash/utils/ByteArray.html">
+
+
+documentation
+
+</link>
+
+,
+
+</para>
+
+
+
+
+
+<para id="p1144">
+<emphasis id="em1034" effect="italics">
+"The ByteArray class provides methods and 
+properties to optimize reading, writing, and working with binary data."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1145">
+A 
+
+<emphasis id="strong1172" effect="bold">
+ByteArray
+
+</emphasis>
+ object is an object that can be used to store 
+and access data using either square bracket notation [] or method calls. The 
+main benefit of using this data structure from our viewpoint is that it 
+will decompose the 32-bit integers into 8-bit bytes and allow us access the 
+pixel data one byte at a time. Otherwise it would be necessary for us to perform 
+the decomposition ourselves using bit shift operations.
+
+</para>
+
+
+
+
+
+<para id="p1146">
+<emphasis id="strong1173" effect="bold">
+The getPixels method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1147">
+Listing 9 populates the 
+
+<emphasis id="strong1174" effect="bold">
+ByteArray
+
+</emphasis>
+ object by calling the
+
+
+<emphasis id="strong1175" effect="bold">
+getPixels
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1176" effect="bold">
+BitmapData
+
+</emphasis>
+ object. 
+According to the 
+
+<link id="a1051" url="http://livedocs.adobe.com/flex/3/langref/flash/display/BitmapData.html#getPixels%28%29">
+
+
+documentation
+
+</link>
+
+, this method 
+
+</para>
+
+
+
+
+
+<para id="p1148">
+<emphasis id="em1035" effect="italics">
+"Generates a byte array from a
+
+
+<emphasis id="strong1177" effect="bold">
+rectangular region
+
+</emphasis>
+ of pixel data. Writes an unsigned integer (a 
+32-bit unmultiplied pixel value) for each pixel into the byte array."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1149">
+<emphasis id="strong1178" effect="bold">
+A Rectangle object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1150">
+A new 
+
+<emphasis id="strong1179" effect="bold">
+Rectangle
+
+</emphasis>
+ object is instantiated to define the
+
+
+<emphasis id="em1036" effect="italics">
+rectangular region
+
+</emphasis>
+ from which the pixels are extracted. According to 
+the documentation, the constructor for this class
+
+</para>
+
+
+
+
+
+<para id="p1151">
+<emphasis id="em1037" effect="italics">
+"Creates a new 
+
+<emphasis id="strong1180" effect="bold">
+Rectangle
+
+</emphasis>
+
+object with the top-left corner specified by the x and y parameters and with the 
+specified width and height parameters."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1152">
+The rectangular region specified by the parameters in Listing 9 has its 
+upper-left corner at (10,10)
+
+<emphasis id="em1038" effect="italics">
+,
+
+</emphasis>
+ is 50 pixels wide, and 8 pixels high. This is the 
+rectangular occupied by the magenta and green horizontal bars near the 
+upper-left corner of the middle image in Figure 1.
+
+</para>
+
+
+
+
+
+<para id="p1153">
+<emphasis id="strong1181" effect="bold">
+The ByteArray object is populated with pixel 
+data
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1154">
+When the 
+
+<emphasis id="strong1182" effect="bold">
+getPixels
+
+</emphasis>
+ method returns in Listing 9, the pixels 
+from that rectangular region are stored in the 
+
+<emphasis id="strong1183" effect="bold">
+ByteArray
+
+</emphasis>
+
+object referred to by 
+
+<emphasis id="strong1184" effect="bold">
+rawBytes
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1155">
+<emphasis id="strong1185" effect="bold">
+The organization of the pixel data
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1156">
+The first four bytes in the array belong to the pixel in the upper-left 
+corner of the rectangular region. The next four bytes belong to the pixel 
+immediately to the right of that one. The array is populated by the data from 
+the rectangular region on a row by row basis.
+
+</para>
+
+
+
+
+
+<para id="p1157">
+Each set of four bytes represent one pixel in ARGB format. In other words, 
+the first byte in the four-byte group is the alpha byte. That byte is followed 
+by the red byte, the green byte, and the blue byte in that order. This 
+information is critical when time comes to use the data in the array to modify 
+the pixel data.
+
+</para>
+
+
+
+
+
+<para id="p1158">
+<emphasis id="strong1186" effect="bold">
+The general procedure
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1159">
+The general procedure when using this approach is to extract a rectangular 
+region of pixels into the array, modify the array data, and then call the
+
+
+<emphasis id="strong1187" effect="bold">
+setPixels
+
+</emphasis>
+ method to write the modified color data back into the 
+area of memory that represents the rectangular region from the bitmap data.
+
+</para>
+
+
+
+
+
+<para id="p1160">
+<emphasis id="strong1188" effect="bold">
+A very useful format
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1161">
+The format of the data in the 
+
+<emphasis id="strong1189" effect="bold">
+ByteArray
+
+</emphasis>
+ object is very useful when you 
+need to modify consecutive pixels on a row by row basis. It is less useful, but 
+can be used when you need to modify pixels whose locations are more random in 
+nature.
+
+</para>
+
+
+
+
+
+<para id="p1162">
+In our case, we want to set the color of all the pixels in the top four rows 
+of the rectangular region to magenta and we want to set the color of all the 
+pixels in the bottom four rows of the rectangular region to green as shown by 
+the middle image in Figure 1. This data format is ideal for that kind of 
+operation.
+
+</para>
+
+
+
+
+
+<para id="p1163">
+<emphasis id="strong1190" effect="bold">
+Modify the pixels in the rectangular 
+region
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1164">
+Listing 10 sets the colors of 
+the pixels in the top four rows to magenta and sets the colors of the pixels in 
+the bottom four rows to green without modifying the value of the alpha byte.
+
+</para>
+
+
+
+  
+
+<example id="listing1009" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_10" effect="bold">
+</emphasis>
+Modify  	  the pixels in the rectangular region.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1010" display="block">      var cnt:uint = 1;
+      while(cnt &lt; rawBytes.length){
+        if(cnt &lt; rawBytes.length/2){
+          rawBytes[cnt] = 255;
+          rawBytes[cnt + 1] = 0;
+          rawBytes[cnt + 2] = 255;
+        }else{
+          rawBytes[cnt] = 0;
+          rawBytes[cnt + 1] = 255;
+          rawBytes[cnt + 2] = 0;
+        } //end if-else
+    
+        cnt += 4;//Increment the counter by 4.
+      }//end while loop</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1165">
+<emphasis id="strong1191" effect="bold">
+The magenta and green color values
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1166">
+A magenta pixel is produced by setting the red and blue color bytes to full 
+strength 
+
+<emphasis id="em1039" effect="italics">
+(255)
+
+</emphasis>
+ and setting the green color byte to 0. A green pixel is produced 
+by setting the red and blue color bytes to 0 and setting the green color byte to 
+255.
+
+</para>
+
+
+
+
+
+<para id="p1167">
+<emphasis id="strong1192" effect="bold">
+You should be OK by now
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1168">
+Knowing what you now know, you should have no difficulty understanding how 
+the data in the 
+
+<emphasis id="strong1193" effect="bold">
+ByteArray
+
+</emphasis>
+ object is modified to produce the 
+magenta and green colored areas near the upper-left corner of the middle image 
+of Figure 1.
+
+</para>
+
+
+
+
+
+<para id="p1169">
+<emphasis id="strong1194" effect="bold">
+Not quite finished yet
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1170">
+Note, however that we haven't modified the actual pixel data in the bitmap 
+yet. So far we have made a copy of all the pixel data in the rectangular region and 
+have modified the color values in the copy of the pixel data. We still need to write 
+the modified pixel data back into the 
+
+<emphasis id="strong1195" effect="bold">
+BitmapData
+
+</emphasis>
+ object to 
+actually modify the image.
+
+</para>
+
+
+
+
+
+<para id="p1171">
+<emphasis id="strong1196" effect="bold">
+Put the modified pixel data back into the same 
+rectangular region
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1172">
+Listing 11 calls the
+
+
+<emphasis id="strong1197" effect="bold">
+setPixels
+
+</emphasis>
+ method to store the pixel data that is contained in 
+the 
+
+<emphasis id="strong1198" effect="bold">
+rawBytes
+
+</emphasis>
+ array back into the same rectangular region of the 
+bitmap image.
+
+</para>
+
+
+
+  
+
+<example id="listing1010" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_11" effect="bold">
+</emphasis>
+Put  	  the modified pixel data back into the same rectangular region.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1011" display="block">      rawBytes.position = 0;//this is critical
+      bitmapData.setPixels(
+                      new Rectangle(10,10,50,8),rawBytes);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1173">
+<emphasis id="strong1199" effect="bold">
+The position property of the ByteArray object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1174">
+With one exception, you should have no difficulty understanding the code in 
+Listing 11. That exception has to do with the 
+
+<emphasis id="strong1200" effect="bold">
+ByteArray
+
+</emphasis>
+
+property named 
+
+<emphasis id="strong1201" effect="bold">
+position
+
+</emphasis>
+. Here is what the documentation has to 
+say about the position property: 
+
+</para>
+
+
+
+
+
+<para id="p1175">
+<emphasis id="em1040" effect="italics">
+"Moves, or returns the current position, in 
+bytes, of the file pointer into the ByteArray object. This is the point at which 
+the next call to a read method starts reading or a write method starts writing."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1176">
+Whether or not you understand what that means, it is critical that you set 
+the value of the 
+
+<emphasis id="strong1202" effect="bold">
+position
+
+</emphasis>
+ property to zero before calling the
+
+
+<emphasis id="strong1203" effect="bold">
+setPixels
+
+</emphasis>
+ method to cause all of the data in the array to be 
+written into the 
+
+<emphasis id="strong1204" effect="bold">
+BitmapData
+
+</emphasis>
+ object. Otherwise, you will get a 
+runtime error.
+
+</para>
+
+
+
+
+
+<para id="p1177">
+<emphasis id="strong1205" effect="bold">
+Some things worth noting
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1178">
+A couple of things are worth noting. First, there was no technical 
+requirement to write the data from the array back into the same rectangular 
+region from which it was read. It could have been written into a different 
+rectangular region in the same bitmap, it could have been written into several 
+different rectangular regions, or it could even have been written into a 
+completely different 
+
+<emphasis id="strong1206" effect="bold">
+BitmapData
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1179">
+<emphasis id="strong1207" effect="bold">
+No requirement to read the bitmap data
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1180">
+Second, since the code in Listing 10 stored color data into the array that 
+was totally independent of the color values in the 
+
+<emphasis id="strong1208" effect="bold">
+BitmapData
+
+</emphasis>
+
+object, there was no requirement to read the color data from the
+
+
+<emphasis id="strong1209" effect="bold">
+BitmapData
+
+</emphasis>
+ object in the first place. We could simply have 
+instantiated a new 
+
+<emphasis id="strong1210" effect="bold">
+ByteArray
+
+</emphasis>
+ object and set its length to the 
+product of the width and the height of the rectangular region. Then we could 
+have executed the code in Listing 10 to populate the bytes in the array with 
+magenta and green color values. Then we could have executed the code in Listing 
+11 to write the pixel data into an appropriate rectangular region in the
+
+
+<emphasis id="strong1211" effect="bold">
+BitmapData
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1181">
+<emphasis id="strong1212" effect="bold">
+On the other hand...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1182">
+On the other hand, had we wanted to do something like emphasize the green 
+color and deemphasize the blue color in the rectangular region, we would have 
+needed to call the 
+
+<emphasis id="strong1213" effect="bold">
+getPixels
+
+</emphasis>
+ method to get the actual pixel 
+data from the 
+
+<emphasis id="strong1214" effect="bold">
+BitmapData
+
+</emphasis>
+ object into the array. Having that 
+pixel data available, we could have:
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+  
+
+<item id="li1054">
+Multiplied the green color value in each pixel by 1.2,
+
+</item>
+
+
+  
+
+<item id="li1055">
+Multiplied the blue color values in each pixel by 0.8,
+
+</item>
+
+
+  
+
+<item id="li1056">
+Called the 
+
+<emphasis id="strong1215" effect="bold">
+setPixels
+
+</emphasis>
+ method as in Listing 11 to store the 
+  modified pixel data back into the same rectangular region of the
+    
+
+<emphasis id="strong1216" effect="bold">
+BitmapData
+
+</emphasis>
+ object.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1183">
+<emphasis id="strong1217" effect="bold">
+Process pixels using the setPixel32 method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1184">
+The code in Listing 12 uses 
+the 
+
+<emphasis id="strong1218" effect="bold">
+setPixel32
+
+</emphasis>
+ method to put a magenta border on the left edge 
+of the bitmap and a cyan border on the right edge of the
+
+
+<emphasis id="strong1219" effect="bold">
+BitmapData
+
+</emphasis>
+ object as shown in the middle image in Figure 1. 
+
+
+<emphasis id="em1041" effect="italics">
+(The border is two pixels thick.)
+
+</emphasis>
+</para>
+
+
+
+  
+
+<example id="listing1011" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_12" effect="bold">
+</emphasis>
+Process pixels using the setPixel32 method.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1012" display="block">      for(var row:uint = 0;row &lt; bitmapData.height;
+                                                   row++){
+        bitmapData.setPixel32(0,row,0xFFFF00FF);
+        bitmapData.setPixel32(1,row,0xFFFF00FF);
+        bitmapData.setPixel32(bitmapData.width - 1,
+                              row,0xFF00FFFF);
+        bitmapData.setPixel32(bitmapData.width - 2,
+                              row,0xFF00FFFF);
+      }//end for loop</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1185">
+<emphasis id="strong1220" effect="bold">
+The setPixel32 method and its cousins
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1186">
+The 
+
+<emphasis id="strong1221" effect="bold">
+setPixel32
+
+</emphasis>
+ method and its cousin the
+
+
+<emphasis id="strong1222" effect="bold">
+setPixel
+
+</emphasis>
+ method, along with the 
+
+<emphasis id="strong1223" effect="bold">
+getPixel32
+
+</emphasis>
+
+method and the 
+
+<emphasis id="strong1224" effect="bold">
+getPixel
+
+</emphasis>
+ method, are completely different from 
+the 
+
+<emphasis id="strong1225" effect="bold">
+getPixels
+
+</emphasis>
+ method and the 
+
+<emphasis id="strong1226" effect="bold">
+setPixels
+
+</emphasis>
+ method 
+used earlier.
+
+</para>
+
+
+
+
+
+<para id="p1187">
+<emphasis id="strong1227" effect="bold">
+And the differences are...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1188">
+Each call to the 
+
+<emphasis id="strong1228" effect="bold">
+getPixels
+
+</emphasis>
+ method or the
+
+
+<emphasis id="strong1229" effect="bold">
+setPixels
+
+</emphasis>
+ method deals with all of the pixels in a specified 
+rectangular region.
+
+</para>
+
+
+
+
+
+<para id="p1189">
+Each call to the 
+
+<emphasis id="strong1230" effect="bold">
+getPixel
+
+</emphasis>
+ method, the
+
+
+<emphasis id="strong1231" effect="bold">
+getPixel32
+
+</emphasis>
+ method, the 
+
+<emphasis id="strong1232" effect="bold">
+setPixel
+
+</emphasis>
+ method, or the 
+
+<emphasis id="strong1233" effect="bold">
+
+setPixel32
+
+</emphasis>
+ method deals with only one pixel. That pixel is identified 
+by the horizontal and vertical coordinates of a single pixel in the
+
+
+<emphasis id="strong1234" effect="bold">
+BitmapData
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1190">
+<emphasis id="strong1235" effect="bold">
+Getting and/or setting a pixel value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1191">
+As you have probably guessed by now, the 
+
+<emphasis id="strong1236" effect="bold">
+getPixel
+
+</emphasis>
+ and
+
+
+<emphasis id="strong1237" effect="bold">
+getPixel32
+
+</emphasis>
+ methods are used to return the value of a single 
+pixel from the specified location. Both of these methods return a 32-bit data 
+value of type 
+
+<emphasis id="strong1238" effect="bold">
+uint
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1192">
+Similarly, the 
+
+<emphasis id="strong1239" effect="bold">
+setPixel
+
+</emphasis>
+ and 
+
+<emphasis id="strong1240" effect="bold">
+setPixel32
+
+</emphasis>
+
+methods are used to write a 32-bit unsigned integer value into a specified 
+location in the 
+
+<emphasis id="strong1241" effect="bold">
+BitmapData
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1193">
+<emphasis id="strong1242" effect="bold">
+Not decomposed into separate bytes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1194">
+Unlike with the 
+
+<emphasis id="strong1243" effect="bold">
+getPixels
+
+</emphasis>
+ method used with the
+
+
+<emphasis id="strong1244" effect="bold">
+ByteArray
+
+</emphasis>
+ object, the 
+
+<emphasis id="strong1245" effect="bold">
+getPixel
+
+</emphasis>
+ and
+
+
+<emphasis id="strong1246" effect="bold">
+getPixel32
+
+</emphasis>
+ methods don't decompose the 32-bit integer value 
+into separate bytes for alpha, red, green, and blue. If you need to separate the 
+returned value into individual bytes, you must accomplish that yourself.
+
+</para>
+
+
+
+
+
+<para id="p1195">
+The order of the bytes in the returned value is ARGB. In other words, the 
+leftmost eight bits contain the alpha value, the rightmost eight bits contain 
+the blue value, and the red and green bytes are in the middle.
+
+</para>
+
+
+
+
+
+<para id="p1196">
+<emphasis id="strong1247" effect="bold">
+The difference between the methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1197">
+The difference between the methods with 32 in the name the methods without 32 
+in the name has to do with the alpha byte. The two methods without 32 in the 
+name return a 32-bit unsigned integer but only the 24 RGB bits are meaningful. 
+The eight alpha bits are not meaningful. On the other hand, for the methods with 
+32 in the name, all four bytes including the alpha byte are meaningful.
+
+</para>
+
+
+
+
+
+<para id="p1198">
+<emphasis id="strong1248" effect="bold">
+Set the pixels to create a border
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1199">
+The code in Listing 12 uses a 
+
+<emphasis id="strong1249" effect="bold">
+for
+
+</emphasis>
+ loop and the
+
+
+<emphasis id="strong1250" effect="bold">
+setPixel32
+
+</emphasis>
+ method to set the pixel color to fully opaque 
+magenta 
+
+<emphasis id="em1042" effect="italics">
+(red plus blue)
+
+</emphasis>
+ for the first two pixels in each row of pixels and to 
+set the pixel color to fully opaque cyan 
+
+<emphasis id="em1043" effect="italics">
+(green plus blue)
+
+</emphasis>
+ for the last two 
+pixels in each row. This produces a magenta border with a thickness of two 
+pixels on the left edge of the middle image in Figure 1 and produces a cyan 
+border with a thickness of two pixels on the right edge of the middle image in 
+Figure 1.
+
+</para>
+
+
+
+
+
+<para id="p1200">
+<emphasis id="strong1251" effect="bold">
+Put borders on the top and bottom edges
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1201">
+Listing 13 uses similar code to put a cyan border along the top edge and a 
+magenta border along the bottom edge of the middle image in Figure 1.
+
+</para>
+
+
+
+  
+
+<example id="listing1012" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_13" effect="bold">
+</emphasis>
+Put  	  borders on the top and bottom edges.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1013" display="block">      for(var col:uint = 0;col &lt; bitmapData.width;
+                                               col++){
+        bitmapData.setPixel32(col,0,0xFF00FFFF);
+        bitmapData.setPixel32(col,1,0xFF00FFFF);
+        bitmapData.setPixel32(col,bitmapData.height - 1,
+                              0xFFFF00FF);
+        bitmapData.setPixel32(col,bitmapData.height - 2,
+                              0xFFFF00FF);
+        
+      } //End for loop
+    
+    } //end modify method</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1202">
+<emphasis id="strong1252" effect="bold">
+The end of the modify method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1203">
+Listing 13 also signals the end of the 
+
+<emphasis id="strong1253" effect="bold">
+modify
+
+</emphasis>
+ method. When 
+the method returns from the call that was made in Listing 7, the pixels in the 
+red and green rectangular region near the upper-left corner of the middle image 
+of Figure 1 have been modified relative to the original image shown in the top 
+image in Figure 1. In addition, the pixels along all four edges of the middle 
+image have been replaced by magenta and cyan pixels to produce a border with a 
+thickness of two pixels.
+
+</para>
+
+
+
+
+
+<para id="p1204">
+<emphasis id="strong1254" effect="bold">
+Return to the complete event handler
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1205">
+Returning now to where we left off in the 
+
+<emphasis id="strong1255" effect="bold">
+complete
+
+</emphasis>
+ event 
+handler in Listing 7, the code in Listing 14:
+
+</para>
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+  
+
+<item id="li1057">
+Creates another duplicate 
+
+<emphasis id="strong1256" effect="bold">
+BitmapData
+
+</emphasis>
+ object.
+
+</item>
+
+
+  
+
+<item id="li1058">
+Encapsulates it in an 
+
+<emphasis id="strong1257" effect="bold">
+Image
+
+</emphasis>
+ object.
+
+</item>
+
+
+  
+
+<item id="li1059">
+Places it at the bottom of Figure 1. 
+
+</item>
+
+
+  
+
+<item id="li1060">
+Calls the 
+
+<emphasis id="strong1258" effect="bold">
+modify
+
+</emphasis>
+ method to modify the pixels just like 
+  the middle image in Figure 1.
+
+</item>
+
+
+  
+
+<item id="li1061">
+Calls the 
+
+<emphasis id="strong1259" effect="bold">
+invert
+
+</emphasis>
+ method to invert the colors of all the 
+  pixels in the top half of the 
+
+<emphasis id="strong1260" effect="bold">
+BitmapData
+
+</emphasis>
+ object to produce 
+  the final image shown at the bottom of Figure 1.
+
+</item>
+
+
+
+
+</list>
+
+
+
+  
+
+<example id="listing1013" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_14" effect="bold">
+</emphasis>
+Return  	  to the complete event handler.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1014" display="block">      //Clone the original bitmap to create another
+      // duplicate.
+      var duplicateC:Bitmap = new Bitmap(
+                             original.bitmapData.clone());
+      //Place the duplicateC below the other two in the
+      // VBox.
+      duplicateC.x = 5;
+      duplicateC.y = 2*original.height;
+      
+      var imageC:Image = new Image();
+      imageC.addChild(duplicateC);
+      this.addChild(imageC);
+      
+      //Modify the pixels as above to add some color to
+      // the image.
+      modify(duplicateC);
+      //Now invert the colors in the top half of this
+      // bitmap. Note that the magenta and green colors
+      // swap positions.
+      invert(duplicateC);
+
+    } //end completeHandler</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1206">
+<emphasis id="strong1261" effect="bold">
+Color inversion
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1207">
+The color inversion algorithm is
+
+</para>
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+  
+
+<item id="li1062">
+Very fast to execute.
+
+</item>
+
+
+  
+
+<item id="li1063">
+Totally reversible.
+
+</item>
+
+
+  
+
+<item id="li1064">
+Guaranteed to convert every pixel to a different color.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1208">
+Usually the new color is readily distinguishable from the old color.
+
+</para>
+
+
+
+
+
+<para id="p1209">
+<emphasis id="strong1262" effect="bold">
+A comparison
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1210">
+If you compare the top half of the bottom image in Figure 1 with the top half 
+of the other two images, you can see the dramatic effect of color inversion. 
+However, all that is required to exactly restore the original colors is to run 
+the inverted color pixels through the inversion process again.
+
+</para>
+
+
+
+
+
+<para id="p1211">
+Because of these characteristics, some major software products use color 
+inversion to change the colors in an image that has been selected for 
+processing to provide a visual indication that it has been selected.
+
+</para>
+
+
+
+
+
+<para id="p1212">
+<emphasis id="strong1263" effect="bold">
+The color inversion algorithm
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1213">
+To invert the color of a pixel, you simply subtract the red, green, and blue 
+color values from 255 without modifying the alpha value. To reverse the process, 
+you simply subtract the inverted color values from 255 again, which produces the 
+original color values.
+
+</para>
+
+
+
+
+
+<para id="p1214">
+<emphasis id="strong1264" effect="bold">
+Beginning of the 
+
+<emphasis id="strong1265" effect="bold">
+invert
+
+</emphasis>
+
+method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1215">
+The 
+
+<emphasis id="strong1266" effect="bold">
+invert
+
+</emphasis>
+
+method begins in Listing 15.
+
+</para>
+
+
+
+  
+
+<example id="listing1014" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_15" effect="bold">
+</emphasis>
+Beginning of the  	  invert method.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1015" display="block">    private function invert(bitmap:Bitmap):void{
+      //Get the BitmapData object.
+      var bitmapData:BitmapData = bitmap.bitmapData;
+
+      //Get a one-dimensional byte array of pixel data
+      // from the top half of the bitmapData object
+      var rawBytes:ByteArray = new ByteArray();
+      rawBytes = bitmapData.getPixels(new Rectangle(
+               0,0,bitmapData.width,bitmapData.height/2));</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1216">
+The code in Listing 15 gets the 
+
+<emphasis id="strong1267" effect="bold">
+BitmapData
+
+</emphasis>
+ object 
+encapsulated in the incoming 
+
+<emphasis id="strong1268" effect="bold">
+Bitmap
+
+</emphasis>
+ object and extracts the 
+pixel data from a rectangle that comprises the entire top half of the bitmap 
+data into a 
+
+<emphasis id="strong1269" effect="bold">
+ByteArray
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1217">
+<emphasis id="strong1270" effect="bold">
+Apply the inversion algorithm
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1218">
+Listing 16 applies the color 
+inversion algorithm to all of the pixel data in the 
+
+<emphasis id="strong1271" effect="bold">
+ByteArray
+
+</emphasis>
+
+object by subtracting each color value from 255 and storing the result back into 
+the same element of the 
+
+<emphasis id="strong1272" effect="bold">
+ByteArray
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+  
+
+<example id="listing1015" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_16" effect="bold">
+</emphasis>
+Apply the inversion  	  algorithm.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1016" display="block">      var cnt:uint = 1;
+      while(cnt &lt; rawBytes.length){
+        rawBytes[cnt] = 255 - rawBytes[cnt];
+        rawBytes[cnt + 1] = 255 - rawBytes[cnt + 1];
+        rawBytes[cnt + 2] = 255 - rawBytes[cnt + 2];
+
+        cnt += 4;//increment the counter
+      }//end while loop</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1219">
+<emphasis id="strong1273" effect="bold">
+Put the modified pixel data back into the
+
+
+<emphasis id="strong1274" effect="bold">
+BitmapData
+
+</emphasis>
+ object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1220">
+Listing 17 calls the 
+
+<emphasis id="strong1275" effect="bold">
+setPixels
+
+</emphasis>
+ method to put the modified 
+pixel data back into the 
+
+<emphasis id="strong1276" effect="bold">
+BitmapData
+
+</emphasis>
+ object producing the final 
+output shown in the bottom image of Figure 1.
+
+</para>
+
+
+
+  
+
+<example id="listing1016" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_17" effect="bold">
+</emphasis>
+Put  	  the modified pixel data back into the BitmapData object.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1017" display="block">      rawBytes.position = 0;//this is critical
+      bitmapData.setPixels(new Rectangle(
+                0,0,bitmapData.width,bitmapData.height/2),
+                rawBytes);
+    
+    } //end invert method
+    //--------------------------------------------------//
+        
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1221">
+This is a case where the new pixel color values depend on the original color 
+values. Therefore, it was necessary to get and use the old color values to 
+compute the new color values.
+
+</para>
+
+
+
+
+
+<para id="p1222">
+<emphasis id="strong1277" effect="bold">
+An interesting side note
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1223">
+If you compare the two color bars in the upper-left corner of the middle and 
+bottom images in Figure 1, you will see that they appear to have swapped 
+positions. This is because the numeric value of magenta is the inverse of the 
+numeric value of cyan and vice versa. The same is true of the cyan and magenta 
+borders.
+
+</para>
+
+
+
+
+
+<para id="p1224">
+<emphasis id="strong1278" effect="bold">
+The end of the program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1225">
+Listing 17 also signals the 
+end of the program named 
+
+<emphasis id="strong1279" effect="bold">
+Bitmap05
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21004">
+<title>
+<emphasis id="The_program_named_Bitmap06" effect="bold">
+
+The program named Bitmap06
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1226">
+<emphasis id="strong1280" effect="bold">
+Behaves just like Bitmap05
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1227">
+This program behaves just like the program named Bitmap05. Therefore, the 
+screen output shown in Figure 1 applies to this program as well as to the 
+program named 
+
+<emphasis id="strong1281" effect="bold">
+Bitmap05
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1228">
+<emphasis id="strong1282" effect="bold">
+The difference between the two programs
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1229">
+This program differs from the program named 
+
+<emphasis id="strong1283" effect="bold">
+Bitmap05
+
+</emphasis>
+ in terms of how and when 
+the image file is loaded. With the program named 
+
+<emphasis id="strong1284" effect="bold">
+Bitmap05
+
+</emphasis>
+, the image file was 
+maintained as a separate file and downloaded with the SWF file. Then it was 
+loaded at runtime. This resulted in the 
+
+<link id="a1052" target-id="security">
+
+security issue
+
+</link>
+
+
+discussed earlier.
+
+</para>
+
+
+
+
+
+<para id="p1230">
+This program embeds the image file into the SWF file at compile time. Since 
+there is no image file to be loaded from the local file system at runtime, the 
+security issue does not apply to this program.
+
+</para>
+
+
+
+
+
+<para id="p1231">
+<emphasis id="strong1285" effect="bold">
+Code modifications
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1232">
+As you might imagine, it was necessary to make some modifications to the 
+program code to accomplish this difference. I will explain those modifications 
+in the following paragraphs.
+
+</para>
+
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="MXML_code_for_the_program_named_Bitmap06" effect="bold">
+
+MXML code for the program named Bitmap06
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1233">
+The MXML code for this program is the same as shown in Listing 19 for the 
+program named 
+
+<emphasis id="strong1286" effect="bold">
+Bitmap05
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="ActionScript_code_for_the_program_named_Bitmap06" effect="bold">
+
+ActionScript code for the program 
+named Bitmap06
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1234">
+I will present and explain only the code that is different from the program 
+named 
+
+<emphasis id="strong1287" effect="bold">
+Bitmap05
+
+</emphasis>
+. However, a complete listing of the code for this program is 
+provided in Listing 21 near the end of the lesson.
+
+</para>
+
+
+
+
+
+<para id="p1235">
+<emphasis id="strong1288" effect="bold">
+Code that is different in the program named 
+Bitmap06
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1236">
+Listing 18 shows the code that is different in the program named 
+
+<emphasis id="strong1289" effect="bold">
+Bitmap06
+
+</emphasis>
+. 
+Since some of the code is the same, I have highlighted the code that is 
+different with comments.
+
+</para>
+
+
+
+  
+
+<example id="listing1017" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_18" effect="bold">
+</emphasis>
+Code  	  that is different in the program named Bitmap06.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1018" display="block">package CustomClasses{
+  import flash.display.Bitmap;
+  import flash.display.BitmapData;
+  import flash.geom.Rectangle;
+  import flash.utils.ByteArray;
+  import mx.containers.VBox;
+  import mx.controls.Image;
+  import mx.events.FlexEvent//different
+  //====================================================//
+  
+  public class Driver extends VBox {
+    private var image:Image = new Image();//different
+    
+    public function Driver(){//constructor
+      //Make the VBox visible.
+      setStyle("backgroundColor",0xFFFF00);
+      setStyle("backgroundAlpha",1.0);
+
+      [Embed("snowscene.jpg")]//different
+      var img:Class;//different
+
+      image.load(img);//different
+      
+      //Note that the type of completion event specified
+      // here is different from the type of completion
+      // event used in Bitmap05.
+      //Different
+      this.addEventListener(FlexEvent.CREATION_COMPLETE,
+                                         completeHandler);
+    } //end constructor
+    //--------------------------------------------------//
+
+    //This handler method is executed when the VBox has
+    // been fully created. Note that the type of the
+    // incoming parameter is more specific than was the
+    // case in Bitmap05. However, it isn't used in this
+    // program.
+    //Different
+    private function completeHandler(
+                          event:mx.events.FlexEvent):void{
+      //Get and save a reference to a Bitmap object
+      // containing the content of the image file. This
+      // statement is different from Bitmap05.
+      //Different
+      var original:Bitmap = Bitmap(image.content);
+
+      //Everything beyond this point is identical to
+      // Bitmap05 except that the IO error handler was
+      // removed. It isn't needed for an embedded image
+      // file.</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1237">
+<emphasis id="strong1290" effect="bold">
+A new import directive
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1238">
+The differences begin in Listing 18 with an import directive for the class 
+named 
+
+<emphasis id="strong1291" effect="bold">
+FlexEvent
+
+</emphasis>
+. This class was not needed in the program named 
+Bitmap05.
+
+</para>
+
+
+
+
+
+<para id="p1239">
+<emphasis id="strong1292" effect="bold">
+Instantiation of an Image object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1240">
+The differences continue in Listing 18 with the declaration and instantiation 
+of an object of the class 
+
+<emphasis id="strong1293" effect="bold">
+Image
+
+</emphasis>
+. The embedded image file will 
+be loaded into this object at runtime. Then the
+
+
+<emphasis id="strong1294" effect="bold">
+Bitmap
+
+</emphasis>
+ object encapsulated in the 
+
+<emphasis id="strong1295" effect="bold">
+Image
+
+</emphasis>
+
+object will be extracted and passed to the 
+
+<emphasis id="strong1296" effect="bold">
+modify
+
+</emphasis>
+ method and 
+the 
+
+<emphasis id="strong1297" effect="bold">
+invert
+
+</emphasis>
+ method the same as before.
+
+</para>
+
+
+
+
+
+<para id="p1241">
+<emphasis id="strong1298" effect="bold">
+Embedding the image file
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1242">
+The two lines of code beginning with the word 
+
+<emphasis id="strong1299" effect="bold">
+[Embed
+
+</emphasis>
+
+provide the mechanism by which the image file is embedded into the SWF file. The 
+first line specifies the name and path to the image file. In this case, it was 
+in the same folder as the MXML file so no path was required.
+
+</para>
+
+
+
+
+
+<para id="p1243">
+The strange syntax of the 
+
+<emphasis id="strong1300" effect="bold">
+Embed
+
+</emphasis>
+ code means that it really isn't an executable 
+programming statement. Instead, it is an instruction to the compiler telling the 
+compiler to embed the file in the SWF file.
+
+</para>
+
+
+
+
+
+<para id="p1244">
+<emphasis id="strong1301" effect="bold">
+Declare a variable to refer to the embedded 
+file
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1245">
+The line immediately following the 
+
+<emphasis id="strong1302" effect="bold">
+Embed
+
+</emphasis>
+ directive declares a variable of 
+type 
+
+<emphasis id="strong1303" effect="bold">
+Class
+
+</emphasis>
+ named 
+
+<emphasis id="strong1304" effect="bold">
+img
+
+</emphasis>
+ that can later be used to 
+refer to the embedded file.
+
+</para>
+
+
+
+
+
+<para id="p1246">
+<emphasis id="strong1305" effect="bold">
+Load the file contents into the Image object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1247">
+The second line of code following the 
+
+<emphasis id="strong1306" effect="bold">
+Embed
+
+</emphasis>
+ directive causes the contents of 
+the embedded image file to be loaded into the 
+
+<emphasis id="strong1307" effect="bold">
+Image
+
+</emphasis>
+ object at 
+runtime. Note that the embedded image file is referenced by the variable named
+
+
+<emphasis id="strong1308" effect="bold">
+img
+
+</emphasis>
+ that was declared along with the 
+
+<emphasis id="strong1309" effect="bold">
+Embed
+
+</emphasis>
+ directive and passed 
+as a parameter to the load method.
+
+</para>
+
+
+
+
+
+<para id="p1248">
+<emphasis id="strong1310" effect="bold">
+No need to worry about IO errors at runtime
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1249">
+Because the image file is read at compile time and embedded into the SWF 
+file, there is no need to provide an IO error handler that will be executed as a 
+result of a runtime IO error involving the image file. If there is a problem 
+reading the file, that problem will occur when the program is compiled and the 
+SWF file is written.
+
+</para>
+
+
+
+
+
+<para id="p1250">
+<emphasis id="strong1311" effect="bold">
+Register a creationComplete event listener on 
+the VBox
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1251">
+The last statement in the constructor registers a
+
+
+<emphasis id="strong1312" effect="bold">
+creationComplete
+
+</emphasis>
+ event handler on the 
+
+<emphasis id="strong1313" effect="bold">
+VBox
+
+</emphasis>
+. 
+This is considerably different from the program named 
+
+<emphasis id="strong1314" effect="bold">
+Bitmap05
+
+</emphasis>
+. First, the 
+event handler is registered on the 
+
+<emphasis id="strong1315" effect="bold">
+VBox
+
+</emphasis>
+ instead of being 
+registered on 
+
+<emphasis id="strong1316" effect="bold">
+loader.contentLoaderInfo
+
+</emphasis>
+. Second, the type of the 
+completion event is different between the two programs.
+
+</para>
+
+
+
+
+
+<para id="p1252">
+The 
+
+<emphasis id="strong1317" effect="bold">
+creationComplete
+
+</emphasis>
+ event will be
+
+</para>
+
+
+
+
+
+<para id="p1253">
+<emphasis id="em1044" effect="italics">
+"Dispatched when the component (
+
+<emphasis id="strong1318" effect="bold">
+VBox
+
+</emphasis>
+) 
+has finished its construction, property processing, measuring, layout, and 
+drawing."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1254">
+The assumption is that by the time the event is dispatched, the bitmap data 
+will have been successfully loaded into the 
+
+<emphasis id="strong1319" effect="bold">
+Image
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1255">
+<emphasis id="strong1320" effect="bold">
+Differences in the creationComplete event 
+handler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1256">
+The first difference in the complete event handler is the type of event 
+passed to the handler. The type 
+
+<emphasis id="strong1321" effect="bold">
+FlexEvent
+
+</emphasis>
+ shown in Listing 18 
+is more specialized than the type 
+
+<emphasis id="strong1322" effect="bold">
+Event
+
+</emphasis>
+ shown in Listing 4. 
+However it doesn't matter in this case because the incoming reference to the 
+event object isn't used.
+
+</para>
+
+
+
+
+
+<para id="p1257">
+<emphasis id="strong1323" effect="bold">
+Getting the Bitmap object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1258">
+The 
+
+<emphasis id="strong1324" effect="bold">
+Bitmap
+
+</emphasis>
+ object in an 
+
+<emphasis id="strong1325" effect="bold">
+Image
+
+</emphasis>
+ object is 
+referred to by the property named 
+
+<emphasis id="strong1326" effect="bold">
+content
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1259">
+The last statement that is marked as being different gets a reference to the
+
+
+<emphasis id="strong1327" effect="bold">
+Bitmap
+
+</emphasis>
+ object and stores it in the variable named
+
+
+<emphasis id="strong1328" effect="bold">
+original
+
+</emphasis>
+ just like was done in Listing 4.
+
+</para>
+
+
+
+
+
+<para id="p1260">
+As before, referencing the 
+
+<emphasis id="strong1329" effect="bold">
+content
+
+</emphasis>
+ property returns the
+
+
+<emphasis id="strong1330" effect="bold">
+Bitmap
+
+</emphasis>
+ object as type 
+
+<emphasis id="strong1331" effect="bold">
+DisplayObject
+
+</emphasis>
+. 
+Therefore, it must be cast to type 
+
+<emphasis id="strong1332" effect="bold">
+Bitmap
+
+</emphasis>
+ before it can be used 
+for the intended purpose of this program.
+
+</para>
+
+
+
+
+
+<para id="p1261">
+<emphasis id="strong1333" effect="bold">
+Beyond this point - no changes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1262">
+Beyond this point, the two programs are identical except that the IO error 
+handler was omitted from this program. As I explained earlier, because the image 
+file is embedded in the SWF file at compile time, there is no need to worry 
+about IO errors involving the image file at runtime.
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Runtheprogram" effect="bold">
+
+
+</emphasis>
+
+Run the programs
+
+</title>
+
+
+
+
+
+
+
+<para id="p1263">
+I encourage you to 
+
+<link id="a1053" target-id="Click">
+
+run
+
+</link>
+
+ the online versions of the two programs from the web. 
+Then copy the code from Listing 19 through Listing 21. Use that code to 
+create Flex projects. Compile and run the projects. Experiment with 
+the code, making changes, and observing the results of your changes. Make 
+certain that you can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1264">
+I will publish a list containing links to ActionScript resources as 
+a separate document. 
+Search for ActionScript Resources in the Connexions search box.
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="CompleteProgramListings" effect="bold">
+
+
+</emphasis>
+
+Complete program listings
+
+</title>
+
+
+
+
+
+
+<para id="p1265">
+Complete listings of the MXML code and the ActionScript code for the programs 
+discussed in this lesson are provided below.
+
+</para>
+
+
+
+
+  
+
+<example id="listing1018" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_19" effect="bold">
+</emphasis>
+MXML  	  code for the program named Bitmap05.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1019" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!--
+This program illustrates loading an image and
+modifying the pixels in the image.
+--&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1266">
+</para>
+
+
+
+  
+
+<example id="listing1019" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_20" effect="bold">
+</emphasis>
+ActionScript code for the program named Bitmap05.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1020" display="block">/*Bitmap05
+Provides skeleton code for creating a Bitmap object from
+an image file.
+Explains the use of the getPixels, setPixels, and
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+<example id="listing1020" type="listing">
+<label>Listing</label>
+
+
+<title>
+<emphasis id="Listing_21" effect="bold">
+</emphasis>
+ActionScript code for the program named Bitmap06.
+</title>
+
+
+
+    
+
+
+      
+
+        
+
+<code id="pre1021" display="block">/*Bitmap06
+This is an update to Bitmap05 that uses an image that is 
+embedded in the SWF file rather than a separate 
+downloaded image file. This eliminates the requirement
+to make the following change to the configuration file
+at:
+
+C:\Program Files\Adobe\Flex Builder 3\sdks\3.2.0\
+frameworks\flex-config.xml
+
+   &lt;!-- Prevents SWFs from accessing the network. --&gt;
+   &lt;use-network&gt;false&lt;/use-network&gt;
+
+The behavior of this program is identical to the
+behavior of Bitmap05.
+*********************************************************/
+package CustomClasses{
+  import flash.display.Bitmap;
+  import flash.display.BitmapData;
+  import flash.geom.Rectangle;
+  import flash.utils.ByteArray;
+  import mx.containers.VBox;
+  import mx.controls.Image;
+  import mx.events.FlexEvent;
+  //====================================================//
+  
+  public class Driver extends VBox {
+    private var image:Image = new Image();
+    
+    public function Driver(){//constructor
+      //Make the VBox visible.
+      setStyle("backgroundColor",0xFFFF00);
+      setStyle("backgroundAlpha",1.0);
+
+      [Embed("snowscene.jpg")]
+      var img:Class;
+      image.load(img);
+
+      //Note that the type of completion event specified
+      // here is different from the type of completion
+      // event used in Bitmap05.
+      this.addEventListener(FlexEvent.CREATION_COMPLETE,
+                                         completeHandler);
+    } //end constructor
+    //--------------------------------------------------//
+
+    //This handler method is executed when the VBox has
+    // been fully created. Note that the type of the
+    // incoming parameter is more specific than was the
+    // case in Bitmap05. However, it isn't used in this
+    // program.
+    private function completeHandler(
+                          event:mx.events.FlexEvent):void{
+      //Get and save a reference to a Bitmap object
+      // containing the content of the image file. This
+      // statement is different from Bitmap05.
+      var original:Bitmap = Bitmap(image.content);
+
+      //Everything beyond this point is identical to
+      // Bitmap05 except that the IO error handler was
+      // removed. It isn't needed for an embedded image
+      // file.
+      
+      //Set the width and height of the VBox object based
+      // on the size of the original bitmap.
+      this.width = original.width + 10;
+      this.height = 3*original.height + 12;
+      
+      //Encapsulate the bitmap in an Image object and add
+      // the Image object to the VBox. Display it at
+      // x=5 and y=0
+      original.x = 5;
+      original.y = 0;
+      var imageA:Image = new Image();
+      imageA.addChild(original);
+      this.addChild(imageA);
+      
+      //Clone the original bitmap to create a duplicate.
+      var duplicateB:Bitmap = new Bitmap(
+                             original.bitmapData.clone());
+      //Place the duplicate bitmap below the original in
+      // the VBox. There is a six-pixel downward shift
+      // that I am unable to explain at this time. The
+      // shift produces a gap of about six pixels between
+      // the two images.
+      duplicateB.x = 5;
+      duplicateB.y = original.height;
+      
+      var imageB:Image = new Image();
+      imageB.addChild(duplicateB);
+      this.addChild(imageB);
+      
+      //Modify this duplicate.
+      modify(duplicateB);
+      
+      //Clone the original bitmap to create another
+      // duplicate.
+      var duplicateC:Bitmap = new Bitmap(
+                             original.bitmapData.clone());
+      //Place the duplicateC below the other two in the
+      // VBox.
+      duplicateC.x = 5;
+      duplicateC.y = 2*original.height;
+      
+      var imageC:Image = new Image();
+      imageC.addChild(duplicateC);
+      this.addChild(imageC);
+      
+      //Modify the pixels as above to add some color to
+      // the image.
+      modify(duplicateC);
+      //Now invert the colors in the top half of this
+      // bitmap. Note that the magenta and green colors
+      // swap positions.
+      invert(duplicateC);
+
+    } //end completeHandler
+    //--------------------------------------------------//
+    
+    //This method modifies the pixels in the incoming
+    // bitmap in a variety of ways.
+    private function modify(bitmap:Bitmap):void{
+      //Get the BitmapData object from the incoming
+      // Bitmap object.
+      var bitmapData:BitmapData = bitmap.bitmapData;
+
+      //Process pixels using the getPixels and
+      // setPixels methods.
+      
+      //Get a rectangular array of pixels comprising
+      // 50 columns by 8 rows in a one-dimensional
+      // array of bytes. The bytes are ordered in the
+      // array as row 0, row 1, etc.  Each pixel is
+      // represented by four consecutive bytes in ARGB
+      // order.
+      var rawBytes:ByteArray = new ByteArray();
+      rawBytes = bitmapData.getPixels(
+                               new Rectangle(10,10,50,8));
+    
+      //Set the colors of the top four rows to magenta
+      // and the color of the bottom four rows to
+      // green. Don't modify alpha.
+      var cnt:uint = 1;
+      while(cnt &lt; rawBytes.length){
+        if(cnt &lt; rawBytes.length/2){
+          rawBytes[cnt] = 255;
+          rawBytes[cnt + 1] = 0;
+          rawBytes[cnt + 2] = 255;
+        }else{
+          rawBytes[cnt] = 0;
+          rawBytes[cnt + 1] = 255;
+          rawBytes[cnt + 2] = 0;
+        } //end if-else
+    
+        cnt += 4;//Increment the counter by 4.
+      }//end while loop
+
+      //Put the modified pixels back in the bitmapData
+      // object.
+      rawBytes.position = 0;//this is critical
+      bitmapData.setPixels(
+                      new Rectangle(10,10,50,8),rawBytes);
+                      
+      
+      //Process pixels using the setPixel32 method.
+      
+      //Put a magenta border on the left edge and a
+      // cyan border on the right edge. Note that the
+      // byte values in the 32-bit pixel are in ARGB order
+      // and the border thickness is two pixels.
+      for(var row:uint = 0;row &lt; bitmapData.height;
+                                                   row++){
+        bitmapData.setPixel32(0,row,0xFFFF00FF);
+        bitmapData.setPixel32(1,row,0xFFFF00FF);
+        bitmapData.setPixel32(bitmapData.width - 1,
+                              row,0xFF00FFFF);
+        bitmapData.setPixel32(bitmapData.width - 2,
+                              row,0xFF00FFFF);
+      }//end for loop
+      
+      //Put a cyan border along the top edge and a
+      // magenta border along the bottom edge.
+      for(var col:uint = 0;col &lt; bitmapData.width;
+                                               col++){
+        bitmapData.setPixel32(col,0,0xFF00FFFF);
+        bitmapData.setPixel32(col,1,0xFF00FFFF);
+        bitmapData.setPixel32(col,bitmapData.height - 1,
+                              0xFFFF00FF);
+        bitmapData.setPixel32(col,bitmapData.height - 2,
+                              0xFFFF00FF);
+        
+      } //End for loop
+    
+    } //end modify method
+    //--------------------------------------------------//
+    
+    //This method inverts all of the pixels in the top
+    // half of the incoming bitmap.
+    private function invert(bitmap:Bitmap):void{
+      //Get the BitmapData object.
+      var bitmapData:BitmapData = bitmap.bitmapData;
+
+      //Get a one-dimensional byte array of pixel data
+      // from the top half of the bitmapData object
+      var rawBytes:ByteArray = new ByteArray();
+      rawBytes = bitmapData.getPixels(new Rectangle(
+               0,0,bitmapData.width,bitmapData.height/2));
+      
+      //Invert the colors by subtracting each color
+      // component value from 255.
+      var cnt:uint = 1;
+      while(cnt &lt; rawBytes.length){
+        rawBytes[cnt] = 255 - rawBytes[cnt];
+        rawBytes[cnt + 1] = 255 - rawBytes[cnt + 1];
+        rawBytes[cnt + 2] = 255 - rawBytes[cnt + 2];
+
+        cnt += 4;//increment the counter
+      }//end while loop
+
+      //Put the modified pixels back in the bitmapData
+      // object.
+      rawBytes.position = 0;//this is critical
+      bitmapData.setPixels(new Rectangle(
+                0,0,bitmapData.width,bitmapData.height/2),
+                rawBytes);
+    
+    } //end invert method
+    //--------------------------------------------------//
+        
+  } //end class
+} //end package
+        </code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+	
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+<para id="p1267">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1002" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1334" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+
+
+<item id="li1065">
+Module name: Fundamentals of Image Pixel Processing
+
+</item>
+
+
+
+
+<item id="li1066">
+Files:
+
+<list id="ul1016" list-type="bulleted">
+
+
+
+<item id="li1067">
+ActionScript0132\ActionScript0132.htm
+
+</item>
+
+
+
+
+<item id="li1068">
+ActionScript0132\Connexions\ActionScriptXhtml0132.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+<note id="note1003" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1335" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1268">
+-end-
+
+</para>
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

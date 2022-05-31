@@ -1,0 +1,7225 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Animation Fundamentals</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34485</md:content-id>
+  <md:title>Animation Fundamentals</md:title>
+  <md:abstract>Learn something about how the Flash Player behaves, and learn to use that behavior to write animation projects. Also learn about two different time bases that you can use to control the timing of your ActionScript animation projects.</md:abstract>
+  <md:uuid>f1665b02-0bb4-43cb-97f4-c71c3f7c17df</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="miscellaneous">
+
+
+
+
+
+	
+
+<emphasis id="Click" effect="bold">
+
+Click
+
+</emphasis>
+
+ 
+
+<link id="a1000" url="Animation01.html">
+
+Animation01
+
+</link>
+
+, 
+
+<link id="a1001" url="Animation07.html">
+
+
+	Animation07
+
+</link>
+
+, or 
+
+<link id="a1002" url="Animation01A.html">
+
+Animation01A
+
+</link>
+
+
+to run the ActionScript programs from this lesson. 
+
+<emphasis id="em1000" effect="italics">
+
+(Click the "Back" button in your browser
+to return to this page.)
+
+</emphasis>
+
+
+
+</note>
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1003" target-id="Preface">
+
+Preface
+
+</link>
+
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1004" target-id="General">
+
+General
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1005" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+				
+
+<item id="li1003">
+<link id="a1006" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+				
+
+<item id="li1004">
+<link id="a1007" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1005">
+<link id="a1008" target-id="Supplemental_material">
+
+Supplemental material
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1009" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1007">
+<link id="a1010" target-id="A_laymans_view_of_the_Flash_Player">
+
+A layman's view of the 
+		Flash Player
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1011" target-id="Startup_considerations">
+
+Startup considerations
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1012" target-id="Time_base_considerations">
+
+Time base considerations
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+			
+
+<item id="li1010">
+<link id="a1013" target-id="Listen_for_ENTER_FRAME_events">
+
+Listen for ENTER_FRAME 
+			events
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1011">
+<link id="a1014" target-id="Listen_Timer_tick_events_fired_by_a_Timer_object">
+
+
+			Listen for TIMER events fired by a Timer object
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1015" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1016" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1017" target-id="The_program_named_Animation01">
+
+The project named 
+		Animation01
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1018" target-id="The_project_named_Animation07">
+
+The project named 
+		Animation07
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1019" target-id="The_project_named_Animation01A">
+
+The project named 
+		Animation01A
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1020" target-id="Run_the_program">
+
+Run the projects
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1021" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1019">
+<link id="a1022" target-id="Complete_program_listing">
+
+Complete project listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1023" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+<para id="p1000">
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+ 
+
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+
+<section id="h21000">
+<title>
+ 
+
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+  
+
+<note id="note1001" type="miscellaneous">
+
+
+  
+
+
+  	  All references to ActionScript in this lesson are references to 
+	  version 3 or later.
+
+
+</note>
+
+
+
+
+
+<para id="p1001">
+This tutorial lesson is part of a series of lessons dedicated to 
+object-oriented programming 
+
+<emphasis id="em1001" effect="italics">
+(OOP)
+
+</emphasis>
+ with ActionScript.
+
+</para>
+
+
+
+
+<para id="p1002">
+<emphasis id="strong1000" effect="bold">
+Several ways to create and launch ActionScript projects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1003">
+There are several ways to create and launch projects written in the 
+ActionScript programming language. Many, but not all of the lessons in 
+this series will use Adobe Flex as the launch pad for the sample ActionScript 
+projects.
+
+</para>
+
+
+
+
+<para id="p1004">
+An earlier lesson titled 
+
+
+<emphasis id="strong1001" effect="bold">
+The Default 
+Application Container
+
+</emphasis>
+ provided information on how to get started programming 
+with Adobe's Flex Builder 3. The lesson titled
+
+
+<emphasis id="strong1002" effect="bold">
+Using Flex 3 in 
+a Flex 4 World
+
+</emphasis>
+ was added later to accommodate the release of Flash Builder 
+4. 
+
+<emphasis id="em1002" effect="italics">
+
+(See 
+
+<link id="a1024" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming 
+website
+
+</link>
+
+.)
+
+</emphasis>
+ You should study those lessons before embarking on the 
+lessons in this series.
+
+</para>
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1003" effect="bold">
+Some understanding of Flex MXML will be required
+
+</emphasis>
+</para>
+
+
+
+
+
+
+
+<para id="p1006">
+I also recommend that you study all of the lessons on
+
+
+<link id="a1025" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming 
+website
+
+</link>
+
+ in parallel with your study of these ActionScript lessons. 
+Eventually you will probably need to understand both ActionScript and Flex and 
+the relationships that exist between them in order to become a successful 
+ActionScript programmer. 
+
+</para>
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1004" effect="bold">
+Will emphasize ActionScript code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1008">
+It is often possible to use either ActionScript code or Flex MXML code to 
+achieve the same result. Insofar as this series of lessons is concerned, 
+the emphasis will be on ActionScript code even in those cases where Flex MXML 
+code may be a suitable alternative.
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+ 
+
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+ I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the figures 
+and listings while you are reading about them.
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+ 
+
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1021">
+<link id="a1026" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Default frame rate for Flash Player 
+	10.
+
+</item>
+
+
+	
+
+<item id="li1022">
+<link id="a1027" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Measured frame rate of Flash Player 10 
+	at ten frames per second.
+
+</item>
+
+
+	
+
+<item id="li1023">
+<link id="a1028" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Measured Timer event rate at 30 events 
+	per second and 30 frames per second.
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1029" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Measured Timer event rate at 10 events 
+	per second and 30 frames per second.
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1030" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Measured Timer event rate at 10 events 
+	per second and 10 frames per second.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+ 
+
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1026">
+<link id="a1031" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the class named Main. 
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1032" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the constructor. 
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1033" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Register an ENTER_FRAME listener. 
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1034" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The event handler method named 
+	onEnterFrame. 
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1035" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Beginning of the Main class for the 
+	project named Animation07. 
+
+</item>
+
+
+	
+
+<item id="li1031">
+<link id="a1036" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Completion of the constructor for 
+	the Main class. 
+
+</item>
+
+
+	
+
+<item id="li1032">
+<link id="a1037" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. The ENTER_FRAME event handler. 
+
+</item>
+
+
+	
+
+<item id="li1033">
+<link id="a1038" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Beginning of the MoveableImage class 
+	for the project named Animation07. 
+
+</item>
+
+
+	
+
+<item id="li1034">
+<link id="a1039" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Embed the image in the swf file. 
+
+</item>
+
+
+	
+
+<item id="li1035">
+<link id="a1040" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. The constructor for the 
+	MoveableImage class. z
+
+</item>
+
+
+	
+
+<item id="li1036">
+<link id="a1041" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. The moveIt method of the 
+	MoveableImage class. 
+
+</item>
+
+
+	
+
+<item id="li1037">
+<link id="a1042" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. New import directives for the 
+	project named Animation01A. 
+
+</item>
+
+
+	
+
+<item id="li1038">
+<link id="a1043" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Instantiation of a new Timer 
+	object. 
+
+</item>
+
+
+	
+
+<item id="li1039">
+<link id="a1044" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. Register a TIMER event handler and 
+	start the timer. 
+
+</item>
+
+
+	
+
+<item id="li1040">
+<link id="a1045" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. The TIMER event handler. 
+
+</item>
+
+
+	
+
+<item id="li1041">
+<link id="a1046" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. The Main class for the project 
+	named TimeBase01.
+
+</item>
+
+
+	
+
+<item id="li1042">
+<link id="a1047" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. The Main class for the project 
+	named TimeBase02.
+
+</item>
+
+
+	
+
+<item id="li1043">
+<link id="a1048" target-id="Listing_18">
+
+Listing 18
+
+</link>
+
+. The Main class for the project 
+	named Animation01.
+
+</item>
+
+
+	
+
+<item id="li1044">
+<link id="a1049" target-id="Listing_19">
+
+Listing 19
+
+</link>
+
+. The Main class for the project 
+	named Animation07.
+
+</item>
+
+
+	
+
+<item id="li1045">
+<link id="a1050" target-id="Listing_20">
+
+Listing 20
+
+</link>
+
+. The MoveableImage class for the 
+	project named Animation07.
+
+</item>
+
+
+	
+
+<item id="li1046">
+<link id="a1051" target-id="Listing_21">
+
+Listing 21
+
+</link>
+
+. The Main class for the project 
+	named Animation01A.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+ 
+
+<emphasis id="Supplemental_material" effect="bold">
+
+Supplemental material
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+ I recommend that you also study the other lessons in my extensive collection 
+of online programming tutorials. You will find a consolidated index at
+
+
+<link id="a1052" url="http://www.dickbaldwin.com/toc.htm">
+
+
+www.DickBaldwin.com
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h11002">
+<title>
+ 
+
+<emphasis id="General_background_information" effect="bold">
+
+General background 
+information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1011">
+I am going to take a very broad view of 
+
+<emphasis id="em1003" effect="italics">
+computer animation
+
+</emphasis>
+ in this 
+and the next few lessons. A program that causes visual images to 
+
+<emphasis id="em1004" effect="italics">
+change over 
+time
+
+</emphasis>
+ 
+produces what I am referring to an animation.
+
+</para>
+
+
+
+
+<para id="p1012">
+Such visual changes can take on many different forms. Perhaps the most 
+common form of animation is the movement 
+
+<emphasis id="em1005" effect="italics">
+(change in position)
+
+</emphasis>
+ of an 
+object over time. However, animation can involve a change in any visual 
+attribute of an object over time, such as changes in position, color, size, 
+opacity, orientation, etc.
+
+</para>
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="A_laymans_view_of_the_Flash_Player" effect="bold">
+
+A layman's view of the Flash 
+Player
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1005" effect="bold">
+Major differences
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1014">
+There are some major differences between writing animation code in 
+ActionScript and writing animation code in Java, C++, and C#.
+
+</para>
+
+
+
+
+<para id="p1015">
+Those differences generally have to do with the strong tie between the 
+execution of ActionScript code and the Flash Player. 
+
+<emphasis id="em1006" effect="italics">
+(In some cases, 
+references to the Flash Player in this lesson may also apply to Adobe Air.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1016">
+To understand how to write animation code in ActionScript, you must first 
+understand a little about the Flash Player.
+
+</para>
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1006" effect="bold">
+Why is it called a 
+
+</emphasis>
+<emphasis id="em1007" effect="italics">
+<emphasis id="strong1007" effect="bold">
+player?
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+<para id="p1018">
+There is a good reason that the Flash Player is referred to as a 
+
+<emphasis id="em1008" effect="italics">
+player
+
+</emphasis>
+. 
+In many ways, it resembles a DVD player or a VCR player. What I mean by that is 
+that the Flash Player extracts a series of visual images from memory and 
+displays those images sequentially with a 
+
+<emphasis id="em1009" effect="italics">
+(hopefully)
+
+</emphasis>
+ fixed time 
+interval between the display of one image and the display of the next image in 
+the sequence.
+
+</para>
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1008" effect="bold">
+The scene is displayed once during each frame
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1020">
+We can't know exactly what happens at the lowest levels of the software and the 
+display hardware. However, from the viewpoint of the ActionScript programmer, 
+the scene described by the images stored in memory is displayed over and over 
+even if it isn't changing.
+
+</para>
+
+
+
+
+
+
+
+  
+
+<note id="note1002" type="miscellaneous">
+
+
+  
+
+
+  	  According to the 
+
+<emphasis id="em1010" effect="italics">
+ActionScript 3.0 Bible, 2nd Edition,
+
+</emphasis>
+ by 
+	  Braunstein, ActionScript 3.0 uses a concept known as 
+
+<emphasis id="em1011" effect="italics">
+"dirty rectangles"
+	  
+
+</emphasis>
+to avoid physically rendering rectangular groups of pixels that 
+	  haven't changed.
+
+</note>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1009" effect="bold">
+Frames
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1022">
+Each new display of the scene is referred to as a 
+
+<emphasis id="em1012" effect="italics">
+frame
+
+</emphasis>
+. As you will 
+see later, it is possible for the ActionScript programmer to simply accept the 
+default rate at which frames are displayed, or to execute code to set the 
+
+<emphasis id="em1013" effect="italics">
+
+frame rate
+
+</emphasis>
+ to something other than the default rate.
+
+</para>
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1010" effect="bold">
+Not the case in Java, C++, and C#
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1024">
+The inherently strong tie between the images stored in memory and the 
+sequential and repetitive display of those images by the Flash Player does not 
+exist in Java, C++, or C# 
+
+<emphasis id="em1014" effect="italics">
+(although it can be 
+
+<emphasis id="simulated" effect="bold">
+
+simulated
+
+</emphasis>
+
+)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<note id="note1003" type="miscellaneous">
+
+
+There is an open-source 
+	programming environment named 
+
+<link id="a1053" url="http://processing.org/">
+
+Processing
+
+</link>
+
+ 
+	that uses Java to create an architecture very similar to the Flash Player. 
+	The Microsoft
+	
+
+<emphasis id="strong1011" effect="bold">
+XNA Game Studio
+
+</emphasis>
+ 
+
+<emphasis id="em1015" effect="italics">
+(C#)
+
+</emphasis>
+ and Game Creators
+	
+
+<emphasis id="strong1012" effect="bold">
+Dark 
+	GDK
+
+</emphasis>
+ 
+
+<emphasis id="em1016" effect="italics">
+(C++)
+
+</emphasis>
+ also create a similar architecture. Note, however, 
+	that these are optional add-ons to the language, which is not the case 
+	regarding ActionScript and the Flash Player.
+
+</note>
+
+
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1013" effect="bold">
+The programmer is responsible for the display
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1026">
+Generally speaking, when writing code in those other languages, it is up to 
+the programmer to write the code that determines how, if, and when the images 
+are displayed on the 
+screen.
+
+</para>
+
+
+
+
+<para id="p1027">
+While it is not unusual for the programmer to write code to cause images to 
+be displayed in a sequential and repetitive manner in those other languages 
+
+<emphasis id="em1017" effect="italics">
+
+(see the above 
+
+<link id="a1054" target-id="simulated">
+
+note
+
+</link>
+
+)
+
+</emphasis>
+, the decision to do that is 
+strictly up to the programmer.
+
+</para>
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1014" effect="bold">
+Good news and bad news
+
+</emphasis>
+</para>
+
+
+
+
+
+
+
+  
+
+<note id="note1004" type="miscellaneous">
+
+
+  
+
+
+  	  It is possible to 
+
+<emphasis id="em1018" effect="italics">
+(almost)
+
+</emphasis>
+ prevent the Flash 
+	  Player from displaying repetitive frames by writing code to set the frame 
+	  rate to 0.01 frames per second. This is not without its problems however.
+
+</note>
+
+
+		
+
+<para id="p1029">
+There are pros and cons to both approaches. The good news is that the 
+behavior of the Flash Player relieves the programmer of the responsibility to 
+display images on a sequential and repetitive basis.
+
+</para>
+
+
+
+
+<para id="p1030">
+The bad news is that the Flash Player deprives the programmer of the 
+opportunity to make decisions in that regard.
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Startup_considerations" effect="bold">
+
+Startup considerations
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1015" effect="bold">
+What happens when a swf file is loaded?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1032">
+It is hard to know exactly what happens when a swf file is loaded into the 
+Flash player. I have searched the web extensively and have been unable to find 
+definitive information in that regard.
+
+</para>
+
+
+
+
+<para id="p1033">
+However, I think I understand what happens, and I will share what I believe to be true 
+with you.
+
+</para>
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1016" effect="bold">
+Different ways to write ActionScript 3 programs
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1035">
+You can write ActionScript 3 programs by creating AS3 or ActionScript 
+projects using 
+
+<emphasis id="strong1017" effect="bold">
+Adobe's Flex Builder 3
+
+</emphasis>
+, 
+
+<emphasis id="strong1018" effect="bold">
+Adobe's Flash 
+Builder 4
+
+</emphasis>
+, or using the free open source
+
+
+<link id="a1055" url="http://www.flashdevelop.org/wikidocs/index.php?title=Main_Page">
+
+FlashDevelop
+
+</link>
+
+ 
+	software.
+
+</para>
+
+
+
+
+
+
+
+  
+
+<note id="note1005" type="miscellaneous">
+
+
+  
+
+
+  	  There are other ways to write ActionScript 3 projects as well.
+
+</note>
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1019" effect="bold">
+<emphasis id="A_skeleton_ActionScript_source_code_file" effect="bold">
+
+A 
+skeleton ActionScript source code file
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1037">
+With all three tools, the creation of an ActionScript project causes a skeleton 
+ActionScript source code file with an extension of 
+
+<emphasis id="em1019" effect="italics">
+.as
+
+</emphasis>
+ to be created. 
+This file must contain a public class definition with a class name that matches 
+the name of the file exclusive of the extension.
+
+</para>
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1020" effect="bold">
+The name of the ActionScript source code file
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1039">
+The default name of the source code file differs for the three development 
+tools, but you can rename it if you wish for all three tools. However, you must 
+also be sure to rename the class definition 
+
+<emphasis id="em1020" effect="italics">
+(and its constructor)
+
+</emphasis>
+ so that 
+the name of the class matches the name of the source code file.
+
+</para>
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1021" effect="bold">
+A 
+
+<emphasis id="em1021" effect="italics">
+release build
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+<para id="p1041">
+In all three cases, when you create a 
+
+<emphasis id="em1022" effect="italics">
+release build
+
+</emphasis>
+ for the project, 
+you end up with a folder containing an swf file, an html file, and some other 
+folders and files as a minimum.
+
+</para>
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1022" effect="bold">
+The name of the swf file
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1043">
+The name of the swf file also varies among the different development tools and it 
+is best not to change it. It is referenced inside the html file and possibly 
+inside some of the other files as well, so changing the name of the swf file 
+would require you to make corresponding changes in one or more other files.
+
+</para>
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1023" effect="bold">
+The name of the html file
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1045">
+The name of the html file also varies among the different development tools 
+but it appears that you can change it with no ill effects.
+
+</para>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1024" effect="bold">
+What happens when the html file is opened in a 
+browser?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1047">
+Here is what I believe happens when the html file is opened in a browser that 
+has the Flash Player plug-in installed.
+
+</para>
+
+
+
+
+
+
+
+  
+
+<note id="note1006" type="miscellaneous">
+
+
+  
+
+
+  	  This may be entirely wrong from a detailed technical viewpoint, but I will present it for your consideration 
+	  because it seems to describe what actually happens.
+
+</note>
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1025" effect="bold">
+The swf file is 
+opened in the Flash Player
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1049">
+The code inside the html file causes the swf file to be opened in the Flash 
+Player plug-in that has been installed in that browser.
+
+</para>
+
+
+
+
+<para id="p1050">
+The swf file contains the compiled class definition for the class defined in 
+the source code file mentioned 
+
+
+<link id="a1056" target-id="A_skeleton_ActionScript_source_code_file">
+
+earlier
+
+</link>
+
+ plus a number of 
+other things, including the name of that class. 
+
+<emphasis id="em1023" effect="italics">
+(You can probably think of a 
+swf file as being similar to a zip file or a Java JAR file; a file that 
+encapsulates other files.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1026" effect="bold">
+An object of the class is instantiated
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1052">
+The Flash Player plug-in extracts the name of the class and calls the 
+constructor for that class to instantiate an object of that class.
+
+</para>
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1027" effect="bold">
+The constructor is executed
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1054">
+All of the code contained in the constructor plus all of the code called by 
+code in the constructor, plus all of the code called by that code, etc., is 
+executed.
+
+</para>
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1028" effect="bold">
+Objects of type 
+
+<emphasis id="em1024" effect="italics">
+DisplayObject
+
+</emphasis>
+ are displayed
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1056">
+If any of that code instantiates objects that derive from the 
+
+<emphasis id="strong1029" effect="bold">
+
+DisplayObject
+
+</emphasis>
+ class and adds those objects to the 
+
+<emphasis id="em1025" effect="italics">
+display list
+
+</emphasis>
+, 
+those objects will be displayed during the next frame.
+
+</para>
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1030" effect="bold">
+The current contents of the display list are displayed 
+during each frame
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1058">
+If all of that code terminates without doing something to cause the contents of 
+the display list to be modified or to cause the attributes of those display 
+objects to be modified in the future, they will continue to be displayed once 
+during each frame. In that case, the display will appear to be static insofar as 
+the user is concerned.
+
+</para>
+
+
+
+
+
+
+
+  
+
+<note id="note1007" type="miscellaneous">
+
+
+  
+
+
+  	  Note that some objects, such as 
+
+<emphasis id="strong1031" effect="bold">
+Button
+
+</emphasis>
+ objects, inherently know how to 
+	  modify their own attributes under certain circumstances, such as being 
+	  rolled over or clicked by the mouse.
+
+</note>
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1032" effect="bold">
+Additional code may be executed 
+in the future
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1060">
+The code that is executed and caused to be executed by the constructor may do 
+something to ensure the future execution of additional code, 
+
+<emphasis id="em1026" effect="italics">
+(such as 
+registering TIMER or ENTER_FRAME event listeners).
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1061">
+Code that is executed in the future may modify the display list, may modify 
+the attributes of existing objects on the display list, may instantiate new 
+display objects and add them to the display list, etc. Such changes will be 
+reflected in the visual screen display when they occur.
+
+</para>
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1033" effect="bold">
+Frame-to-frame changes in the display
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1063">
+As a result of code that is executed in the future, the display list may 
+change on a frame-to-frame basis causing the physical display to also change on 
+a frame-to-frame basis. In that case, the display won't appear to be static 
+insofar as the user is concerned.
+
+</para>
+
+
+
+
+<para id="p1064">
+That will be the case for the animation projects that I explain in this 
+lesson.
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Time_base_considerations" effect="bold">
+
+Time base considerations
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1065">
+In many cases when writing animation code, it is appropriate to use a stable 
+time base to control progress through the program. There are at least two 
+different ways to access a time base when writing ActionScript code:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1047">
+Listen for 
+
+<emphasis id="strong1034" effect="bold">
+ENTER_FRAME
+
+</emphasis>
+ events
+
+</item>
+
+
+	
+
+<item id="li1048">
+Listen for 
+
+<emphasis id="strong1035" effect="bold">
+TIMER
+
+</emphasis>
+ events fired by an object of the
+	
+
+<emphasis id="strong1036" effect="bold">
+Timer
+
+</emphasis>
+ class
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1037" effect="bold">
+Not independent approaches
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1067">
+Note, however, that these two approaches are not independent of one another. 
+It is easy to write code that uses the real-time clock to show that simply 
+changing the frame rate will cause the 
+
+<emphasis id="strong1038" effect="bold">
+TIMER
+
+</emphasis>
+ event rate to 
+error from its specified value. 
+
+</para>
+
+
+
+
+<para id="p1068">
+Also, unless the method named 
+
+<emphasis id="strong1039" effect="bold">
+updateAfterEvent
+
+</emphasis>
+ is called in 
+the 
+
+<emphasis id="strong1040" effect="bold">
+TIMER
+
+</emphasis>
+ event handler, it does very little good to use a 
+
+<emphasis id="strong1041" effect="bold">
+
+Timer
+
+</emphasis>
+ object with a fast event rate in an attempt to produce smooth 
+animations if the frame rate is slower than the 
+
+<emphasis id="strong1042" effect="bold">
+Timer
+
+</emphasis>
+ event 
+rate. Without a call to that method in the event handler, changes 
+made to the visual state of the images in accordance with the 
+
+<emphasis id="strong1043" effect="bold">
+TIMER
+
+</emphasis>
+ 
+event rate will only appear on the screen at the slower frame rate.
+
+</para>
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1044" effect="bold">
+Wheels turning backwards
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1070">
+When I was a child, I often went to the movie theatre on Saturday afternoon 
+to watch grade-B western movies featuring stars like Hopalong Cassidy, Roy 
+Rogers, Red Ryder, and others.
+
+</para>
+
+
+
+
+<para id="p1071">
+There was almost always a chase scene in which the bandits were chasing a 
+stage coach. As a child, I could never figure out why it often looked like the wheels 
+
+<emphasis id="em1027" effect="italics">
+
+(with spokes)
+
+</emphasis>
+ on the stage coach were turning backwards.
+
+</para>
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1045" effect="bold">
+An artifact of sampling theory
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1073">
+Now that I understand sampling theory, I also understand what caused the wheels 
+to turn backwards when the stage coach was moving forward. However, an 
+explanation of the phenomenon is beyond the scope of this lesson. 
+
+<emphasis id="em1028" effect="italics">
+(That may 
+make a good topic for a future lesson.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+
+  
+
+<note id="note1008" type="miscellaneous">
+
+
+  
+
+
+  	  It wouldn't be too difficult to write an ActionScript project to 
+	  demonstrate this phenomenon by varying the event rate of a 
+
+<emphasis id="strong1046" effect="bold">
+Timer
+
+</emphasis>
+ 
+	  object relative to the frame rate of the Flash Player, but I don't have 
+	  time to do that right now.
+
+</note>
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1047" effect="bold">
+An 
+interaction with the frame rate
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1075">
+Suffice it at this point to say that the phenomenon results from an 
+interaction between the frame rate of the movie and the speed of motion of the 
+spokes on the wheel. 
+
+<emphasis id="em1029" effect="italics">
+(Click 
+
+</emphasis>
+
+
+
+<link id="a1057" url="http://www.michaelbach.de/ot/mot_wagonWheel/index.html">
+
+
+<emphasis id="em1030" effect="italics">
+here
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1031" effect="italics">
+ 
+for a demonstration of the phenomenon.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1048" effect="bold">
+Other dependencies
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1077">
+As you will see later, there are other dependencies between the 
+
+<emphasis id="strong1049" effect="bold">
+Timer
+
+</emphasis>
+ 
+event rate and the frame rate that aren't so easy to explain.
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="Listen_for_ENTER_FRAME_events" effect="bold">
+
+Listen for ENTER_FRAME events
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1050" effect="bold">
+Process an event for each new display frame
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1079">
+According to Braunstein 
+
+<emphasis id="em1032" effect="italics">
+(see 
+
+<link id="a1058" target-id="Resources">
+
+Resources
+
+</link>
+
+), "All 
+display objects broadcast 
+
+<emphasis id="strong1051" effect="bold">
+Event.ENTER_FRAME
+
+</emphasis>
+ events before every frame is drawn, 
+making them ideal timing beacons for animation."
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+
+
+  
+
+<note id="note1009" type="miscellaneous">
+
+
+  
+
+
+  	  Unfortunately, Braunstein also implies at several locations i
+n 
+	  his excellent book that the accuracy of the repetition rate for 
+
+<emphasis id="strong1052" effect="bold">
+
+	  ENTER_FRAME
+
+</emphasis>
+ 
+	  events may leave a lot to be desired
+.
+
+
+</note>
+
+
+
+
+<para id="p1080">
+We can define and register a listener object that will cause code to be 
+executed each time such an event is fired. Thus, we can use the sequence of 
+
+
+<emphasis id="strong1053" effect="bold">
+ENTER_FRAME
+
+</emphasis>
+ events as a time base with which to control the progress of our 
+ActionScript programs.
+
+</para>
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1054" effect="bold">
+A simple AS3 project
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1082">
+Listing 16 provides the source code for the 
+
+<emphasis id="strong1055" effect="bold">
+Main
+
+</emphasis>
+ class in a very simple AS3 
+project 
+
+<emphasis id="em1033" effect="italics">
+(not a Flex project)
+
+</emphasis>
+ 
+named 
+
+<emphasis id="strong1056" effect="bold">
+TimeBase01
+
+</emphasis>
+ 
+that illustrates the processing of 
+
+<emphasis id="strong1057" effect="bold">
+ENTER_FRAME
+
+</emphasis>
+ events for the purpose of 
+measuring the average elapsed time between such events.
+
+</para>
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1058" effect="bold">
+The average frame rate
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1084">
+This project computes and displays the average frame rate for each of five 
+consecutive sets of 200 frames. 
+
+
+<emphasis id="em1034" effect="italics">
+(The project also shows how to set the frame rate to something other than 
+the default value.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1085">
+Figure 1 shows the text output produced by a single run of this project in 
+
+<emphasis id="em1035" effect="italics">
+
+debug
+
+</emphasis>
+ 
+mode on a Windows Vista system.
+
+</para>
+
+
+
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_1" effect="bold">
+</emphasis>
+Default frame rate for Flash Player  	10.
+</title>
+
+
+
+
+
+
+
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+  
+
+<tbody id="tbody1000">
+
+  
+
+<row id="tr1000">
+
+      
+
+<entry id="td1000">
+
+      
+
+<code id="pre1000" display="block">1271890629505
+1271890636155 200 30.075187969924812
+1271890642822 400 29.99850007499625
+1271890649487 600 30.007501875468865
+1271890656153 800 30.003000300030006
+1271890662823 1000 29.98500749625187</code>
+
+
+      
+
+</entry>
+
+    
+
+</row>
+
+  
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<caption>Default frame rate for Flash Player  	10.</caption>
+</figure>
+
+
+
+
+
+
+	
+
+<para id="p1086">
+<emphasis id="strong1059" effect="bold">
+The elapsed time
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1087">
+The values in the leftmost column show the elapsed time in milliseconds since 
+Jan 1, 1970 
+
+<emphasis id="em1036" effect="italics">
+(known in programming circles as the epoch)
+
+</emphasis>
+ at the 
+beginning of the run and at every 200th frame event thereafter.
+
+</para>
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1060" effect="bold">
+The frame count and the frame rate
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1089">
+The values in the middle column show the frame count.
+
+</para>
+
+
+
+
+<para id="p1090">
+The values in the rightmost column show the frame rate computed from the 
+amount of time required to display each set of 200 frames.
+
+</para>
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1061" effect="bold">
+The default frame rate
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1092">
+This run was made without executing code to set the frame rate to a specific 
+value. The values in the rightmost column in Figure 1 show the default frame 
+rate for Flash Player 10 running on a Windows Vista machine. As you can see, the 
+average frame rate is pretty solid at 30 frames per second.
+
+</para>
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1062" effect="bold">
+<emphasis id="Change_the_frame_rate" effect="bold">
+
+Change the frame rate
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1094">
+Figure 2 shows the project output obtained by removing the comment markers 
+and enabling the following statement in Listing 16.
+
+</para>
+
+
+
+
+<para id="p1095">
+<emphasis id="strong1063" effect="bold">
+stage.frameRate = 10;
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1096">
+The purpose of this statement is to set the frame rate for the Flash Player 
+to ten frames per second.
+
+</para>
+
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_2" effect="bold">
+</emphasis>
+Measured frame rate  	  of Flash Player 10 at ten frames per second.
+</title>
+
+
+
+
+
+
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+  
+
+<tbody id="tbody1001">
+
+  
+
+<row id="tr1001">
+
+      
+
+<entry id="td1001">
+
+      
+
+<code id="pre1001" display="block">1271891012974
+1271891033098 200 9.938382031405286
+1271891053097 400 10.00050002500125
+1271891073097 600 10
+1271891093097 800 10
+1271891113096 1000 10.00050002500125</code>
+
+
+      
+
+</entry>
+
+    
+
+</row>
+
+  
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<caption>Measured frame rate  	  of Flash Player 10 at ten frames per second.</caption>
+</figure>
+
+
+
+
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1064" effect="bold">
+The average frame rate
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1098">
+As you can see in Figure 2, the average frame rate in this case is solid at ten frames per second.
+
+</para>
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1065" effect="bold">
+A best-case scenario
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1100">
+This is probably the optimum case for measuring the frame rate since the 
+program doesn't do anything else that may have an adverse impact on the ability 
+of the Flash Player to maintain a constant frame rate.
+
+</para>
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1066" effect="bold">
+Won't explain the code at this time
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1102">
+I'm not going to explain the code in Listing 16 at this time. You should have 
+no difficulty understanding most of the code in Listing 16. Some of the code in 
+Listing 16 is new to this lesson, but I will explain very similar code later in 
+the lesson in conjunction with other projects.
+
+</para>
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="Listen_Timer_tick_events_fired_by_a_Timer_object" effect="bold">
+
+Listen for TIMER 
+events fired by a Timer object
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1067" effect="bold">
+Constructing a Timer object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1104">
+The 
+
+<emphasis id="strong1068" effect="bold">
+flash.utils
+
+</emphasis>
+ package contains a class named 
+
+<emphasis id="strong1069" effect="bold">
+Timer
+
+</emphasis>
+. 
+An object instantiated from this class will fire a 
+
+<emphasis id="strong1070" effect="bold">
+TIMER
+
+</emphasis>
+ event 
+every 
+
+<emphasis id="em1037" effect="italics">
+(specified value)
+
+</emphasis>
+ milliseconds.
+
+</para>
+
+
+
+
+<para id="p1105">
+The constructor for the class requires two parameters:
+
+</para>
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1049">
+The delay until the first event and between successive events in 
+	milliseconds as type 
+
+<emphasis id="strong1071" effect="bold">
+Number
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1050">
+The repeat count as type 
+
+<emphasis id="strong1072" effect="bold">
+int
+
+</emphasis>
+, which specifies the 
+	number of events that will be fired. If this value if 0, the timer will fire 
+	events indefinitely.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1073" effect="bold">
+The reciprocal of the rate
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1107">
+Note that whereas the 
+
+<link id="a1059" target-id="Change_the_frame_rate">
+
+frequency of frame 
+events
+
+</link>
+
+ 
+is specified as 
+
+<emphasis id="em1038" effect="italics">
+frames per second
+
+</emphasis>
+, the repetition parameter for timer 
+events is specified as the time interval between events 
+
+<emphasis id="em1039" effect="italics">
+(milliseconds per 
+event)
+
+</emphasis>
+. One is the reciprocal of the other.
+
+</para>
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1074" effect="bold">
+You must start the timer
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1109">
+The timer does not start automatically. You must call the 
+
+<emphasis id="strong1075" effect="bold">
+start()
+
+</emphasis>
+ 
+method to start it.
+
+</para>
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1076" effect="bold">
+A project to measure the TIMER event rate
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1111">
+Listing 17 provides a simple AS3 project that illustrates the use of 
+
+<emphasis id="strong1077" effect="bold">
+TIMER
+
+</emphasis>
+ 
+events. As before, this project computes and displays the average frequency of 
+
+
+<emphasis id="strong1078" effect="bold">
+TIMER
+
+</emphasis>
+ events for each of five consecutive sets of 200 events.
+
+</para>
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1079" effect="bold">
+Two time bases running
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1113">
+In this case, there are two different time bases running: the frame rate and 
+the timer rate. Unfortunately, it appears that they are not independent of one 
+another.
+
+</para>
+
+
+
+
+<para id="p1114">
+<emphasis id="strong1080" effect="bold">
+A rate of 30 TIMER events per second
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1115">
+Figure 3 shows the output when the timer is set to fire 30 events per second 
+and the Flash Player is running at its default rate of approximately 30 frames 
+per second.
+
+</para>
+
+
+
+
+
+<figure id="figure1002" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_3" effect="bold">
+</emphasis>
+Measured Timer event  	  rate at 30 events per second and 30 frames per second.
+</title>
+
+
+
+
+
+
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+  
+
+<tbody id="tbody1002">
+
+  
+
+<row id="tr1002">
+
+      
+
+<entry id="td1002">
+
+      
+
+<code id="pre1002" display="block">1271892152172
+1271892159395 200 27.689325764917623
+1271892166061 400 30.003000300030006
+1271892172727 600 30.003000300030006
+1271892179393 800 30.003000300030006
+1271892186062 1000 29.9895036737142</code>
+
+
+      
+
+</entry>
+
+    
+
+</row>
+
+  
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<caption>Measured Timer event  	  rate at 30 events per second and 30 frames per second.</caption>
+</figure>
+
+
+
+
+
+
+
+
+
+<para id="p1116">
+<emphasis id="strong1081" effect="bold">
+Not too bad after a slow start
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1117">
+As you can see in Figure 3, after a somewhat slow start during the first 
+	200 events, the timer event rate was reasonably solid at 30 events per second, on the average, for the 
+	next 800 events.
+
+</para>
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1082" effect="bold">
+A rate of 10 TIMER events per second
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1119">
+Figure 4 shows the output when the timer was set to fire 10 events per second 
+and the Flash Player was running at its default rate of approximately 30 frames 
+per second.
+
+</para>
+
+
+
+
+
+<figure id="figure1003" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_4" effect="bold">
+</emphasis>
+Measured Timer event  	  rate at 10 events per second and 30 frames per second.
+</title>
+
+
+
+
+
+
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+  
+
+<tbody id="tbody1003">
+
+  
+
+<row id="tr1003">
+
+      
+
+<entry id="td1003">
+
+      
+
+<code id="pre1003" display="block">1271892525653
+1271892548767 200 8.65276455827637
+1271892571894 400 8.64790072209971
+1271892594995 600 8.657633868663694
+1271892618445 800 8.528784648187633
+1271892641413 1000 8.707767328456983</code>
+
+
+      
+
+</entry>
+
+    
+
+</row>
+
+  
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<caption>Measured Timer event  	  rate at 10 events per second and 30 frames per second.</caption>
+</figure>
+
+
+
+
+
+
+
+
+<para id="p1120">
+<emphasis id="strong1083" effect="bold">
+Not a very accurate event rate
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1121">
+In this case, the event rate was relatively 
+
+<emphasis id="em1040" effect="italics">
+precise
+
+</emphasis>
+ at an average of 
+about 8.65 events per second but didn't fare well in terms of 
+
+<emphasis id="em1041" effect="italics">
+accuracy
+
+</emphasis>
+ 
+since the target rate was 10 events per second.
+
+</para>
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1084" effect="bold">
+Accuracy versus precision
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1123">
+Accuracy and precision don't mean the same thing. According to
+
+
+<link id="a1060" url="http://en.wikipedia.org/wiki/Accuracy_and_precision">
+
+Wikipedia
+
+</link>
+
+,
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+<emphasis id="em1042" effect="italics">
+
+"In the fields of engineering, industry and statistics, the accuracy of a 
+measurement system is the degree of closeness of measurements of a quantity to 
+its actual (true) value. The precision of a measurement system, also called 
+reproducibility or repeatability, is the degree to which repeated measurements 
+under unchanged conditions show the same results."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1124">
+<emphasis id="strong1085" effect="bold">
+Another result at a rate of 10 TIMER events per second
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1125">
+Figure 5 shows the output when the timer was set to produce 10 events per 
+second and the Flash Player was running at a frame rate of 10 frames per second.
+
+</para>
+
+
+
+
+
+<figure id="figure1004" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_5" effect="bold">
+</emphasis>
+Measured Timer event  	  rate at 10 events per second and 10 frames per second.
+</title>
+
+
+
+
+
+
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+  
+
+<tbody id="tbody1004">
+
+  
+
+<row id="tr1004">
+
+      
+
+<entry id="td1004">
+
+      
+
+<code id="pre1004" display="block">1271893113643
+1271893134531 200 9.574875526618154
+1271893155027 400 9.758001561280249
+1271893175626 600 9.709209184911888
+1271893195926 800 9.852216748768473
+1271893216226 1000 9.852216748768473</code>
+
+
+      
+
+</entry>
+
+    
+
+</row>
+
+  
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<caption>Measured Timer event  	  rate at 10 events per second and 10 frames per second.</caption>
+</figure>
+
+
+
+
+
+
+
+
+<para id="p1126">
+<emphasis id="strong1086" effect="bold">
+Close, but no cigar
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1127">
+In this case, the event rate was closer to the target of 10 events per 
+second, but was still consistently below the mark.
+
+</para>
+
+
+
+
+<para id="p1128">
+Even more troublesome is the difference between the results in Figure 4 and 
+the results in Figure 5, which show that the event rate of the timer depends on 
+the frame rate of the Flash Player.
+
+</para>
+
+
+
+
+<para id="p1129">
+<emphasis id="strong1087" effect="bold">
+An empty Flash Player window
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1130">
+The Flash Player was running in all five cases discussed above, but it was 
+simply displaying an empty white window. No objects were being displayed in the 
+Flash Player window.
+
+</para>
+
+
+<para id="p1131">
+<emphasis id="strong1088" effect="bold">
+A stand alone Flash Player
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1132">
+It is also worth noting that in all five cases, the standalone Flash 
+Player was running, as opposed to the Flash Player plug-in for a browser. 
+Therefore, these results were not influenced by the behavior of any specific 
+browser.
+
+</para>
+
+
+
+
+
+
+
+  
+
+<note id="note1010" type="miscellaneous">
+
+
+  
+
+
+  	
+
+<emphasis id="em1043" effect="italics">
+The two projects discussed above were developed using the FlashDevelop 
+	  tool. By default, the Test Movie option on the FlashDevelop Project Menu runs 
+	  the project in a stand alone Flash Player and not in a browser plug in.
+
+</emphasis>
+
+
+
+</note>
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1133">
+In the remainder of this lesson, I will explain three different animation 
+projects.
+
+</para>
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1089" effect="bold">
+Run the ActionScript projects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1135">
+If you have the Flash Player plug-in 
+
+<emphasis id="em1044" effect="italics">
+(version 9 or later)
+
+</emphasis>
+ installed 
+in your browser, you can click 
+
+<link id="a1061" target-id="Click ">
+
+here
+
+</link>
+
+ 
+to run the projects that I will explain in this lesson.
+
+</para>
+
+
+
+
+<para id="p1136">
+If you don't have the proper Flash Player installed, you should be notified 
+of that fact and given an opportunity to download and install the Flash Player 
+plug-in program.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+ 
+
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<section id="h21006">
+<title>
+<emphasis id="The_program_named_Animation01" effect="bold">
+
+The project named Animation01
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1137">
+I will explain the remaining projects in this lesson in fragments. A complete 
+listing of the code for the project named 
+
+<emphasis id="strong1090" effect="bold">
+Animation01
+
+</emphasis>
+ is provided in 
+Listing 18 near the end of the lesson.
+
+</para>
+
+
+
+
+<para id="p1138">
+This is a very simple AS3 animation project. 
+
+<emphasis id="em1045" effect="italics">
+(Note that it is not a Flex 
+project.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1139">
+I recommend that you 
+
+<link id="a1062" target-id="Click ">
+
+run
+
+</link>
+
+ the 
+online version of this project before continuing. 
+
+<emphasis id="em1046" effect="italics">
+(See 
+
+</emphasis>
+
+
+
+<link id="a1063" target-id="Deployment_of_FlashDevelop_projects">
+
+
+<emphasis id="em1047" effect="italics">
+Deployment of FlashDevelop 
+projects
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1048" effect="italics">
+ for information on how to deploy a release build from a 
+FlashDevelop project on the Connexions website.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1140">
+<emphasis id="strong1091" effect="bold">
+The ENTER_FRAME event stream
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1141">
+This project uses the 
+
+<emphasis id="strong1092" effect="bold">
+ENTER_FRAME
+
+</emphasis>
+ event stream as a time 
+base to cause a filled blue circle drawn on a transparent 
+
+<emphasis id="strong1093" effect="bold">
+Sprite
+
+</emphasis>
+ 
+object to move diagonally from left to right across the Flash window. The sprite 
+with the circle moves out of the Flash window at the bottom right.
+
+</para>
+
+
+
+
+<para id="p1142">
+<emphasis id="strong1094" effect="bold">
+Beginning of the class named Main
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1143">
+This project was developed using the FlashDevelop tool. By default, the FlashDevelop 
+tool names the required source code file and 
+class definition 
+
+<emphasis id="strong1095" effect="bold">
+Main
+
+</emphasis>
+. Listing 1 shows the 
+beginning of the 
+
+<emphasis id="strong1096" effect="bold">
+Main
+
+</emphasis>
+ class for the project named 
+
+<emphasis id="strong1097" effect="bold">
+
+Animation01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+<example id="listing1000" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+Beginning of the  	  class named Main.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1005" display="block">package {
+  import flash.display.Sprite;
+  import flash.events.Event;
+  
+  public class Main extends Sprite{
+    private var sprite:Sprite;
+    private var dx:Number = 3;//x-movement distance
+    private var dy:Number = 2;//y-movement distance
+    private var radius:Number = 24;//radius of circle
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1144">
+<emphasis id="strong1098" effect="bold">
+Not much that is new here
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1145">
+The class named 
+
+<emphasis id="strong1099" effect="bold">
+Main
+
+</emphasis>
+ extends the class named 
+
+<emphasis id="strong1100" effect="bold">
+
+	Sprite
+
+</emphasis>
+, which is a subclass of the class named 
+
+<emphasis id="strong1101" effect="bold">
+
+	DisplayObject
+
+</emphasis>
+ several levels down the inheritance hierarchy. 
+	Therefore, the Flash Player will instantiate an object of this class and add 
+	it to the display list.
+
+</para>
+
+
+
+
+<para id="p1146">
+Otherwise, there is nothing in Listing 1 that should be new to you, so no 
+further explanation of the code in Listing 1 should be required.
+
+</para>
+
+
+
+
+<para id="p1147">
+<emphasis id="strong1102" effect="bold">
+Beginning of the constructor
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1148">
+The beginning of the constructor for the 
+
+<emphasis id="strong1103" effect="bold">
+Main
+
+</emphasis>
+ class is shown 
+in Listing 2.
+
+</para>
+
+
+
+
+<example id="listing1001" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Beginning of the  	  constructor.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1006" display="block">    public function Main():void {
+      sprite = new Sprite();
+      //Enable the following statement to cause the
+      // sprite background to be visible.
+      //sprite.opaqueBackground = true;
+
+      //Draw a filled circle on the Sprite object;
+      sprite.graphics.beginFill(0x0000ff, 1.0);
+      sprite.graphics.drawCircle(radius,radius,radius);
+      sprite.graphics.endFill();
+      
+      addChild(sprite);//default location is 0,0
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1149">
+<emphasis id="strong1104" effect="bold">
+Another object of type Sprite
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1150">
+Listing 2 instantiates another object of the 
+
+<emphasis id="strong1105" effect="bold">
+Sprite
+
+</emphasis>
+ class 
+and draws a blue filled circle on that object.
+
+</para>
+
+
+
+
+<para id="p1151">
+Then it adds that object to the display list as a child of the object of the 
+class 
+
+<emphasis id="strong1106" effect="bold">
+Main
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1152">
+<emphasis id="strong1107" effect="bold">
+Draw a filled circle
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1153">
+According to the documentation, the 
+
+<emphasis id="strong1108" effect="bold">
+beginFill
+
+</emphasis>
+ method that is 
+called on the 
+
+<emphasis id="strong1109" effect="bold">
+Sprite
+
+</emphasis>
+ object in Listing 2:
+
+</para>
+
+
+
+
+<quote id="blockquote1001" display="block">
+<emphasis id="em1049" effect="italics">
+"Specifies a simple one-color fill that subsequent calls to other 
+
+
+<emphasis id="strong1110" effect="bold">
+Graphics
+
+</emphasis>
+ methods (such as 
+
+<emphasis id="strong1111" effect="bold">
+lineTo()
+
+</emphasis>
+ or 
+
+<emphasis id="strong1112" effect="bold">
+drawCircle()
+
+</emphasis>
+) 
+use when drawing. The fill remains in effect until you call the 
+
+<emphasis id="strong1113" effect="bold">
+
+beginFill()
+
+</emphasis>
+, 
+
+<emphasis id="strong1114" effect="bold">
+beginBitmapFill()
+
+</emphasis>
+, or 
+
+<emphasis id="strong1115" effect="bold">
+
+beginGradientFill()
+
+</emphasis>
+ method. Calling the 
+
+<emphasis id="strong1116" effect="bold">
+clear()
+
+</emphasis>
+ method 
+clears the fill.
+
+The fill is not rendered until the 
+
+<emphasis id="strong1117" effect="bold">
+endFill()
+
+</emphasis>
+ method is called."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1154">
+That should be a sufficient explanation of how the code in Listing 2 draws a 
+filled circle on the new 
+
+<emphasis id="strong1118" effect="bold">
+Sprite
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+<para id="p1155">
+<emphasis id="strong1119" effect="bold">
+Add the new Sprite object to the display list
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1156">
+As mentioned earlier, the last statement in Listing 2 adds the new 
+
+<emphasis id="strong1120" effect="bold">
+
+Sprite
+
+</emphasis>
+ object to the display list as a child of the object of the
+
+
+<emphasis id="strong1121" effect="bold">
+Main
+
+</emphasis>
+ class. 
+
+
+<emphasis id="By_default" effect="bold">
+
+By default
+
+</emphasis>
+
+, the new 
+
+<emphasis id="strong1122" effect="bold">
+
+Sprite
+
+</emphasis>
+ object is added at coordinates 0,0 which is the upper-left 
+corner of the 
+
+<emphasis id="strong1123" effect="bold">
+Main
+
+</emphasis>
+ 
+object.
+
+</para>
+
+
+
+
+<para id="p1157">
+<emphasis id="strong1124" effect="bold">
+Register an ENTER_FRAME listener
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1158">
+Listing 3 registers an event handler method named 
+
+<emphasis id="strong1125" effect="bold">
+onEnterFrame
+
+</emphasis>
+ 
+that will be executed each time the Flash Player enters a new display frame.
+
+</para>
+
+
+
+
+<para id="p1159">
+Listing 3 also signals the end of the constructor.
+
+</para>
+
+
+
+
+
+
+<example id="listing1002" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+Register an  	  ENTER_FRAME listener.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1007" display="block">
+      addEventListener(Event.ENTER_FRAME, onEnterFrame);
+    }//end constructor
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1160">
+<emphasis id="strong1126" effect="bold">
+The event handler method named onEnterFrame
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1161">
+The event handler method named 
+
+<emphasis id="strong1127" effect="bold">
+onEnterFrame
+
+</emphasis>
+ 
+is shown in its entirety in Listing 4.
+
+</para>
+
+
+
+
+
+
+<example id="listing1003" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+The event handler  	  method named onEnterFrame.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1008" display="block">    public function onEnterFrame(event:Event):void {
+      sprite.x += dx;
+      sprite.y += dy;
+    }//end onEnterFrame
+    
+  }//end class
+  
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1162">
+<emphasis id="strong1128" effect="bold">
+Properties named x and y
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1163">
+The 
+
+<emphasis id="strong1129" effect="bold">
+Sprite
+
+</emphasis>
+ object that was instantiated in Listing 2 has 
+	properties named 
+
+<emphasis id="strong1130" effect="bold">
+x
+
+</emphasis>
+ and 
+
+<emphasis id="strong1131" effect="bold">
+y
+
+</emphasis>
+. The 
+	documentation has this to say about the property named 
+
+<emphasis id="strong1132" effect="bold">
+x
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<quote id="blockquote1002" display="block">
+<emphasis id="em1050" effect="italics">
+"Indicates the x coordinate of the DisplayObject instance relative to 
+the local coordinates of the parent DisplayObjectContainer."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1164">
+The description of the property named 
+
+<emphasis id="strong1133" effect="bold">
+y
+
+</emphasis>
+ is very similar.
+
+</para>
+
+
+
+
+<para id="p1165">
+<emphasis id="strong1134" effect="bold">
+What this means in practice
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1166">
+What this means in practice is that the Flash Player uses the values of
+
+
+<emphasis id="strong1135" effect="bold">
+x
+
+</emphasis>
+ and 
+
+<emphasis id="strong1136" effect="bold">
+y
+
+</emphasis>
+ properties as coordinates to decide where to 
+draw the 
+
+<emphasis id="strong1137" effect="bold">
+Sprite
+
+</emphasis>
+ object relative to the upper-left corner of 
+its container, which in this case is the object of the 
+
+<emphasis id="strong1138" effect="bold">
+Main
+
+</emphasis>
+ 
+class.
+
+</para>
+
+
+
+
+<para id="p1167">
+By default, these property values are zero, which explains why the new
+
+
+<emphasis id="strong1139" effect="bold">
+Sprite
+
+</emphasis>
+ object is
+
+
+<link id="a1064" target-id="By_default">
+
+initially drawn
+
+</link>
+
+ at 
+the upper-left corner of the 
+
+<emphasis id="strong1140" effect="bold">
+Main
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+<para id="p1168">
+<emphasis id="strong1141" effect="bold">
+Modify the x and y property values
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1169">
+Each time the Flash Player fires an 
+
+<emphasis id="strong1142" effect="bold">
+ENTER_FRAME
+
+</emphasis>
+ event, the code in Listing 4 
+increases the values of the 
+
+<emphasis id="strong1143" effect="bold">
+x
+
+</emphasis>
+ and 
+
+<emphasis id="strong1144" effect="bold">
+y
+
+</emphasis>
+ property 
+values of the 
+
+<emphasis id="strong1145" effect="bold">
+Sprite
+
+</emphasis>
+ object by the amounts assigned to 
+
+<emphasis id="strong1146" effect="bold">
+
+dx
+
+</emphasis>
+ and 
+
+<emphasis id="strong1147" effect="bold">
+dy
+
+</emphasis>
+ in Listing 1.
+
+</para>
+
+
+
+
+<para id="p1170">
+<emphasis id="strong1148" effect="bold">
+Draw the sprite in a new location
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1171">
+The next time the objects in the display list are rendered on the screen, the
+
+
+<emphasis id="strong1149" effect="bold">
+Sprite
+
+</emphasis>
+  object containing the filled blue circle will be drawn 
+a little further to the right and a little further down the screen. That is what 
+causes the blue ball to move diagonally from left to right across the Flash 
+Player window when you 
+
+<link id="a1065" target-id="Click ">
+
+run
+
+</link>
+
+  
+the project.
+
+</para>
+
+
+
+
+<para id="p1172">
+<emphasis id="strong1150" effect="bold">
+Nothing to stop it
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1173">
+Since there is nothing in the code to reverse the process of incrementing the
+
+
+<emphasis id="strong1151" effect="bold">
+x
+
+</emphasis>
+ and 
+
+<emphasis id="strong1152" effect="bold">
+y
+
+</emphasis>
+ property values, the blue ball 
+continues moving until it disappears off the Flash Player window on the 
+lower-right side.
+
+</para>
+
+
+
+
+<para id="p1174">
+I will do something about that in the next project, which causes an image 
+that is a caricature of me to bounce around inside of a rectangle.
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="The_project_named_Animation07" effect="bold">
+
+The project named Animation07
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1175">
+<emphasis id="strong1153" effect="bold">
+A major upgrade
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1176">
+This project is a major upgrade of the project named 
+
+<emphasis id="strong1154" effect="bold">
+Animation01
+
+</emphasis>
+ 
+in several respects. I recommend that you
+
+
+<link id="a1066" target-id="Click ">
+
+run
+
+</link>
+
+ this project before 
+continuing.
+
+</para>
+
+
+
+
+<para id="p1177">
+<emphasis id="strong1155" effect="bold">
+Draw a rectangle
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1178">
+First, the constructor for the 
+
+<emphasis id="strong1156" effect="bold">
+Main
+
+</emphasis>
+ class draws a 450 x 500 
+pixel rectangle with a yellow background and border with a thickness of three 
+pixels. 
+
+<emphasis id="em1051" effect="italics">
+(The constructor begins in Listing 5 and continues into Listing 6.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1179">
+<emphasis id="strong1157" effect="bold">
+An object of a new class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1180">
+Then the constructor instantiates an object of a new 
+
+<emphasis id="strong1158" effect="bold">
+MoveableImage
+
+</emphasis>
+ class, 
+passing the dimensions of the rectangle to the constructor for that class and 
+adds that object to the display list.
+
+</para>
+
+
+
+
+<para id="p1181">
+<emphasis id="strong1159" effect="bold">
+An event handler
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1182">
+Finally, the constructor for the 
+
+<emphasis id="strong1160" effect="bold">
+Main
+
+</emphasis>
+ class registers an 
+
+<emphasis id="strong1161" effect="bold">
+ENTER_FRAME
+
+</emphasis>
+ event handler, which 
+asks the 
+
+<emphasis id="strong1162" effect="bold">
+MoveableImage
+
+</emphasis>
+ object to move each time it is called.
+
+
+<emphasis id="em1052" effect="italics">
+(See Listing 7.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1183">
+<emphasis id="strong1163" effect="bold">
+The MoveableImage class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1184">
+The 
+
+<emphasis id="strong1164" effect="bold">
+MoveableImage
+
+</emphasis>
+ class extends the 
+
+<emphasis id="strong1165" effect="bold">
+Sprite
+
+</emphasis>
+ 
+class and embeds an image in the 
+
+<emphasis id="strong1166" effect="bold">
+Sprite
+
+</emphasis>
+ object when it is 
+instantiated. 
+
+<emphasis id="em1053" effect="italics">
+(See Listing 8 and Listing 9.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1185">
+<emphasis id="strong1167" effect="bold">
+The dimensions of a rectangle
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1186">
+The constructor for the 
+
+<emphasis id="strong1168" effect="bold">
+MoveableImage
+
+</emphasis>
+ class 
+
+<emphasis id="em1054" effect="italics">
+(see Listing 
+10)
+
+</emphasis>
+ receives the 
+dimensions of a rectangle as incoming parameters and saves those dimensions for 
+later use.
+
+</para>
+
+
+
+
+<para id="p1187">
+<emphasis id="strong1169" effect="bold">
+The moveIt method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1188">
+The 
+
+<emphasis id="strong1170" effect="bold">
+MoveableImage
+
+</emphasis>
+ class defines a method named 
+
+<emphasis id="strong1171" effect="bold">
+
+moveIt
+
+</emphasis>
+ 
+
+<emphasis id="em1055" effect="italics">
+(see Listing 11)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1189">
+Each time the 
+
+<emphasis id="strong1172" effect="bold">
+moveIt
+
+</emphasis>
+ method is called, the object, 
+
+<emphasis id="em1056" effect="italics">
+
+(including the embedded image)
+
+</emphasis>
+ moves by a prescribed distance in the 
+horizontal and vertical directions.
+
+</para>
+
+
+
+
+<para id="p1190">
+<emphasis id="strong1173" effect="bold">
+Bounce off the edges
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1191">
+Whenever the object collides with an edge of the rectangle, it bounces off 
+the edge and starts moving in a different direction.
+
+</para>
+
+
+
+
+<para id="p1192">
+<emphasis id="strong1174" effect="bold">
+Beginning of the Main class for the project named 
+Animation07
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1193">
+As before, I will explain this program in fragments. A complete listing of 
+the 
+
+<emphasis id="strong1175" effect="bold">
+Main
+
+</emphasis>
+ class for the program is provided in Listing 19.
+
+</para>
+
+
+
+
+<para id="p1194">
+The 
+
+<emphasis id="strong1176" effect="bold">
+Main
+
+</emphasis>
+ class begins in the fragment shown in Listing 5.
+
+</para>
+
+
+
+
+
+
+<example id="listing1004" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+Beginning of the  	  Main class for the project named Animation07.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1009" display="block">package {
+  import flash.display.Sprite;
+  import flash.events.Event;
+  
+  public class Main extends Sprite{
+    private var moveableImage:MoveableImage
+    private var rectWidth:uint = 450;
+    private var rectHeight:uint = 500;
+    
+    public function Main() {
+      
+      //Draw a black rectangle with a yellow background.
+      this.graphics.beginFill(0xFFFF00,1.0);
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1195">
+The only things that are new in Listing 5 are the two statements that call the 
+
+<emphasis id="strong1177" effect="bold">
+
+lineStyle
+
+</emphasis>
+ and 
+
+<emphasis id="strong1178" effect="bold">
+drawRect
+
+</emphasis>
+ methods of the 
+
+<emphasis id="strong1179" effect="bold">
+Graphics
+
+</emphasis>
+ 
+class.
+
+</para>
+
+
+
+
+<para id="p1196">
+The first of the two statements sets the line style for the rectangle to be 
+three pixels thick and to be black.
+
+</para>
+
+
+
+
+<para id="p1197">
+The second of the two statements sets the upper left corner of the rectangle 
+to a coordinate position of 0,0 in the parent container and sets the width and 
+height to the values established earlier when the width and height variables 
+were declared and initialized.
+
+</para>
+
+
+
+
+<para id="p1198">
+<emphasis id="strong1180" effect="bold">
+Completion of the constructor for the Main class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1199">
+Listing 6 completes the constructor for the 
+
+<emphasis id="strong1181" effect="bold">
+Main
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+
+<example id="listing1005" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Completion of the  	  constructor for the Main class.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1010" display="block">      moveableImage = 
+                  new MoveableImage(rectWidth,rectHeight);
+      addChild(moveableImage);//default location is 0,0
+      
+      addEventListener(Event.ENTER_FRAME, onEnterFrame);
+    }//end constructor
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1200">
+<emphasis id="strong1182" effect="bold">
+A new object of a custom class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1201">
+Listing 6 begins by instantiating an object of the new custom class named
+
+
+<emphasis id="strong1183" effect="bold">
+MoveableImage
+
+</emphasis>
+, passing the width and height of the rectangle to 
+the constructor for that class.
+
+</para>
+
+
+
+
+<para id="p1202">
+Then Listing 6 adds the new object to the display list. This will cause it to 
+be rendered in the Flash Player window during the next display frame.
+
+</para>
+
+
+
+
+<para id="p1203">
+Finally, Listing 6 registers an event handler for 
+
+<emphasis id="strong1184" effect="bold">
+ENTER_FRAME
+
+</emphasis>
+ events.
+
+</para>
+
+
+
+
+<para id="p1204">
+<emphasis id="strong1185" effect="bold">
+The ENTER_FRAME event handler
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1205">
+The event handler is shown in Listing 7. Each time the 
+
+<emphasis id="strong1186" effect="bold">
+onEnterFrame
+
+</emphasis>
+ 
+method is called, a message is sent to the 
+
+<emphasis id="strong1187" effect="bold">
+MoveableImage
+
+</emphasis>
+ object 
+asking it to execute its 
+
+<emphasis id="strong1188" effect="bold">
+moveIt
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+
+<example id="listing1006" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+The ENTER_FRAME  	  event handler.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1011" display="block">
+    public function onEnterFrame(event:Event):void {
+      //Ask the image to move.
+      moveableImage.moveIt();
+    }//end onEnterFrame
+    
+  }//end class
+  
+}}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1206">
+<emphasis id="strong1189" effect="bold">
+The end of the Main class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1207">
+Listing 7 also signals the end of the 
+
+<emphasis id="strong1190" effect="bold">
+Main
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+<para id="p1208">
+<emphasis id="strong1191" effect="bold">
+Beginning of the MoveableImage class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1209">
+A complete listing of the 
+
+<emphasis id="strong1192" effect="bold">
+MoveableImage
+
+</emphasis>
+ class is provided in 
+Listing 20. The beginning of the 
+
+<emphasis id="strong1193" effect="bold">
+MoveableImage
+
+</emphasis>
+ class is shown in 
+the code fragment in Listing 8.
+
+</para>
+
+
+
+
+
+
+<example id="listing1007" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_8" effect="bold">
+</emphasis>
+Beginning of the  	  MoveableImage class for the project named Animation07.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1012" display="block">package {
+  import flash.display.Sprite;
+  import flash.events.Event;
+  import flash.display.Bitmap;
+  
+  public class MoveableImage extends Sprite{
+
+    private var dx:Number = 4;//x-movement distance
+    private var dy:Number = 2;//y-movement distance
+    private var rectWidth:uint;
+    private var rectHeight:uint;
+    private var imageWidth:uint;
+    private var imageHeight:uint;
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1210">
+There is nothing new in Listing 8.
+
+</para>
+
+
+
+
+<para id="p1211">
+<emphasis id="strong1194" effect="bold">
+Embed the image in the swf file
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1212">
+The constructor for the 
+
+<emphasis id="strong1195" effect="bold">
+MoveableImage
+
+</emphasis>
+ class continues in 
+Listing 9. The code in Listing 9 extracts an image from the specified image file 
+and embeds it in the swf file with a reference named 
+
+<emphasis id="strong1196" effect="bold">
+headImage
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+<example id="listing1008" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_9" effect="bold">
+</emphasis>
+Embed the image in  	  the swf file.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1013" display="block">    [Embed(source='/baldwin.jpg')]
+    private var imgClass:Class;
+    private var headImage:Bitmap = new imgClass ();
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1213">
+<emphasis id="strong1197" effect="bold">
+New to this lesson
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1214">
+I'm not going to try to explain how and why 
+it works. I will simply 
+suggest that you memorize the syntax for the next time that you need to do the 
+same thing.
+
+</para>
+
+
+
+
+<para id="p1215">
+In addition, I will refer you to the following
+
+
+<link id="a1067" url="http://www.bit-101.com/blog/?p=853">
+
+website
+
+</link>
+
+ where 
+you will find an explanation.
+
+</para>
+
+
+
+
+<para id="p1216">
+<emphasis id="strong1198" effect="bold">
+The constructor for the MoveableImage class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1217">
+The constructor for the class is shown in its entirety in Listing 10.
+
+</para>
+
+
+
+
+
+
+<example id="listing1009" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_10" effect="bold">
+</emphasis>
+The constructor  	  for the MoveableImage class.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1014" display="block">
+    
+    public function MoveableImage(rectWidth:uint, 
+                                  rectHeight:uint) {
+      //Save the dimensions of the rectangle.
+      this.rectWidth = rectWidth;
+      this.rectHeight = rectHeight;
+      
+      //Get and save the dimensions of the image.
+      </code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1218">
+The first two statements in Listing 10 simply save the width and height of 
+the rectangle for later use. That shouldn't be new to you.
+
+</para>
+
+
+
+
+<para id="p1219">
+The next two statements use the reference to 
+the embedded image 
+
+<emphasis id="em1057" effect="italics">
+(
+
+<emphasis id="strong1199" effect="bold">
+headImage
+
+</emphasis>
+)
+
+</emphasis>
+ to get and save the 
+width and height of the image referred to by the instance variable 
+
+<emphasis id="em1058" effect="italics">
+(see 
+	Listing 9)
+
+</emphasis>
+ named 
+
+<emphasis id="strong1200" effect="bold">
+headImage
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1220">
+The last statement in Listing 10 adds that image to the 
+display list as a child of the 
+
+<emphasis id="strong1201" effect="bold">
+Sprite
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+<para id="p1221">
+<emphasis id="strong1202" effect="bold">
+The moveIt method of the MoveableImage class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1222">
+The 
+
+<emphasis id="strong1203" effect="bold">
+moveIt
+
+</emphasis>
+ method is shown in its entirety in Listing 11.
+
+</para>
+
+
+
+
+
+
+<example id="listing1010" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_11" effect="bold">
+</emphasis>
+The moveIt method  	  of the MoveableImage class.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1015" display="block">
+    //Cause the Sprite object to move and bounce off of
+    // the edges of the rectangle.
+    public function moveIt():void {
+
+      //Test for a collision with the left or right edge
+      // of the rectangle.
+      if (((this.x + dx) &gt; (rectWidth - imageWidth) 
+                                       || (this.x &lt; 0))) {
+        dx *= -1;//Reverse horizontal direction
+      }//end if
+      
+      //Test for a collision with the top or the bottom
+      // of the rectangle.
+      if (((this.y + dy) &gt; (rectHeight - imageHeight) 
+                                       || (this.y &lt; 0))) {
+        dy *= -1;//Reverse vertical direction.
+      }//end if
+      
+      //Make the move.
+      this.x += dx;
+      this.y += dy;
+
+    }//end onEnterFrame
+    
+  }//end class
+  
+}}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1223">
+The 
+
+<emphasis id="strong1204" effect="bold">
+moveIt
+
+</emphasis>
+ method modifies the 
+
+<emphasis id="strong1205" effect="bold">
+x
+
+</emphasis>
+ and 
+
+<emphasis id="strong1206" effect="bold">
+
+y
+
+</emphasis>
+ property values of the 
+
+<emphasis id="strong1207" effect="bold">
+Sprite
+
+</emphasis>
+ object so that it will be rendered in a 
+different location during the next display frame.
+
+</para>
+
+
+
+
+<para id="p1224">
+The logic that causes the object to bounce off the edges may take a few 
+minutes for you to unravel. Otherwise, you should have no trouble understanding 
+the code in Listing 11.
+
+</para>
+
+
+
+
+<para id="p1225">
+<emphasis id="strong1208" effect="bold">
+The end of the class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1226">
+Listing 11 signals the end of the 
+
+<emphasis id="strong1209" effect="bold">
+MoveableImage
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="The_project_named_Animation01A" effect="bold">
+
+The project named Animation01A
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1227">
+The code for this project is shown in its entirety in Listing 21.
+
+</para>
+
+
+
+
+<para id="p1228">
+This project is essentially the same as 
+
+<emphasis id="strong1210" effect="bold">
+Animation01
+
+</emphasis>
+ except 
+that this project creates a 
+
+<emphasis id="strong1211" effect="bold">
+Timer
+
+</emphasis>
+ object and uses 
+
+<emphasis id="strong1212" effect="bold">
+TIMER
+
+</emphasis>
+ 
+events in place of 
+
+<emphasis id="strong1213" effect="bold">
+ENTER_FRAME
+
+</emphasis>
+ events for timing.
+
+</para>
+
+
+
+
+<para id="p1229">
+If you 
+
+<link id="a1068" target-id="Click ">
+
+run
+
+</link>
+
+ this project, you 
+will see that just like 
+
+<emphasis id="strong1214" effect="bold">
+Animation01
+
+</emphasis>
+, it causes a filled 
+blue circle that is drawn on a transparent 
+
+<emphasis id="strong1215" effect="bold">
+Sprite
+
+</emphasis>
+ object to 
+move diagonally from left to right across the Flash window.
+
+The sprite with the circle moves out of the Flash window at the bottom right.
+
+</para>
+
+
+
+
+<para id="p1230">
+Because of the similarity of this project to the 
+
+<emphasis id="strong1216" effect="bold">
+Animation01
+
+</emphasis>
+ 
+project, I am only going to discuss the code that is significantly different 
+between the two projects.
+
+</para>
+
+
+
+
+<para id="p1231">
+<emphasis id="strong1217" effect="bold">
+New import directives for the project named 
+Animation01A
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1232">
+Listing 12 shows two new import directives that are required to make it 
+possible to instantiate an object of the 
+
+<emphasis id="strong1218" effect="bold">
+Timer
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+
+<example id="listing1011" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_12" effect="bold">
+</emphasis>
+New import  	  directives for the project named Animation01A.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1016" display="block">  import flash.events.TimerEvent;
+  import flash.utils.Timer;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1233">
+<emphasis id="strong1219" effect="bold">
+Instantiate a new Timer object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1234">
+Listing 13 shows the code that instantiates a new 
+
+<emphasis id="strong1220" effect="bold">
+Timer
+
+</emphasis>
+ 
+object. This object will fire a 
+
+<emphasis id="strong1221" effect="bold">
+TIMER
+
+</emphasis>
+ event every 30 
+milliseconds and will continue to fire 
+
+<emphasis id="strong1222" effect="bold">
+TIMER
+
+</emphasis>
+ 
+
+<emphasis id="strong1223" effect="bold">
+events
+
+</emphasis>
+ 
+indefinitely.
+
+</para>
+
+
+
+
+
+
+<example id="listing1012" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_13" effect="bold">
+</emphasis>
+Instantiation of a  	  new Timer object.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1017" display="block">private var timer:Timer = new Timer(30);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1235">
+<emphasis id="strong1224" effect="bold">
+Register a TIMER event handler and start the timer
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1236">
+The code in Listing 14 registers an event handler on the 
+
+<emphasis id="strong1225" effect="bold">
+Timer
+
+</emphasis>
+ 
+object and then starts the timer running.
+
+</para>
+
+
+
+
+
+
+<example id="listing1013" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_14" effect="bold">
+</emphasis>
+Register a TIMER  	  event handler and start the timer.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1018" display="block">      timer.addEventListener(TimerEvent.TIMER, onTimer);
+      timer.start();</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1237">
+<emphasis id="strong1226" effect="bold">
+The TIMER event handler
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1238">
+The 
+
+<emphasis id="strong1227" effect="bold">
+TIMER
+
+</emphasis>
+ event handler is shown in Listing 15. Except for 
+the method signature, this is essentially the same code that you saw in the
+
+
+<emphasis id="strong1228" effect="bold">
+ENTER_FRAME
+
+</emphasis>
+ event handler in Listing 4.
+
+</para>
+
+
+
+
+
+
+<example id="listing1014" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_15" effect="bold">
+</emphasis>
+The TIMER event  	  handler.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1019" display="block">    public function onTimer(event:TimerEvent):void {
+      x += dx;
+      y += dy;
+    }//end onTimer</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1239">
+<emphasis id="strong1229" effect="bold">
+That's a wrap
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1240">
+I'm going to let that be it for this lesson, which has concentrated on time 
+bases and animation for ActionScript 3 projects.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the projects
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1241">
+I encourage you to
+
+
+<link id="a1069" target-id="Click ">
+
+run
+
+</link>
+
+ these projects from the web. 
+Then copy the code from Listing 16 through Listing 21. Use that code to 
+create your own projects. Compile and run the projects. Experiment with 
+the code, making changes, and observing the results of your changes. Make 
+certain that you can explain why your changes behave as they do. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1242">
+I will publish a list containing links to ActionScript 
+resources as a separate document. Search for ActionScript 
+Resources in the Connexions search box.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+ 
+
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete project listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1243">
+Complete listings of the projects discussed in this lesson are provided 
+below.
+
+</para>
+
+
+
+
+<example id="listing1015" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_16" effect="bold">
+</emphasis>
+The Main class for  	  the project named TimeBase01.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1020" display="block">/*Project TimeBase01
+
+The purpose of this project is to experiment with the use
+of Event.ENTER_FRAME as a time base. The project computes
+and displays the average frame rate over five consecutive
+sets of 200 frames. It also shows how to set the frame
+rate to something other than the default value.
+
+Must be run in debug mode to display the text data.
+*********************************************************/
+package {
+  import flash.display.Sprite;
+  import flash.events.Event;
+  
+  public class Main extends Sprite{
+    private var sprite:Sprite;
+    private var date:Date;
+    private var countA:uint = 0;
+    private var baseTime:Number = 0;
+    private var currentTime:Number = 0;
+    
+    public function Main():void {
+      sprite = new Sprite();
+      addEventListener(Event.ENTER_FRAME, onEnterFrame);
+//      stage.frameRate = 10;
+    }//end constructor
+    //--------------------------------------------------//
+    
+    //Event handler.
+    public function onEnterFrame(event:Event):void {
+      currentTime = new Date().time;
+      if (countA == 0) {
+        baseTime = currentTime;
+        trace(baseTime);
+      }//end if
+      
+      if ((countA &gt; 0) &amp;&amp; (countA &lt; 1001) 
+                                  &amp;&amp; (countA % 200 == 0)){
+        trace(currentTime + " " + countA + " "
+               + 1000 / ((currentTime - baseTime) / 200));
+        baseTime = currentTime;
+      }//end if
+      countA++;
+    }//end onEnterFrame
+  }//end class
+  
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1244">
+</para>
+
+
+	
+
+
+<example id="listing1016" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_17" effect="bold">
+</emphasis>
+The Main class for the project named  	  TimeBase02.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1021" display="block">/*Project TimeBase02
+
+The purpose of this program is to experiment with the use
+of a Timer object as a time base. The program computes
+and displays the average tick rate of the Timer object 
+over five consecutive sets of 100 frames . It also shows
+how to set the tick rate to a specific value and how to
+specify the number of ticks.
+*********************************************************/
+package {
+  import flash.display.Sprite;
+  import flash.events.TimerEvent;
+  import flash.utils.Timer;
+  
+  public class Main extends Sprite{
+    private var sprite:Sprite;
+    private var timer:Timer = new Timer(1000/10,1001);
+    private var date:Date;
+    private var countB:uint = 0;
+    private var baseTime:Number = 0;
+    private var currentTime:Number = 0;
+    
+    public function Main():void {
+      sprite = new Sprite();
+      timer.addEventListener(TimerEvent.TIMER, onTimer);
+      timer.start();
+      
+//      stage.frameRate = 10;
+    }//end constructor
+    //--------------------------------------------------//
+
+    //Event handler
+    public function onTimer(event:TimerEvent):void {
+      currentTime = new Date().time;
+      if (countB == 0) {
+        baseTime = currentTime;
+        trace(baseTime);
+      }//end if
+      
+      if((countB &gt; 0) &amp;&amp; (countB &lt; 1001) &amp;&amp; 
+                                     (countB % 200 == 0)){
+        trace(currentTime + " " + countB + " " 
+               + 1000 / ((currentTime - baseTime) / 200));
+        baseTime = currentTime;
+      }//end if
+      countB++;
+    }//end onTimer
+
+    //--------------------------------------------------//
+
+  }//end class
+  
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1245">
+</para>
+
+
+	
+	
+
+<example id="listing1017" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_18" effect="bold">
+</emphasis>
+The Main class for  	  the project named Animation01.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1022" display="block">/*Project Animation01
+Extremely simple animation project.
+This is an AS3 project and not a Flex project.
+
+Uses the ENTER_FRAME event for timing.
+Causes a filled blue circle that is drawn on a 
+transparent Sprite object to move diagonally
+from left to right across the Flash window.
+
+The sprite with the circle moves out of the
+Flash window at the bottom right.
+*********************************************************/
+pacpackage {
+  import flash.display.Sprite;
+  import flash.events.Event;
+  
+  public class Main extends Sprite{
+    private var sprite:Sprite;
+    private var dx:Number = 3;//x-movement distance
+    private var dy:Number = 2;//y-movement distance
+    private var radius:Number = 24;//radius of circle
+    
+    public function Main():void {
+      sprite = new Sprite();
+      //Enable the following statement to cause the
+      // sprite background to be visible.
+      //sprite.opaqueBackground = true;
+
+      //Draw a filled circle on the Sprite object;
+      sprite.graphics.beginFill(0x0000ff, 1.0);
+      sprite.graphics.drawCircle(radius,radius,radius);
+      sprite.graphics.endFill();
+      
+      addChild(sprite);//default location is 0,0
+      addEventListener(Event.ENTER_FRAME, onEnterFrame);
+    }//end constructor
+    //--------------------------------------------------//
+    
+    //Event handler.
+    public function onEnterFrame(event:Event):void {
+      sprite.x += dx;
+      sprite.y += dy;
+    }//end onEnterFrame
+    
+  }//end class
+  
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1246">
+</para>
+
+
+
+
+<example id="listing1018" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_19" effect="bold">
+</emphasis>
+The Main class for  	  the project named Animation07.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1023" display="block">/*Project Animation07
+
+Classical bouncing ball project written as an AS3 project.
+However, in this case the ball is a Sprite object with
+an embedded image of Dick Baldwin's caricature.
+
+Causes the image to bounce around inside of a 450 x 500
+rectangle.
+*********************************************************/
+package {
+  import flash.display.Sprite;
+  import flash.events.Event;
+  
+  public class Main extends Sprite{
+    private var moveableImage:MoveableImage
+    private var rectWidth:uint = 450;
+    private var rectHeight:uint = 500;
+    
+    public function Main() {
+      
+      //Draw a black rectangle with a yellow background.
+      this.graphics.beginFill(0xFFFF00,1.0);
+      this.graphics.lineStyle(3, 0x000000);
+      this.graphics.drawRect(0, 0, rectWidth, rectHeight);
+      this.graphics.endFill();
+
+      moveableImage = 
+                  new MoveableImage(rectWidth,rectHeight);
+      addChild(moveableImage);//default location is 0,0
+      
+      addEventListener(Event.ENTER_FRAME, onEnterFrame);
+    }//end constructor
+    //--------------------------------------------------//
+    
+    //Event handler.
+    public function onEnterFrame(event:Event):void {
+      //Ask the image to move.
+      moveableImage.moveIt();
+    }//end onEnterFrame
+    
+  }//end class
+  
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1247">
+</para>
+
+
+
+
+<example id="listing1019" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_20" effect="bold">
+</emphasis>
+The MoveableImage  	  class for the project named Animation07.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1024" display="block">/*Class MoveableImage
+Constructs a Sprite with an embedded image that can be 
+moved around inside of a rectangle for which the 
+dimensions are passed to the constructor.
+*********************************************************/
+package {
+  import flash.display.Sprite;
+  import flash.events.Event;
+  import flash.display.Bitmap;
+  
+  public class MoveableImage extends Sprite{
+
+    private var dx:Number = 4;//x-movement distance
+    private var dy:Number = 2;//y-movement distance
+    private var rectWidth:uint;
+    private var rectHeight:uint;
+    private var imageWidth:uint;
+    private var imageHeight:uint;
+    
+    
+    [Embed(source='/baldwin.jpg')]
+    private var imgClass:Class;
+    private var headImage:Bitmap = new imgClass ();
+
+    
+    public function MoveableImage(rectWidth:uint, 
+                                  rectHeight:uint) {
+      //Save the dimensions of the rectangle.
+      this.rectWidth = rectWidth;
+      this.rectHeight = rectHeight;
+      
+      //Get and save the dimensions of the image.
+      imageWidth = headImage.width;
+      imageHeight = headImage.height;
+      
+      //Add the image to the display list.
+      addChild(headImage);
+
+    }//end constructor
+    //--------------------------------------------------//
+    
+    //Cause the Sprite object to move and bounce off of
+    // the edges of the rectangle.
+    public function moveIt():void {
+
+      //Test for a collision with the left or right edge
+      // of the rectangle.
+      if (((this.x + dx) &gt; (rectWidth - imageWidth) 
+                                       || (this.x &lt; 0))) {
+        dx *= -1;//Reverse horizontal direction
+      }//end if
+      
+      //Test for a collision with the top or the bottom
+      // of the rectangle.
+      if (((this.y + dy) &gt; (rectHeight - imageHeight) 
+                                       || (this.y &lt; 0))) {
+        dy *= -1;//Reverse vertical direction.
+      }//end if
+      
+      //Make the move.
+      this.x += dx;
+      this.y += dy;
+
+    }//end onEnterFrame
+    
+  }//end class
+  
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1248">
+</para>
+
+
+
+
+<example id="listing1020" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_21" effect="bold">
+</emphasis>
+The Main class for  	  the project named Animation01A.
+</title>
+
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1025" display="block">/*Project Animation01A
+Extremely simple animation program.
+This is an AS3 project and not a Flex project.
+
+This program is essentially the same as Animation01
+except that this program creates a Timer object and
+uses TIMER events in place of ENTER_FRAME events for 
+timing.
+
+Causes a filled blue circle that is drawn on a 
+transparent Sprite object to move diagonally
+from left to right across the Flash window.
+
+The sprite with the circle moves out of the
+Flash window at the bottom right.
+*********************************************************/
+package {
+  import flash.display.Sprite;
+  </code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1249">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1011" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1230" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+
+
+<item id="li1051">
+Module name: Animation Fundamentals
+
+</item>
+
+
+
+
+<item id="li1052">
+Files:
+
+<list id="ul1011" list-type="bulleted">
+
+
+
+<item id="li1053">
+ActionScript0150\ActionScript0150.htm
+
+</item>
+
+
+
+
+<item id="li1054">
+ActionScript0150\Connexions\ActionScriptXhtml0150.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<note id="note1012" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1231" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+
+
+<note id="note1013" type="miscellaneous">
+
+
+
+
+
+<emphasis id="strong1232" effect="bold">
+<emphasis id="Deployment_of_FlashDevelop_projects" effect="bold">
+
+Deployment of FlashDevelop projects
+
+</emphasis>
+
+ on the Connexions website:
+
+</emphasis>
+ 
+	As of the initial publication of this module, the Connexions website 
+	requires that all resources be located in the same folder as the file named
+	
+
+<emphasis id="strong1233" effect="bold">
+index.cnxml
+
+</emphasis>
+. However, the output from a 
+
+<emphasis id="em1059" effect="italics">
+release build
+
+</emphasis>
+ 
+	with FlashDevelop places a JavaScript file named 
+
+<emphasis id="strong1234" effect="bold">
+swfobject.js
+
+</emphasis>
+ 
+	in a folder named 
+
+<emphasis id="strong1235" effect="bold">
+js
+
+</emphasis>
+ that is a child of the folder that 
+	contains all of the other files, including the file named 
+
+<emphasis id="strong1236" effect="bold">
+index.html
+
+</emphasis>
+. 
+	You can flatten this structure for deployment on the Connexions website by 
+	moving the file named 
+
+<emphasis id="strong1237" effect="bold">
+swfobject.js
+
+</emphasis>
+ into the folder that 
+	contains 
+
+<emphasis id="strong1238" effect="bold">
+index.html
+
+</emphasis>
+, and then modifying one line of html 
+	code in the file named 
+
+<emphasis id="strong1239" effect="bold">
+index.html
+
+</emphasis>
+ to cause it to refer to 
+	the file named 
+
+<emphasis id="strong1240" effect="bold">
+swfobject.js
+
+</emphasis>
+ in the same folder as itself.
+
+</note>
+
+
+
+
+	
+
+<para id="p1250">
+-end- 
+
+</para>
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,6609 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Events, Triggers, and Effects</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34456</md:content-id>
+  <md:title>Events, Triggers, and Effects</md:title>
+  <md:abstract>Learn about the relationships among events, triggers, and effects. Learn about two different ways to write ActionScript code to play effects. One way calls the setStyle method on the target component passing an effect trigger and an effect as parameters to the method. The other way creates an Effect object targeted to the component and calls the play method on the object. Also learn how to play multiple effects in parallel or in sequence.</md:abstract>
+  <md:uuid>b8bce4bf-e34a-4b8a-8461-5f373b7603d8</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="miscellaneous">
+
+
+
+
+
+	
+
+<emphasis id="Click" effect="bold">
+
+Click
+
+</emphasis>
+
+ 
+
+<link id="a1000" url="Effects04.html">
+
+Effects04
+
+</link>
+
+ or 
+
+<link id="a1001" url="Effects05.html">
+
+Effects05
+
+</link>
+
+
+to run the ActionScript programs from this lesson. 
+
+<emphasis id="em1000" effect="italics">
+
+(Click the "Back" button in your browser
+to return to this page.)
+
+</emphasis>
+
+
+
+</note>
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1003" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1002">
+<link id="a1004" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+		
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1003">
+<link id="a1005" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1004">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+</item>
+
+
+		
+
+<item id="li1005">
+<link id="a1007" target-id="Supplementary_material">
+
+Supplemental material
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1008" target-id="GeneralBackgroundInformation">
+
+General background 
+	information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1009" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1010" target-id="DiscussionandSamplePrograms">
+
+Discussion and sample 
+	code
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1009">
+<link id="a1011" target-id="The_program_named_Effects04">
+
+The program named Effects04
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1012" target-id="The_program_named_Effects05">
+
+The program named Effects05
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1013" target-id="Runtheprogram">
+
+Run the programs
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1014" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1015" target-id="CompleteProgramListings">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1016" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+ 
+
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<section id="h21000">
+<title>
+ 
+
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<note id="note1001" type="miscellaneous">
+
+
+  
+
+
+
+  	  All references to ActionScript in this lesson are references to 
+	  version 3 or later.
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1000">
+This tutorial lesson is part of a series of lessons dedicated to 
+object-oriented programming 
+
+<emphasis id="em1001" effect="italics">
+(OOP)
+
+</emphasis>
+ with ActionScript.
+
+</para>
+
+
+
+
+<para id="p1001">
+
+
+
+<emphasis id="strong1000" effect="bold">
+Several ways to create and launch ActionScript 
+programs
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1002">
+There are several ways to create and launch programs written in the 
+ActionScript programming language. Most of the lessons in this series will 
+use Adobe Flex as the launch pad for the sample ActionScript programs.
+
+</para>
+
+
+
+
+<para id="p1003">
+An earlier lesson titled 
+
+
+<emphasis id="strong1001" effect="bold">
+The Default 
+Application Container
+
+</emphasis>
+ provided information on how to get started programming 
+with Adobe's Flex Builder 3. 
+
+<emphasis id="em1002" effect="italics">
+
+(See 
+
+<link id="a1017" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming 
+website
+
+</link>
+
+.)
+
+</emphasis>
+ You should study that lesson before embarking on the 
+lessons in this series.
+
+</para>
+
+
+
+
+<para id="p1004">
+
+
+
+<emphasis id="strong1002" effect="bold">
+Some understanding of Flex MXML will be required
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1005">
+I also recommend that you study all of the lessons on
+
+
+<link id="a1018" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming 
+website
+
+</link>
+
+ in parallel with your study of these ActionScript lessons. 
+Eventually you will probably need to understand both ActionScript and Flex and 
+the relationships that exist between them in order to become a successful 
+ActionScript programmer. 
+
+</para>
+
+
+
+
+<para id="p1006">
+
+
+
+<emphasis id="strong1003" effect="bold">
+Will emphasize ActionScript code
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1007">
+It is often possible to use either ActionScript code or Flex MXML code to 
+achieve the same result. Insofar as this series of lessons is concerned, 
+the emphasis will be on ActionScript code even in those cases where Flex MXML 
+code may be a suitable alternative.
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+ 
+
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+ I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the figures 
+and listings while you are reading about them.
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+ 
+
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1015">
+<link id="a1019" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Program output at startup for 
+	Effects04.
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1020" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Program output after clicking the 
+	button.
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1021" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Program output at startup for 
+	Effects05.
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1022" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+
+ 	Program output after clicking the bottom button.
+
+
+</item>
+
+
+	
+
+<item id="li1019">
+<link id="a1023" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.
+
+
+ 	The WipeRight effect.
+
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1024" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+.
+
+
+ 	The Rotate effect.
+
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1025" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+.
+
+
+ 	The Glow effect.
+
+
+</item>
+
+
+	
+
+<item id="li1022">
+<link id="a1026" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+.
+
+
+ 	Three effects in parallel.
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+ 
+
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1023">
+<link id="a1027" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The MXML file used for both 
+	programs.
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1028" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the Driver class for 
+	Effects04.
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1029" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the constructor for 
+	Effects04.
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1030" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Configuring the Glow effect.
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1031" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Beginning of the Driver class for 
+	Effects05.
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1032" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+.
+
+
+	Beginning of the constructor for the Effects05.
+
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1033" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+.
+
+
+	Configure an Iris effect for the bottom button.
+
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1034" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+.
+
+
+	Configure three different effects targeted to the bottom button.
+
+
+</item>
+
+
+	
+
+<item id="li1031">
+<link id="a1035" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+.
+
+
+	A click event handler on the bottom button.
+
+
+</item>
+
+
+	
+
+<item id="li1032">
+<link id="a1036" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+.
+
+
+	An EFFECT_END handler for the Iris effect.
+
+
+</item>
+
+
+	
+
+<item id="li1033">
+<link id="a1037" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+.
+
+
+	A click event handler for the top button.
+
+
+</item>
+
+
+	
+
+<item id="li1034">
+<link id="a1038" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+.
+
+
+	Beginning of the Show event handler registered on the bottom button.
+
+
+</item>
+
+
+	
+
+<item id="li1035">
+<link id="a1039" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+.
+
+
+	Code to play the Rotate effect.
+
+
+</item>
+
+
+	
+
+<item id="li1036">
+<link id="a1040" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+.
+
+
+	Code to play the Glow effect.
+
+
+</item>
+
+
+	
+
+<item id="li1037">
+<link id="a1041" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+.
+
+
+		Code to play three effects in parallel.
+
+
+</item>
+
+
+	
+
+<item id="li1038">
+<link id="a1042" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. 
+The 
+	MXML file used for both programs. 
+
+
+</item>
+
+
+	
+
+<item id="li1039">
+<link id="a1043" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. 
+The 
+	Driver class for Effects04. 
+
+
+</item>
+
+
+	
+
+<item id="li1040">
+<link id="a1044" target-id="Listing_18">
+
+Listing 18
+
+</link>
+
+. 
+The 
+	Driver class for Effects05. 
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+ 
+
+<emphasis id="Supplementary_material" effect="bold">
+
+Supplemental material
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+ I recommend that you also study the other lessons in my extensive collection 
+of online programming tutorials. You will find a consolidated index at
+
+
+<link id="a1045" url="http://www.dickbaldwin.com/toc.htm">
+
+
+www.DickBaldwin.com
+
+</link>
+
+.
+
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h11002">
+<title>
+
+ 
+
+<emphasis id="GeneralBackgroundInformation" effect="bold">
+
+General background information
+
+</emphasis>
+
+
+
+
+</title>
+
+
+
+
+<para id="p1010">
+According to
+
+
+<link id="a1046" url="http://livedocs.adobe.com/flex/3/html/behaviors_01.html">
+
+
+Using Behaviors
+
+</link>
+
+,
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+	
+
+<para id="p1011">
+<emphasis id="em1003" effect="italics">
+"Behaviors let you add animation and motion to your application in 
+	response to user or programmatic action. For example, you can use behaviors 
+	to cause a dialog box to bounce slightly when it receives focus, or to 
+	slowly fade in when it becomes visible."
+
+</emphasis>
+</para>
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1012">
+You program behaviors into your applications using MXML, ActionScript, 
+triggers, and effects.
+
+</para>
+
+
+
+
+<para id="p1013">
+According to
+
+
+<link id="a1047" url="http://livedocs.adobe.com/flex/3/html/behaviors_02.html#274847">
+
+About 
+behaviors
+
+</link>
+
+,
+
+</para>
+
+
+
+
+<quote id="blockquote1001" display="block">
+
+	
+
+<para id="p1014">
+<emphasis id="em1004" effect="italics">
+"A behavior is a combination of a trigger paired with an effect. A 
+	trigger is an action, such as a mouse click on a component, a component 
+	getting focus, or a component becoming visible. An effect is a visible or 
+	audible change to the target component that occurs over a period of time, 
+	measured in milliseconds. Examples of effects are fading, resizing, or 
+	moving a component."
+
+</emphasis>
+</para>
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1015">
+
+
+
+<emphasis id="strong1004" effect="bold">
+Triggers are not events
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1016">
+Triggers are caused by events, but triggers are different from events. 
+For example, the trigger named 
+
+<emphasis id="strong1005" effect="bold">
+mouseDownEffect
+
+</emphasis>
+ results from the 
+occurrence of a 
+
+<emphasis id="strong1006" effect="bold">
+mouseDown
+
+</emphasis>
+ event.
+
+</para>
+
+
+
+
+<para id="p1017">
+If an 
+
+<emphasis id="strong1007" effect="bold">
+Effect
+
+</emphasis>
+ object, such as a
+
+
+<emphasis id="strong1008" effect="bold">
+Glow
+
+</emphasis>
+ effect has been associated with a 
+
+<emphasis id="strong1009" effect="bold">
+mouseDownEffect
+
+</emphasis>
+ trigger for 
+a given target component, the 
+
+<emphasis id="strong1010" effect="bold">
+Glow
+
+</emphasis>
+ effect will be played when the user 
+presses the mouse button while the mouse pointer is over the target component. 
+This will be true 
+
+<emphasis id="strong1011" effect="bold">
+<emphasis id="em1005" effect="italics">
+regardless
+
+</emphasis>
+</emphasis>
+ of whether or not a 
+
+<emphasis id="strong1012" effect="bold">
+mouseDown
+
+</emphasis>
+ event listener 
+is registered on the component.
+
+</para>
+
+
+
+
+<para id="p1018">
+
+
+
+<emphasis id="strong1013" effect="bold">
+Thirteen standard triggers in Flex Builder 3
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1019">
+The
+
+
+<link id="a1048" url="http://livedocs.adobe.com/flex/3/langref/mx/core/UIComponent.html">
+
+
+UIComponent
+
+</link>
+
+ class 
+
+<emphasis id="lists_thirteen" effect="bold">
+
+lists thirteen
+
+</emphasis>
+
+
+
+
+<link id="a1049" url="http://livedocs.adobe.com/flex/3/langref/mx/core/UIComponent.html#effectSummary">
+
+
+triggers
+
+</link>
+
+:
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1041">
+<emphasis id="strong1014" effect="bold">
+addedEffect
+
+</emphasis>
+ - 
+Triggering Event: 
+
+added.
+
+	Played when the component is added as a child to a Container. 
+
+</item>
+
+
+
+
+<item id="li1042">
+<emphasis id="strong1015" effect="bold">
+creationCompleteEffect
+
+</emphasis>
+ - 
+Triggering Event: 
+
+creationComplete
+
+Played when the component is created. 
+
+</item>
+
+
+	
+
+<item id="li1043">
+<emphasis id="strong1016" effect="bold">
+focusInEffect
+
+</emphasis>
+ - 
+Triggering Event: 
+
+	focusIn
+
+	Played when the component gains keyboard focus. 
+
+</item>
+
+
+
+
+<item id="li1044">
+<emphasis id="strong1017" effect="bold">
+focusOutEffect
+
+</emphasis>
+ - 
+Triggering Event: 
+
+focusOut
+
+Played when the component loses keyboard focus. 
+
+</item>
+
+
+	
+
+<item id="li1045">
+<emphasis id="strong1018" effect="bold">
+hideEffect
+
+</emphasis>
+ - 
+Triggering Event: 
+hide
+
+	Played when the component becomes invisible. 
+
+</item>
+
+
+
+
+<item id="li1046">
+<emphasis id="strong1019" effect="bold">
+mouseDownEffect
+
+</emphasis>
+ - 
+Triggering Event: 
+
+mouseDown
+
+Played when the user presses the mouse button while over the component. 
+
+</item>
+
+
+	
+
+<item id="li1047">
+<emphasis id="strong1020" effect="bold">
+<emphasis id="mouseUpEffect" effect="bold">
+
+mouseUpEffect
+
+</emphasis>
+
+
+</emphasis>
+ - 
+
+	Triggering Event: 
+
+	mouseUp
+
+	Played when the user releases the mouse button while over the component. 
+
+
+</item>
+
+
+
+
+<item id="li1048">
+<emphasis id="strong1021" effect="bold">
+moveEffect
+
+</emphasis>
+ - 
+Triggering Event: 
+move
+
+Played when the component is moved. 
+
+</item>
+
+
+	
+
+<item id="li1049">
+<emphasis id="strong1022" effect="bold">
+removedEffect
+
+</emphasis>
+ - 
+Triggering Event: 
+
+	removed
+
+	Played when the component is removed from a Container. 
+
+</item>
+
+
+
+
+<item id="li1050">
+<emphasis id="strong1023" effect="bold">
+resizeEffect
+
+</emphasis>
+ - 
+Triggering Event: 
+resize
+
+Played when the component is resized. 
+
+</item>
+
+
+	
+
+<item id="li1051">
+<emphasis id="strong1024" effect="bold">
+rollOutEffect
+
+</emphasis>
+ - 
+Triggering Event: 
+
+	rollOut
+
+	Played when the user rolls the mouse so it is no longer over the component. 
+
+
+</item>
+
+
+
+
+<item id="li1052">
+<emphasis id="strong1025" effect="bold">
+rollOverEffect
+
+</emphasis>
+ - 
+Triggering Event: 
+
+rollOver
+
+Played when the user rolls the mouse over the component. 
+
+</item>
+
+
+	
+
+<item id="li1053">
+<emphasis id="strong1026" effect="bold">
+showEffect
+
+</emphasis>
+ - 
+Triggering Event: 
+show
+
+	Played when the component becomes visible. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1020">
+
+
+
+<emphasis id="strong1027" effect="bold">
+Effects are subclasses of the Effect class
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1021">
+<emphasis id="Effects_are_subclasses" effect="bold">
+
+Effects are subclasses
+
+</emphasis>
+
+ of the 
+
+<emphasis id="strong1028" effect="bold">
+Effect
+
+</emphasis>
+ 
+class a couple of levels down the inheritance hierarchy. Flex Builder 3 
+provides a number of built-in effects including the following:
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1054">
+
+	
+
+<link id="a1050" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/AnimateProperty.html">
+
+
+	AnimateProperty
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1055">
+
+	
+
+<link id="a1051" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Blur.html">
+
+
+	Blur
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1056">
+
+	
+
+<link id="a1052" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Dissolve.html">
+
+
+	Dissolve
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1057">
+
+	
+
+<link id="a1053" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Fade.html">
+
+
+	Fade
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1058">
+
+	
+
+<link id="a1054" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Glow.html">
+
+
+	Glow
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1059">
+
+	
+
+<link id="a1055" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Iris.html">
+
+
+	Iris
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1060">
+
+	
+
+<link id="a1056" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Move.html">
+
+
+	Move
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1061">
+
+	
+
+<link id="a1057" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Pause.html">
+
+
+	Pause
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1062">
+
+	
+
+<link id="a1058" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Resize.html">
+
+
+	Resize
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1063">
+
+	
+
+<link id="a1059" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Rotate.html">
+
+
+	Rotate
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1064">
+
+	
+
+<link id="a1060" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/SoundEffect.html">
+
+
+	SoundEffect
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1065">
+
+	
+
+<link id="a1061" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/WipeDown.html">
+
+
+	WipeDown
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1066">
+
+	
+
+<link id="a1062" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/WipeLeft.html">
+
+
+	WipeLeft
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1067">
+
+	
+
+<link id="a1063" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/WipeRight.html">
+
+
+	WipeRight
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1068">
+
+	
+
+<link id="a1064" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/WipeUp.html">
+
+
+	WipeUp
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1069">
+
+	
+
+<link id="a1065" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Zoom.html">
+
+
+	Zoom
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1022">
+In addition, you can create your own effects.
+
+</para>
+
+
+
+
+<para id="p1023">
+
+
+
+<emphasis id="strong1029" effect="bold">
+One trigger, many effects
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1024">
+The same trigger can be used to trigger different types of effects. I 
+suppose that in theory, you could create a different behavior for all possible 
+combinations of the thirteen triggers and the sixteen different effects in the 
+two lists provided above. In addition, you can program for multiple 
+effects to play in response to a single trigger.
+
+</para>
+
+
+
+
+<para id="p1025">
+
+
+
+<emphasis id="strong1030" effect="bold">
+To use an effect...
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1026">
+By default, Flex components do not play an effect when a trigger occurs. 
+To configure a component to use an effect, you must associate an effect with a 
+trigger.
+
+</para>
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+
+
+
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+
+
+</title>
+
+
+
+
+<para id="p1027">
+
+
+
+<emphasis id="strong1031" effect="bold">
+<emphasis id="Two_ways_to_play_effects" effect="bold">
+
+Two ways to play effects
+
+</emphasis>
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1028">
+There are at least two different ways to cause an effect to be played on a 
+component in an ActionScript program. One way is to call the 
+
+<emphasis id="strong1032" effect="bold">
+setStyle
+
+</emphasis>
+ 
+method on the component and associate an effect trigger with an effect. 
+With that approach, the effect will be played each time the effect trigger 
+fires.
+
+</para>
+
+
+
+
+<para id="p1029">
+
+
+
+<emphasis id="strong1033" effect="bold">
+The second way
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1030">
+The second way is to target an 
+
+<emphasis id="strong1034" effect="bold">
+Effect
+
+</emphasis>
+ object to the component and then 
+call the 
+
+<emphasis id="strong1035" effect="bold">
+play
+
+</emphasis>
+ method on the effect object. This approach doesn't 
+make explicit use of the effect trigger.
+
+</para>
+
+
+
+
+<para id="p1031">
+
+
+
+<emphasis id="strong1036" effect="bold">
+Two different programs
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1032">
+I will present and explain two different programs in this lesson. The 
+first program will illustrate the first approach described above. The 
+second program will illustrate and contrast the two approaches.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+ 
+
+<emphasis id="DiscussionandSamplePrograms" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1037" effect="bold">
+A simple MXML file
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+Both programs that I 
+will explain in this lesson are written almost entirely in ActionScript. 
+There is just enough MXML code to make it possible to launch the programs from a 
+browser window.
+
+</para>
+
+
+
+
+<para id="p1035">
+The MXML file is shown in Listing 1 and also in Listing 16.
+
+</para>
+
+
+
+
+
+<example id="listing1000" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+The MXML file used for both programs.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1000" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1036">
+As you can see, this MXML file simply instantiates an object of the class 
+named 
+
+<emphasis id="strong1038" effect="bold">
+Driver
+
+</emphasis>
+ in the 
+
+<emphasis id="strong1039" effect="bold">
+cc
+
+</emphasis>
+ namespace. Beyond that, the entire 
+behavior of the program is controlled by ActionScript code.
+
+</para>
+
+
+
+
+<section id="h21003">
+<title>
+
+
+
+
+
+
+
+<emphasis id="The_program_named_Effects04" effect="bold">
+
+The program named Effects04
+
+</emphasis>
+
+
+
+
+</title>
+
+
+
+
+<para id="p1037">
+
+
+
+<emphasis id="strong1040" effect="bold">
+Will explain in fragments
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1038">
+I will break the code for these two programs down and explain the code in 
+fragments. Complete listings for the 
+
+<emphasis id="strong1041" effect="bold">
+Driver
+
+</emphasis>
+ classes for the two 
+programs are provided in Listing 17 and Listing 18 near the end of the lesson.
+
+</para>
+
+
+
+
+<para id="p1039">
+
+
+
+<emphasis id="strong1042" effect="bold">
+Program output at startup
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1040">
+
+
+You can 
+
+<link id="a1066" target-id="Click  ">
+
+run
+
+</link>
+
+ this program online 
+to get a better feel for its behavior. 
+Figure 1 shows the program 
+output at startup.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+ 
+
+<title>
+<emphasis id="Figure_1" effect="bold">
+</emphasis>
+Program output at startup for Effects04.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/as0116a.jpg" width="272" height="262"/>
+</media>
+
+
+
+
+      
+
+<caption>Program output at startup for Effects04.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1041">
+As you can see, the Flash Player output consists of a label and a button with 
+the text 
+
+<emphasis id="em1006" effect="italics">
+"Click me and watch me glow"
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1042">
+
+
+
+<emphasis id="strong1043" effect="bold">
+Associate a trigger with an effect
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1043">
+This program associates a 
+
+<link id="a1067" target-id="mouseUpEffect">
+
+mouseUpEffect
+
+</link>
+
+ trigger 
+with a
+	
+
+<link id="a1068" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Glow.html">
+
+
+	Glow
+
+</link>
+
+ effect to cause the button to glow when the user releases the mouse 
+button while the mouse pointer is over the button. 
+
+</para>
+
+
+
+
+<para id="p1044">
+
+
+ 
+
+<emphasis id="strong1044" effect="bold">
+Program output after clicking the button
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1045">
+Figure 2 shows the program output shortly after clicking the button.
+
+</para>
+
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+  
+
+<title>
+<emphasis id="Figure_2" effect="bold">
+</emphasis>
+Program output after clicking the button.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/as0116b.jpg" width="272" height="262"/>
+</media>
+
+
+
+
+      
+
+<caption>Program output after clicking the button.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1046">
+As promised, the button begins to glow red when the mouse button is released 
+while the mouse pointer is over the 
+
+<emphasis id="strong1045" effect="bold">
+Button
+
+</emphasis>
+ component. The button 
+continues to glow for several seconds.
+
+</para>
+
+
+
+
+<para id="p1047">
+
+
+
+
+<emphasis id="strong1046" effect="bold">
+Beginning of the Driver class for Effects04
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1048">
+This program shows how to set the style on an object with a 
+
+<emphasis id="strong1047" effect="bold">
+mouseUpEffect
+
+</emphasis>
+ 
+trigger and cause the object to glow. The entire program is written in the 
+class named 
+
+<emphasis id="strong1048" effect="bold">
+Driver
+
+</emphasis>
+. Listing 2 shows the beginning of the 
+
+<emphasis id="strong1049" effect="bold">
+Driver
+
+</emphasis>
+ 
+class.
+
+</para>
+
+
+
+
+<example id="listing1001" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Beginning of the Driver class for  Effects04.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1001" display="block">
+package CustomClasses{
+
+  import mx.containers.VBox;
+  import mx.controls.Button;
+  import mx.controls.Label;
+  import mx.effects.Glow;
+
+  public class Driver extends VBox{
+    //Instantiate and save references to all of the
+    // objects needed by the program.
+    private var title:Label = new Label();
+    private var button:Button = new Button();
+    private var glowEffect:Glow = new Glow();
+
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1049">
+You shouldn't find any surprises in Listing 2. I will simply highlight 
+the last statement that instantiates an object of the 
+
+<emphasis id="strong1050" effect="bold">
+Glow
+
+</emphasis>
+ class. 
+Note also that the 
+
+<emphasis id="strong1051" effect="bold">
+Driver
+
+</emphasis>
+ class extends the 
+
+<emphasis id="strong1052" effect="bold">
+VBox
+
+</emphasis>
+ container.
+
+</para>
+
+
+
+
+<para id="p1050">
+
+
+
+
+<emphasis id="strong1053" effect="bold">
+Beginning of the constructor for Effects04
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1051">
+The constructor begins in Listing 3.
+
+</para>
+
+
+
+
+<example id="listing1002" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+Beginning of the constructor for  Effects04.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1002" display="block">    public function Driver(){//constructor
+
+      //Set title properties and add to the VBox.
+      title.setStyle("color","0xFFFF00");
+      title.setStyle("fontSize",14);
+      title.text = "Demo mouseUpEffect trigger";
+      addChild(title);
+
+      button.label = "Click me and watch me glow.";
+      addChild(button);
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1052">
+Once again, you shouldn't find anything new in Listing 3. This part of 
+the constructor simply creates the yellow text label and the button shown in 
+Figure 1 and adds them to the 
+
+<emphasis id="strong1054" effect="bold">
+VBox
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1053">
+
+
+
+
+<emphasis id="strong1055" effect="bold">
+Configuring the Glow effect
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1054">
+The first three statements in Listing 4 set property values on the 
+
+<emphasis id="strong1056" effect="bold">
+Glow
+
+</emphasis>
+ 
+object that was instantiated in Listing 2.
+
+</para>
+
+
+
+
+
+<example id="listing1003" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+Configuring the Glow effect.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1003" display="block">
+      glowEffect.color = 0xFF0000;
+      glowEffect.strength = 255;
+      glowEffect.duration = 10000;
+      
+      button.setStyle("mouseUpEffect",glowEffect);
+
+    } //end constructor
+    //--------------------------------------------------//
+
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1055">
+
+
+
+<emphasis id="strong1057" effect="bold">
+The strength property
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1056">
+The purpose of the three properties should be fairly obvious on the basis of 
+their names. However, here is what the documentation has to say about the
+
+
+<emphasis id="strong1058" effect="bold">
+strength
+
+</emphasis>
+ property:
+
+</para>
+
+
+
+
+
+<quote id="blockquote1002" display="block">
+
+	
+
+<para id="p1057">
+<emphasis id="em1007" effect="italics">
+"The strength of the imprint or spread. 
+	The higher the value, the more color is imprinted and the stronger the 
+	contrast between the glow and the background. Valid values are from 0 to 
+	255."
+
+</emphasis>
+</para>
+
+
+
+
+</quote>
+
+
+
+
+
+
+<para id="p1058">
+
+
+
+<emphasis id="strong1059" effect="bold">
+A maximum red glow for ten seconds
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1059">
+The code in Listing 4 sets the effect to glow red with the maximum allowable 
+strength and to continue to glow for ten seconds. If you 
+
+
+<link id="a1069" target-id="Click  ">
+
+run
+
+</link>
+
+ the program, you will see 
+that the glow doesn't stay the same for ten seconds and then turn off. 
+Instead, it decays over time.
+
+</para>
+
+
+
+
+<para id="p1060">
+
+
+
+<emphasis id="strong1060" effect="bold">
+Associate the trigger and the effect
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1061">
+The statement that 
+
+<emphasis id="strong1061" effect="bold">
+begins with button.setStyle
+
+</emphasis>
+ in Listing 4 is the 
+
+
+<emphasis id="strong1062" effect="bold">
+<emphasis id="em1008" effect="italics">
+key statement
+
+</emphasis>
+</emphasis>
+ in the 
+entire program. This statement associates the effect referenced by 
+
+<emphasis id="strong1063" effect="bold">
+
+glowEffect
+
+</emphasis>
+ with a 
+
+<emphasis id="strong1064" effect="bold">
+mouseUpEffect
+
+</emphasis>
+ trigger. Therefore, the effect 
+will be played each time the mouse button is released while the mouse pointer is 
+over the 
+
+<emphasis id="strong1065" effect="bold">
+Button
+
+</emphasis>
+ component. In fact, it doesn't even matter if the 
+mouse pointer was over the 
+
+<emphasis id="strong1066" effect="bold">
+Button
+
+</emphasis>
+ component when the mouse button was 
+pressed as long as it is over the 
+
+<emphasis id="strong1067" effect="bold">
+Button
+
+</emphasis>
+ component when the mouse button 
+is released.
+
+</para>
+
+
+
+
+<para id="p1062">
+
+
+
+<emphasis id="strong1068" effect="bold">
+The end of the program
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1063">
+Listing 4 also signals the end of the program. Note that even though 
+the 
+
+<emphasis id="strong1069" effect="bold">
+mouseUpEffect
+
+</emphasis>
+ trigger resulted from a 
+
+<emphasis id="strong1070" effect="bold">
+mouseUp
+
+</emphasis>
+ event, an event 
+listener was not registered to listen for and to service the 
+
+<emphasis id="strong1071" effect="bold">
+mouseUp
+
+</emphasis>
+ 
+event.
+
+</para>
+
+
+
+
+<para id="p1064">
+
+
+
+<emphasis id="strong1072" effect="bold">
+<emphasis id="Three_steps_are_required" effect="bold">
+
+Three steps are 
+required
+
+</emphasis>
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1065">
+Generally speaking, three steps are required to implement this approach:
+
+</para>
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1070">
+Instantiate an object of the desired effect from the above
+	
+
+<link id="a1070" target-id="Effects_are_subclasses">
+
+list
+
+</link>
+
+, or from a custom effect if you 
+	have one.
+
+</item>
+
+
+	
+
+<item id="li1071">
+Set property values on the effect object to cause it to have the desired 
+	behavior as in Listing 4.
+
+</item>
+
+
+	
+
+<item id="li1072">
+Call the 
+
+<emphasis id="strong1073" effect="bold">
+setStyle
+
+</emphasis>
+ method to associate the effect with an effect 
+	trigger from the above 
+
+<link id="a1071" target-id="lists_thirteen">
+
+list
+
+</link>
+
+ as in Listing 4.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1066">
+That is all that is required to play an effect when an effect trigger occurs. 
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="The_program_named_Effects05" effect="bold">
+
+The program named Effects05
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1067">
+Suppose you want to do something a little more creative, such as to cause the 
+effect that is played for a particular trigger to differ from one time to the 
+next depending on some condition in the program.
+
+</para>
+
+
+
+
+<para id="p1068">
+Or, perhaps you want to play an effect on a component completely independent 
+of triggers, such as when a player's score in a game reaches 10,000. I 
+will show you how to do those kinds of things in this program.
+
+</para>
+
+
+
+
+<para id="p1069">
+
+
+
+<emphasis id="strong1074" effect="bold">
+Program output at startup
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1070">
+The best thing that you could do at this point would be to
+
+
+<link id="a1072" target-id="Click ">
+
+run
+
+</link>
+
+ the program online. 
+That way, you can interact with the program as you read the following.
+
+</para>
+
+
+
+
+<para id="p1071">
+Figure 3 shows the program output at startup.
+
+</para>
+
+
+
+
+
+<figure id="figure1002" type="figure">
+<label>Figure</label>
+
+
+   
+
+<title>
+<emphasis id="Figure_3" effect="bold">
+</emphasis>
+Program output at startup for Effects05.
+</title>
+
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1002" alt="Missing image" display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/as0116c.jpg" width="286" height="352"/>
+</media>
+
+
+      
+
+<caption>Program output at startup for Effects05.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1072">
+At this point, the output consists of one label and two buttons. The 
+top button is disabled and the bottom button is asking to be clicked in order to 
+be hidden.
+
+</para>
+
+
+
+
+<para id="p1073">
+
+
+ 
+
+<emphasis id="strong1075" effect="bold">
+Program output after clicking the bottom button
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1074">
+Figure 4 shows the program output after the bottom button from Figure 3 has 
+been clicked.
+
+</para>
+
+
+
+
+<figure id="figure1003" type="figure">
+<label>Figure</label>
+
+
+   
+
+<title>
+<emphasis id="Figure_4" effect="bold">
+</emphasis>
+Program output after clicking the bottom   button.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1003" alt="Missing image" display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/as0116d.jpg" width="286" height="352"/>
+</media>
+
+
+
+
+      
+
+<caption>Program output after clicking the bottom   button.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1075">
+
+
+
+<emphasis id="strong1076" effect="bold">
+Only the top button is showing
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1076">
+At this point, the bottom button in Figure 3 has been hidden and the top 
+button in Figure 3 has been enabled. From this point forward, the user 
+will alternate between clicking the top and bottom buttons.
+
+</para>
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1077" effect="bold">
+Do it several times
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1078">
+You need to go through the sequence several times to experience the full 
+effect. Each time the 
+user clicks the top button, it becomes disabled and the bottom button becomes 
+visible. Each time the bottom button becomes visible, an effect is played. 
+Effects are played in the following sequence:
+
+</para>
+
+
+
+
+<list id="ol1001" list-type="enumerated">
+
+	
+
+<item id="li1073">
+A WipeRight effect.
+
+</item>
+
+
+	
+
+<item id="li1074">
+A Rotate effect.
+
+</item>
+
+
+
+
+<item id="li1075">
+A Glow effect.
+
+</item>
+
+
+	
+
+<item id="li1076">
+All three of the above in parallel.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1079">
+The sequence repeats after the three effects are played in parallel.
+
+</para>
+
+
+
+
+<para id="p1080">
+The next four figures show screen shots of the effects listed above caught in 
+midstream.
+
+</para>
+
+
+
+
+<para id="p1081">
+
+
+ 
+
+<emphasis id="strong1078" effect="bold">
+The WipeRight effect
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1082">
+Figure 5 shows the restoration of the bottom button with a 
+
+<emphasis id="strong1079" effect="bold">
+WipeRight
+
+</emphasis>
+ 
+effect. As you can see, only part of the button was visible when the 
+screen show was taken.
+
+</para>
+
+
+
+
+
+<figure id="figure1004" type="figure">
+<label>Figure</label>
+
+
+   
+
+<title>
+<emphasis id="Figure_5" effect="bold">
+</emphasis>
+The WipeRight effect.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1004" alt="Missing image" display="block">
+<image id="img1004" mime-type="image/jpeg" src="../../media/as0116e.jpg" width="282" height="352"/>
+</media>
+
+
+
+
+      
+
+<caption>The WipeRight effect.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1083">
+
+
+ 
+
+<emphasis id="strong1080" effect="bold">
+The Rotate effect
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1084">
+Figure 6 shows the 
+
+<emphasis id="strong1081" effect="bold">
+Rotate
+
+</emphasis>
+ effect caught in midstream.
+
+</para>
+
+
+
+
+
+<figure id="figure1005" type="figure">
+<label>Figure</label>
+
+
+   
+
+<title>
+<emphasis id="Figure_6" effect="bold">
+</emphasis>
+The Rotate effect.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1005" alt="Missing image" display="block">
+<image id="img1005" mime-type="image/jpeg" src="../../media/as0116f.jpg" width="283" height="350"/>
+</media>
+
+
+
+
+      
+
+<caption>The Rotate effect.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1085">
+The bottom button rotates a full 360 degrees around its center point before 
+coming to rest in the position shown in Figure 3 with its label restored.
+
+</para>
+
+
+
+
+<para id="p1086">
+
+
+ 
+
+<emphasis id="strong1082" effect="bold">
+The Glow effect
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1087">
+Figure 7 shows the bottom button in the middle of a yellow glow effect.
+
+</para>
+
+
+
+
+
+<figure id="figure1006" type="figure">
+<label>Figure</label>
+
+
+   
+
+<title>
+<emphasis id="Figure_7" effect="bold">
+</emphasis>
+The Glow effect.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1006" alt="Missing image" display="block">
+<image id="img1006" mime-type="image/jpeg" src="../../media/as0116g.jpg" width="284" height="347"/>
+</media>
+
+
+
+
+      
+
+<caption>The Glow effect.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1088">
+You are already familiar with this effect from the program named Effects04 
+that I explained earlier in this lesson.
+
+</para>
+
+
+
+
+<para id="p1089">
+
+
+ 
+
+<emphasis id="strong1083" effect="bold">
+Three effects in parallel
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1090">
+Figure 8 shows the three effects being played in parallel.
+
+</para>
+
+
+
+
+
+<figure id="figure1007" type="figure">
+<label>Figure</label>
+
+
+   
+
+<title>
+<emphasis id="Figure_8" effect="bold">
+</emphasis>
+Three effects in parallel.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1007" alt="Missing image" display="block">
+<image id="img1007" mime-type="image/jpeg" src="../../media/as0116h.jpg" width="285" height="346"/>
+</media>
+
+
+
+
+      
+
+<caption>Three effects in parallel.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1091">
+In this case, the bottom button goes through an interesting gyration before 
+coming to rest in the position shown in Figure 3. Someone once said that a 
+picture is worth a thousand words. In this case, actually
+
+
+<link id="a1073" target-id="Click ">
+
+running
+
+</link>
+
+ the program is worth a 
+thousand pictures.
+
+</para>
+
+
+
+
+<para id="p1092">
+
+
+
+<emphasis id="strong1084" effect="bold">
+Will explain in fragments
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1093">
+As before, I will explain this program in fragments. Aside from the 
+simple MXML file shown in Listing 16, this entire program is written in a class 
+named 
+
+<emphasis id="strong1085" effect="bold">
+Driver
+
+</emphasis>
+. A complete listing of the 
+
+<emphasis id="strong1086" effect="bold">
+Driver
+
+</emphasis>
+ class is 
+provided in Listing 18.
+
+</para>
+
+
+
+
+<para id="p1094">
+
+
+
+<emphasis id="strong1087" effect="bold">
+Two ways to play effects
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1095">
+As I explained 
+
+<link id="a1074" target-id="Two_ways_to_play_effects">
+
+earlier
+
+</link>
+
+, there are at least two different ways to write ActionScript code to play 
+effects:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1077">
+Call the 
+
+<emphasis id="strong1088" effect="bold">
+setStyle
+
+</emphasis>
+ method on the target component passing an 
+	effect trigger and an effect as parameters to the method as described
+	
+
+<link id="a1075" target-id="Three_steps_are_required">
+
+above
+
+</link>
+
+. You saw an example of this 
+	in the program named Effects04.
+
+</item>
+
+
+	
+
+<item id="li1078">
+Create an 
+
+<emphasis id="strong1089" effect="bold">
+Effect
+
+</emphasis>
+ object targeted to the component and call the 
+
+<emphasis id="strong1090" effect="bold">
+
+	play
+
+</emphasis>
+ method on the object. This approach doesn't require an effect 
+	trigger.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1096">
+I will illustrate both approaches in this program.
+
+</para>
+
+
+
+
+<para id="p1097">
+
+
+
+<emphasis id="strong1091" effect="bold">
+ 
+
+
+Beginning of the Driver class for Effects05
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1098">
+The driver class for the program named Effects05 begins in Listing 5.
+
+</para>
+
+
+
+
+<example id="listing1004" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+Beginning of the Driver class for Effects05.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1004" display="block">
+package CustomClasses{
+  import flash.events.MouseEvent;
+  
+  import mx.containers.VBox;
+  import mx.controls.Button;
+  import mx.controls.Label;
+  import mx.effects.Glow;
+  import mx.effects.Iris;
+  import mx.effects.Parallel;
+  import mx.effects.Rotate;
+  import mx.effects.WipeRight;
+  import mx.events.EffectEvent;
+  import mx.events.FlexEvent;
+
+  public class Driver extends VBox{
+    //Instantiate and save references to most of the
+    // objects needed by the program.
+    private var title:Label = new Label();
+    private var btnA:Button = new Button();
+    private var btnB:Button = new Button();
+
+    private var irisEffect:Iris = new Iris();
+    private var wipeEffect:WipeRight = new WipeRight();
+    private var rotateEffect:Rotate = new Rotate();
+    private var glowEffect:Glow = new Glow();
+
+    private var effectCounter:uint = 0;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1099">
+
+
+
+<emphasis id="strong1092" effect="bold">
+Instantiate four different Effect objects
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1100">
+The most interesting part of Listing 5 is the instantiation of four
+
+
+<emphasis id="different_effect_objects" effect="bold">
+
+different effect objects
+
+</emphasis>
+
+:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1079">
+<emphasis id="strong1093" effect="bold">
+Iris
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1080">
+<emphasis id="strong1094" effect="bold">
+WipeRight
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1081">
+<emphasis id="strong1095" effect="bold">
+Rotate
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1082">
+<emphasis id="strong1096" effect="bold">
+Glow
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1101">
+The 
+
+<emphasis id="strong1097" effect="bold">
+Iris
+
+</emphasis>
+ effect will be used along with the 
+
+<emphasis id="strong1098" effect="bold">
+setStyle
+
+</emphasis>
+ method to 
+cause the bottom button in Figure 3 to play an 
+
+<emphasis id="strong1099" effect="bold">
+Iris
+
+</emphasis>
+ effect each time it 
+is hidden.
+
+</para>
+
+
+
+
+<para id="p1102">
+The other three effects in the above list plus an object of the 
+
+<emphasis id="strong1100" effect="bold">
+Parallel
+
+</emphasis>
+ 
+class will be used to apply one of four different effects to the bottom button 
+each time it is shown.
+
+</para>
+
+
+
+
+<para id="p1103">
+
+
+
+
+<emphasis id="strong1101" effect="bold">
+Beginning of the constructor for Effects05
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1104">
+The constructor for the 
+
+<emphasis id="strong1102" effect="bold">
+Driver
+
+</emphasis>
+ class begins in Listing 6.
+
+</para>
+
+
+
+
+<example id="listing1005" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Beginning of the constructor for the  Effects05.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1005" display="block">    public function Driver(){//constructor
+
+      //Set title properties and add to the VBox.
+      title.setStyle("color","0xFFFF00");
+      title.setStyle("fontSize",14);
+      title.text = "Demo two ways to play effects";
+      addChild(title);
+      
+      //Put labels on the two buttons and disable one
+      // of them.
+      btnA.label = "Click me to show the other button.";
+      btnB.label = "Click me to hide me.";
+      btnA.enabled = false;//disable btnA at startup
+      
+      //Register click listeners on both buttons, 
+      // register a show listener on btnB, and add
+      // them to the VBox.
+      btnA.addEventListener(MouseEvent.CLICK,btnAhandler);
+      btnB.addEventListener(MouseEvent.CLICK,btnBhandler);
+      btnB.addEventListener(FlexEvent.SHOW,showHandler);
+      addChild(btnA);
+      addChild(btnB);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1105">
+If you have been studying this series of lessons from the beginning, you 
+shouldn't find anything in Listing 6 that you don't understand.
+
+</para>
+
+
+
+
+<para id="p1106">
+
+
+
+
+<emphasis id="strong1103" effect="bold">
+Configure an Iris effect for the bottom button
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1107">
+Listing 7 configures an 
+
+<emphasis id="strong1104" effect="bold">
+Iris
+
+</emphasis>
+ effect that will be played each time the 
+bottom button in Figure 3 is hidden.
+
+</para>
+
+
+
+
+<example id="listing1006" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+Configure an Iris effect for the bottom  button.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1006" display="block">
+      irisEffect.duration = 2000;
+      irisEffect.addEventListener(
+                EffectEvent.EFFECT_END,endEffectHandler);
+                
+      btnB.setStyle("hideEffect",irisEffect);
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1108">
+Note that the bottom button in Figure 3 is referred to by the variable named
+
+
+<emphasis id="strong1105" effect="bold">
+btnB
+
+</emphasis>
+ and the top button in Figure 3 is referred to by the variable named 
+
+<emphasis id="strong1106" effect="bold">
+
+btnA
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1109">
+The code in Listing 7 is essentially the same as the code that I explained in 
+the earlier program named Effects04.
+
+</para>
+
+
+
+
+<para id="p1110">
+
+
+
+
+<emphasis id="strong1107" effect="bold">
+Configure three different effects targeted to the bottom button
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1111">
+Listing 8 configures three different 
+
+<emphasis id="strong1108" effect="bold">
+Effect
+
+</emphasis>
+ objects that will be 
+played individually and in combination when the bottom button in Figure 3 is 
+shown.
+
+</para>
+
+
+
+
+<example id="listing1007" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_8" effect="bold">
+</emphasis>
+Configure three different effects targeted  to the bottom button.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1007" display="block">      //Configure a wipe effect that may be played
+      // when btnB is shown.
+      wipeEffect.target = btnB;
+      wipeEffect.showTarget = true;
+      wipeEffect.duration = 2000;
+
+      //Configure a rotate effect that may be played 
+      // when btnB is shown.
+      rotateEffect.target = btnB;
+      rotateEffect.angleFrom = 0;
+      rotateEffect.angleTo = 360;
+      rotateEffect.duration = 2000;
+      
+      //Configure a glow effect that may be played 
+      // when btnB is shown.
+      glowEffect.target = btnB;
+      glowEffect.color = 0xFFFF00;
+      glowEffect.duration = 4000;
+      glowEffect.inner = true;
+      glowEffect.strength = 255;
+
+    } //end constructor</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1112">
+
+
+
+<emphasis id="strong1109" effect="bold">
+Different effects require different properties
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1113">
+The three 
+
+<emphasis id="strong1110" effect="bold">
+Effect
+
+</emphasis>
+ objects were instantiated in Listing 5. 
+Different types of effects require that different types of properties be set. 
+However, one property that is common for all types of effects when using this 
+approach is to specify the target component on which the effect is to be played.
+
+</para>
+
+
+
+
+<quote id="blockquote1003" display="block">
+
+	
+
+<emphasis id="em1009" effect="italics">
+(Note that it isn't necessary to explicitly specify the target for the 
+	earlier approach shown in Listing 7. In that case, the target is the 
+	object on which the 
+
+<emphasis id="strong1111" effect="bold">
+setStyle
+
+</emphasis>
+ method is called.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1114">
+I will leave it as an exercise for the student to go into the documentation 
+and gain an understanding of the behaviors imparted by the different property 
+values in Listing 8.
+
+</para>
+
+
+
+
+<para id="p1115">
+Listing 8 also signals the end of the constructor.
+
+</para>
+
+
+
+
+<para id="p1116">
+
+
+
+
+<emphasis id="strong1112" effect="bold">
+A click event handler on the bottom button
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1117">
+Let's begin by disposing of the code that is executed when the 
+bottom button is clicked. A click event handler was registered on the 
+bottom button 
+
+<emphasis id="em1010" effect="italics">
+(
+
+<emphasis id="strong1113" effect="bold">
+btnB
+
+</emphasis>
+)
+
+</emphasis>
+ in Listing 6. That event handler is 
+shown in Listing 9.
+
+</para>
+
+
+
+
+<example id="listing1008" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_9" effect="bold">
+</emphasis>
+A click event handler on the bottom  button.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1008" display="block">
+    private function btnBhandler(event:MouseEvent):void{
+      btnB.visible = false;
+    } //end btnBhandler</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1118">
+
+
+
+<emphasis id="strong1114" effect="bold">
+A hideEffect trigger
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1119">
+The method shown in Listing 9 is executed each time the user clicks the 
+bottom button. The method sets the 
+
+<emphasis id="strong1115" effect="bold">
+visible
+
+</emphasis>
+ property of the bottom 
+button to false. This causes the bottom button to dispatch a 
+
+<emphasis id="strong1116" effect="bold">
+hide
+
+</emphasis>
+ 
+event, which in turn results in a 
+
+<emphasis id="strong1117" effect="bold">
+hideEffect
+
+</emphasis>
+ trigger. As you saw in 
+Listing 7, this causes the program to play an 
+
+<emphasis id="strong1118" effect="bold">
+Iris
+
+</emphasis>
+ effect to hide the 
+button.
+
+</para>
+
+
+
+
+<para id="p1120">
+
+
+
+
+<emphasis id="strong1119" effect="bold">
+An EFFECT_END handler for the Iris effect
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1121">
+When the bottom button is showing, the top button is disabled. 
+Therefore, when the bottom button becomes hidden, the top button must be enabled 
+or there will be no way to show the bottom button again.
+
+</para>
+
+
+
+
+<para id="p1122">
+Listing 7 registers an event handler on the 
+
+<emphasis id="strong1120" effect="bold">
+Iris
+
+</emphasis>
+ effect that is called 
+each time the effect finishes playing. That event handler is shown in 
+Listing 10.
+
+</para>
+
+
+
+
+<example id="listing1009" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_10" effect="bold">
+</emphasis>
+An EFFECT_END handler for the Iris  effect.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1009" display="block">
+    private function endEffectHandler(
+                                 event:EffectEvent):void{
+      btnA.enabled = true;
+    } //end event handler</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1123">
+The code in this method sets the 
+
+<emphasis id="strong1121" effect="bold">
+enabled
+
+</emphasis>
+ property of the top button to 
+true making it possible to click that button to show the bottom button again.
+
+</para>
+
+
+
+
+<para id="p1124">
+That takes care of the code associated with clicking the bottom button.
+
+</para>
+
+
+
+
+<para id="p1125">
+
+
+
+
+<emphasis id="strong1122" effect="bold">
+A click event handler for the top button
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1126">
+Listing 6 registered a 
+
+<emphasis id="strong1123" effect="bold">
+click
+
+</emphasis>
+ event handler on the top button 
+
+<emphasis id="em1011" effect="italics">
+(
+
+<emphasis id="strong1124" effect="bold">
+btnA
+
+</emphasis>
+)
+
+</emphasis>
+. 
+That event handler is shown in Listing 11. This method is called each time 
+the top button is clicked while it is enabled.
+
+</para>
+
+
+
+
+<example id="listing1010" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_11" effect="bold">
+</emphasis>
+A click event handler for the top  button.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1010" display="block">
+    private function btnAhandler(event:MouseEvent):void{
+      btnA.enabled = false;
+      btnB.visible = true;
+    } //end btnAhandler</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1127">
+The code in this method disables the top button and sets the 
+
+<emphasis id="strong1125" effect="bold">
+visible
+
+</emphasis>
+ 
+property of the bottom button to true. This causes the bottom button to 
+dispatch a 
+
+<emphasis id="strong1126" effect="bold">
+show
+
+</emphasis>
+ event.
+
+</para>
+
+
+
+
+<para id="p1128">
+A 
+
+<emphasis id="strong1127" effect="bold">
+show
+
+</emphasis>
+ event handler was registered on the bottom button in Listing 6.
+
+</para>
+
+
+
+
+<para id="p1129">
+
+
+
+
+<emphasis id="strong1128" effect="bold">
+Beginning of the show event handler registered on the bottom button
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1130">
+That 
+
+<emphasis id="strong1129" effect="bold">
+show
+
+</emphasis>
+ event handler begins in Listing 12.
+
+</para>
+
+
+
+
+<example id="listing1011" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_12" effect="bold">
+</emphasis>
+Beginning of the Show event handler  registered on the bottom button.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1011" display="block">
+    private function showHandler(event:FlexEvent):void{
+      //Make certain that none of the effects are playing.
+      wipeEffect.end();
+      rotateEffect.end();
+      glowEffect.end();
+      
+      //Select the effect or effects that will be
+      // played.
+      if(effectCounter == 0){
+        wipeEffect.play();
+        effectCounter++;//increment the effect counter.</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1131">
+This method is executed each time the 
+
+<emphasis id="strong1130" effect="bold">
+visible
+
+</emphasis>
+ property of the bottom 
+button is changed from false to true. The transition of that property 
+value from false to true causes the bottom button to dispatch a 
+
+<emphasis id="strong1131" effect="bold">
+show
+
+</emphasis>
+ 
+event.
+
+</para>
+
+
+
+
+<para id="p1132">
+
+
+
+<emphasis id="strong1132" effect="bold">
+Stop all effects that may be playing
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1133">
+Listing 12 begins by calling the 
+
+<emphasis id="strong1133" effect="bold">
+end
+
+</emphasis>
+ method on three of the four 
+
+<emphasis id="strong1134" effect="bold">
+
+Effect
+
+</emphasis>
+ objects that were instantiated in Listing 5. If one of those 
+effects is playing, calling the
+
+<emphasis id="strong1135" effect="bold">
+ end
+
+</emphasis>
+ method on the effect object causes 
+the Flash Player to jump immediately to the end.
+
+</para>
+
+
+
+
+<para id="p1134">
+
+
+
+<emphasis id="strong1136" effect="bold">
+Determine which effect to play
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1135">
+Then Listing 12 begins executing a long 
+
+<emphasis id="strong1137" effect="bold">
+if-else-if
+
+</emphasis>
+ statement that 
+determines which effect to play based on the current value of the variable named
+
+
+<emphasis id="strong1138" effect="bold">
+effectCounter
+
+</emphasis>
+ that was declared and initialized to a value of zero in 
+Listing 5.
+
+</para>
+
+
+
+
+<para id="p1136">
+
+
+
+<emphasis id="strong1139" effect="bold">
+Four possibilities
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1137">
+Depending on the current value of that counter, the program will play one of 
+the following three effects or all three in parallel:
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1083">
+<emphasis id="strong1140" effect="bold">
+WipeRight
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1084">
+<emphasis id="strong1141" effect="bold">
+Rotate
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1085">
+<emphasis id="strong1142" effect="bold">
+Glow
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1138">
+If the current value of the effect counter variable is 0, the last two 
+statements in Listing 12 are executed. Otherwise, control passes to the 
+test at the top of Listing 13.
+
+</para>
+
+
+
+
+<para id="p1139">
+
+
+
+<emphasis id="strong1143" effect="bold">
+Play the wipe effect and increment the counter
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1140">
+One of the statements in Listing 12 calls the 
+
+<emphasis id="strong1144" effect="bold">
+play
+
+</emphasis>
+ method on the 
+effect object referred to by 
+
+<emphasis id="strong1145" effect="bold">
+wipeEffect
+
+</emphasis>
+ 
+causing that effect to play. The last statement in Listing 12 increments 
+the effect counter by a value of one. Then control passes to the end of 
+the 
+
+<emphasis id="strong1146" effect="bold">
+
+showHandler
+
+</emphasis>
+ method near the bottom of Listing 15.
+
+</para>
+
+
+
+
+<para id="p1141">
+
+
+
+
+<emphasis id="strong1147" effect="bold">
+Code to play the Rotate effect
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1142">
+If the value of the effect counter was 1 when control entered the 
+
+<emphasis id="strong1148" effect="bold">
+
+if-else-if
+
+</emphasis>
+ statement in Listing 12, the last four statements in Listing 13 
+are executed. Otherwise, control passes to the top of Listing 14.
+
+</para>
+
+
+
+
+
+<example id="listing1012" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_13" effect="bold">
+</emphasis>
+Code to play the Rotate effect.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1012" display="block">      }else if(effectCounter == 1){
+        rotateEffect.originX = btnB.width/2;
+        rotateEffect.originY = btnB.height/2;
+        rotateEffect.play();
+        effectCounter++;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1143">
+If the value of the effect counter was 1 when the 
+
+<emphasis id="strong1149" effect="bold">
+if-else-if
+
+</emphasis>
+ statement 
+began execution, the 
+
+<emphasis id="strong1150" effect="bold">
+play
+
+</emphasis>
+ method is called on the 
+
+<emphasis id="strong1151" effect="bold">
+rotateEffect
+
+</emphasis>
+ 
+object by the code in Listing 13.
+
+</para>
+
+
+
+
+<para id="p1144">
+
+
+
+<emphasis id="strong1152" effect="bold">
+Establish the center of rotation
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1145">
+Before calling the 
+
+<emphasis id="strong1153" effect="bold">
+play
+
+</emphasis>
+ method, however, the code in Listing 13 
+establishes the center of the button as the point around which the button will 
+be rotated. It was not possible to establish this point when the 
+
+<emphasis id="strong1154" effect="bold">
+Rotate
+
+</emphasis>
+ 
+effect was configured in Listing 8 because reliable information about the width 
+and height of the button was not yet available.
+
+</para>
+
+
+
+
+<para id="p1146">
+
+
+
+<emphasis id="strong1155" effect="bold">
+Could have used creationComplete
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1147">
+Perhaps a more elegant approach to establishing the center of rotation would 
+have been to register a 
+
+<emphasis id="strong1156" effect="bold">
+creationComplete
+
+</emphasis>
+ listener on the 
+
+<emphasis id="strong1157" effect="bold">
+VBox
+
+</emphasis>
+ and 
+to set the values for 
+
+<emphasis id="strong1158" effect="bold">
+originX
+
+</emphasis>
+ in 
+
+<emphasis id="strong1159" effect="bold">
+originY
+
+</emphasis>
+ in that handler. 
+However, that seemed like overkill and I decided to do it in Listing 13.
+
+</para>
+
+
+
+
+<para id="p1148">
+
+
+
+<emphasis id="strong1160" effect="bold">
+Increment the counter and go to the end of the 
+method
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1149">
+If the last four statements in Listing 13 are executed, the effect counter is 
+incremented by one. Then control passes to the bottom of the method in 
+Listing 15.
+
+</para>
+
+
+
+
+<para id="p1150">
+
+
+
+
+<emphasis id="strong1161" effect="bold">
+Code to play the Glow effect
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1151">
+If the value of the effect counter was 2 when control entered the 
+
+<emphasis id="strong1162" effect="bold">
+
+if-else-if
+
+</emphasis>
+ 
+statement in Listing 12, the last two statements in Listing 14 are executed. 
+Otherwise, control passes to the top of Listing 15.
+
+</para>
+
+
+
+
+
+<example id="listing1013" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_14" effect="bold">
+</emphasis>
+Code to play the Glow effect.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1013" display="block">      }else if(effectCounter == 2){
+        glowEffect.play();
+        effectCounter++;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1152">
+The last two statements in Listing 14 play the glow effect and increment the 
+effect counter. Then control passes to the bottom of the method in Listing 
+15.
+
+</para>
+
+
+
+
+<para id="p1153">
+
+
+
+<emphasis id="strong1163" effect="bold">
+Code to play three effects in parallel
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1154">
+If the value of the effect counter was something other than 0, 1, or 2 when 
+control entered the 
+
+<emphasis id="strong1164" effect="bold">
+if-else-if
+
+</emphasis>
+ statement in Listing 12, the code in the 
+
+<emphasis id="strong1165" effect="bold">
+
+else
+
+</emphasis>
+ 
+clause in Listing 15 is executed.
+
+</para>
+
+
+
+
+
+<example id="listing1014" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_15" effect="bold">
+</emphasis>
+Code to play three effects in parallel.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1014" display="block">      }else{
+        //Play all three effects in parallel.
+        var parallel:Parallel = new Parallel();
+        parallel.addChild(rotateEffect);
+        parallel.addChild(glowEffect);
+        parallel.addChild(wipeEffect);
+        parallel.play();
+        //reset the effect counter
+        effectCounter = 0;
+      } //end else
+
+    } //end showHandler
+    //--------------------------------------------------//
+
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1155">
+
+
+
+<emphasis id="strong1166" effect="bold">
+An object of the Parallel class
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1156">
+This code instantiates an object of the 
+
+<emphasis id="strong1167" effect="bold">
+Parallel
+
+</emphasis>
+ class and adds the 
+three effects as children of that object. Then the code calls the 
+
+<emphasis id="strong1168" effect="bold">
+play
+
+</emphasis>
+ 
+method on the 
+
+<emphasis id="strong1169" effect="bold">
+Parallel
+
+</emphasis>
+ object. This causes all three effects to 
+play simultaneously.
+
+</para>
+
+
+
+
+<para id="p1157">
+
+
+
+<emphasis id="strong1170" effect="bold">
+Reset the counter
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1158">
+Finally, Listing 15 resets the value of the effect counter back to 0 so that 
+the sequence will begin anew the next time the event handler for the 
+
+<emphasis id="strong1171" effect="bold">
+show
+
+</emphasis>
+ 
+event is executed.
+
+</para>
+
+
+
+
+<para id="p1159">
+
+
+
+<emphasis id="strong1172" effect="bold">
+Play the same effect on multiple targets 
+simultaneously
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1160">
+You can play the same effect on multiple targets simultaneously by setting 
+the 
+
+<emphasis id="strong1173" effect="bold">
+targets
+
+</emphasis>
+ property on the effect object instead of the 
+
+<emphasis id="strong1174" effect="bold">
+target
+
+</emphasis>
+ 
+object. The 
+
+<emphasis id="strong1175" effect="bold">
+targets
+
+</emphasis>
+ property requires an array containing 
+references to the target objects.
+
+</para>
+
+
+
+
+<para id="p1161">
+
+
+
+<emphasis id="strong1176" effect="bold">
+Three steps are required
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1162">
+The following steps are required to play an effect in the Flash Player using 
+this approach.
+
+</para>
+
+
+
+
+<list id="ol1002" list-type="enumerated">
+
+	
+
+<item id="li1086">
+Instantiate and save a reference to an 
+
+<emphasis id="strong1177" effect="bold">
+Effect
+
+</emphasis>
+ object.
+
+</item>
+
+
+	
+
+<item id="li1087">
+Set properties on the effect object. Be sure to set the 
+
+<emphasis id="strong1178" effect="bold">
+target
+
+</emphasis>
+ 
+	property for a single target or the 
+
+<emphasis id="strong1179" effect="bold">
+targets
+
+</emphasis>
+ property for multiple 
+	targets.
+
+</item>
+
+
+	
+
+<item id="li1088">
+Call the 
+
+<emphasis id="strong1180" effect="bold">
+play
+
+</emphasis>
+ method on the effect object.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1163">
+
+
+
+<emphasis id="strong1181" effect="bold">
+To play multiple effects in parallel or in sequence
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<list id="ol1003" list-type="enumerated">
+
+	
+
+<item id="li1089">
+Instantiate and save references to two or more 
+
+<emphasis id="strong1182" effect="bold">
+Effect
+
+</emphasis>
+ objects.
+
+</item>
+
+
+	
+
+<item id="li1090">
+Set properties on the effect objects, being careful to set either the 
+
+<emphasis id="strong1183" effect="bold">
+
+	target
+
+</emphasis>
+ property or the 
+
+<emphasis id="strong1184" effect="bold">
+targets
+
+</emphasis>
+ property.
+
+</item>
+
+
+	
+
+<item id="li1091">
+Instantiate a 
+
+<emphasis id="strong1185" effect="bold">
+Parallel
+
+</emphasis>
+ object or a 
+
+<emphasis id="strong1186" effect="bold">
+Sequence
+
+</emphasis>
+ object.
+
+</item>
+
+
+	
+
+<item id="li1092">
+Add the effect objects as children of the 
+
+<emphasis id="strong1187" effect="bold">
+Parallel
+
+</emphasis>
+ object or the
+	
+
+<emphasis id="strong1188" effect="bold">
+Sequence
+
+</emphasis>
+ object.
+
+</item>
+
+
+	
+
+<item id="li1093">
+Call the play method on the 
+
+<emphasis id="strong1189" effect="bold">
+Parallel
+
+</emphasis>
+ object or the 
+
+<emphasis id="strong1190" effect="bold">
+Sequence
+
+</emphasis>
+ 
+	object.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1164">
+Note that you can also add 
+
+<emphasis id="strong1191" effect="bold">
+Sequence
+
+</emphasis>
+ objects to 
+
+<emphasis id="strong1192" effect="bold">
+Parallel
+
+</emphasis>
+ objects 
+and vice versa. Just make certain that you don't try to play two instances 
+of the same effect on the same object at the same time.
+
+</para>
+
+
+
+
+<para id="p1165">
+
+
+
+<emphasis id="strong1193" effect="bold">
+The end of the program
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1166">
+Listing 15 also signals the end of the 
+
+<emphasis id="strong1194" effect="bold">
+Driver
+
+</emphasis>
+ class and the end of the 
+program.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Runtheprogram" effect="bold">
+
+Run the programs
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1167">
+
+I encourage you to
+
+
+<link id="a1076" target-id="Click ">
+
+run
+
+</link>
+
+ these two programs from the 
+web. Then copy
+ the code from Listing 16 through Listing 18. 
+Use that code to create Flex projects. Compile and run the projects. 
+Experiment with the code, making changes, and observing the results of your 
+changes. Make certain that you can explain why your changes behave as they 
+do.
+
+</para>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1168">
+I will publish a list containing links to ActionScript resources as a separate document. Search for ActionScript Resources in the Connexions search box.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+ 
+
+<emphasis id="CompleteProgramListings" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1169">
+Complete listings of the MXML and ActionScript files are provided in Listing 16 
+through Listing 18 below.
+
+</para>
+
+
+
+
+
+
+<example id="listing1015" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_16" effect="bold">
+</emphasis>
+The MXML file used for both programs.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1015" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1170">
+</para>
+
+
+
+
+
+<example id="listing1016" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_17" effect="bold">
+</emphasis>
+The Driver class for Effects04.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1016" display="block">/*Effects04 11/22/09
+This program shows how to set the style on an object with
+ a mouseUpEffect trigger and cause the object to glow.
+*/
+
+package CustomClasses{
+
+  import mx.containers.VBox;
+  import mx.controls.Button;
+  import mx.controls.Label;
+  import mx.effects.Glow;
+
+  public class Driver extends VBox{
+    //Instantiate and save references to all of the
+    // objects needed by the program.
+    private var title:Label = new Label();
+    private var button:Button = new Button();
+    private var glowEffect:Glow = new Glow();
+    //--------------------------------------------------//
+    
+    public function Driver(){//constructor
+
+      //Set title properties and add to the VBox.
+      title.setStyle("color","0xFFFF00");
+      title.setStyle("fontSize",14);
+      title.text = "Demo mouseUpEffect trigger";
+      addChild(title);
+
+      button.label = "Click me and watch me glow.";
+      addChild(button);
+
+      glowEffect.color = 0xFF0000;
+      glowEffect.strength = 255;
+      glowEffect.duration = 10000;
+      button.setStyle("mouseUpEffect",glowEffect);
+
+    } //end constructor
+    //--------------------------------------------------//
+
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+<para id="p1171">
+</para>
+
+
+
+
+<example id="listing1017" type="listing">
+<label>Listing</label>
+
+
+   
+
+<title>
+<emphasis id="Listing_18" effect="bold">
+</emphasis>
+The Driver class for Effects05.
+</title>
+
+
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1017" display="block">/*Effects05 11/22/09
+This program demonstrates two ways to play effects:
+1. Call the play method on the effect.
+2. Set the style on an object with a hideEffect trigger.
+*********************************************************/
+package CustomClasses{
+  import flash.events.MouseEvent;
+  
+  import mx.containers.VBox;
+  import mx.controls.Button;
+  import mx.controls.Label;
+  import mx.effects.Glow;
+  import mx.effects.Iris;
+  import mx.effects.Parallel;
+  import mx.effects.Rotate;
+  import mx.effects.WipeRight;
+  import mx.events.EffectEvent;
+  import mx.events.FlexEvent;
+
+  public class Driver extends VBox{
+    //Instantiate and save references to most of the
+    // objects needed by the program.
+    private var title:Label = new Label();
+    private var btnA:Button = new Button();
+    private var btnB:Button = new Button();
+    private var irisEffect:Iris = new Iris();
+    private var wipeEffect:WipeRight = new WipeRight();
+    private var rotateEffect:Rotate = new Rotate();
+    private var glowEffect:Glow = new Glow();
+    private var effectCounter:uint = 0;
+    //--------------------------------------------------//
+    
+    public function Driver(){//constructor
+
+      //Set title properties and add to the VBox.
+      title.setStyle("color","0xFFFF00");
+      title.setStyle("fontSize",14);
+      title.text = "Demo two ways to play effects";
+      addChild(title);
+      
+      //Put labels on the two buttons and disable one
+      // of them.
+      btnA.label = "Click me to show the other button.";
+      btnB.label = "Click me to hide me.";
+      btnA.enabled = false;//disable btnA at startup
+      
+      //Register click listeners on both buttons, 
+      // register a show listener on btnB, and add
+      // them to the VBox.
+      btnA.addEventListener(MouseEvent.CLICK,btnAhandler);
+      btnB.addEventListener(MouseEvent.CLICK,btnBhandler);
+      btnB.addEventListener(FlexEvent.SHOW,showHandler);
+      addChild(btnA);
+      addChild(btnB);
+      
+      //Configure an iris effect that will be played when
+      // btnB is hidden.
+      irisEffect.duration = 2000;
+      irisEffect.addEventListener(
+                EffectEvent.EFFECT_END,endEffectHandler);
+      btnB.setStyle("hideEffect",irisEffect);
+      
+      //Configure a wipe effect that may be played
+      // when btnB is shown.
+      wipeEffect.target = btnB;
+      wipeEffect.showTarget = true;
+      wipeEffect.duration = 2000;
+
+      //Configure a rotate effect that may be played 
+      // when btnB is shown.
+      rotateEffect.target = btnB;
+      rotateEffect.angleFrom = 0;
+      rotateEffect.angleTo = 360;
+      rotateEffect.duration = 2000;
+      
+      //Configure a glow effect that may be played 
+      // when btnB is shown.
+      glowEffect.target = btnB;
+      glowEffect.color = 0xFFFF00;
+      glowEffect.duration = 4000;
+      glowEffect.inner = true;
+      glowEffect.strength = 255;
+
+    } //end constructor
+    //--------------------------------------------------//
+
+    //This method is executed when btnB is clicked. It
+    // hides itself, which in turn causes the Iris
+    // hideEffect to be played on itself.
+    private function btnBhandler(event:MouseEvent):void{
+      btnB.visible = false;
+    } //end btnBhandler
+    //--------------------------------------------------//
+
+    //This method is executed when btnA is clicked. It
+    // disables itself and causes btnB to become visible.
+    // This in turn causes btnB to dispatch a show event
+    // which is handled by a different event handler.
+    private function btnAhandler(event:MouseEvent):void{
+      btnA.enabled = false;
+      btnB.visible = true;
+    } //end btnAhandler
+    //--------------------------------------------------//
+
+    //This method is executed when btnB is hidden and the
+    // iris effect ends. It enables btnA so that the user
+    // can click btnA to show btnB again.
+    private function endEffectHandler(
+                                 event:EffectEvent):void{
+      btnA.enabled = true;
+    } //end event handler
+    //--------------------------------------------------//
+
+    //This method is executed when btnB becomes visible
+    // and dispatches a show event. It causes any effects
+    // that may be playing to end. Then it one of three
+    // effects or all three in parallel depending on the
+    // value of an effect counter.
+    private function showHandler(event:FlexEvent):void{
+      //Make certain that none of the effects are playing.
+      wipeEffect.end();
+      rotateEffect.end();
+      glowEffect.end();
+      
+      //Select the effect or effects that will be
+      // played.
+      if(effectCounter == 0){
+        wipeEffect.play();
+        effectCounter++;//increment the effect counter.
+      }else if(effectCounter == 1){
+        //Set the rotate origin to the center of the
+        // button. This couldn't be done when the rotate
+        // effect was configured because the true width
+        // and height of the button weren't available at
+        // that time. Another approach would be to use
+        // a creationComplete event handler to set these
+        // values.
+        rotateEffect.originX = btnB.width/2;
+        rotateEffect.originY = btnB.height/2;
+        rotateEffect.play();
+        effectCounter++;
+      }else if(effectCounter == 2){
+        glowEffect.play();
+        effectCounter++;
+      }else{
+        //Play all three effects in parallel.
+        var parallel:Parallel = new Parallel();
+        parallel.addChild(rotateEffect);
+        parallel.addChild(glowEffect);
+        parallel.addChild(wipeEffect);
+        parallel.play();
+        effectCounter = 0;//reset the effect counter
+      } //end else
+
+    } //end showHandler
+    //--------------------------------------------------//
+
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1172">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1002" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1195" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+
+
+<item id="li1094">
+Module name: Events, Triggers, and Effects
+
+</item>
+
+
+
+
+<item id="li1095">
+Files:
+
+<list id="ul1012" list-type="bulleted">
+
+
+
+<item id="li1096">
+ActionScript0116\ActionScript0116.htm
+
+</item>
+
+
+
+
+<item id="li1097">
+ActionScript0116\Connexions\ActionScriptXhtml0116.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<note id="note1003" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1196" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+	
+
+<para id="p1173">
+-end- 
+
+</para>
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

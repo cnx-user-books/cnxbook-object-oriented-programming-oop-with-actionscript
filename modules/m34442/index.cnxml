@@ -1,0 +1,3486 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>What is OOP and Why Should I Care?</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34442</md:content-id>
+  <md:title>What is OOP and Why Should I Care?</md:title>
+  <md:abstract>A very brief introduction to the concepts of object-oriented programming with descriptions of encapsulation, inheritance, and polymorphism. Includes two new custom components that will run in the Flash player plugin.</md:abstract>
+  <md:uuid>094ee103-50ac-43c3-a743-fb8f222832e8</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+  
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+ 
+    
+
+<list id="ul1001" list-type="bulleted">
+
+      
+
+<item id="li1001">
+<link id="a1001" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1002">
+<link id="a1002" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+ 
+        
+
+<list id="ul1002" list-type="bulleted">
+
+          
+
+<item id="li1003">
+<link id="a1003" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+          
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+        
+
+</list>
+
+
+      
+
+</item>
+
+
+      
+
+<item id="li1005">
+<link id="a1005" target-id="Supplementary_material">
+
+Supplemental material
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1006">
+<link id="a1006" target-id="What_is_object-oriented_programming">
+
+What is object-oriented 
+  programming (OOP)?
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1007">
+<link id="a1007" target-id="Why_should_I_care">
+
+Why should I care?
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1008">
+<link id="a1008" target-id="GeneralBackgroundInformation">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1009">
+<link id="a1009" target-id="An_Introductory_Description_of_OOP">
+
+A slightly more technical 
+  description of OOP
+
+</link>
+
+
+    
+
+<list id="ul1003" list-type="bulleted">
+
+      
+
+<item id="li1010">
+<link id="a1010" target-id="Encapsulation_Example">
+
+Encapsulation example
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1011">
+<link id="a1011" target-id="Inheritance_Example">
+
+Inheritance example
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1012">
+<link id="a1012" target-id="Polymorphism_Example">
+
+Polymorphism example
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1013">
+<link id="a1013" target-id="Object-oriented_programming_vocabulary">
+
+Object-oriented 
+  programming vocabulary
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1014">
+<link id="a1014" target-id="Sample_code">
+
+Sample code
+
+</link>
+
+
+    
+
+<list id="ul1004" list-type="bulleted">
+
+      
+
+<item id="li1015">
+<link id="a1015" target-id="A_simple_class_named_MyClass_">
+
+A simple class named MyClass
+        
+
+</link>
+
+ 
+
+</item>
+
+
+      
+
+<item id="li1016">
+<link id="a1016" target-id="A_true_custom_component_-_NumericTextArea01">
+
+A custom 
+	  component - NumericTextAreaA
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1017">
+<link id="a1017" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1018" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+        
+
+<note id="note1000" type="miscellaneous">
+
+
+          
+
+
+            
+
+
+              
+
+Note that all references to ActionScript in this lesson are 
+			  references to version 3 or later. 
+
+</note>
+
+            
+
+
+          
+
+
+
+        
+
+
+
+
+
+
+<para id="p1000">
+This tutorial lesson is part of a continuing series of lessons dedicated to 
+object-oriented programming 
+
+<emphasis id="em1000" effect="italics">
+(OOP)
+
+</emphasis>
+ with ActionScript.
+
+</para>
+
+
+
+
+
+<para id="p1001">
+There are several ways to create and launch programs written in the 
+ActionScript programming language. Many of the lessons in this series will 
+use Adobe Flex as the launch pad for ActionScript programs. An earlier 
+lesson titled 
+
+<emphasis id="strong1000" effect="bold">
+The Default Application Container
+
+</emphasis>
+ provided information on how to get started 
+programming with Adobe's Flex Builder 3. 
+
+<emphasis id="em1001" effect="italics">
+(See 
+
+<link id="a1019" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming website
+
+</link>
+
+.)
+
+</emphasis>
+ 
+You should read that lesson before embarking on the lessons in this series.
+
+</para>
+
+
+
+
+
+<para id="p1002">
+<emphasis id="strong1001" effect="bold">
+One of the complicating factors
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1003">
+One of the complicating factors in using Adobe Flex as the launch pad for 
+ActionScript programs is the difficulty of understanding the relationships that 
+exist between Flex and ActionScript. I recommend that you study the 
+following lessons on
+
+<emphasis id="em1002" effect="italics">
+ 
+
+</emphasis>
+<link id="a1020" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming website
+
+</link>
+
+ 
+that address that topic:
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+  
+
+<item id="li1019">
+114
+    Integrating ActionScript and Flex
+
+</item>
+
+
+  
+
+<item id="li1020">
+116
+    Defining Custom MXML Components
+
+</item>
+
+
+  
+
+<item id="li1021">
+118
+    Defining Custom ActionScript Components
+
+</item>
+
+
+  
+
+<item id="li1022">
+120
+    Creating Online Tests using Custom ActionScript Components
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1004">
+I recommend that you also study all of the other lessons on 
+
+<link id="a1021" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming website
+
+</link>
+
+ 
+in parallel with your study of these ActionScript lessons. Eventually you 
+will probably need to understand both technologies and the relationships that 
+exist between them in order to become a successful ActionScript programmer. 
+
+</para>
+
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1002" effect="bold">
+Another complicating factor
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1006">
+Another complicating factor is knowing whether to use ActionScript code or 
+Flex MXML code to achieve a particular objective. In many cases, either 
+will do the job.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+Insofar as this series of lessons is concerned, the emphasis will be on 
+ActionScript code even in those cases where Flex MXML code may be a suitable 
+alternative.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1008">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily find and view the figures and 
+listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+  
+
+<item id="li1023">
+<link id="a1022" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Guideline for OOP.
+
+</item>
+
+
+  
+
+<item id="li1024">
+<link id="a1023" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Two objects of the class named MyClass.
+
+</item>
+
+
+  
+
+<item id="li1025">
+<link id="a1024" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. 
+An object of 
+  the class named NumericTextAreaA. 
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+  
+
+<item id="li1026">
+<link id="a1025" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Class file named MyClass.as.
+
+</item>
+
+
+  
+
+<item id="li1027">
+<link id="a1026" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Flex file named SimpleClass01.mxml.
+
+</item>
+
+
+  
+
+<item id="li1028">
+<link id="a1027" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. 
+The file 
+  named NumericTextArea01.mxml.
+
+</item>
+
+
+  
+
+<item id="li1029">
+<link id="a1028" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. 
+The class 
+  definition for NumericTextAreaA.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Supplementary_material" effect="bold">
+
+Supplemental material
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1009">
+I recommend that you also study the other lessons in my extensive collection 
+of online programming tutorials. You will find a consolidated index at 
+
+<link id="a1029" url="http://www.dickbaldwin.com/toc.htm">
+
+www.DickBaldwin.com
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="What_is_object-oriented_programming" effect="bold">
+
+What is 
+object-oriented programming (OOP)?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1010">
+If you Google this question, you will get hundreds of answers. Here is 
+my answer along with an anecdotal description.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+Unlike earlier programming styles,
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+<emphasis id="em1003" effect="italics">
+Object-oriented programming is a 
+programming style that mimics the way most people think and work
+
+</emphasis>
+. 
+
+
+</quote>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1003" effect="bold">
+An anecdotal description
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+If you have ever assembled a child's playscape in your back yard, this 
+scenario should sound 
+familiar to you.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+When you opened the large boxes containing the playscape, hundreds of objects 
+spilled onto the ground. Those objects may have consisted of braces, 
+chains, swing seats, slides, screws, nuts, bolts, washers, climbing ropes, 
+ladder rungs, and other assorted objects.
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1004" effect="bold">
+Atomic and non-atomic objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1016">
+I will refer to the kind of object that I have described in the above list as 
+atomic objects. What I mean by that is that they can't be easily 
+subdivided into smaller objects.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+If you were lucky, some of the objects in the box may not have been atomic 
+objects. Instead they may have been pre-assembled arrangements of atomic 
+objects such as a climbing net composed of individual ropes tied together to 
+form a net.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1005" effect="bold">
+Your job - assemble the objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+Your job was to assemble those hundreds of atomic and non-atomic objects into 
+a final object which you proudly referred to as 
+
+<emphasis id="em1004" effect="italics">
+"The Playscape."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1006" effect="bold">
+Objects working together
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1021">
+It has been said that a successful object-oriented program consists of a 
+bunch of cooperating software objects working together to achieve a specified 
+behavior. The overall behavior of the program is the combination of 
+behaviors of the individual objects. For example, some objects may acquire 
+input data, other objects may compute and produce output data, while other 
+objects may display the output data.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+It could also be said that a playscape consists of a bunch of hardware 
+objects working together to achieve a specified behavior. The overall 
+behavior of the playscape is the combination of behaviors of the individual 
+objects. For example, the behavior of some of the braces is to stand 
+strong and not bend or break, while the behavior of a swing is to be flexible and move in a prescribed 
+way.
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1007" effect="bold">
+Creating a model
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1024">
+One of the tasks of an object-oriented programmer is to assemble software 
+objects into a model that often represents something that exists in the real 
+world. For a very visual example, you might be asked to create an 
+advertising web page showing an animated software model of the playscape that 
+you assembled in your back yard. With the playscape, you were simply 
+required to assemble the existing hardware objects. However, in the object-oriented 
+programming world, you must do more than just assemble objects.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1008" effect="bold">
+Objects must be designed and manufactured
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1026">
+Getting back to the playscape, every one of the objects for the playscape was 
+manufactured before being shipped to you. Even before that, each object 
+was designed by someone and a set of manufacturing drawings was probably created 
+so that the object could be mass produced in a high-volume manufacturing facility.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1009" effect="bold">
+A class is analogous to manufacturing drawings
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+In OOP, there is a direct analogy to the manufacturing drawings of the 
+hardware world. We call it a 
+
+<emphasis id="strong1010" effect="bold">
+class
+
+</emphasis>
+. A class documents the 
+specifications for the construction of a particular type of software object.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1011" effect="bold">
+A large library of classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+As an object-oriented programmer, you will typically have access to a large 
+library of existing classes from which you can construct different types of 
+software objects, such as buttons, sliders, etc. In addition, you will 
+often need to design and define new classes from which you can construct new 
+types of objects.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Why_should_I_care" effect="bold">
+
+Why should I care?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1031">
+Although ActionScript and Flex provide a large class library from which you 
+can construct objects 
+
+<emphasis id="em1005" effect="italics">
+(components)
+
+</emphasis>
+, you will probably need to create new 
+custom components from time to time as well.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1012" effect="bold">
+ActionScript is usually required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+Flex/MXML can be used to create simple custom components but ActionScript is 
+often needed to cause those components to have more interesting behavior.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+Sometimes you can embed or include non-OO ActionScript code in a Flex MXML 
+file to achieve the desired behavior. Often, however, you will need to 
+create your new component almost entirely in ActionScript. You will need 
+to understand OOP in order to do that.
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1013" effect="bold">
+Start from scratch or extend an existing component 
+class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+An understanding of OOP is particularly important if you need to create a new 
+component from scratch or create a new component by modifying the appearance 
+and/or behavior of a component for which a class already exists.
+
+</para>
+
+
+
+
+
+<para id="p1037">
+I will provide an example of a new custom component that extends an existing 
+component later in 
+this lesson.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+Therefore, if you plan to create rich internet applications, games, or iPhone 
+applications using ActionScript, you will often need to understand OOP in order 
+to create custom components that your clients find interesting.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="GeneralBackgroundInformation" effect="bold">
+
+General background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+
+<para id="p1039">
+Some languages such as C do not readily support OOP. Other languages such as 
+C++ and ActionScript support OOP, but don't require you to use the 
+object-oriented features of the language. Still other languages such as Java and C# require you to program using OOP 
+techniques.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1014" effect="bold">
+OOP is not enforced
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+Because ActionScript does not enforce a requirement for your code to be 
+object oriented 
+
+<emphasis id="em1006" effect="italics">
+(OO)
+
+</emphasis>
+, it is possible to learn to use major aspects of 
+ActionScript without ever learning to use the object-oriented features. This 
+approach simply requires you to learn how to use the rudimentary aspects of the 
+language.
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1015" effect="bold">
+The real challenge
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+The real challenge to becoming an ActionScript programmer is not simply to 
+learn the rudimentary aspects of the language. The real challenge lies in: 
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+  
+
+<item id="li1030">
+Learning to productively use the large class library provided as part of 
+  the software development kit.
+
+</item>
+
+
+  
+
+<item id="li1031">
+Learning to design and define new classes when needed.
+
+</item>
+
+
+  
+
+<item id="li1032">
+Learning to design and program in the object-oriented paradigm.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1016" effect="bold">
+Learn the library gradually
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+The first of these challenges can be met on a gradual basis. In other words, 
+it is not necessary to memorize the entire class library to produce useful OO 
+programs. However, it is necessary to learn how to use the library 
+documentation to find what you need.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1017" effect="bold">
+Some things can't be learned gradually
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+The remaining two challenges cannot easily be met on a gradual basis. Many 
+aspects of OOP must be understood before a programmer can successfully write OO 
+programs
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="An_Introductory_Description_of_OOP" effect="bold">
+
+A slightly more 
+technical description of OOP
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1048">
+An introductory description of OOP can be based on the guideline in Figure 1.
+
+</para>
+
+
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_1" effect="bold">
+</emphasis>
+Guideline for OOP.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+
+
+<table id="table1000" summary="This is a table." pgwide="477">
+<tgroup cols="1">
+
+
+<tbody id="tbody1000">
+<row id="tr1000">
+<entry id="td1000">
+
+The solution to the problem should resemble the problem, and observers 
+of the solution should be able to recognize the problem without 
+necessarily knowing about it in advance.
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+     
+
+<caption>Guideline for OOP.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1049">
+For example, an OO program that deals with banking transactions should be 
+recognizable on the basis of the objects that it uses, such as deposit objects, 
+withdrawal objects, account objects, etc.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1018" effect="bold">
+Flex is a good example
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+Many "application frameworks" are written according to the OOP paradigm. 
+Important among these is Adobe's Flex, which can be used to simplify the 
+development of the graphical user interface 
+
+<emphasis id="em1007" effect="italics">
+(GUI)
+
+</emphasis>
+ portions of 
+ActionScript programs.
+
+</para>
+
+
+
+
+
+<para id="p1052">
+Flex makes it possible to use uncomplicated XML syntax to access and use the 
+ActionScript class library. Adobe's Flash Builder 4 makes the process even 
+more straightforward by providing a largely drag-and-drop visual development 
+environment for creating the GUI portion of ActionScript programs.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+All of the components that are available in Flex are objects created from 
+classes in the ActionScript library. Those classes have names like
+
+
+<emphasis id="strong1019" effect="bold">
+Button
+
+</emphasis>
+, 
+
+<emphasis id="strong1020" effect="bold">
+RadioButton
+
+</emphasis>
+, and 
+
+<emphasis id="strong1021" effect="bold">
+NumericStepper
+
+</emphasis>
+ 
+
+<emphasis id="em1008" effect="italics">
+(see Figure 2)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1022" effect="bold">
+Three important concepts
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1055">
+Any object-oriented language must support three very important concepts: 
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+  
+
+<item id="li1033">
+Encapsulation, 
+
+</item>
+
+
+  
+
+<item id="li1034">
+Inheritance, 
+
+</item>
+
+
+  
+
+<item id="li1035">
+Polymorphism.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1056">
+We use these three concepts extensively as we attempt to model the real-world 
+problems that we are trying to solve with our object-oriented programs. I 
+will provide brief descriptions of these concepts in the remainder of this 
+lesson and explain them in detail in future lessons.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+
+
+
+<emphasis id="Encapsulation_Example" effect="bold">
+
+Encapsulation example
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1057">
+Consider the steering mechanism of a car as a real-world example of
+
+
+<emphasis id="strong1023" effect="bold">
+encapsulation. 
+
+</emphasis>
+During the past eighty years or so, the steering mechanism 
+for the automobile has evolved into an 
+
+<emphasis id="em1009" effect="italics">
+object 
+
+</emphasis>
+in the OOP sense.
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1024" effect="bold">
+Only the interface is exposed
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1059">
+In particular, most of us know how to use the steering mechanism of an 
+automobile without having any idea whatsoever how it is implemented. All 
+most of us care about is the 
+
+<emphasis id="em1010" effect="italics">
+interface
+
+</emphasis>
+,
+
+<emphasis id="em1011" effect="italics">
+ 
+
+</emphasis>
+which we often refer to as a 
+steering wheel. We know that if we turn the steering wheel clockwise, the car 
+will turn to the right, and if we turn it counterclockwise, the car will turn to 
+the left.
+
+</para>
+
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1025" effect="bold">
+How is it implemented?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1061">
+Most of us don't know, and don't really care, how the steering mechanism is 
+actually implemented 
+
+<emphasis id="em1012" effect="italics">
+"under the hood." 
+
+</emphasis>
+In fact, there are probably a 
+number of different implementations for various brands and models of 
+automobiles. Regardless of the brand and model, however, the human 
+interface is pretty much the same. Clockwise turns to the right, 
+counterclockwise turns to the left.
+
+</para>
+
+
+
+
+
+<para id="p1062">
+As in the steering mechanism for a car, a common approach in OOP is to
+
+
+<emphasis id="em1013" effect="italics">
+"hide the implementation" 
+
+</emphasis>
+and 
+
+<emphasis id="em1014" effect="italics">
+"expose the interface"
+
+</emphasis>
+ through
+
+
+<emphasis id="em1015" effect="italics">
+encapsulation.
+
+</emphasis>
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+
+
+
+<emphasis id="Inheritance_Example" effect="bold">
+
+Inheritance 
+example
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1063">
+Another important aspect of OOP is 
+
+<emphasis id="em1016" effect="italics">
+inheritance
+
+</emphasis>
+. Let's form an analogy 
+with the teenager who is building a hotrod. That teenager doesn't normally start 
+with a large chunk of steel and carve an engine out of it. Rather, the teenager 
+will usually start with an existing engine and make improvements to it.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+In OOP lingo, that teenager 
+
+<emphasis id="em1017" effect="italics">
+extends
+
+</emphasis>
+ the existing engine, 
+
+<emphasis id="em1018" effect="italics">
+derives
+
+
+</emphasis>
+from the existing engine, 
+
+<emphasis id="em1019" effect="italics">
+inherits 
+
+</emphasis>
+from the existing engine, or
+
+
+<emphasis id="em1020" effect="italics">
+subclasses 
+
+</emphasis>
+ the existing engine 
+
+<emphasis id="em1021" effect="italics">
+(depending on which author is 
+describing the process)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+Just like in 
+
+<emphasis id="em1022" effect="italics">
+"souping up"
+
+</emphasis>
+ an engine for a hotrod, a very common 
+practice in OOP is to create new improved objects by extending existing class 
+definitions.
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1026" effect="bold">
+Reuse, don't reinvent
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1067">
+One of the major arguments in favor of OOP is that it provides a formal 
+mechanism that encourages the reuse of existing programming elements. One of the 
+mottos of OOP is 
+
+<emphasis id="em1023" effect="italics">
+"reuse, don't reinvent."
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+
+
+
+<emphasis id="Polymorphism_Example" effect="bold">
+
+Polymorphism 
+example
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1068">
+A third important aspect of OOP is 
+
+<emphasis id="em1024" effect="italics">
+polymorphism
+
+</emphasis>
+. This is a Greek word 
+meaning something like 
+
+<emphasis id="em1025" effect="italics">
+one name, many forms
+
+</emphasis>
+. This is a little more 
+difficult to explain in non-programming terminology. However, we will stretch 
+our imagination a little and say that polymorphism is somewhat akin to the 
+automatic transmission in your car. In my Honda, for example, the automatic 
+transmission has four different 
+
+<emphasis id="em1026" effect="italics">
+methods 
+
+</emphasis>
+or 
+
+<emphasis id="em1027" effect="italics">
+functions
+
+</emphasis>
+ known 
+collectively as 
+
+<emphasis id="em1028" effect="italics">
+Drive
+
+</emphasis>
+ 
+
+<emphasis id="em1029" effect="italics">
+(in addition to the functions of Reverse, Park, 
+and Neutral)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1027" effect="bold">
+Select Drive to go forward
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1070">
+As an operator of the automobile, I simply select 
+
+<emphasis id="em1030" effect="italics">
+Drive
+
+</emphasis>
+ 
+
+<emphasis id="em1031" effect="italics">
+(meaning go 
+forward)
+
+</emphasis>
+. Depending on various conditions at 
+
+<emphasis id="em1032" effect="italics">
+runtime
+
+</emphasis>
+, the automatic 
+transmission system decides which version of the 
+
+<emphasis id="em1033" effect="italics">
+Drive
+
+</emphasis>
+
+function to use in every specific situation. The specific version of the 
+function that is used is based on the current conditions 
+
+<emphasis id="em1034" effect="italics">
+(speed, incline, 
+etc.)
+
+</emphasis>
+. This is somewhat analogous to what we will refer to in a subsequent 
+tutorial lesson as 
+
+<emphasis id="em1035" effect="italics">
+runtime polymorphism
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Object-oriented_programming_vocabulary" effect="bold">
+
+Object-oriented programming 
+vocabulary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1071">
+OOP involves a whole new vocabulary 
+
+<emphasis id="em1036" effect="italics">
+(or jargon)
+
+</emphasis>
+ which is different 
+from or supplemental to the vocabulary of procedural programming. 
+
+</para>
+
+
+
+
+
+<para id="p1072">
+For example the object-oriented programmer defines an 
+
+<emphasis id="em1037" effect="italics">
+abstract data type
+
+</emphasis>
+ 
+by 
+
+<emphasis id="em1038" effect="italics">
+encapsulating 
+
+</emphasis>
+its 
+
+<emphasis id="em1039" effect="italics">
+implementation 
+
+</emphasis>
+and its 
+
+<emphasis id="em1040" effect="italics">
+interface
+
+
+</emphasis>
+into a 
+
+<emphasis id="em1041" effect="italics">
+class
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+One or more 
+
+<emphasis id="em1042" effect="italics">
+instances 
+
+</emphasis>
+of the class can then be 
+
+<emphasis id="em1043" effect="italics">
+instantiated
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1074">
+An 
+
+<emphasis id="em1044" effect="italics">
+instance 
+
+</emphasis>
+of a class is known as an 
+
+<emphasis id="em1045" effect="italics">
+object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1075">
+Every 
+
+<emphasis id="em1046" effect="italics">
+object 
+
+</emphasis>
+has 
+
+<emphasis id="em1047" effect="italics">
+state 
+
+</emphasis>
+and 
+
+<emphasis id="em1048" effect="italics">
+behavior 
+
+</emphasis>
+where the 
+
+<emphasis id="em1049" effect="italics">
+state
+
+
+</emphasis>
+is determined by the current values stored in the object's 
+
+<emphasis id="em1050" effect="italics">
+instance 
+variables
+
+</emphasis>
+ and the 
+
+<emphasis id="em1051" effect="italics">
+behavior 
+
+</emphasis>
+is determined by the 
+
+<emphasis id="em1052" effect="italics">
+instance methods
+
+</emphasis>
+ 
+of the class from which the 
+
+<emphasis id="em1053" effect="italics">
+object 
+
+</emphasis>
+was 
+
+<emphasis id="em1054" effect="italics">
+instantiated
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="em1055" effect="italics">
+Inherited abstract data types 
+
+</emphasis>
+are 
+
+<emphasis id="em1056" effect="italics">
+derived classes
+
+</emphasis>
+ or
+
+
+<emphasis id="em1057" effect="italics">
+subclasses 
+
+</emphasis>
+of 
+
+<emphasis id="em1058" effect="italics">
+base classes
+
+</emphasis>
+ or 
+
+<emphasis id="em1059" effect="italics">
+super classes
+
+</emphasis>
+. We
+
+
+<emphasis id="em1060" effect="italics">
+extend
+
+</emphasis>
+ 
+
+<emphasis id="em1061" effect="italics">
+super classes 
+
+</emphasis>
+to create 
+
+<emphasis id="em1062" effect="italics">
+subclasses
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1077">
+Within the program, the code 
+
+<emphasis id="em1063" effect="italics">
+instantiates objects
+
+</emphasis>
+ 
+
+<emphasis id="em1064" effect="italics">
+(creates instances 
+of classes)
+
+</emphasis>
+ and sends 
+
+<emphasis id="em1065" effect="italics">
+messages 
+
+</emphasis>
+to the 
+
+<emphasis id="em1066" effect="italics">
+objects 
+
+</emphasis>
+ by invoking or 
+calling the class's 
+
+<emphasis id="em1067" effect="italics">
+methods (or member functions)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1078">
+If a program is "object oriented", it uses 
+
+<emphasis id="em1068" effect="italics">
+encapsulation
+
+</emphasis>
+,
+
+
+<emphasis id="em1069" effect="italics">
+inheritance
+
+</emphasis>
+, and 
+
+<emphasis id="em1070" effect="italics">
+polymorphism
+
+</emphasis>
+. It defines 
+
+<emphasis id="em1071" effect="italics">
+abstract data 
+types
+
+</emphasis>
+, 
+
+<emphasis id="em1072" effect="italics">
+encapsulates 
+
+</emphasis>
+those abstract data types into 
+
+<emphasis id="em1073" effect="italics">
+classes
+
+</emphasis>
+,
+
+
+<emphasis id="em1074" effect="italics">
+instantiates objects
+
+</emphasis>
+, and 
+
+<emphasis id="em1075" effect="italics">
+sends messages
+
+</emphasis>
+ to the 
+
+<emphasis id="em1076" effect="italics">
+objects
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1079">
+To make things even more confusing, almost every item or action used in the 
+OOP jargon has evolved to be described by several different terms. For example, 
+we can cause an object to 
+
+<emphasis id="em1077" effect="italics">
+change its state
+
+</emphasis>
+ by 
+
+<emphasis id="em1078" effect="italics">
+sending it a message
+
+</emphasis>
+, 
+
+<emphasis id="em1079" effect="italics">
+
+calling its methods
+
+</emphasis>
+, or 
+
+<emphasis id="em1080" effect="italics">
+calling its member functions
+
+</emphasis>
+. The term being 
+used often depends on the author who wrote the specific book that you happen to 
+be reading at the time. 
+
+</para>
+
+
+
+
+
+<para id="p1080">
+Hopefully most of this terminology will become clear as we pursue these 
+lessons.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11010">
+<title>
+<emphasis id="Sample_code" effect="bold">
+
+Sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1081">
+We have reached the point in this discussion where I should provide some 
+examples of ActionScript 3 class definitions so that you can get a preview of 
+what lies ahead.
+
+</para>
+
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="A_simple_class_named_MyClass_" effect="bold">
+
+A simple class named MyClass
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1082">
+The code beginning with the word 
+
+<emphasis id="strong1028" effect="bold">
+public
+
+</emphasis>
+ in Listing 1 is the definition of a very 
+simple class named 
+
+<emphasis id="strong1029" effect="bold">
+MyClass
+
+</emphasis>
+. I don't expect this code to mean much 
+to you at this point. Suffice it to say that an object of this class is a 
+new GUI component consisting of a 
+
+<emphasis id="strong1030" effect="bold">
+Button
+
+</emphasis>
+ object, a 
+
+<emphasis id="strong1031" effect="bold">
+RadioButton
+
+</emphasis>
+ 
+object, and a 
+
+<emphasis id="strong1032" effect="bold">
+NumericStepper
+
+</emphasis>
+ object, all contained in a 
+
+<emphasis id="strong1033" effect="bold">
+VBox
+
+</emphasis>
+ 
+object.
+
+</para>
+
+
+
+
+
+<example id="listing1000" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+Class file named MyClass.as.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1000" display="block">package Classes{
+  import mx.containers.VBox;
+  import mx.controls.Button;
+  import mx.controls.RadioButton;
+  import mx.controls.NumericStepper;
+  
+  public class MyClass extends VBox{
+    //Constructor follows
+    public function MyClass(){
+      addChild(new Button());
+      addChild(new RadioButton());
+      addChild(new NumericStepper());
+      setStyle("backgroundColor",0xFFFF00);
+    }//end constructor
+  }//end class
+}//end package
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1034" effect="bold">
+A new data type
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1084">
+The definition of the class creates a new data type, which is unknown to the 
+compiler until it is defined by the programmer.
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1035" effect="bold">
+Two instances 
+
+<emphasis id="em1081" effect="italics">
+(objects)
+
+</emphasis>
+ of the class named 
+MyClass
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1086">
+Two objects of the new class named 
+
+<emphasis id="strong1036" effect="bold">
+MyClass
+
+</emphasis>
+ are shown in Figure 2. 
+You should be able to spot the 
+
+<emphasis id="strong1037" effect="bold">
+Button
+
+</emphasis>
+ object 
+
+<emphasis id="em1082" effect="italics">
+(rectangular)
+
+</emphasis>
+, the 
+
+<emphasis id="strong1038" effect="bold">
+RadioButton
+
+</emphasis>
+
+object 
+
+<emphasis id="em1083" effect="italics">
+(circular)
+
+</emphasis>
+, and the 
+
+<emphasis id="strong1039" effect="bold">
+NumericStepper
+
+</emphasis>
+ object in each of the two 
+
+<emphasis id="strong1040" effect="bold">
+MyClass
+
+</emphasis>
+
+objects.
+
+</para>
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_2" effect="bold">
+</emphasis>
+Two objects of the class named MyClass.
+</title>
+
+
+
+
+
+	
+
+
+		
+
+<media id="media1000" alt="Missing image." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/as0104a.jpg" width="135" height="352"/>
+</media>
+
+
+<caption>Two objects of the class named MyClass.</caption>
+</figure>
+
+	
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+<para id="p1087">
+<emphasis id="strong1041" effect="bold">
+A yellow background
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1088">
+Normally you can't see a 
+
+<emphasis id="strong1042" effect="bold">
+VBox
+
+</emphasis>
+ object. You can only see the 
+components that it contains. However, I included code in Listing 1 to set the background style of the
+
+
+<emphasis id="strong1043" effect="bold">
+VBox
+
+</emphasis>
+ object to yellow to make it possible for you to visually separate 
+the two new custom objects in Figure 2.
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1044" effect="bold">
+The Flex MXML file
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1090">
+Listing 2 shows the Flex file that was used to instantiate the two objects of 
+the class named 
+
+<emphasis id="strong1045" effect="bold">
+MyClass
+
+</emphasis>
+ and to display them in the Flash Player window in 
+a browser.
+
+</para>
+
+
+
+
+
+<example id="listing1001" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Flex file named  	  SimpleClass01.mxml.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1001" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;!--SimpleClass01 --&gt;
+
+&lt;mx:Application 
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:classes="Classes.*"&gt;
+
+    &lt;classes:MyClass /&gt;
+    &lt;classes:MyClass /&gt;
+    
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1091">
+The two lines of code beginning with the words 
+
+<emphasis id="strong1046" effect="bold">
+classes
+
+</emphasis>
+ in Listing 2 
+cause the 
+two new objects to be instantiated and displayed.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="A_true_custom_component_-_NumericTextArea01" effect="bold">
+
+Another custom component - 
+NumericTextAreaA
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1092">
+One of the standard Flex components is named 
+
+<emphasis id="strong1047" effect="bold">
+TextArea
+
+</emphasis>
+. This 
+component is an object of the 
+
+<emphasis id="strong1048" effect="bold">
+ActionScript
+
+</emphasis>
+ class having the same name.
+
+</para>
+
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1049" effect="bold">
+A custom component that extends TextArea
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1094">
+As an example of creating a new custom component that extends an existing 
+class, I will present and discuss a new custom component that extends the
+
+
+<emphasis id="strong1050" effect="bold">
+TextArea
+
+</emphasis>
+ class. The new class is named 
+
+<emphasis id="strong1051" effect="bold">
+NumericTextAreaA.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1095">
+An object of the 
+
+<emphasis id="strong1052" effect="bold">
+NumericTextAreaA
+
+
+</emphasis>
+class behaves just like an object of the standard 
+
+<emphasis id="strong1053" effect="bold">
+TextArea
+
+</emphasis>
+
+class except that the new component will only accept numeric characters, the 
+space character, the backspace character, and the return character. All 
+other characters are rejected when the user attempts to type them into the text 
+area.
+
+</para>
+
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1054" effect="bold">
+An object of the class named 
+NumericTextAreaA
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1097">
+Figure 3 shows the visual manifestation of an object of this class with two 
+lines of numeric and space characters having been entered. 
+
+<emphasis id="em1084" effect="italics">
+(The entry 
+of additional lines of text causes scroll bars to automatically appear.)
+
+</emphasis>
+</para>
+
+
+
+
+<figure id="figure1002" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_3" effect="bold">
+</emphasis>
+An object of the class named  NumericTextAreaA.
+</title>
+
+
+
+
+
+	
+
+
+		
+
+<media id="media1001" alt="Missing image." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/as0104b.jpg" width="251" height="261"/>
+</media>
+
+
+<caption>An object of the class named  NumericTextAreaA.</caption>
+</figure>
+
+	
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+<para id="p1098">
+<emphasis id="strong1055" effect="bold">
+A class definition is probably required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1099">
+It is possible to create simple custom components by embedding ActionScript 
+code in a Flex MXML file. However, I don't believe that it is possible to 
+create an object with this behavior without defining a new ActionScript class. 
+Even if it is possible, defining a new class is the approach that makes the most 
+sense to me.
+
+</para>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1056" effect="bold">
+The file named NumericTextArea01.mxml
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1101">
+The MXML code beginning with 
+
+<emphasis id="strong1057" effect="bold">
+cc
+
+</emphasis>
+ in Listing 3 instantiates the object 
+shown in Figure 3.
+
+</para>
+
+
+
+
+
+<example id="listing1002" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+The file named  	  NumericTextArea01.mxml.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1002" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;mx:Application
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:cc="CustomClasses.*"&gt;
+    
+    &lt;cc:NumericTextAreaA/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1102">
+<emphasis id="strong1058" effect="bold">
+The class definition for NumericTextAreaA
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1103">
+Listing 4 shows the class definition from which the object shown in Figure 3 
+was instantiated.
+
+</para>
+
+
+
+
+
+<example id="listing1003" type="listing">
+<label>Listing</label>
+
+
+  
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+The class definition for  	  NumericTextAreaA.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1003" display="block">/*This is a custom component. This class extends the
+TextArea class.  It recognizes only the following 
+characters:
+0, 1, 2, 3, 4, 5, 6, 7, 8,9
+space
+backspace
+return key
+
+The next numeric character is appended onto the end of
+the string in the text area regardless of the current
+position of the cursor.
+
+The backspace key deletes characters from the end of the
+string, one character at a time.
+*********************************************************/
+
+package CustomClasses{
+    import mx.controls.TextArea;
+    import mx.controls.Alert;
+    import flash.events.*
+
+    public class NumericTextAreaA extends TextArea{
+        private var theText:String = "";
+        
+        public function NumericTextAreaA(){
+            this.addEventListener("keyUp",processKey);
+        }//end constructor
+
+        private function processKey(
+                                event:KeyboardEvent):void{
+            if(event.charCode==48){
+                theText+="0";
+            }else if(event.charCode==49){
+                theText+="1";
+            }else if(event.charCode==50){
+                theText+="2";
+            }else if(event.charCode==51){
+                theText+="3";
+            }else if(event.charCode==52){
+                theText+="4";
+            }else if(event.charCode==53){
+                theText+="5";
+            }else if(event.charCode==54){
+                theText+="6";
+            }else if(event.charCode==55){
+                theText+="7";
+            }else if(event.charCode==56){
+                theText+="8";
+            }else if(event.charCode==57){
+                theText+="9";
+            }else if(event.charCode==8){//backspace
+                theText=
+                       theText.substr(0,theText.length-1);
+            }else if(event.charCode==32){//space
+                theText+=" ";
+            }else if(event.charCode==13){//return key
+                theText+="\n";
+            }//end else
+
+            this.text=theText;
+        }//end processKey method
+    }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1104">
+<emphasis id="strong1059" effect="bold">
+May not be familiar code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1105">
+There may be quite a lot of code in Listing 4 with which you are not 
+familiar. However, it is not my purpose in writing this lesson to get into the 
+details of defining classes in ActionScript, so I won't take the time to explain 
+this code in this lesson. Suffice it to say that Listing 4 
+checks the character code associated with each keystroke in the text area and 
+rejects all but the numeric characters, the backspace character, the space 
+character, and the return key.
+
+</para>
+
+
+
+
+
+<para id="p1106">
+I will explain code like this in detail in future lessons. For now, 
+simply accept this as an example of why you may need to learn OOP in order to 
+advance your career as an ActionScript programmer.
+
+</para>
+
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1060" effect="bold">
+<emphasis id="Running_the_flex_application" effect="bold">
+
+Running the 
+ActionScript program 
+
+</emphasis>
+
+named NumericTextArea01
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1108">
+If you have the Flash Player plug-in (version 9 or later) installed in your 
+browser you should be able to run this program by clicking on 
+
+
+<link id="a1030" url="NumericTextArea01.html">
+
+NumericTextArea01
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<quote id="blockquote1001" display="block">
+<emphasis id="em1085" effect="italics">
+Enter some alphabetic and numeric text in the white box to see 
+how the GUI component behaves. Click the "Back" button in your browser to return 
+to this page when you are finished experimenting with the component.
+
+</emphasis>
+</quote>
+
+
+
+
+
+<para id="p1109">
+If you don't have the proper Flash Player installed, you should be notified 
+of that fact and given an opportunity to download and install the Flash Player 
+plug-in program.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11011">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1110">
+I will publish a list containing links to ActionScript resources as a 
+separate document. Search for ActionScript Resources in the Connexions search 
+box.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11012">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<note id="note1001" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1061" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+
+
+<item id="li1036">
+Module name: What is OOP and Why Should I Care?
+
+</item>
+
+
+
+
+<item id="li1037">
+Files:
+
+<list id="ul1011" list-type="bulleted">
+
+
+
+<item id="li1038">
+ActionScript0104\ActionScript0104.htm
+
+</item>
+
+
+
+
+<item id="li1039">
+ActionScript0104\Connexions\ActionScriptXhtml0104.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<note id="note1002" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1062" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+
+
+<para id="p1111">
+-end- 
+
+</para>
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

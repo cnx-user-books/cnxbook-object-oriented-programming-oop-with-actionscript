@@ -1,0 +1,5230 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Inheritance - The Big Picture</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34446</md:content-id>
+  <md:title>Inheritance - The Big Picture</md:title>
+  <md:abstract>Learn how to use inheritance to create custom components.  Also learn how to use ActionScript skins to change the appearance of a standard component.</md:abstract>
+  <md:uuid>5fb0705a-6786-4ed7-977a-4c82b6380383</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="miscellaneous">
+
+
+
+
+
+Click 
+
+<link id="a1000" url="Skins01.html">
+
+Skins01
+
+</link>
+
+
+to run this ActionScript program. 
+
+<emphasis id="em1000" effect="italics">
+
+(Click the "Back" button in your browser
+to return to this page.)
+
+</emphasis>
+
+
+
+</note>
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of contents
+
+</title>
+
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+  
+
+<item id="li1000">
+<link id="a1001" target-id="Preface">
+
+Preface
+
+</link>
+
+ 
+    
+
+<list id="ul1001" list-type="bulleted">
+
+      
+
+<item id="li1001">
+<link id="a1002" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1002">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+ 
+        
+
+<list id="ul1002" list-type="bulleted">
+
+          
+
+<item id="li1003">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+          
+
+<item id="li1004">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+        
+
+</list>
+
+
+      
+
+</item>
+
+
+      
+
+<item id="li1005">
+<link id="a1006" target-id="Supplementary_material">
+
+Supplemental material
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1006">
+<link id="a1007" target-id="GeneralBackgroundInformation">
+
+General background information
+
+</link>
+
+ 
+    
+
+<list id="ul1003" list-type="bulleted">
+
+      
+
+<item id="li1007">
+<link id="a1008" target-id="Single_and_Multiple_Inheritance">
+
+Single and multiple 
+	  inheritance
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1008">
+<link id="a1009" target-id="The_ISA_Relationship">
+
+The ISA relationship
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1009">
+<link id="a1010" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1010">
+<link id="a1011" target-id="DiscussionandSamplePrograms">
+
+Discussion and sample code
+
+</link>
+
+ 
+    
+
+<list id="ul1004" list-type="bulleted">
+
+      
+
+<item id="li1011">
+<link id="a1012" target-id="The_file_named_Skins01.mxml">
+
+The file named Skins01.mxml
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1012">
+<link id="a1013" target-id="The_file_named_Driver.as">
+
+The file named Driver.as
+
+</link>
+
+
+</item>
+
+
+      
+
+<item id="li1013">
+<link id="a1014" target-id="The_file_named_FancyButton.as">
+
+The file named FancyButton.as
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+  
+
+</item>
+
+
+  
+
+<item id="li1014">
+<link id="a1015" target-id="Runtheprogram">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1015">
+<link id="a1016" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+  
+
+<item id="li1016">
+<link id="a1017" target-id="CompleteProgramListings">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1018" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+        
+
+<note id="note1001" type="miscellaneous">
+
+
+          
+
+
+            
+
+
+              
+
+Note that all references to ActionScript in this lesson are 
+			  references to version 3 or later. 
+
+</note>
+
+            
+
+
+          
+
+
+
+        
+
+
+
+
+
+
+<para id="p1000">
+This tutorial lesson is part of a continuing series of lessons dedicated to 
+object-oriented programming 
+
+<emphasis id="em1001" effect="italics">
+(OOP)
+
+</emphasis>
+ with ActionScript.
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="strong1000" effect="bold">
+The three main characteristics of an object-oriented 
+program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1002">
+Object-oriented programs exhibit three main characteristics:
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+  
+
+<item id="li1018">
+Encapsulation
+
+</item>
+
+
+  
+
+<item id="li1019">
+Inheritance
+
+</item>
+
+
+  
+
+<item id="li1020">
+Polymorphism
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1003">
+I explained encapsulation from a big-picture viewpoint in the previous 
+lesson. 
+
+<emphasis id="em1002" effect="italics">
+(See 
+
+<link id="a1019" url="http://www.dickbaldwin.com/tocActionScript.htm">
+
+Baldwin's ActionScript 
+programming website
+
+</link>
+
+.)
+
+</emphasis>
+ In this lesson and the next, I will explain 
+and illustrate inheritance and polymorphism from a big-picture viewpoint. 
+Following that, I will get down in the weeds and start explaining in detail how 
+to use ActionScript for object-oriented programming 
+
+<emphasis id="em1003" effect="italics">
+(OOP)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1001" effect="bold">
+Several ways to create and launch ActionScript 
+programs
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1005">
+There are several ways to create and launch programs written in the 
+ActionScript programming language. Most of the lessons in this series will 
+use Adobe Flex as the launch pad for the sample ActionScript programs.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+An earlier lesson titled 
+
+<emphasis id="strong1002" effect="bold">
+The Default 
+Application Container
+
+</emphasis>
+ provided information on how to get started programming 
+with Adobe's Flex Builder 3. 
+
+<emphasis id="em1004" effect="italics">
+(See 
+
+<link id="a1020" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming website
+
+</link>
+
+.)
+
+</emphasis>
+ 
+You should study that lesson before embarking on the lessons in this series.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1003" effect="bold">
+Some understanding of Flex MXML will be required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+I also recommend that you study all of the lessons on 
+
+<link id="a1021" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming website
+
+</link>
+
+ 
+in parallel with your study of these ActionScript lessons. Eventually you 
+will probably need to understand both ActionScript and Flex and the 
+relationships that exist between them in order to become a successful 
+ActionScript programmer. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1004" effect="bold">
+Will emphasize ActionScript code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+It is often possible to use either ActionScript code or Flex MXML code to 
+achieve the same result. Insofar as this series of lessons is concerned, 
+the emphasis will be on ActionScript code even in those cases where Flex MXML 
+code may be a suitable alternative.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1011">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily find and view the figures and 
+listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+  
+
+<item id="li1021">
+<link id="a1022" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Images used as skins for the buttons.
+  
+
+</item>
+
+
+  
+
+<item id="li1022">
+<link id="a1023" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Program output at startup. 
+
+</item>
+
+
+  
+
+<item id="li1023">
+<link id="a1024" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Mouse pointer hovering over the 
+  rightmost button.
+
+</item>
+
+
+  
+
+<item id="li1024">
+<link id="a1025" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Mouse pointer pressed on the rightmost 
+  button.
+
+</item>
+
+
+  
+
+<item id="li1025">
+<link id="a1026" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Mouse pointer hovering over the leftmost 
+  button.
+
+</item>
+
+
+  
+
+<item id="li1026">
+<link id="a1027" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Mouse pointer pressed on the leftmost 
+  button. 
+
+</item>
+
+
+  
+
+<item id="li1027">
+<link id="a1028" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. Skins01 project file structure.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+  
+
+<item id="li1028">
+<link id="a1029" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Complete listing for Skins01.mxml.
+
+</item>
+
+
+  
+
+<item id="li1029">
+<link id="a1030" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class named Driver.
+
+</item>
+
+
+  
+
+<item id="li1030">
+<link id="a1031" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The constructor for the Driver class.
+
+</item>
+
+
+  
+
+<item id="li1031">
+<link id="a1032" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The method named buttonHandler.
+
+</item>
+
+
+  
+
+<item id="li1032">
+<link id="a1033" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Beginning of the FancyButton class.
+
+</item>
+
+
+  
+
+<item id="li1033">
+<link id="a1034" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Constructor for the FancyButton class.
+
+</item>
+
+
+  
+
+<item id="li1034">
+<link id="a1035" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. The toggleSkin method.
+
+</item>
+
+
+  
+
+<item id="li1035">
+<link id="a1036" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Source code for the file named 
+  Skins01.mxml. 
+
+</item>
+
+
+  
+
+<item id="li1036">
+<link id="a1037" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Source code for the class named 
+  Driver. 
+
+</item>
+
+
+  
+
+<item id="li1037">
+<link id="a1038" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Source code for the class named 
+  FancyButton. 
+
+</item>
+
+
+  
+
+<item id="li1038">
+<link id="a1039" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Source code for the class named 
+  ButterflyButton. 
+
+</item>
+
+
+  
+
+<item id="li1039">
+<link id="a1040" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Source code for the class named 
+  FrogButton.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Supplementary_material" effect="bold">
+
+Supplemental material
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1012">
+I recommend that you also study the other lessons in my extensive collection 
+of online programming tutorials. You will find a consolidated index at 
+
+<link id="a1041" url="http://www.dickbaldwin.com/toc.htm">
+
+www.DickBaldwin.com
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="GeneralBackgroundInformation" effect="bold">
+
+General background 
+information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1013">
+The first major characteristic of an object-oriented program is 
+encapsulation, which I explained in the previous lesson. The second of the three 
+major characteristics is 
+
+<emphasis id="em1005" effect="italics">
+inheritance
+
+</emphasis>
+, followed by
+
+
+<emphasis id="em1006" effect="italics">
+polymorphism
+
+</emphasis>
+. I will explain inheritance from a big-picture 
+viewpoint in this lesson and will explain polymorphism in the next lesson.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1005" effect="bold">
+A new class can 
+
+<emphasis id="em1007" effect="italics">
+extend
+
+</emphasis>
+ an existing class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+A class can be defined to inherit the properties, events, and methods of 
+another class. From a syntax viewpoint, this is accomplished using the
+
+
+<emphasis id="strong1006" effect="bold">
+extends
+
+</emphasis>
+ keyword.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+The class being extended is often called the 
+
+<emphasis id="em1008" effect="italics">
+base class
+
+</emphasis>
+ or the
+
+
+<emphasis id="em1009" effect="italics">
+superclass
+
+</emphasis>
+, and the new class is often called the 
+
+<emphasis id="em1010" effect="italics">
+derived class
+
+</emphasis>
+
+or the 
+
+<emphasis id="em1011" effect="italics">
+subclass
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1007" effect="bold">
+What is inherited?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+The subclass inherits the data representation and behavior of the 
+superclass 
+
+<emphasis id="em1012" effect="italics">
+(and all of its superclasses)
+
+</emphasis>
+. However, the subclass can 
+modify the behavior of inherited methods by overriding them. 
+
+<emphasis id="em1013" effect="italics">
+(That will 
+be one of the topics in the next lesson on polymorphism.)
+
+</emphasis>
+ The 
+subclass can also add new data representation and behavior that is unique to its 
+own purposes. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1008" effect="bold">
+The superclass remains viable
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+A program can instantiate objects of a superclass as well as from its 
+subclass. From a practical viewpoint, the superclass doesn't even know 
+that it has been extended.
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1009" effect="bold">
+A hierarchy of classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1022">
+Inheritance is hierarchical. In other words, a class may be the subclass of 
+one 
+
+<emphasis id="em1014" effect="italics">
+(and only one)
+
+</emphasis>
+ other class and may be the superclass of one or more 
+other classes.
+
+</para>
+
+
+
+
+
+<para id="p1023">
+For example, the ActionScript 3 
+
+<emphasis id="strong1010" effect="bold">
+Button
+
+</emphasis>
+ class is a subclass of the
+
+
+<emphasis id="strong1011" effect="bold">
+UIComponent
+
+</emphasis>
+ class, and is the superclass of the following classes:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+  
+
+<item id="li1040">
+AccordianHeader
+
+</item>
+
+
+  
+
+<item id="li1041">
+CheckBox
+
+</item>
+
+
+  
+
+<item id="li1042">
+LinkButton
+
+</item>
+
+
+  
+
+<item id="li1043">
+PopUpButton
+
+</item>
+
+
+  
+
+<item id="li1044">
+RadioButton
+
+</item>
+
+
+  
+
+<item id="li1045">
+ScrollThumb
+
+</item>
+
+
+  
+
+<item id="li1046">
+SliderThumb
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1012" effect="bold">
+An orderly hierarchy
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1025">
+Inheritance mechanisms allow you build an orderly hierarchy of classes. 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+When several of your abstract data types have characteristics in common, you 
+can design their commonalities into a single superclass and separate their 
+unique characteristics into unique subclasses. This is one of the purposes of 
+inheritance. 
+
+<emphasis id="em1015" effect="italics">
+(This purpose is illustrated by the program that I will 
+explain later in this lesson.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1013" effect="bold">
+The airship hierarchy
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+For example, suppose you are building a program dealing with airships. All 
+airships have altitude and range parameters in common. Therefore, you could 
+build a base 
+
+<emphasis id="strong1014" effect="bold">
+Airship
+
+</emphasis>
+ class containing data and methods having to do with 
+range and altitude. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+From this superclass, you might derive a 
+
+<emphasis id="strong1015" effect="bold">
+Balloon
+
+</emphasis>
+ class and an
+
+
+<emphasis id="strong1016" effect="bold">
+Airplane
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1017" effect="bold">
+The Balloon class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+The 
+
+<emphasis id="strong1018" effect="bold">
+Balloon
+
+</emphasis>
+ class might add variables and methods dealing with 
+passenger capacity and what makes it go up 
+
+<emphasis id="em1016" effect="italics">
+(helium, hydrogen, or hot air)
+
+</emphasis>
+. 
+Objects of the 
+
+<emphasis id="strong1019" effect="bold">
+Balloon
+
+</emphasis>
+ class would then be able to deal with altitude, 
+range, passenger capacity, and what makes it go up.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1020" effect="bold">
+The Airplane class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+The 
+
+<emphasis id="strong1021" effect="bold">
+Airplane
+
+</emphasis>
+ class might add variables and methods dealing with engine 
+type 
+
+<emphasis id="em1017" effect="italics">
+(jet or propeller)
+
+</emphasis>
+ and cargo capacity. Objects of the
+
+
+<emphasis id="strong1022" effect="bold">
+Airplane
+
+</emphasis>
+ class could then deal with altitude, range, engine type, and 
+cargo capacity. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1023" effect="bold">
+Three types of objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+Having created this hierarchy of classes, you could instantiate objects of 
+type 
+
+<emphasis id="strong1024" effect="bold">
+Airship
+
+</emphasis>
+, 
+
+<emphasis id="strong1025" effect="bold">
+Balloon
+
+</emphasis>
+, and 
+
+<emphasis id="strong1026" effect="bold">
+Airplane
+
+</emphasis>
+ with the objects of 
+each type having variables and methods to deal with those special 
+characteristics of the flying machine indicated by the name of the class.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1027" effect="bold">
+From the general to the specialized
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+You may have noticed that in this hierarchical class structure, inheritance 
+causes the structure to grow in a direction from most general to more 
+specialized. This is typical. 
+
+</para>
+
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="Single_and_Multiple_Inheritance" effect="bold">
+
+Single and multiple 
+inheritance
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1038">
+C++ and some other object-oriented programming languages allow for multiple 
+inheritance. This means that a new class can extend more than one superclass. 
+This has advantages in some cases, but can lead to difficulties in other cases.
+
+
+</para>
+
+
+
+
+
+<para id="p1039">
+ActionScript 3 does not support multiple inheritance. Instead it 
+supports a different mechanism called an 
+
+<emphasis id="em1018" effect="italics">
+interface
+
+</emphasis>
+ that provides most of 
+the benefits of multiple inheritance without most of the problems. I will 
+explain the ActionScript interface in a future lesson.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="The_ISA_Relationship" effect="bold">
+
+The ISA relationship
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1040">
+You will sometimes hear people speak of the 
+
+<emphasis id="strong1028" effect="bold">
+ISA 
+
+</emphasis>
+relationship when 
+discussing OOP. The source of this terminology is more fundamental than you may 
+at first suspect. 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+Object-oriented designers often strive to use inheritance to model 
+relationships where a subclass 
+
+<emphasis id="em1019" effect="italics">
+"is a kind of"
+
+</emphasis>
+ the superclass. For 
+example, a car 
+
+<emphasis id="em1020" effect="italics">
+"is a kind of"
+
+</emphasis>
+ vehicle. A programmer 
+
+<emphasis id="em1021" effect="italics">
+"is a kind of"
+
+</emphasis>
+ 
+employee which in turn 
+
+<emphasis id="em1022" effect="italics">
+"is a kind of"
+
+</emphasis>
+ person. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+This relationship is called the 
+
+<emphasis id="strong1029" effect="bold">
+ISA 
+
+</emphasis>
+relationship. It's that simple.
+
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1043">
+Assume that you are working on children's games. You probably don't 
+want to use buttons that cause your game program to look like a business 
+program. Instead, you might prefer to use bright-colored buttons that look 
+like animals, flowers, or other child-pleasing objects such as butterflies and 
+frogs.
+
+
+<emphasis id="em1023" effect="italics">
+(See Figure 1 for example.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1030" effect="bold">
+Characteristics in common
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+On the other hand, you want your buttons to exhibit all of the functionality 
+of the standard ActionScript 
+
+<emphasis id="strong1031" effect="bold">
+Button
+
+</emphasis>
+ class. In other words, you want 
+your new buttons to have many characteristics in common with the ActionScript
+
+
+<emphasis id="strong1032" effect="bold">
+Button
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+        
+
+<note id="note1002" type="miscellaneous">
+
+
+          
+
+
+            
+
+
+              
+
+<emphasis id="strong1033" effect="bold">
+A new class may not be required.
+
+</emphasis>
+ -- 
+                It is probably also possible to accomplish this using embedded 
+			  ActionScript code, but I will go the class definition route to 
+			  illustrate inheritance and to produce a "cleaner" solution.
+              
+
+</note>
+
+            
+
+
+          
+
+
+
+        
+
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1034" effect="bold">
+Inheritance to the rescue
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+As it turns out, this is easy to accomplish by defining an ActionScript class 
+for each of your new button types.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+The folks who defined the 
+
+<emphasis id="strong1035" effect="bold">
+Button
+
+</emphasis>
+ class have already designed the 
+desired characteristics into the 
+
+<emphasis id="strong1036" effect="bold">
+Button
+
+</emphasis>
+ class and its superclasses. 
+We can use inheritance to take advantage of the existing characteristics and to 
+add new characteristics by defining unique subclasses of the 
+
+<emphasis id="strong1037" effect="bold">
+Button
+
+</emphasis>
+
+class.
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1038" effect="bold">
+Three new button classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1050">
+The program named 
+
+<emphasis id="strong1039" effect="bold">
+Skins01
+
+</emphasis>
+ that I will explain in this lesson defines 
+three new button classes named 
+
+<emphasis id="strong1040" effect="bold">
+ButterflyButton
+
+</emphasis>
+, 
+
+<emphasis id="strong1041" effect="bold">
+FrogButton
+
+</emphasis>
+, and
+
+
+<emphasis id="strong1042" effect="bold">
+FancyButton
+
+</emphasis>
+. Each of these classes extends the 
+
+<emphasis id="strong1043" effect="bold">
+Button
+
+</emphasis>
+ class 
+and inherits all of the characteristics of a standard 
+
+<emphasis id="strong1044" effect="bold">
+Button
+
+</emphasis>
+ object. 
+However, the visual elements of the standard button are modified in the 
+subclasses through the use of the ActionScript 
+
+<emphasis id="em1024" effect="italics">
+skinning
+
+</emphasis>
+ capability.
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1045" effect="bold">
+What is skinning?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1052">
+According to 
+
+<emphasis id="em1025" effect="italics">
+<link id="a1042" url="http://livedocs.adobe.com/flex/3/html/help.html?content=skinning_2.html">
+
+
+About skinning
+
+</link>
+
+,
+
+</emphasis>
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+  
+
+<para id="p1053">
+<emphasis id="em1026" effect="italics">
+"Skinning is the process of changing the appearance of a component by 
+  modifying or replacing its visual elements. These elements can be made up of 
+  bitmap images, SWF files, or class files that contain drawing methods that 
+  define vector images.
+
+</emphasis>
+</para>
+
+
+
+  
+
+<para id="p1054">
+<emphasis id="em1027" effect="italics">
+Skins can define the entire appearance, or only a part of the 
+  appearance, of a component in various states. For example, a Button control 
+  has eight possible states, and eight associated skin properties."
+
+</emphasis>
+</para>
+
+
+
+
+</quote>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1046" effect="bold">
+Will extend the Button class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1056">
+In this lesson, I will extend the 
+
+<emphasis id="strong1047" effect="bold">
+Button
+
+</emphasis>
+ class into three new classes 
+and will modify four of the eight skin properties for objects instantiated from 
+the three new classes. I will also define a fourth class named 
+
+<emphasis id="strong1048" effect="bold">
+Driver
+
+</emphasis>
+
+that is designed to exercise and show how to use the new buttons.
+
+</para>
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1049" effect="bold">
+Images used as skins for the buttons
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+Figure 1 shows the images used to define new skins for the three buttons.
+
+</para>
+
+
+
+ 
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+
+
+
+
+
+<title>
+<emphasis id="Figure_1" effect="bold">
+</emphasis>
+Images used as skins for the buttons.
+</title>
+
+
+
+
+
+
+
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/as0108h.jpg" width="427" height="206"/>
+</media>
+
+
+
+
+<caption>Images used as skins for the buttons.</caption>
+</figure>
+
+
+
+
+
+
+
+<para id="p1059">
+The button class named 
+
+<emphasis id="strong1050" effect="bold">
+ButterflyButton
+
+</emphasis>
+ was skinned with the four 
+butterfly images in the top row. The button class named 
+
+<emphasis id="strong1051" effect="bold">
+FrogButton
+
+</emphasis>
+ 
+was skinned with the four frog images in the bottom row. The button class 
+named
+
+
+<emphasis id="strong1052" effect="bold">
+FancyButton
+
+</emphasis>
+ was skinned with both butterfly images and frog images and 
+was given the ability to toggle back and forth between butterflies and frogs.
+
+</para>
+
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1053" effect="bold">
+The toggleSkin method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1061">
+The 
+
+<emphasis id="strong1054" effect="bold">
+FancyButton
+
+</emphasis>
+ class exposes a public method named
+
+
+<emphasis id="strong1055" effect="bold">
+toggleSkin
+
+</emphasis>
+. The rightmost button in Figure 2 is an object of the
+
+
+<emphasis id="strong1056" effect="bold">
+FancyButton
+
+</emphasis>
+ class. Whenever this button is clicked, a 
+
+<emphasis id="strong1057" effect="bold">
+click
+
+</emphasis>
+
+event handler registered on the button calls the 
+
+<emphasis id="strong1058" effect="bold">
+toggleSkin
+
+</emphasis>
+ method. 
+Each time this method is called, the button's skins toggle from butterfly to 
+frog or vice versa. 
+
+<emphasis id="em1028" effect="italics">
+(See the rightmost button in Figure 5.)
+
+</emphasis>
+ 
+This illustrates the capability to change skins on an ActionScript component at 
+runtime.
+
+</para>
+
+
+
+        
+
+<note id="note1003" type="miscellaneous">
+
+
+          
+
+
+            
+
+
+              
+
+<emphasis id="strong1059" effect="bold">
+Spacebar
+
+</emphasis>
+ -- Even though this text concentrates on the manipulation of the 
+			  buttons with the mouse, a button can also be manipulated with the 
+			  space bar when it has the focus. Note, however, that this lesson 
+			  doesn't address the topic of focus.
+
+</note>
+
+            
+
+
+          
+
+
+
+        
+
+
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1060" effect="bold">
+Skins versus button styles
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1063">
+The different skins on the buttons are exposed by associating the images in 
+Figure 1 with various button styles.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1061" effect="bold">
+<emphasis id="The_upSkin_style" effect="bold">
+
+The 
+
+<emphasis id="em1029" effect="italics">
+upSkin style
+
+</emphasis>
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+The two images in the first column in Figure 1 show what the buttons look 
+like when the mouse is not hovering over or pointing at the button. This 
+corresponds to the button style named 
+
+<emphasis id="em1030" effect="italics">
+"upSkin"
+
+</emphasis>
+,
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1062" effect="bold">
+The 
+
+<emphasis id="em1031" effect="italics">
+overSkin style
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1067">
+The two images in the second column show what the buttons look like when the 
+mouse pointer is hovering over the button but the left mouse button has not been 
+pressed. This corresponds to the button style named 
+
+<emphasis id="em1032" effect="italics">
+"overSkin"
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1063" effect="bold">
+The 
+
+<emphasis id="em1033" effect="italics">
+downSkin style
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+The two images in the third column show what the buttons look like when the 
+mouse pointer is over the button and the left mouse button is pressed. 
+This corresponds to the button style named 
+
+<emphasis id="em1034" effect="italics">
+"downSkin"
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1064" effect="bold">
+The 
+
+<emphasis id="em1035" effect="italics">
+disabledSkin style
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1071">
+The two images in the fourth column show what the buttons look like when the 
+enabled property of the button is set to false. This corresponds to the 
+button style named 
+
+<emphasis id="em1036" effect="italics">
+"disabledSkin"
+
+</emphasis>
+. Note, however, that this program 
+does not expose the disabled state of the buttons.
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1065" effect="bold">
+Program output at startup
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+Figure 2 shows the three buttons at startup.
+
+</para>
+
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_2" effect="bold">
+</emphasis>
+Program output at startup.
+</title>
+
+
+
+
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/as0108a.jpg" width="400" height="316"/>
+</media>
+
+
+<caption>Program output at startup.</caption>
+</figure>
+
+
+
+
+
+
+
+
+ 
+
+
+
+<para id="p1074">
+<emphasis id="strong1066" effect="bold">
+Button skins at startup
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1075">
+As you can see, all three buttons show the images from the first column in 
+Figure 1 at startup.
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1067" effect="bold">
+An object of the ButterflyButton class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1077">
+The leftmost button in Figure 2, which is an object of the
+
+
+<emphasis id="strong1068" effect="bold">
+ButterflyButton
+
+</emphasis>
+ class, always shows one of the images in the top row of 
+Figure 1, depending on the interaction with the mouse.
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1069" effect="bold">
+An object of the FrogButton
+
+</emphasis>
+
+
+
+<emphasis id="strong1070" effect="bold">
+class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1079">
+The middle button in Figure 2, which is an object of the 
+
+<emphasis id="strong1071" effect="bold">
+FrogButton
+
+</emphasis>
+
+class, always shows one of the images in the bottom row of Figure 1 depending on 
+the interaction with the mouse.
+
+</para>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1072" effect="bold">
+An object of the FancyButton
+
+</emphasis>
+
+
+
+<emphasis id="strong1073" effect="bold">
+class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1081">
+The rightmost button in Figure 2 is an object of the 
+
+<emphasis id="strong1074" effect="bold">
+FancyButton
+
+</emphasis>
+
+class. As mentioned earlier, the object of the 
+
+<emphasis id="strong1075" effect="bold">
+Driver
+
+</emphasis>
+ class 
+registers a
+
+
+<emphasis id="strong1076" effect="bold">
+click
+
+</emphasis>
+ event handler this button. Whenever the rightmost button is 
+clicked with the left mouse button, the 
+
+<emphasis id="strong1077" effect="bold">
+toggleSkin
+
+</emphasis>
+ method belonging to 
+the rightmost button is called causing the skin images to toggle between frogs 
+and butterflies.
+
+</para>
+
+
+
+
+
+<para id="p1082">
+At startup, this button shows the frog image from the first column in Figure 
+1. After it has been toggled, it shows the butterfly image from the first 
+column in Figure 1 as the 
+
+<emphasis id="strong1078" effect="bold">
+upSkin
+
+</emphasis>
+ style.
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1079" effect="bold">
+Mouse pointer hovering over the rightmost button
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1084">
+Figure 3 shows the result of allowing the mouse pointer to hover over the 
+rightmost button without pressing the left mouse button.
+
+</para>
+
+
+
+
+
+<figure id="figure1002" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_3" effect="bold">
+</emphasis>
+Mouse pointer hovering over the rightmost  button.
+</title>
+
+
+
+
+<media id="media1002" alt="Missing image" display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/as0108b.jpg" width="399" height="313"/>
+</media>
+
+
+<caption>Mouse pointer hovering over the rightmost  button.</caption>
+</figure>
+
+
+
+
+
+
+
+
+ 
+
+
+
+<para id="p1085">
+This action causes the button to switch to the 
+
+<emphasis id="strong1080" effect="bold">
+overSkin
+
+</emphasis>
+ style, which 
+in turn causes one of the two images in the second column in Figure 1 to be 
+exposed.
+
+</para>
+
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1081" effect="bold">
+Mouse pointer pressed on the rightmost button
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1087">
+Figure 4 shows the result of pointing to the rightmost button with the mouse 
+pointer and pressing the left mouse button.
+
+</para>
+
+
+
+
+
+<figure id="figure1003" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_4" effect="bold">
+</emphasis>
+Mouse pointer pressed on the rightmost  button.
+</title>
+
+
+
+
+<media id="media1003" alt="Missing image" display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/as0108c.jpg" width="399" height="316"/>
+</media>
+
+
+<caption>Mouse pointer pressed on the rightmost  button.</caption>
+</figure>
+
+
+
+
+
+
+
+
+ 
+
+        
+
+<note id="note1004" type="miscellaneous">
+
+
+          
+
+
+            
+
+
+              
+
+<emphasis id="strong1082" effect="bold">
+A negative image
+
+</emphasis>
+ -- In case you are interested, the images in the third column in 
+			  Figure 1 are the negative of the images in the first column.
+              
+
+</note>
+
+            
+
+
+          
+
+
+
+        
+
+
+
+
+
+
+<para id="p1088">
+This causes the button to switch to the 
+
+<emphasis id="strong1083" effect="bold">
+downSkin
+
+</emphasis>
+ style, which in turn 
+causes one of the images from the third column in Figure 1 to be exposed.
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1084" effect="bold">
+Mouse pointer hovering over the leftmost button
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1090">
+Figure 5 shows the result of allowing the mouse pointer to hover over the 
+leftmost button.
+
+</para>
+
+
+
+
+
+<figure id="figure1004" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_5" effect="bold">
+</emphasis>
+Mouse pointer hovering over the leftmost  button.
+</title>
+
+
+
+
+<media id="media1004" alt="Missing image" display="block">
+<image id="img1004" mime-type="image/jpeg" src="../../media/as0108d.jpg" width="399" height="315"/>
+</media>
+
+
+<caption>Mouse pointer hovering over the leftmost  button.</caption>
+</figure>
+
+
+
+
+
+
+
+
+ 
+
+
+
+<para id="p1091">
+Hovering over the button with the mouse pointer causes the button to switch 
+to the 
+
+<emphasis id="strong1085" effect="bold">
+overSkin
+
+</emphasis>
+ style exposing the top image in the second column in 
+Figure 1.
+
+</para>
+
+
+
+
+
+<para id="p1092">
+Note that the rightmost button has been toggled from frog skins to butterfly 
+skins in Figure 5.
+
+</para>
+
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1086" effect="bold">
+Mouse pointer pressed on the leftmost button
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1094">
+Figure 6 shows the result of pointing to the leftmost button and pressing the 
+left mouse button.
+
+</para>
+
+
+
+
+
+<figure id="figure1005" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_6" effect="bold">
+</emphasis>
+Mouse pointer pressed on the leftmost  button.
+</title>
+
+
+
+
+<media id="media1005" alt="Missing image" display="block">
+<image id="img1005" mime-type="image/jpeg" src="../../media/as0108e.jpg" width="398" height="314"/>
+</media>
+
+
+<caption>Mouse pointer pressed on the leftmost  button.</caption>
+</figure>
+
+
+
+
+
+
+
+
+ 
+
+
+
+<para id="p1095">
+This causes the button to switch to the 
+
+<emphasis id="strong1087" effect="bold">
+downSkin
+
+</emphasis>
+ style exposing the 
+top image in the third column in Figure 1.
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="DiscussionandSamplePrograms" effect="bold">
+
+
+</emphasis>
+
+Discussion and sample code
+
+</title>
+
+
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1088" effect="bold">
+Skins01 project file structure
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1097">
+Figure 7 shows the project file structure for the Flex project named
+
+
+<emphasis id="strong1089" effect="bold">
+Skins01.
+
+</emphasis>
+</para>
+
+
+
+
+
+<figure id="figure1006" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_7" effect="bold">
+</emphasis>
+Skins01 project file structure.
+</title>
+
+
+
+
+<media id="media1006" alt="Missing image" display="block">
+<image id="img1006" mime-type="image/jpeg" src="../../media/as0108f.jpg" width="313" height="388"/>
+</media>
+
+
+<caption>Skins01 project file structure.</caption>
+</figure>
+
+
+
+
+
+
+
+
+ 
+
+
+
+<para id="p1098">
+The image in Figure 7 was captured from the Flex Navigator panel in the Flex 
+Builder 3 IDE.
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1090" effect="bold">
+Eight images
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1100">
+The eight images shown in Figure 1 are listed in the 
+
+<emphasis id="strong1091" effect="bold">
+Images
+
+</emphasis>
+ folder in 
+Figure 7.
+
+</para>
+
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1092" effect="bold">
+Three custom button classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1102">
+The three custom button classes and the driver class illustrated by Figure 2 
+through Figure 6 are listed in the 
+
+<emphasis id="strong1093" effect="bold">
+CustomClasses
+
+</emphasis>
+ folder in Figure 7.
+
+</para>
+
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1094" effect="bold">
+The MXML application file
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1104">
+And of course, the Flex MXML file is shown as 
+
+<emphasis id="strong1095" effect="bold">
+Skins01.mxml
+
+</emphasis>
+ in Figure 
+7.
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1096" effect="bold">
+Custom button classes are very similar
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1106">
+The three custom button classes are very similar. The class named
+
+
+<emphasis id="strong1097" effect="bold">
+FancyButton
+
+</emphasis>
+ is the most complex of the three. Therefore, I will 
+explain the class named 
+
+<emphasis id="strong1098" effect="bold">
+FancyButton
+
+</emphasis>
+ in detail but I won't explain the 
+other two custom button classes.
+
+</para>
+
+
+
+
+
+<para id="p1107">
+In addition, I will explain the MXML file named 
+
+<emphasis id="strong1099" effect="bold">
+Skins01.mxml
+
+</emphasis>
+ and the 
+class file named 
+
+<emphasis id="strong1100" effect="bold">
+Driver.as
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1101" effect="bold">
+Will explain in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1109">
+I will explain the code in fragments. Complete listings of all of the 
+source code files are provided in Listing 8 through Listing 12 near the end of 
+the lesson.
+
+</para>
+
+
+
+
+
+<section id="h21005">
+<title>
+<emphasis id="The_file_named_Skins01.mxml" effect="bold">
+
+The file named Skins01.mxml
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1110">
+A complete listing of this file is shown in Listing 1. In addition, a 
+complete listing is also provided in Listing 8 near the end of the lesson along 
+with the code for all of the other files in this application.
+
+</para>
+
+
+
+
+
+<example id="listing1000" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+Complete listing for  	  Skins01.mxml.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1000" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1111">
+The code in Listing 1 couldn't be simpler. It declares a namespace for 
+the folder containing the four class files in Figure 7 and instantiates an 
+object of the class named 
+
+<emphasis id="strong1102" effect="bold">
+Driver
+
+</emphasis>
+. In this case, the Flex 
+application is simply serving as a launch pad for the ActionScript program.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="The_file_named_Driver.as" effect="bold">
+
+The file named Driver.as
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1112">
+The class named 
+
+<emphasis id="strong1103" effect="bold">
+Driver
+
+</emphasis>
+ begins in Listing 2. A complete listing 
+of this class file is provided in Listing 9 near the end of the lesson.
+
+</para>
+
+
+
+
+
+<example id="listing1001" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Beginning of the class named  	  Driver.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1001" display="block">package CustomClasses{
+  import flash.events.*;
+  import mx.containers.HBox;
+  
+  public class Driver extends HBox{
+    
+    private var bFlyButton:ButterflyButton = 
+                                   new ButterflyButton();
+    private var frogButton:FrogButton = new FrogButton();
+    private var fancyButton:FancyButton = 
+                                       new FancyButton();</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1104" effect="bold">
+Purpose of the class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1114">
+The purpose of this class is to define the characteristics of an object that 
+will serve as a driver to exercise and to illustrate the behavior of objects of 
+the following custom classes:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+  
+
+<item id="li1047">
+<emphasis id="strong1105" effect="bold">
+<emphasis id="ButterflyButton" effect="bold">
+
+ButterflyButton
+
+</emphasis>
+
+
+</emphasis>
+</item>
+
+
+  
+
+<item id="li1048">
+<emphasis id="strong1106" effect="bold">
+FrogButton
+
+</emphasis>
+</item>
+
+
+  
+
+<item id="li1049">
+<emphasis id="strong1107" effect="bold">
+FancyButton
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1108" effect="bold">
+Inheritance in action
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1116">
+Note that this class extends the standard Flex/ActionScript class named
+
+
+<emphasis id="strong1109" effect="bold">
+HBox
+
+</emphasis>
+. Thus, an object of the 
+
+<emphasis id="strong1110" effect="bold">
+Driver
+
+</emphasis>
+ class inherits all of 
+the characteristics defined into the 
+
+<emphasis id="strong1111" effect="bold">
+HBox
+
+</emphasis>
+ class and adds more 
+characteristics that are unique to an object of the 
+
+<emphasis id="strong1112" effect="bold">
+Driver
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1117">
+For example, one of the important characteristics inherited from the
+
+
+<emphasis id="strong1113" effect="bold">
+HBox
+
+</emphasis>
+ class is the ability to arrange child components horizontally as 
+shown in Figure 2.
+
+</para>
+
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1114" effect="bold">
+Instantiate custom button objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1119">
+Listing 2 instantiates objects of the three custom classes listed 
+
+<link id="a1043" target-id="ButterflyButton">
+
+above
+
+</link>
+
+ and stores references to those objects in 
+private instance variables with the following names:
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+  
+
+<item id="li1050">
+<emphasis id="strong1115" effect="bold">
+bFlyButton
+
+</emphasis>
+</item>
+
+
+  
+
+<item id="li1051">
+<emphasis id="strong1116" effect="bold">
+frogButton
+
+</emphasis>
+</item>
+
+
+  
+
+<item id="li1052">
+<emphasis id="strong1117" effect="bold">
+fancyButton
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1120">
+
+Storing the references as private instance variables makes them accessible to 
+the constructor and to methods defined within the 
+
+<emphasis id="strong1118" effect="bold">
+Driver
+
+</emphasis>
+ class, but makes 
+them inaccessible otherwise. 
+
+</para>
+
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1119" effect="bold">
+The constructor for the Driver class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1122">
+Listing 3 defines the constructor for the 
+
+<emphasis id="strong1120" effect="bold">
+Driver
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<example id="listing1002" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+The constructor for the Driver  	  class.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1002" display="block">    public function Driver(){//constructor
+      addChild(bFlyButton);
+      addChild(frogButton);
+      addChild(fancyButton);
+      
+      fancyButton.addEventListener(
+                         MouseEvent.CLICK,buttonHandler);
+    }//end constructor</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1123">
+Listing 3 begins by adding the three objects instantiated in Listing 2 to the 
+object being constructed, which is possible because an object of the
+
+
+<emphasis id="strong1121" effect="bold">
+Driver
+
+</emphasis>
+ class is an 
+
+<emphasis id="strong1122" effect="bold">
+HBox
+
+</emphasis>
+ container. 
+
+<emphasis id="em1037" effect="italics">
+(See the earlier 
+section titled 
+
+<link id="a1044" target-id="The_ISA_Relationship">
+
+The ISA relationship
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1124">
+Then Listing 3 registers a 
+
+<emphasis id="strong1123" effect="bold">
+click
+
+</emphasis>
+ event handler method named
+
+
+<emphasis id="strong1124" effect="bold">
+buttonHandler
+
+</emphasis>
+ on the 
+
+<emphasis id="strong1125" effect="bold">
+FancyButton
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1125">
+<emphasis id="strong1126" effect="bold">
+The method named
+
+</emphasis>
+ 
+
+<emphasis id="strong1127" effect="bold">
+buttonHandler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1126">
+The click event handler method named 
+
+<emphasis id="strong1128" effect="bold">
+buttonHandler
+
+</emphasis>
+ is shown in Listing 
+4.
+
+</para>
+
+
+
+
+
+<example id="listing1003" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+The method named          buttonHandler .
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1003" display="block">    private function buttonHandler(
+                                  event:MouseEvent):void{
+      fancyButton.toggleSkin();
+    }//end buttonHandler
+
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1127">
+This method is executed each time the 
+
+<emphasis id="strong1129" effect="bold">
+FancyButton
+
+</emphasis>
+ object fires a
+
+
+<emphasis id="strong1130" effect="bold">
+click
+
+</emphasis>
+ event. When the method is executed, it calls the
+
+
+<emphasis id="strong1131" effect="bold">
+toggleSkin
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1132" effect="bold">
+FancyButton
+
+</emphasis>
+ object. As you will see 
+later, the 
+
+<emphasis id="strong1133" effect="bold">
+toggleSkin
+
+</emphasis>
+ method causes the 
+
+<emphasis id="strong1134" effect="bold">
+FancyButton
+
+</emphasis>
+ object to 
+toggle its skins between butterfly images and frog images.
+
+</para>
+
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1135" effect="bold">
+The end of the Driver class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1129">
+Listing 4 also signals the end of the class named 
+
+<emphasis id="strong1136" effect="bold">
+Driver
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="The_file_named_FancyButton.as" effect="bold">
+
+The file named FancyButton.as
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1130">
+The 
+
+<emphasis id="strong1137" effect="bold">
+FancyButton
+
+</emphasis>
+ class begins in Listing 5. A complete listing of 
+the class file is provided in Listing 10 near the end of the lesson.
+
+</para>
+
+
+
+
+
+<para id="p1131">
+<emphasis id="strong1138" effect="bold">
+Define a custom button using skins
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1132">
+This class defines a custom button using skins. When the program starts, frog 
+images are used to define the button's skins as shown by the rightmost button in 
+Figure 2. Each time the 
+
+<emphasis id="strong1139" effect="bold">
+toggleSkin
+
+</emphasis>
+ method is called, the skin 
+switches between frog images and butterfly images.
+
+</para>
+
+
+
+
+
+<example id="listing1004" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+Beginning of the FancyButton  	  class.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1004" display="block">package CustomClasses{
+  import mx.controls.Button;
+  
+  public class FancyButton extends Button{
+    [Embed("/Images/frogup.jpg")]
+    private var frogUp:Class;      
+
+    [Embed("/Images/frogover.jpg")]
+    private var frogOver:Class;
+    
+    [Embed("/Images/frogdown.jpg")]
+    private var frogDown:Class;
+    
+    [Embed("/Images/frogdisabled.jpg")]
+    private var frogDisabled:Class;
+    
+    [Embed("/Images/bflyup.jpg")]
+    private var bFlyUp:Class;
+    
+    [Embed("/Images/bflyover.jpg")]
+    private var bFlyOver:Class;
+    
+    [Embed("/Images/bflydown.jpg")]
+    private var bFlyDown:Class;
+    
+    [Embed("/Images/bflydisabled.jpg")]
+    private var bFlyDisabled:Class;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1133">
+<emphasis id="strong1140" effect="bold">
+A FancyButton object ISA Button object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1134">
+The 
+
+<emphasis id="strong1141" effect="bold">
+FancyButton
+
+</emphasis>
+ class extends the 
+
+<emphasis id="strong1142" effect="bold">
+Button
+
+</emphasis>
+ class. 
+Therefore, an object of the 
+
+<emphasis id="strong1143" effect="bold">
+FancyButton
+
+</emphasis>
+ class is also a 
+
+<emphasis id="strong1144" effect="bold">
+Button
+
+</emphasis>
+ 
+object, possessing all of the characteristics of a 
+
+<emphasis id="strong1145" effect="bold">
+Button
+
+</emphasis>
+. 
+
+<emphasis id="em1038" effect="italics">
+(See 
+the earlier section titled 
+
+<link id="a1045" target-id="The_ISA_Relationship">
+
+The ISA relationship
+
+</link>
+
+.)
+
+</emphasis>
+ 
+One of the characteristics of a 
+
+<emphasis id="strong1146" effect="bold">
+Button
+
+</emphasis>
+ object is the ability to have its 
+appearance changed through the use of skinning.
+
+</para>
+
+
+
+
+
+<para id="p1135">
+<emphasis id="strong1147" effect="bold">
+Different ways to create skins
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1136">
+There are several different ways to create skins for ActionScript objects, 
+including the use of images to create 
+
+<emphasis id="em1039" effect="italics">
+graphical skins
+
+</emphasis>
+. According to 
+
+<link id="a1046" url="http://livedocs.adobe.com/flex/3/html/help.html?content=skinning_2.html">
+
+
+About Skinning
+
+</link>
+
+,
+
+</para>
+
+
+
+
+
+<quote id="blockquote1001" display="block">
+
+  
+
+<para id="p1137">
+<emphasis id="em1040" effect="italics">
+"When using graphical skins, you must embed the image file for the skin 
+  in your application. To specify your skin, you can use the setStyle() method, 
+  set it inline, or use Cascading Style Sheets (CSS)"
+
+</emphasis>
+</para>
+
+
+
+
+</quote>
+
+
+
+
+
+<para id="p1138">
+<emphasis id="strong1148" effect="bold">
+Embedding image files
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1139">
+There is more than one way to embed an image file in your application and I 
+won't attempt to explain the details. 
+
+<emphasis id="em1041" effect="italics">
+(I suggest that you go to Google 
+and search for 
+
+<emphasis id="strong1149" effect="bold">
+ActionScript embed metadata tag
+
+</emphasis>
+ for more information.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1140">
+<emphasis id="strong1150" effect="bold">
+The embedding syntax
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1141">
+The syntax that you see in Listing 5 
+
+<emphasis id="em1042" effect="italics">
+"Imports JPEG, GIF, PNG, SVG, and SWF 
+files at compile time."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1142">
+The syntax also makes those images accessible by way of the variables that 
+are declared immediately following each 
+
+<emphasis id="strong1151" effect="bold">
+Embed
+
+</emphasis>
+ tag. Therefore, the 
+images from each of the eight image files imported in Listing 5 can be 
+referenced later using the eight variables declared in Listing 5.
+
+</para>
+
+
+
+
+
+<para id="p1143">
+<emphasis id="strong1152" effect="bold">
+Constructor for the FancyButton class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1144">
+The constructor for the 
+
+<emphasis id="strong1153" effect="bold">
+FancyButton
+
+</emphasis>
+ class is shown in Listing 6.
+
+</para>
+
+
+
+
+
+<example id="listing1005" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Constructor for the FancyButton  	  class.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1005" display="block">    public function FancyButton(){//constructor
+
+      this.setStyle("upSkin", frogUp);
+      this.setStyle("overSkin", frogOver);
+      this.setStyle("downSkin", frogDown);
+      this.setStyle("disabledSkin", frogDisabled);
+
+    }//end constructor
+ </code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1145">
+The constructor calls the 
+
+<emphasis id="strong1154" effect="bold">
+setStyle
+
+</emphasis>
+ method four times in succession to 
+set the four styles described 
+
+<link id="a1047" target-id="The_upSkin_style">
+
+earlier
+
+</link>
+
+ to the 
+frog images imported in Listing 5. This causes the button instantiated 
+from the 
+
+<emphasis id="strong1155" effect="bold">
+FancyButton
+
+</emphasis>
+ class to exhibit frog skins at startup as shown in 
+Figure 2.
+
+</para>
+
+
+
+
+
+<para id="p1146">
+<emphasis id="strong1156" effect="bold">
+The toggleSkin method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1147">
+The 
+
+<emphasis id="strong1157" effect="bold">
+toggleSkin
+
+</emphasis>
+ method is shown in Listing 7. 
+
+</para>
+
+
+
+
+
+<example id="listing1006" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+The toggleSkin method.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1006" display="block">    public function toggleSkin():void{
+      if(this.getStyle("upSkin") == frogUp){
+        this.setStyle("upSkin", bFlyUp);
+        this.setStyle("overSkin", bFlyOver);
+        this.setStyle("downSkin", bFlyDown);
+        this.setStyle("disabledSkin", bFlyDisabled);
+      }else{
+        this.setStyle("upSkin", frogUp);
+        this.setStyle("overSkin", frogOver);
+        this.setStyle("downSkin", frogDown);
+        this.setStyle("disabledSkin", frogDisabled);
+      }//end else
+
+    }//end toggleSkin
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1148">
+<emphasis id="strong1158" effect="bold">
+Called by a click event handler method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1149">
+This method is called whenever the 
+
+<emphasis id="strong1159" effect="bold">
+FancyButton
+
+</emphasis>
+ object that was 
+instantiated in Listing 2 fires a 
+
+<emphasis id="strong1160" effect="bold">
+click
+
+</emphasis>
+ event. This call results 
+from the registration of the event handler method on the button in Listing 3 and 
+the definition of the event handler method in Listing 4.
+
+</para>
+
+
+
+
+
+<para id="p1150">
+<emphasis id="strong1161" effect="bold">
+Skin toggling algorithm
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1151">
+Listing 7 tests to determine if the button is currently exposing skins based 
+on the frog images. If so, it uses the 
+
+<emphasis id="strong1162" effect="bold">
+setStyle
+
+</emphasis>
+ method to switch 
+all four skin styles to the butterfly images.
+
+</para>
+
+
+
+
+
+<para id="p1152">
+If not, meaning that it is currently exposing butterfly images, it uses the
+
+
+<emphasis id="strong1163" effect="bold">
+setStyle
+
+</emphasis>
+ method to switch all four skin styles to the frog images.
+
+</para>
+
+
+
+
+
+<para id="p1153">
+<emphasis id="strong1164" effect="bold">
+Run the program and see for yourself
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1154">
+If you 
+
+<link id="a1048" url="Skins01.html">
+
+run
+
+</link>
+
+ this program and 
+click repeatedly on the rightmost button in Figure 2, you will see the skins for 
+the button toggle between frog images and butterfly images. This 
+demonstrates that ActionScript skins can be changed at runtime.
+
+</para>
+
+
+
+
+
+<para id="p1155">
+<emphasis id="strong1165" effect="bold">
+The end of the FancyButton class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1156">
+Listing 7 also signals the end of the 
+
+<emphasis id="strong1166" effect="bold">
+FancyButton
+
+</emphasis>
+ class. As I 
+mentioned earlier, you will find the complete source code for this class in 
+Listing 10 near the end of the lesson. You will also find the source code 
+for the somewhat simpler classes named 
+
+<emphasis id="strong1167" effect="bold">
+ButterflyButton
+
+</emphasis>
+ and 
+
+<emphasis id="strong1168" effect="bold">
+FrogButton
+
+</emphasis>
+
+in Listing 11 and Listing 12.
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Runtheprogram" effect="bold">
+
+
+</emphasis>
+
+Run the program
+
+</title>
+
+
+
+
+
+
+
+<para id="p1157">
+I encourage you to 
+
+<link id="a1049" url="Skins01.html">
+
+run
+
+</link>
+
+ this 
+program from the web. Then copy the code from Listing 8 through Listing 
+12. Use that code, along with some image files of your own to create a 
+Flex project. Compile and run the project. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain 
+that you can explain why your changes behave as they do. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1158">
+I will publish a list containing links to ActionScript 
+resources as a separate document. Search for ActionScript Resources in the 
+Connexions search box.
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="CompleteProgramListings" effect="bold">
+
+
+</emphasis>
+
+Complete program listings
+
+</title>
+
+
+
+
+
+
+<para id="p1159">
+Complete listings of the source code for the files used in this Flex application 
+are provided in Listing 8 through Listing 12 below.
+
+</para>
+
+
+
+
+
+<example id="listing1007" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_8" effect="bold">
+</emphasis>
+Source code for the file named  	  Skins01.mxml.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1007" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;!--The purpose of this application is twofold:
+    1.  To illustrate the use of inheritance to create 
+    custom components.
+    2.  To illustrate the use of skins to change the 
+    appearance of the standard ActionScript 
+    components.
+    
+    Four custom classes are defined. One uses butterfly
+    images to create a ButterflyButton. Another uses
+    images of a frog to create a FrogButton. A third
+    uses both butterfly and frog images to toggle the
+    skins between the two at runtime.
+    
+    The fourth class is a driver class that is designed
+    to exercise the other three classes and to 
+    demonstrate their use.
+        
+    All three classes define the following styles but the
+    disabledSkin style is not illustrated by the code.
+    
+    upSkin
+    overSkin
+    downSkin
+    disabledSkin
+    
+    Mxml code is used to instantiate an object of the
+    Driver class.
+     --&gt;
+
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:cc="CustomClasses.*"&gt;
+  
+  &lt;cc:Driver/&gt;
+
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1160">
+</para>
+
+
+
+
+
+<example id="listing1008" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_9" effect="bold">
+</emphasis>
+Source code for the class named  	  Driver.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1008" display="block">//The purpose of this class is to serve as a driver to
+// exercise the following custom classes:
+// ButterflyButton
+// FrogButton
+// FancyButton
+//A click event handler is registered on an object of the
+// FancyButton class.  Each time the object is clicked
+// with the mouse, the toggleSkin method is called on
+// the object causing it to toggle its skin between
+// butterfly images and frog images.
+
+
+package CustomClasses{
+  import flash.events.*;
+  import mx.containers.HBox;
+  
+  public class Driver extends HBox{
+    
+    private var bFlyButton:ButterflyButton = 
+                                   new ButterflyButton();
+    private var frogButton:FrogButton = new FrogButton();
+    private var fancyButton:FancyButton = 
+                                       new FancyButton();
+    
+    public function Driver(){//constructor
+      addChild(bFlyButton);
+      addChild(frogButton);
+      addChild(fancyButton);
+      
+      fancyButton.addEventListener(
+                         MouseEvent.CLICK,buttonHandler);
+    }//end constructor
+    
+    private function buttonHandler(
+                                  event:MouseEvent):void{
+      fancyButton.toggleSkin();
+    }//end buttonHandler
+
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1161">
+</para>
+
+
+
+
+
+<example id="listing1009" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_10" effect="bold">
+</emphasis>
+Source code for the class  	  named FancyButton.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1009" display="block">//This class defines a custom button using skins. When 
+// the program starts, frog images are used to define
+// the button's skin. Each time the toggleSkin method is
+// called, the skin switches between frog images and
+// butterfly images.
+package CustomClasses{
+  import mx.controls.Button;
+  
+  public class FancyButton extends Button{
+    [Embed("/Images/frogup.jpg")]
+    private var frogUp:Class;      
+
+    [Embed("/Images/frogover.jpg")]
+    private var frogOver:Class;
+    
+    [Embed("/Images/frogdown.jpg")]
+    private var frogDown:Class;
+    
+    [Embed("/Images/frogdisabled.jpg")]
+    private var frogDisabled:Class;
+    
+    [Embed("/Images/bflyup.jpg")]
+    private var bFlyUp:Class;
+    
+    [Embed("/Images/bflyover.jpg")]
+    private var bFlyOver:Class;
+    
+    [Embed("/Images/bflydown.jpg")]
+    private var bFlyDown:Class;
+    
+    [Embed("/Images/bflydisabled.jpg")]
+    private var bFlyDisabled:Class;
+    
+    
+    public function FancyButton(){//constructor
+
+      this.setStyle("upSkin", frogUp);
+      this.setStyle("overSkin", frogOver);
+      this.setStyle("downSkin", frogDown);
+      this.setStyle("disabledSkin", frogDisabled);
+
+    }//end constructor
+    
+    public function toggleSkin():void{
+      if(this.getStyle("upSkin") == frogUp){
+        this.setStyle("upSkin", bFlyUp);
+        this.setStyle("overSkin", bFlyOver);
+        this.setStyle("downSkin", bFlyDown);
+        this.setStyle("disabledSkin", bFlyDisabled);
+      }else{
+        this.setStyle("upSkin", frogUp);
+        this.setStyle("overSkin", frogOver);
+        this.setStyle("downSkin", frogDown);
+        this.setStyle("disabledSkin", frogDisabled);
+      }//end else
+
+    }//end toggleSkin
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1162">
+</para>
+
+
+
+
+
+<example id="listing1010" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_11" effect="bold">
+</emphasis>
+Source code for the class  	  named ButterflyButton.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1010" display="block">//This class defines a custom button using skins. The
+// normal or up position shows an image of a butterfly.
+// When the mouse is over the button, the image takes on
+// a blue tint. When the mouse is pressed on the button,
+// the image is negated. When the button is disabled,
+// the image turns to gray scale.
+package CustomClasses{
+  import mx.controls.Button;
+  
+  public class ButterflyButton extends Button{
+    public function ButterflyButton(){
+      
+      [Embed("/Images/bflyup.jpg")]
+      var up:Class;
+
+      [Embed("/Images/bflyover.jpg")]
+      var over:Class;
+
+      [Embed("/Images/bflydown.jpg")]
+      var down:Class;
+
+      [Embed("/Images/bflydisabled.jpg")]
+      var disabled:Class;
+
+      this.setStyle("upSkin", up);
+      this.setStyle("overSkin", over);
+      this.setStyle("downSkin", down);
+      this.setStyle("disabledSkin", disabled);
+      
+      //Can do this to demo the disabled skin.
+      //this.enabled=false;
+
+    }//end constructor
+
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1163">
+</para>
+
+
+
+
+
+<example id="listing1011" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_12" effect="bold">
+</emphasis>
+Source code for the class  	  named FrogButton.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+ 
+        
+
+<code id="pre1011" display="block">//This class defines a custom button using skins. The
+// normal or up position shows an image of a frog.
+// When the mouse is over the button, the image takes on
+// a blue tint. When the mouse is pressed on the button,
+// the image is negated. When the button is disabled,
+// the image turns to gray scale.
+package CustomClasses{
+  import mx.controls.Button;
+  
+  public class FrogButton extends Button{
+    public function FrogButton(){
+      
+      [Embed("/Images/frogup.jpg")]
+      var up:Class;
+
+      [Embed("/Images/frogover.jpg")]
+      var over:Class;
+
+      [Embed("/Images/frogdown.jpg")]
+      var down:Class;
+
+      [Embed("/Images/frogdisabled.jpg")]
+      var disabled:Class;
+
+      this.setStyle("upSkin", up);
+      this.setStyle("overSkin", over);
+      this.setStyle("downSkin", down);
+      this.setStyle("disabledSkin", disabled);
+      
+      //Can do this to demo the disabled skin.
+      //this.enabled=false;
+
+    }//end constructor
+
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1164">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1005" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1169" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+
+
+<item id="li1053">
+Module name: Inheritance - The Big Picture
+
+</item>
+
+
+
+
+<item id="li1054">
+Files:
+
+<list id="ul1012" list-type="bulleted">
+
+
+
+<item id="li1055">
+ActionScript0108\ActionScript0108.htm
+
+</item>
+
+
+
+
+<item id="li1056">
+ActionScript0108\Connexions\ActionScriptXhtml0108.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<note id="note1006" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1170" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+
+</note>
+
+
+
+
+
+
+
+
+<para id="p1165">
+-end- 
+
+</para>
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

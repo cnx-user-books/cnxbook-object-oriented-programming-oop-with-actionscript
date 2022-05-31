@@ -1,0 +1,6529 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Digging Deeper into ActionScript Events</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m34452</md:content-id>
+  <md:title>Digging Deeper into ActionScript Events</md:title>
+  <md:abstract>Learn how to translate a largely Flex MXML program into a largely ActionScript program.  Learn that events can be subdivided into two major categories: those that involve direct user interaction and those that don't.  Learn how to use the events documentation to find what you need to write event-driven ActionScript programs.</md:abstract>
+  <md:uuid>199541b5-965c-4654-9eab-b8576c4571f6</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="miscellaneous">
+
+
+
+
+
+Click 	
+
+<link id="a1000" url="Effects03.html">
+
+Effects03
+
+</link>
+
+ 
+to run this ActionScript program. 
+
+<emphasis id="em1000" effect="italics">
+
+(Click the "Back" button in your browser 
+to return to this page.)
+
+</emphasis>
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1001" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1002" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1002">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+		
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1003">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1004">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+</item>
+
+
+		
+
+<item id="li1005">
+<link id="a1006" target-id="Supplementary_material">
+
+Supplemental material
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1007" target-id="GeneralBackgroundInformation">
+
+General background 
+	information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1008" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1009" target-id="DiscussionandSamplePrograms">
+
+Discussion and sample 
+	code
+
+</link>
+
+
+	
+
+<list id="ul1003" list-type="bulleted">
+
+	  
+
+<item id="li1009">
+<link id="a1010" target-id="The_program_named_ActivateEvent01">
+
+The program named ActivateEvent01
+
+</link>
+
+
+</item>
+
+
+	  
+
+<item id="li1010">
+<link id="a1011" target-id="The_program_named_Effects03">
+
+The program named Effects03
+
+</link>
+
+
+</item>
+
+
+    
+
+</list>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1012" target-id="Runtheprogram">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1013" target-id="Resources">
+
+Resources
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1014" target-id="CompleteProgramListings">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1015" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1000">
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+ 
+
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+
+<section id="h21000">
+<title>
+ 
+
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+  
+
+<note id="note1001" type="miscellaneous">
+
+
+  
+
+
+  
+
+
+  	
+
+<emphasis id="strong1000" effect="bold">
+ActionScript 3: 
+
+</emphasis>
+Note that all references to ActionScript in this lesson are references to 
+	  version 3 or later.
+
+
+</note>
+
+
+
+
+
+
+
+
+<para id="p1001">
+This tutorial lesson is part of a continuing series of lessons dedicated to 
+object-oriented programming 
+
+<emphasis id="em1001" effect="italics">
+(OOP)
+
+</emphasis>
+ with ActionScript.
+
+</para>
+
+
+
+
+<para id="p1002">
+<emphasis id="strong1001" effect="bold">
+Several ways to create and launch ActionScript 
+programs
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1003">
+There are several ways to create and launch programs written in the 
+ActionScript programming language. Many of the lessons in this series will 
+use Adobe Flex as the launch pad for the sample ActionScript programs.
+
+</para>
+
+
+
+
+<para id="p1004">
+An earlier lesson titled 
+
+
+<emphasis id="strong1002" effect="bold">
+The Default 
+Application Container
+
+</emphasis>
+ provided information on how to get started programming 
+with Adobe's Flex Builder 3. 
+
+<emphasis id="em1002" effect="italics">
+
+(See 
+
+<link id="a1016" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming 
+website
+
+</link>
+
+.)
+
+</emphasis>
+ You should study that lesson before embarking on the 
+lessons in this series.
+
+</para>
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1003" effect="bold">
+Some understanding of Flex MXML will be required
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1006">
+I also recommend that you study all of the lessons on
+
+
+<link id="a1017" url="http://www.dickbaldwin.com/tocFlex.htm">
+
+Baldwin's Flex programming 
+website
+
+</link>
+
+ in parallel with your study of these ActionScript lessons. 
+Eventually you will probably need to understand both ActionScript and Flex and 
+the relationships that exist between them in order to become a successful 
+ActionScript programmer. 
+
+</para>
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1004" effect="bold">
+Will emphasize ActionScript code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1008">
+It is often possible to use either ActionScript code or Flex MXML code to 
+achieve the same result. Insofar as this series of lessons is concerned, 
+the emphasis will be on ActionScript code even in those cases where Flex MXML 
+code may be a suitable alternative.
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+ 
+
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+ I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the figures 
+and listings while you are reading about them.
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+ 
+
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1015">
+<link id="a1018" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Program ActivateEvent01 screen 
+	graphics.
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1019" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Debug output in the system console.
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1020" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Project file structure for Effects03.
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1021" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Screen display at startup.
+
+</item>
+
+
+	
+
+<item id="li1019">
+<link id="a1022" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Screen display after clicking Start 
+	and Pause.
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1023" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Screen display after the effect has 
+	run to completion.
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1024" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. Comparable MXML code.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+ 
+
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1022">
+<link id="a1025" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Common code for the MXML file.
+
+</item>
+
+
+	
+
+<item id="li1023">
+<link id="a1026" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of Driver class for 
+	ActivateEvent01.
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1027" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The event handler methods.
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1028" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Beginning of Driver class for 
+	Effects03.
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1029" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Beginning of the constructor for 
+	Effects03.
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1030" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Prepare the TextArea object and add 
+	it to the Panel.
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1031" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Prepare an embedded image and add it 
+	to the Panel.
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1032" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Add the button bar to the panel.
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1033" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Prepare the six buttons for use.
+
+</item>
+
+
+	
+
+<item id="li1031">
+<link id="a1034" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Configure the Resize object.
+
+</item>
+
+
+	
+
+<item id="li1032">
+<link id="a1035" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Event handlers registered on the 
+	Resize object.
+
+</item>
+
+
+	
+
+<item id="li1033">
+<link id="a1036" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Common event handler for the 
+	buttons.
+
+</item>
+
+
+	
+
+<item id="li1034">
+<link id="a1037" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Event handler for the 
+	creationComplete event dispatched by the Panel.
+
+</item>
+
+
+	
+
+<item id="li1035">
+<link id="a1038" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. The common MXML code. 
+
+</item>
+
+
+	
+
+<item id="li1036">
+<link id="a1039" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. Driver class for ActivateEvent01. 
+
+</item>
+
+
+	
+
+<item id="li1037">
+<link id="a1040" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. Driver class for Effects03.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+ 
+
+<emphasis id="Supplementary_material" effect="bold">
+
+Supplemental material
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+ I recommend that you also study the other lessons in my extensive collection 
+of online programming tutorials. You will find a consolidated index at
+
+ 
+
+<link id="a1041" url="http://www.dickbaldwin.com/toc.htm">
+
+
+www.DickBaldwin.com
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+ 
+
+<emphasis id="GeneralBackgroundInformation" effect="bold">
+
+General background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1011">
+The 
+
+
+<link id="a1042" url="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html">
+
+
+ActionScript 3.0 Reference for the Adobe Flash Platform
+
+</link>
+
+ 
+is a voluminous document. Understanding ActionScript events on the basis 
+of that document alone can be a daunting task.
+
+</para>
+
+
+
+
+<para id="p1012">
+There are two entry points into the documentation that can make it somewhat 
+easier to navigate:
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1038">
+The 
+	
+
+<link id="a1043" url="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html">
+
+flash.events.Event
+
+</link>
+
+ class
+
+</item>
+
+
+	
+
+<item id="li1039">
+The 
+	
+
+<link id="a1044" url="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/EventDispatcher.html#addEventListener%28%29">
+
+addEventListener
+
+</link>
+
+ method
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1005" effect="bold">
+The flash.events.Event class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1014">
+As I understand it, all possible ActionScript events are represented by 
+subclasses of the
+
+
+<link id="a1045" url="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/Event.html">
+
+flash.events.Event
+
+</link>
+
+ class. That class has approximately eighty 
+subclasses, many of which are further extended into additional subclasses.
+
+</para>
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1006" effect="bold">
+The flash.events.MouseEvent class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1016">
+For example, the
+
+
+<link id="a1046" url="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html">
+
+flash.events.MouseEvent
+
+</link>
+
+ 
+class has eight subclasses, some of which are extended into other subclasses. 
+Therefore, the total number of subclasses of the 
+
+<emphasis id="strong1007" effect="bold">
+Event
+
+</emphasis>
+ class may be well 
+in excess of one hundred. This means that there may be more than one 
+hundred different 
+
+<emphasis id="em1003" effect="italics">
+types
+
+</emphasis>
+ of events being dispatched during the running of 
+an ActionScript program.
+
+</para>
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1008" effect="bold">
+Event types and subtypes
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1018">
+An ActionScript class represents a 
+
+<emphasis id="em1004" effect="italics">
+type
+
+</emphasis>
+. Therefore, each subclass of 
+the 
+
+<emphasis id="strong1009" effect="bold">
+Event
+
+</emphasis>
+ class defines a different type of event. Many subclasses 
+define a large number of subtypes.
+
+</para>
+
+
+
+
+<para id="p1019">
+For example, the 
+
+<emphasis id="strong1010" effect="bold">
+MouseEvent
+
+</emphasis>
+ class defines about seventeen 
+
+
+<link id="a1047" url="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/MouseEvent.html#top">
+
+subtypes
+
+</link>
+
+ ranging in alphabetical order from 
+
+<emphasis id="strong1011" effect="bold">
+CLICK
+
+</emphasis>
+ to 
+
+<emphasis id="strong1012" effect="bold">
+ROLL_OVER
+
+</emphasis>
+, 
+including 
+
+<emphasis id="strong1013" effect="bold">
+
+MOUSE_MOVE
+
+</emphasis>
+, 
+
+<emphasis id="strong1014" effect="bold">
+MOUSE_DOWN
+
+</emphasis>
+, 
+
+<emphasis id="strong1015" effect="bold">
+MOUSE_UP
+
+</emphasis>
+, etc.
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+	
+
+<para id="p1020">
+<emphasis id="em1005" effect="italics">
+(For brevity, I will refer to the subtypes as types for the remainder 
+	of this document.)
+
+</emphasis>
+</para>
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1016" effect="bold">
+Hundreds of event types and hundreds of object types
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1022">
+Therefore, there are many hundreds of different types of events that can be 
+dispatched in various combinations by hundreds of different types of objects 
+during the running of an ActionScript program.
+
+</para>
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1017" effect="bold">
+The DisplayObject class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1024">
+Objects of some classes 
+
+<emphasis id="em1006" effect="italics">
+(such as
+
+
+<link id="a1048" url="http://livedocs.adobe.com/flex/3/langref/mx/controls/Button.html">
+
+
+Button
+
+</link>
+
+)
+
+</emphasis>
+, which are subclasses of the 
+
+
+<link id="a1049" url="http://livedocs.adobe.com/flex/3/langref/flash/display/DisplayObject.html">
+
+
+DisplayObject
+
+</link>
+
+ 
+class, can dispatch events as a result of direct user interaction. For 
+example, a user can click on a button and cause a 
+
+<emphasis id="strong1018" effect="bold">
+click
+
+</emphasis>
+ event to be 
+dispatched.
+
+</para>
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1019" effect="bold">
+The URLLoader class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1026">
+Objects of other classes 
+
+<emphasis id="em1007" effect="italics">
+(such as 
+
+
+<link id="a1050" url="http://livedocs.adobe.com/flex/3/langref/flash/net/URLLoader.html">
+
+
+URLLoader
+
+</link>
+
+)
+
+</emphasis>
+, which are not subclasses of the 
+
+
+<link id="a1051" url="http://livedocs.adobe.com/flex/3/langref/flash/display/DisplayObject.html">
+
+
+DisplayObject
+
+</link>
+
+ 
+class, cannot be caused to dispatch an event as a result of direct user 
+interaction. 
+
+<emphasis id="em1008" effect="italics">
+(As far as I know, there is no way for a user to interact 
+directly with an object of the 
+
+<emphasis id="strong1020" effect="bold">
+URLLoader
+
+</emphasis>
+ 
+class.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1027">
+However, an object of the 
+
+<emphasis id="strong1021" effect="bold">
+URLLoader
+
+</emphasis>
+ class can dispatch nine different 
+types of events ranging in alphabetical order from 
+
+<emphasis id="strong1022" effect="bold">
+activate
+
+</emphasis>
+ to 
+
+<emphasis id="strong1023" effect="bold">
+
+securityError
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1024" effect="bold">
+The addEventListener methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1029">
+The documentation
+
+
+<link id="a1052" url="http://livedocs.adobe.com/flex/3/langref/all-index-A.html">
+
+index
+
+</link>
+
+ 
+for Flex Builder 3 lists eight different versions of the 
+
+<emphasis id="strong1025" effect="bold">
+addEventListener
+
+</emphasis>
+ 
+method in classes plus one that is declared in an interface. Of the 
+eight versions defined in classes, one is defined in the
+
+
+<link id="a1053" url="http://livedocs.adobe.com/flex/3/langref/flash/events/EventDispatcher.html">
+
+
+EventDispatcher
+
+</link>
+
+ class. That is the one that I will concentrate on in 
+this lesson.
+
+</para>
+
+
+
+
+<para id="p1030">
+For the record, however, four of the eight versions are overridden versions 
+of the method that is defined in the 
+
+<emphasis id="strong1026" effect="bold">
+EventDispatcher
+
+</emphasis>
+ class. The 
+remaining three of the eight are defined in classes that extend the 
+
+<emphasis id="strong1027" effect="bold">
+Proxy
+
+</emphasis>
+ 
+class, which I will ignore in this lesson.
+
+</para>
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1028" effect="bold">
+The addEventListener method in the EventDispatcher 
+class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1032">
+According to the documentation, the 
+
+
+<link id="a1054" url="http://livedocs.adobe.com/flex/3/langref/flash/events/EventDispatcher.html#addEventListener()">
+
+
+addEventListener
+
+</link>
+
+ method that is defined in the 
+
+<emphasis id="strong1029" effect="bold">
+EventDispatcher
+
+</emphasis>
+ class 
+"
+
+<emphasis id="em1009" effect="italics">
+Registers an event listener object with an 
+
+
+<emphasis id="strong1030" effect="bold">
+EventDispatcher
+
+</emphasis>
+ object so that the listener receives notification of an 
+event."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1031" effect="bold">
+<emphasis id="Parameters_of_the_addEventListener_method" effect="bold">
+
+
+Parameters of the addEventListener method
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1034">
+This method requires the following five parameters, the last three of which 
+have default values:
+
+</para>
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1040">
+type:String
+
+</item>
+
+
+	
+
+<item id="li1041">
+listener:Function
+
+</item>
+
+
+	
+
+<item id="li1042">
+useCapture:Boolean = false
+
+</item>
+
+
+	
+
+<item id="li1043">
+priority:int = 0
+
+</item>
+
+
+	
+
+<item id="li1044">
+useWeakReference:Boolean = false
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1032" effect="bold">
+Will concentrate on the first two parameters
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1036">
+I will concentrate on the first two parameters in this lesson. In 
+addition, I will refer you to
+
+
+<link id="a1055" url="http://www.actionscript.org/resources/articles/860/1/Understanding-the-AS3-Event-Flow/Page1.html">
+
+
+Understanding the AS3 Event Flow 
+
+</link>
+
+ by Jody Hall for an excellent discussion 
+of the purpose and use of the third parameter.
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1033" effect="bold">
+The type of the event
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1038">
+The first 
+
+<link id="a1056" target-id="Parameters_of_the_addEventListener_method">
+
+parameter
+
+</link>
+
+, 
+which is the type of the event, usually looks something like the following in 
+ActionScript syntax:
+
+</para>
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1034" effect="bold">
+Event.ACTIVATE
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1035" effect="bold">
+The event-handler function
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+The second 
+
+<link id="a1057" target-id="Parameters_of_the_addEventListener_method">
+
+
+parameter
+
+</link>
+
+ is the name of a function or method that processes the event. 
+This method must accept an 
+
+<emphasis id="strong1036" effect="bold">
+Event
+
+</emphasis>
+ object as its only parameter and must 
+return void. A sample ActionScript signature for a suitable event handler 
+method follows:
+
+</para>
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1037" effect="bold">
+private function activateHandler(event:Event):void
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1043">
+Note that the actual type of the parameter may be any subclass of 
+
+<emphasis id="strong1038" effect="bold">
+Event
+
+</emphasis>
+, 
+such as 
+
+<emphasis id="strong1039" effect="bold">
+MouseEvent
+
+</emphasis>
+ for example. Note also that only the name of the 
+function 
+
+<emphasis id="em1010" effect="italics">
+(without parentheses)
+
+</emphasis>
+ is passed to the 
+
+<emphasis id="strong1040" effect="bold">
+addEventListener
+
+</emphasis>
+ 
+method.
+
+</para>
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1041" effect="bold">
+Available to all subclasses of EventDispatcher
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1045">
+The 
+
+<emphasis id="strong1042" effect="bold">
+addEventListener
+
+</emphasis>
+ method is defined in the 
+
+<emphasis id="strong1043" effect="bold">
+EventDispatcher
+
+</emphasis>
+ 
+class and inherited by all subclasses of that class. Therefore, the method 
+can be called on any object instantiated from any subclass of the 
+
+<emphasis id="strong1044" effect="bold">
+
+EventDispatcher
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1045" effect="bold">
+There are many subclasses of the EventDispatcher 
+class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1047">
+The 
+
+<emphasis id="strong1046" effect="bold">
+EventDispatcher
+
+</emphasis>
+ class has approximately seventy-five immediate 
+subclasses that ultimately fan out to include hundreds and possibly thousands of 
+individual classes. 
+
+<emphasis id="em1011" effect="italics">
+
+(For example, the 
+
+<emphasis id="strong1047" effect="bold">
+Button
+
+</emphasis>
+ class is a subclass of the 
+
+<emphasis id="strong1048" effect="bold">
+EventDispatcher
+
+</emphasis>
+ 
+class about seven levels down the inheritance hierarchy.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1049" effect="bold">
+Many combinations are nonsensical
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1049">
+This means that hundreds of different event types can be registered on 
+hundreds of different object types. However, many of those combinations of 
+event types and object types make absolutely no sense at all.
+
+</para>
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1050" effect="bold">
+The SolidColor class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1051">
+For example, one of the subclasses of the 
+
+<emphasis id="strong1051" effect="bold">
+EventDispatcher
+
+</emphasis>
+ class is 
+named 
+
+<emphasis id="strong1052" effect="bold">
+SolidColor
+
+</emphasis>
+. You can register a handler for a 
+
+<emphasis id="strong1053" effect="bold">
+
+MouseEvent.CLICK
+
+</emphasis>
+ event on a 
+
+<emphasis id="strong1054" effect="bold">
+SolidColor
+
+</emphasis>
+ object with no obvious ill 
+effects. There is no compiler error and no runtime error.
+
+</para>
+
+
+
+
+<para id="p1052">
+However, the registration of the event handler on the object has no effect. 
+As far as I know, it is not possible to cause a 
+
+<emphasis id="strong1055" effect="bold">
+SolidColor
+
+</emphasis>
+ object to 
+dispatch a 
+
+<emphasis id="strong1056" effect="bold">
+CLICK
+
+</emphasis>
+ 
+event. Therefore, the 
+
+<emphasis id="strong1057" effect="bold">
+click
+
+</emphasis>
+ event handler will never be executed.
+
+</para>
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1058" effect="bold">
+A weakness in the event model
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1054">
+In my opinion, the ability for the programmer to register event types on 
+objects that will simply ignore events of that type is a major weakness in the 
+ActionScript event model. Other programming languages such as Java provide 
+more help in avoiding such programming errors.
+
+</para>
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1059" effect="bold">
+Guarding against nonsensical combinations
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1056">
+How can you determine which combinations of classes and event types make 
+sense and which do not?
+
+</para>
+
+
+
+
+<para id="p1057">
+As usual, your best friend is the documentation. For example, the  
+
+
+<link id="a1058" url="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html">
+
+
+ActionScript 3.0 Reference for the Adobe Flash Platform
+
+</link>
+
+ 
+allows you to click on a 
+class name in the leftmost frame and read about that class in the rightmost 
+frame. For every class that supports events, there is a hyperlink at the 
+top of the rightmost frame labeled 
+
+<emphasis id="strong1060" effect="bold">
+Events
+
+</emphasis>
+. Clicking on that 
+hyperlink will expose all of the event types supported by objects of the class 
+being viewed.
+
+</para>
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1061" effect="bold">
+SolidColor events
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1059">
+For example, objects of the 
+
+<emphasis id="strong1062" effect="bold">
+SolidColor
+
+</emphasis>
+ class support only two types of 
+events:
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1045">
+
+	
+
+<link id="a1059" url="http://livedocs.adobe.com/flex/3/langref/flash/events/EventDispatcher.html#event:activate">
+
+
+	flash.events.Event.ACTIVATE
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1046">
+
+	
+
+<link id="a1060" url="http://livedocs.adobe.com/flex/3/langref/flash/events/EventDispatcher.html#event:deactivate">
+
+
+	flash.events.Event.DEACTIVATE
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1060">
+Although you may be able to register event handlers for other types of events 
+on an object of the 
+
+<emphasis id="strong1063" effect="bold">
+SolidColor
+
+</emphasis>
+ class, it doesn't make any sense to do so. 
+The documentation tells us that there is no point in registering a 
+
+<emphasis id="strong1064" effect="bold">
+
+MouseEvent.CLICK
+
+</emphasis>
+ event on a 
+
+<emphasis id="strong1065" effect="bold">
+SolidColor
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1066" effect="bold">
+The ACTIVATE and DEACTIVATE event types
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1062">
+Both of these event types are defined in the 
+
+<emphasis id="strong1067" effect="bold">
+EventDispatcher
+
+</emphasis>
+ class and 
+are inherited by all classes whose objects have the ability to dispatch events 
+
+<emphasis id="em1012" effect="italics">
+
+(other than subclasses of the 
+
+<emphasis id="strong1068" effect="bold">
+Proxy
+
+</emphasis>
+ class that I am ignoring in this 
+lesson)
+
+</emphasis>
+. They are both dispatched by the system as the result of 
+certain runtime conditions that may be beyond the direct control of the user. 
+I will explain a sample program later that uses these two event types.
+
+</para>
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1069" effect="bold">
+The Flex Builder IDE is also helpful
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1064">
+Other useful tools for avoiding nonsensical combinations of classes and event 
+types are the Flex Builder 3 and Flash Builder 4 IDEs. The IDEs provides popup hints at various 
+points as you type ActionScript code. In some cases, the popup hints will 
+list the types of events supported by the object on which you are registering an 
+event listener.
+
+</para>
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1070" effect="bold">
+The DisplayObject class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1066">
+Of the large number of immediate subclasses of the 
+
+
+<link id="a1061" url="http://livedocs.adobe.com/flex/3/langref/flash/events/EventDispatcher.html">
+
+
+EventDispatcher
+
+</link>
+
+ 
+class, the one that will probably garner most of your attention in your early 
+ActionScript programming experience is the class named 
+
+
+<link id="a1062" url="http://livedocs.adobe.com/flex/3/langref/flash/display/DisplayObject.html">
+
+
+DisplayObject
+
+</link>
+
+. According to the documentation:
+
+</para>
+
+
+
+
+<quote id="blockquote1001" display="block">
+
+	
+
+<para id="p1067">
+<emphasis id="em1013" effect="italics">
+"The DisplayObject class is the base class for all objects that can be 
+	placed on the display list. The display list manages all objects displayed 
+	in Flash Player or Adobe AIR."
+
+</emphasis>
+</para>
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1071" effect="bold">
+Flex components
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1069">
+All of the objects with which the user can have direct interaction are 
+instantiated from subclasses of this class. For example, I believe that 
+all of the components that appear in the 
+
+<emphasis id="strong1072" effect="bold">
+Components
+
+</emphasis>
+ tab in the 
+
+<emphasis id="strong1073" effect="bold">
+Design
+
+</emphasis>
+ 
+view of Flex Builder 3 or Flash Builder 4 are subclasses of the 
+
+<emphasis id="strong1074" effect="bold">
+DisplayObject
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+<para id="p1070">
+I also believe that all of those classes are grouped into packages such as 
+the following:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1047">
+<emphasis id="strong1075" effect="bold">
+mx.controls
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1048">
+<emphasis id="strong1076" effect="bold">
+mx.containers
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1049">
+<emphasis id="strong1077" effect="bold">
+mx.modules
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1050">
+<emphasis id="strong1078" effect="bold">
+mx.charts
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1071">
+There are about sixty-five classes in the 
+
+<emphasis id="strong1079" effect="bold">
+Components
+
+</emphasis>
+ tab of Flex 
+Builder 3, and those are the classes that usually involve direct user 
+interaction. That leaves many more classes that support events that don't 
+usually involve direct user interaction.
+
+</para>
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1080" effect="bold">
+Events that don't involve direct user interaction
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1073">
+Even some of the classes that are subclasses of 
+
+<emphasis id="strong1081" effect="bold">
+DisplayObject
+
+</emphasis>
+ support 
+events that don't involve direct user interaction such as the 
+
+<emphasis id="strong1082" effect="bold">
+activate
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1083" effect="bold">
+deactivate
+
+</emphasis>
+ events.
+
+</para>
+
+
+
+
+<para id="p1074">
+Events that don't involve user interaction are usually events that are 
+dispatched because of some change of state within the program. For 
+example, it is possible to register event listeners on object properties and 
+cause other objects to be notified when the value of such properties change.
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1075">
+I will present and explain two programs in the remainder of this lesson. 
+The first program named 
+
+<emphasis id="strong1084" effect="bold">
+ActivateEvent01
+
+</emphasis>
+ provides a relatively simple 
+illustration of servicing events that are dispatched independently of direct 
+user interaction.
+
+</para>
+
+
+
+
+<para id="p1076">
+The second program named 
+
+<emphasis id="strong1085" effect="bold">
+Effects03
+
+</emphasis>
+ is somewhat more substantial. 
+It illustrates the servicing of events that are dispatched as a result of direct 
+user interaction as well as events that are dispatched independently of direct 
+user interaction.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11002">
+<title>
+ 
+
+<emphasis id="DiscussionandSamplePrograms" effect="bold">
+
+
+</emphasis>
+
+
+Discussion and sample code
+
+</title>
+
+
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1086" effect="bold">
+A simple MXML file
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1078">
+Both of the programs 
+that I will explain in this lesson use the same simple MXML file shown in 
+Listing 1 and also in Listing 14.
+
+</para>
+
+
+
+
+
+
+<example id="listing1000" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+Common code for the MXML file.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1000" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml"
+  xmlns:cc="CustomClasses.*"&gt;
+  &lt;cc:Driver/&gt;
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1079">
+This MXML code simply instantiates a new object of the 
+
+<emphasis id="strong1087" effect="bold">
+Driver
+
+</emphasis>
+ class in 
+the 
+
+<emphasis id="strong1088" effect="bold">
+cc
+
+</emphasis>
+ namespace. Beyond that point, all program behavior is 
+controlled by ActionScript code.
+
+</para>
+
+
+
+
+<section id="h21004">
+<title>
+<emphasis id="The_program_named_ActivateEvent01" effect="bold">
+
+The program named 
+ActivateEvent01
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1080">
+This is probably the most fundamental of all event-driven ActionScript 
+programs. This program illustrates the 
+
+<emphasis id="strong1089" effect="bold">
+activate
+
+</emphasis>
+ and 
+
+<emphasis id="strong1090" effect="bold">
+deactivate
+
+</emphasis>
+ 
+events. According to the
+
+
+<link id="a1063" url="http://livedocs.adobe.com/flex/3/langref/flash/events/EventDispatcher.html">
+
+
+EventDispatcher
+
+</link>
+
+ documentation, the 
+
+<emphasis id="strong1091" effect="bold">
+activate
+
+</emphasis>
+ event is 
+
+<emphasis id="em1014" effect="italics">
+"Dispatched 
+when the Flash Player or AIR application gains operating system focus and 
+becomes active."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1081">
+Similarly, the 
+
+<emphasis id="strong1092" effect="bold">
+deactivate
+
+</emphasis>
+ event is 
+
+<emphasis id="em1015" effect="italics">
+"Dispatched when the Flash 
+Player or AIR application loses the operating system focus and is becoming 
+inactive."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1093" effect="bold">
+Program screen graphics
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1083">
+The screen output for this program is shown in Figure 1. This output 
+doesn't change during the running of the program.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_1" effect="bold">
+</emphasis>
+Program ActivateEvent01 screen graphics.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/as0114a.jpg" width="237" height="329"/>
+</media>
+
+
+      
+
+<caption>Program ActivateEvent01 screen graphics.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1094" effect="bold">
+Must run in debug mode
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1085">
+This program uses calls to the 
+
+<emphasis id="strong1095" effect="bold">
+trace
+
+</emphasis>
+ function to produce output text 
+on the console screen. Therefore, you will need to compile and run the 
+program in debug mode in the IDE to get matching results.
+
+</para>
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1096" effect="bold">
+Gain and then lose operating system focus
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1087">
+If you start the program in debug mode, click somewhere inside the Flash window and then 
+click somewhere in another window or on the desktop, you will cause the Flash 
+Player to first gain and then lose the operating system focus. In other 
+words, on the first click inside the Flash window, the Flash Player will 
+become the active program. On the second click in another window, another 
+program will become the active program.
+
+</para>
+
+
+
+
+<para id="p1088">
+
+ 
+
+<emphasis id="strong1097" effect="bold">
+Debug output in the system console
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1089">
+When you do that, output similar to that shown in Figure 2 should appear in 
+the IDE console.
+
+</para>
+
+
+
+ 
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_2" effect="bold">
+</emphasis>
+Debug output in the system console.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/as0114b.jpg" width="351" height="220"/>
+</media>
+
+
+      
+
+<caption>Debug output in the system console.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1090">
+<emphasis id="strong1098" effect="bold">
+A snapshot of the Flex Builder 3 console
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1091">
+Figure 2 shows a snapshot of the console window in the Flex 
+Builder 3 IDE when the above procedure was executed in debug mode.
+
+</para>
+
+
+
+
+<para id="p1092">
+The three lines of text beginning with the word 
+
+<emphasis id="em1016" effect="italics">
+Activated
+
+</emphasis>
+ were produced 
+when the Flash Player gained operating system focus. The three lines of 
+text beginning with the word 
+
+<emphasis id="em1017" effect="italics">
+Deactivated
+
+</emphasis>
+ were produced when the Flash 
+Player lost operating system focus.
+
+</para>
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1099" effect="bold">
+The currentTarget and target properties of the Event 
+object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1094">
+For an explanation of the 
+
+<emphasis id="strong1100" effect="bold">
+currentTarget
+
+</emphasis>
+ and the 
+
+<emphasis id="strong1101" effect="bold">
+target
+
+</emphasis>
+ 
+properties shown in Figure 2, see the excellent article titled
+
+
+<link id="a1064" url="http://www.actionscript.org/resources/articles/860/1/Understanding-the-AS3-Event-Flow/Page1.html">
+
+
+Understanding the AS3 Event Flow
+
+</link>
+
+ by Jody Hall. As you will see in the 
+next sample program, this information can be used to identify the component that 
+dispatched the event.
+
+</para>
+
+
+
+
+<para id="p1095">
+<emphasis id="strong1102" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1096">
+I will explain the code for 
+
+<emphasis id="strong1103" effect="bold">
+ActivateEvent01
+
+</emphasis>
+ in fragments. A complete 
+listing of the class file is provided in Listing 15 
+near the end of the lesson.
+
+</para>
+
+
+
+
+<para id="p1097">
+
+
+
+<emphasis id="strong1104" effect="bold">
+Beginning of Driver class for ActivateEvent01
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1098">
+Listing 2 shows the beginning of the 
+
+<emphasis id="strong1105" effect="bold">
+Driver
+
+</emphasis>
+ class for 
+
+<emphasis id="strong1106" effect="bold">
+
+ActivateEvent01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<example id="listing1001" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Beginning of Driver class for  ActivateEvent01.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1001" display="block">
+package CustomClasses{
+  import flash.events.Event;
+  import mx.containers.VBox;
+  import mx.controls.Label;
+  
+  public class Driver extends VBox{
+    public function Driver(){
+      setStyle("borderStyle","inset");
+      setStyle("borderColor",0xFF0000);
+      height=100;
+      
+      var label:Label = new Label();
+      label.text = "Click browser in debug mode"
+      label.setStyle("color",0xFFFF00);
+      addChild(label);
+      
+      addEventListener(Event.ACTIVATE,activateHandler);
+
+      addEventListener(Event.DEACTIVATE,
+                                      deActivateHandler);
+    }//end constructor
+</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1107" effect="bold">
+Extends the VBox class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1100">
+The entire program is written in the 
+
+<emphasis id="strong1108" effect="bold">
+Driver
+
+</emphasis>
+ class and illustrates the 
+
+<emphasis id="strong1109" effect="bold">
+
+activate
+
+</emphasis>
+ and 
+
+<emphasis id="strong1110" effect="bold">
+deactivate
+
+</emphasis>
+ events of the 
+
+<emphasis id="strong1111" effect="bold">
+EventDispatcher
+
+</emphasis>
+ 
+class.
+
+</para>
+
+
+
+
+<para id="p1101">
+This class extends the 
+
+<emphasis id="strong1112" effect="bold">
+VBox
+
+</emphasis>
+ class, so an object of this class is a 
+
+<emphasis id="strong1113" effect="bold">
+
+VBox
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+<para id="p1102">
+<emphasis id="strong1114" effect="bold">
+Register event listeners
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1103">
+The first statement beginning with 
+
+<emphasis id="strong1115" effect="bold">
+addEventListener
+
+</emphasis>
+ registers an event listener on the
+
+
+<emphasis id="strong1116" effect="bold">
+VBox
+
+</emphasis>
+ object causing it to execute the method named 
+
+<emphasis id="strong1117" effect="bold">
+activateHandler
+
+</emphasis>
+ 
+when the Flash Player gains operating system focus and becomes the active 
+program.
+
+</para>
+
+
+
+
+<para id="p1104">
+The second statement beginning with 
+
+<emphasis id="strong1118" effect="bold">
+addEventListener
+
+</emphasis>
+ registers an event listener on the
+
+
+<emphasis id="strong1119" effect="bold">
+VBox
+
+</emphasis>
+ causing it to execute the 
+
+<emphasis id="strong1120" effect="bold">
+deActivateHandler
+
+</emphasis>
+ method when the 
+Flash Player loses operating system focus and is no longer the active program.
+
+</para>
+
+
+
+
+<para id="p1105">
+
+
+
+<emphasis id="strong1121" effect="bold">
+The event handler methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1106">
+The two event handler methods are shown in Listing 3.
+
+</para>
+
+
+
+
+
+
+<example id="listing1002" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+The event handler methods.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1002" display="block">
+    private function activateHandler(event:Event):void{
+        trace("\nActivated\ncurrentTarget = " 
+              + event.currentTarget 
+              + "\ntarget = " 
+              + event.target);
+    }//end activateHandler
+    //-----------------------------=-------------------//
+    
+    private function deActivateHandler(event:Event):void{
+        trace("\nDeactivated\ncurrentTarget = " 
+              + event.currentTarget 
+              + "\ntarget = " 
+              + event.target);
+    }//end deActivateHandler
+
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1122" effect="bold">
+Output produced by the trace function
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1108">
+When the methods are executed in debug mode, the call to the 
+
+<emphasis id="strong1123" effect="bold">
+trace
+
+</emphasis>
+ 
+function extracts and displays property values from the incoming 
+
+<emphasis id="strong1124" effect="bold">
+Event
+
+</emphasis>
+ 
+object.
+
+</para>
+
+
+
+
+<para id="p1109">
+This causes the material shown in Figure 2 to be displayed in the system 
+console window each time the Flash Player gains and then loses the operating 
+system focus.
+
+</para>
+
+
+  
+
+<para id="p1110">
+Listing 3 also signals the end of the class and the end of the program 
+  named 
+
+<emphasis id="strong1125" effect="bold">
+ActivateEvent01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="The_program_named_Effects03" effect="bold">
+
+The program named Effects03
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1111">
+This is a much more substantial program, which is based on a program in the 
+Flex
+
+
+<link id="a1065" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Effect.html#includeExamplesSummary">
+
+
+documentation
+
+</link>
+
+. That program is written mostly in Flex MXML and 
+contains the minimum amount of ActionScript code necessary to provide the 
+desired behavior.
+
+</para>
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1126" effect="bold">
+Online versions of the two programs
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1113">
+An online executable version of the program is available following the source 
+code listing at the above 
+
+
+<link id="a1066" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Effect.html#includeExamplesSummary">
+
+
+site
+
+</link>
+
+. I encourage you to run it and observe its behavior.
+
+</para>
+
+
+
+
+<para id="p1114">
+This version of the program is written almost entirely in 
+ActionScript and contains only enough Flex MXML to make it possible to launch 
+the program from within an HTML document. I also encourage you to
+
+
+<link id="a1067" url="Effects03.html">
+
+run
+
+</link>
+
+ this version and observe its 
+behavior.
+
+</para>
+
+
+
+
+<para id="p1115">
+
+ 
+
+<emphasis id="strong1127" effect="bold">
+Project file structure for Effects03
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1116">
+The project file structure for the program is shown in Figure 3, which shows 
+a snapshot of the Flex Builder 3 Navigator panel.
+
+</para>
+
+
+
+ 
+
+
+<figure id="figure1002" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_3" effect="bold">
+</emphasis>
+Project file structure for Effects03.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1002" alt="Missing image" display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/as0114f.jpg" width="324" height="267"/>
+</media>
+
+
+      
+
+<caption>Project file structure for Effects03.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1117">
+
+ 
+
+<emphasis id="strong1128" effect="bold">
+Screen display at startup
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1118">
+The screen display at startup is shown in Figure 4.
+
+</para>
+
+
+
+ 
+
+
+<figure id="figure1003" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_4" effect="bold">
+</emphasis>
+Screen display at startup.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1003" alt="Missing image" display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/as0114c.jpg" width="483" height="642"/>
+</media>
+
+
+      
+
+<caption>Screen display at startup.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1129" effect="bold">
+<emphasis id="A_creationComplete_event_" effect="bold">
+
+A 
+creationComplete event
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1120">
+By the time that the snapshot shown in Figure 4 was taken, the application 
+had already dispatched a 
+
+<emphasis id="strong1130" effect="bold">
+creationComplete
+
+</emphasis>
+ event and the event handler 
+registered to listen for that event had caused the text "Creation Complete!" to 
+be displayed in a 
+
+<emphasis id="strong1131" effect="bold">
+TextArea
+
+</emphasis>
+ object near the top of the browser window.
+
+</para>
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1132" effect="bold">
+What is a creationComplete event?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1122">
+According to the
+
+
+<link id="a1068" url="http://livedocs.adobe.com/flex/3/langref/mx/core/UIComponent.html#event:creationComplete">
+
+
+documentation
+
+</link>
+
+, this event is dispatched 
+
+<emphasis id="em1018" effect="italics">
+"when the component has finished 
+its construction, property processing, measuring, layout, and drawing."
+
+</emphasis>
+ 
+Therefore, other than the fact that the user starts the program running, the 
+dispatching of this event type is completely beyond the control of the user.
+
+</para>
+
+
+
+
+<para id="p1123">
+<emphasis id="strong1133" effect="bold">
+<emphasis id="Behavior_of_the_program" effect="bold">
+
+Behavior of the 
+program
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1124">
+This program uses a 
+
+
+<link id="a1069" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Resize.html">
+
+Resize
+
+</link>
+
+ 
+object from the
+
+
+<link id="a1070" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/package-detail.html">
+
+
+mx.effects
+
+</link>
+
+ package to cause the size of the image of the penguin shown in 
+Figure 4 to be reduced to one-fourth of its original size over a period of 10 
+seconds when the user clicks the 
+
+<emphasis id="strong1134" effect="bold">
+Start
+
+</emphasis>
+ 
+button shown at the bottom of Figure 4.
+
+</para>
+
+
+
+
+<para id="p1125">
+The behavior of the effect resulting from clicks on the other buttons at the 
+bottom of Figure 4 generally matches the labels on the buttons.
+
+</para>
+
+
+
+
+<para id="p1126">
+
+ 
+
+<emphasis id="strong1135" effect="bold">
+Screen display after clicking Start and Pause
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1127">
+Figure 5 shows the screen display after clicking the 
+
+<emphasis id="strong1136" effect="bold">
+Start
+
+</emphasis>
+ button, 
+allowing the effect to run for a few seconds, and then clicking the 
+
+<emphasis id="strong1137" effect="bold">
+Pause
+
+</emphasis>
+ 
+button.
+
+</para>
+
+
+
+ 
+
+
+<figure id="figure1004" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_5" effect="bold">
+</emphasis>
+Screen display after clicking Start and   Pause.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1004" alt="Missing image" display="block">
+<image id="img1004" mime-type="image/jpeg" src="../../media/as0114d.jpg" width="483" height="642"/>
+</media>
+
+
+      
+
+<caption>Screen display after clicking Start and   Pause.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1138" effect="bold">
+Servicing an effectStart event
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1129">
+As you will see later, clicking the 
+
+<emphasis id="strong1139" effect="bold">
+Start
+
+</emphasis>
+ button causes a method named
+
+
+<emphasis id="strong1140" effect="bold">
+play
+
+</emphasis>
+ to be called on an object of the 
+
+<emphasis id="strong1141" effect="bold">
+Resize
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+<para id="p1130">
+The 
+
+<emphasis id="strong1142" effect="bold">
+Resize
+
+</emphasis>
+ object dispatches an 
+
+<emphasis id="strong1143" effect="bold">
+effectStart
+
+</emphasis>
+ event whenever it 
+starts playing an effect. An event handler, registered on the 
+
+<emphasis id="strong1144" effect="bold">
+Resize
+
+</emphasis>
+ 
+object, causes the text 
+
+<emphasis id="strong1145" effect="bold">
+"Effect Started!"
+
+</emphasis>
+ to be displayed in the text 
+area near the top of Figure 5.
+
+</para>
+
+
+
+
+<para id="p1131">
+<emphasis id="strong1146" effect="bold">
+Doesn't depend on user interaction
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1132">
+Even though the user clicked the 
+
+<emphasis id="strong1147" effect="bold">
+Start
+
+</emphasis>
+ button to cause the 
+
+<emphasis id="strong1148" effect="bold">
+play
+
+</emphasis>
+ 
+method to be called on the 
+
+<emphasis id="strong1149" effect="bold">
+Resize
+
+</emphasis>
+ object in this case, the dispatching of 
+the
+
+
+<emphasis id="strong1150" effect="bold">
+effectStart
+
+</emphasis>
+ event is generally independent of user interaction and is 
+triggered by a change of state within the program.
+
+</para>
+
+
+
+
+<para id="p1133">
+<emphasis id="strong1151" effect="bold">
+Could play the effect based on the time of day
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1134">
+For example, the 
+
+<emphasis id="strong1152" effect="bold">
+play
+
+</emphasis>
+ method could just as well have been called on 
+the
+
+<emphasis id="strong1153" effect="bold">
+ 
+Resize
+
+</emphasis>
+ object by another event handler that has determined that the time on 
+the system clock has just struck midnight. In that case, the user could be 
+home fast asleep and the 
+
+<emphasis id="strong1154" effect="bold">
+effectStart
+
+</emphasis>
+ event would still be dispatched.
+
+</para>
+
+
+
+
+<para id="p1135">
+<emphasis id="strong1155" effect="bold">
+Screen display after the effect has run to 
+completion
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1136">
+The screen display in Figure 6 was captured after the user clicked the 
+
+<emphasis id="strong1156" effect="bold">
+
+Resume
+
+</emphasis>
+ button and allowed the effect to run to completion.
+
+</para>
+
+
+
+ 
+
+
+<figure id="figure1005" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_6" effect="bold">
+</emphasis>
+Screen display after the effect has run to   completion.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<media id="media1005" alt="Missing image" display="block">
+<image id="img1005" mime-type="image/jpeg" src="../../media/as0114e.jpg" width="483" height="642"/>
+</media>
+
+
+      
+
+<caption>Screen display after the effect has run to   completion.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1137">
+<emphasis id="strong1157" effect="bold">
+Servicing an effectEnd event
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1138">
+The 
+
+<emphasis id="strong1158" effect="bold">
+Resize
+
+</emphasis>
+ object dispatches an 
+
+<emphasis id="strong1159" effect="bold">
+effectEnd
+
+</emphasis>
+ event when it 
+finishes playing an effect. An event handler, registered on the 
+
+<emphasis id="strong1160" effect="bold">
+Resize
+
+</emphasis>
+ 
+object, caused the text 
+
+<emphasis id="strong1161" effect="bold">
+"Effect Ended!"
+
+</emphasis>
+ to be displayed in the text area 
+near the top of Figure 5.
+
+</para>
+
+
+
+
+<para id="p1139">
+<emphasis id="strong1162" effect="bold">
+Doesn't depend on user interaction
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1140">
+As before, the dispatching of the 
+
+<emphasis id="strong1163" effect="bold">
+effectEnd
+
+</emphasis>
+ event is generally 
+independent of user interaction. Instead, it is triggered by a change of 
+state within the program. In this case, at least ten seconds has elapsed 
+since the user clicked the 
+
+<emphasis id="strong1164" effect="bold">
+Start
+
+</emphasis>
+ button to cause the effect to be played. 
+Once again, the 
+
+<emphasis id="strong1165" effect="bold">
+play
+
+</emphasis>
+ method could just as well have been called on the
+
+<emphasis id="strong1166" effect="bold">
+ 
+Resize
+
+</emphasis>
+ object by another event handler that has determined that the time on 
+the system clock has struck midnight.
+
+</para>
+
+
+
+
+<para id="p1141">
+<emphasis id="strong1167" effect="bold">
+The MXML file
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1142">
+The MXML file used to launch this program as a Flex application is shown in 
+Listing 14. The MXML code in Listing 14 simply instantiates an object of 
+the 
+
+<emphasis id="strong1168" effect="bold">
+Driver
+
+</emphasis>
+ class file shown in the 
+
+<emphasis id="strong1169" effect="bold">
+CustomClasses
+
+</emphasis>
+ folder in Figure 
+2. From that point forward, the behavior of the program is entirely 
+controlled by the ActionScript code that begins in Listing 4.
+
+</para>
+
+
+
+
+<para id="p1143">
+<emphasis id="strong1170" effect="bold">
+Event-driven aspects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1144">
+This program may be interesting to you from two different perspectives. 
+First, the event-driven aspects of the program illustrate the earlier discussion 
+of the different types of events.
+
+</para>
+
+
+
+
+<para id="p1145">
+Some of the events that are serviced by the program, 
+
+<emphasis id="em1019" effect="italics">
+(such as 
+
+<emphasis id="strong1171" effect="bold">
+click
+
+</emphasis>
+ 
+events on the buttons)
+
+</emphasis>
+, are dispatched as the direct result of user 
+interaction. The remainder of the events, such as a 
+
+<emphasis id="strong1172" effect="bold">
+creationComplete
+
+</emphasis>
+ 
+event, are dispatched independently of direct user interaction.
+
+</para>
+
+
+
+
+<para id="p1146">
+<emphasis id="strong1173" effect="bold">
+Correspondence between ActionScript and MXML code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1147">
+The second interesting aspect of the program is that it illustrates that many 
+things can be done using either Flex MXML code or ActionScript code.
+
+</para>
+
+
+
+
+<para id="p1148">
+The overall structure of this program is not identical to the 
+structure of the program shown in the
+
+
+<link id="a1071" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Effect.html#includeExamplesSummary">
+
+
+documentation
+
+</link>
+
+. However, it is similar enough that you should be able 
+to map the MXML code from the program in the documentation to the ActionScript 
+code in this program and understand how the two relate to one another.
+
+</para>
+
+
+
+
+<para id="p1149">
+<emphasis id="strong1174" effect="bold">
+Will explain in fragments
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1150">
+I will break this program down and explain it in fragments. Aside from 
+the MXML file shown in Listing 14, the program consists of a single class named
+
+
+<emphasis id="strong1175" effect="bold">
+Driver
+
+</emphasis>
+. A complete listing of the 
+
+<emphasis id="strong1176" effect="bold">
+Driver
+
+</emphasis>
+ class file is 
+provided in Listing 16 near the end of the lesson.
+
+</para>
+
+
+
+
+<para id="p1151">
+
+
+
+<emphasis id="strong1177" effect="bold">
+Beginning of the class named Driver
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1152">
+The Driver class begins in Listing 4. Note that this class extends the
+
+
+<emphasis id="strong1178" effect="bold">
+Panel
+
+</emphasis>
+ class, causing this program to have the same overall appearance as 
+the program provided in the
+
+
+<link id="a1072" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Effect.html#includeExamplesSummary">
+
+
+documentation
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<example id="listing1003" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+Beginning of Driver class for Effects03.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1003" display="block">package CustomClasses{
+  import flash.events.MouseEvent;
+  import mx.containers.ControlBar;
+  import mx.containers.Panel;
+  import mx.controls.Button;
+  import mx.controls.Image;
+  import mx.controls.TextArea;
+  import mx.effects.Resize;
+  import mx.events.EffectEvent;
+  import mx.events.FlexEvent;
+
+
+  public class Driver extends Panel{
+    //Instantiate and save references to all of the
+    // objects required by the program.
+    private var resize:Resize = new Resize();
+    private var textOut:TextArea = new TextArea();
+    private var image:Image = new Image();
+    private var bar:ControlBar = new ControlBar();
+    private var startButton:Button = new Button();
+    private var pauseButton:Button = new Button();
+    private var resumeButton:Button = new Button();
+    private var reverseButton:Button = new Button();
+    private var endButton:Button = new Button();
+    private var resetButton:Button = new Button();</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1153">
+In addition to containing all of the required import directives, the code in 
+Listing 4 instantiates and saves references to all of the objects required by 
+the program.
+
+</para>
+
+
+
+
+<para id="p1154">
+
+
+
+<emphasis id="strong1179" effect="bold">
+Beginning of the constructor for Effects03
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1155">
+The constructor begins in Listing 5.
+
+</para>
+
+
+
+
+
+<example id="listing1004" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+Beginning of the constructor for  Effects03.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1004" display="block">    public function Driver(){//constructor
+      this.title="Demonstration of the Resize effect.";
+      this.percentWidth = 100;
+      this.percentHeight = 100;
+      
+      this.addEventListener(FlexEvent.CREATION_COMPLETE,
+                            creationCompleteHandler);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1156">
+The code in Listing 5 sets several properties on the 
+
+<emphasis id="strong1180" effect="bold">
+Panel
+
+</emphasis>
+ object, 
+which is the object with the light gray background shown in Figure 4. The 
+
+<emphasis id="strong1181" effect="bold">
+
+Panel
+
+</emphasis>
+ object is displayed in the browser window, which has a slightly darker 
+gray background color in Figure 4.
+
+</para>
+
+
+
+
+<para id="p1157">
+<emphasis id="strong1182" effect="bold">
+Register an event listener
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1158">
+The last statement in Listing 5 registers an event listener named 
+
+<emphasis id="strong1183" effect="bold">
+
+creationCompleteHandler
+
+</emphasis>
+ to service 
+
+
+<link id="a1073" url="http://livedocs.adobe.com/flex/3/langref/mx/core/UIComponent.html#event:creationComplete">
+
+
+creationComplete
+
+</link>
+
+ events dispatched by the 
+
+<emphasis id="strong1184" effect="bold">
+Panel
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+<para id="p1159">
+As you will see later, the event handler causes the text 
+
+<emphasis id="strong1185" effect="bold">
+"Creation 
+Complete!"
+
+</emphasis>
+ to be displayed in a 
+
+<emphasis id="strong1186" effect="bold">
+TextArea
+
+</emphasis>
+ object near the top of the
+
+
+<emphasis id="strong1187" effect="bold">
+Panel
+
+</emphasis>
+ in Figure 4 
+
+<emphasis id="em1020" effect="italics">
+when the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1188" effect="bold">
+<emphasis id="em1021" effect="italics">
+Panel
+
+</emphasis>
+</emphasis>
+<emphasis id="em1022" effect="italics">
+ object and all of its children 
+have been constructed, initialized, and drawn.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1160">
+
+
+
+<emphasis id="strong1189" effect="bold">
+Prepare the TextArea object and add it to the Panel
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1161">
+Listing 6 sets some properties and some styles on the 
+
+<emphasis id="strong1190" effect="bold">
+TextArea
+
+</emphasis>
+ object 
+and adds it near the top of the 
+
+<emphasis id="strong1191" effect="bold">
+Panel
+
+</emphasis>
+ as shown in Figure 4.
+
+</para>
+
+
+
+
+
+<example id="listing1005" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Prepare the TextArea object and add it to  the Panel.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1005" display="block">      textOut.percentWidth = 100;//percent
+      textOut.height = 100;//pixels
+      textOut.setStyle("color","0x0000FF");
+      textOut.setStyle("fontSize",14);
+      textOut.text = "Use the Buttons to control "
+                              + "the size of the image.";
+      addChild(textOut);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1162">
+This object will be used to display messages that track the progress of the 
+program as the user clicks the buttons at the bottom of Figure 4. If the 
+text area becomes full, a vertical scroll bar will automatically appear on the 
+right side of the text area.
+
+</para>
+
+
+
+
+<para id="p1163">
+
+
+
+<emphasis id="strong1192" effect="bold">
+Prepare an embedded image and add it to the Panel
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1164">
+Listing 7 prepares an embedded image, loads it into an Image object, and adds 
+the Image object to the 
+
+<emphasis id="strong1193" effect="bold">
+Panel
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<example id="listing1006" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+Prepare an embedded image and add it to  the Panel.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1006" display="block">      [Embed("/Images/snowscene.jpg")]
+      var img:Class;
+      image.load(img);
+      
+      addChild(image);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1165">
+
+ 
+
+<emphasis id="strong1194" effect="bold">
+Comparable MXML code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1166">
+In case you're interested, the ActionScript code in Listing 7 is essentially 
+comparable to the MXML code in Figure 7.
+
+</para>
+
+
+
+ 
+
+
+<figure id="figure1006" type="figure">
+<label>Figure</label>
+
+
+
+
+<title>
+<emphasis id="Figure_7" effect="bold">
+</emphasis>
+Comparable MXML code.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1007" display="block">&lt;mx:Image id="img"
+source="@Embed(
+source='/Images/snowscene.jpg')"/&gt;</code>
+
+
+      
+
+<caption>Comparable MXML code.</caption>
+</figure>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1167">
+Note, however, that in order to cause Figure 7 to fit into this narrow 
+publication format, I inserted an extra line break character ahead of the second 
+occurrence of the word "source." An MXML parser may not be willing to 
+accept this line break.
+
+</para>
+
+
+
+
+<para id="p1168">
+
+
+
+<emphasis id="strong1195" effect="bold">
+Add the button bar to the panel
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1169">
+The six buttons at the bottom of Figure 4 are contained in an object of the 
+class 
+
+
+<link id="a1074" url="http://livedocs.adobe.com/flex/3/langref/mx/containers/ControlBar.html">
+
+
+ControlBar
+
+</link>
+
+, which was instantiated in Listing 4.
+
+</para>
+
+
+
+
+<para id="p1170">
+Listing 8 adds the 
+
+<emphasis id="strong1196" effect="bold">
+ControlBar
+
+</emphasis>
+ container to the 
+
+<emphasis id="strong1197" effect="bold">
+Panel
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<example id="listing1007" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_8" effect="bold">
+</emphasis>
+Add the button bar to the panel.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1008" display="block">      addChild(bar);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1171">
+
+
+
+<emphasis id="strong1198" effect="bold">
+Prepare the six buttons for use
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1172">
+The code in Listing 9:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1051">
+Adds labels to each of the six buttons at the bottom of Figure 4.
+
+</item>
+
+
+	
+
+<item id="li1052">
+Registers the same event handler to service 
+
+<emphasis id="strong1199" effect="bold">
+click
+
+</emphasis>
+ events on each 
+	of the six buttons.
+
+</item>
+
+
+	
+
+<item id="li1053">
+Adds each of the six buttons to the button bar shown at the bottom of 
+	Figure 4.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<example id="listing1008" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_9" effect="bold">
+</emphasis>
+Prepare the six buttons for use.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1009" display="block">      //Set text on the six buttons.
+      startButton.label = "Start";
+      pauseButton.label = "Pause";
+      resumeButton.label = "Resume";
+      reverseButton.label = "Reverse";
+      endButton.label = "End";
+      resetButton.label = "Reset";
+      
+      //Register a click listener on each button
+      startButton.addEventListener(
+                            MouseEvent.CLICK,btnHandler);
+      pauseButton.addEventListener(
+                            MouseEvent.CLICK,btnHandler);
+      resumeButton.addEventListener(
+                            MouseEvent.CLICK,btnHandler);
+      reverseButton.addEventListener(
+                            MouseEvent.CLICK,btnHandler);
+      endButton.addEventListener(
+                            MouseEvent.CLICK,btnHandler);
+      resetButton.addEventListener(
+                            MouseEvent.CLICK,btnHandler);
+
+      //Add the six buttons to the button bar
+      bar.addChild(startButton);
+      bar.addChild(pauseButton);
+      bar.addChild(resumeButton);
+      bar.addChild(reverseButton);
+      bar.addChild(endButton);
+      bar.addChild(resetButton);</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1173">
+
+
+
+<emphasis id="strong1200" effect="bold">
+Configure the Resize object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1174">
+The resize effect that I described 
+
+<link id="a1075" target-id="Behavior_of_the_program">
+
+earlier
+
+</link>
+
+ 
+is accomplished by calling the 
+
+<emphasis id="strong1201" effect="bold">
+play
+
+</emphasis>
+ method on the object of the class 
+
+<emphasis id="strong1202" effect="bold">
+
+Resize
+
+</emphasis>
+ that was instantiated in Listing 4.
+
+</para>
+
+
+
+
+<para id="p1175">
+Listing 10 targets that effect to the image shown in Figure 4. Listing 
+10 also specifies the final size of the image and the ten-second duration during 
+which the resize effect will play. 
+
+<emphasis id="em1023" effect="italics">
+(Note that the original size of the 
+image is 240x240 pixels and it will be resized to one-fourth of its original 
+size.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<example id="listing1009" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_10" effect="bold">
+</emphasis>
+Configure the Resize object.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1010" display="block">
+      resize.target = image;
+      resize.widthTo = 60;
+      resize.heightTo = 60; 
+      resize.duration = 10000;
+      
+      resize.addEventListener(
+                EffectEvent.EFFECT_END,endEffectHandler);
+      resize.addEventListener(
+            EffectEvent.EFFECT_START,startEffectHandler);
+
+    } //end constructor</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1176">
+<emphasis id="strong1203" effect="bold">
+Register two event listeners
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1177">
+The first four statements in Listing 10 would be sufficient to play the 
+effect if that was all that I wanted to do. In addition, however, my 
+objective is to illustrate the servicing of events that are dispatched due to 
+changes of state within the program.
+
+</para>
+
+
+
+
+<para id="p1178">
+<emphasis id="strong1204" effect="bold">
+Seven different types of events
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1179">
+A 
+
+<emphasis id="strong1205" effect="bold">
+Resize
+
+</emphasis>
+ object dispatches seven different types of events including 
+the following two:
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1054">
+
+	
+
+<link id="a1076" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Effect.html#event:effectStart">
+
+
+	effectStart
+
+</link>
+
+ - Dispatched when the effect starts playing.
+
+</item>
+
+
+
+
+<item id="li1055">
+
+
+
+<link id="a1077" url="http://livedocs.adobe.com/flex/3/langref/mx/effects/Effect.html#event:effectEnd">
+
+
+effectEnd
+
+</link>
+
+ - Dispatched when the effect finishes playing, either when the 
+effect finishes playing or when the effect has been interrupted by a call to the 
+
+
+<emphasis id="strong1206" effect="bold">
+end()
+
+</emphasis>
+ method.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1180">
+The last two statements in Listing 10 register event listeners on the 
+
+<emphasis id="strong1207" effect="bold">
+Resize
+
+</emphasis>
+ 
+object for both of those types of events.
+
+</para>
+
+
+
+
+<para id="p1181">
+Listing 10 also signals the end of the constructor for the 
+
+<emphasis id="strong1208" effect="bold">
+Driver
+
+</emphasis>
+ 
+class.
+
+</para>
+
+
+
+
+<para id="p1182">
+
+
+
+<emphasis id="strong1209" effect="bold">
+Event handlers registered on the Resize object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1183">
+The two event handlers registered on the 
+
+<emphasis id="strong1210" effect="bold">
+Resize
+
+</emphasis>
+ object by Listing 10 
+are shown in Listing 11.
+
+</para>
+
+
+
+
+
+<example id="listing1010" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_11" effect="bold">
+</emphasis>
+Event handlers registered on the Resize  object.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1011" display="block">
+    private function startEffectHandler(
+                                 event:EffectEvent):void{
+        textOut.text += "\nEffect Started!";
+    } //end event handler
+    //--------------------------------------------------//
+    
+
+    private function endEffectHandler(
+                                 event:EffectEvent):void{
+        textOut.text += "\nEffect Ended!";
+    } //end event handler</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1184">
+The first method named 
+
+<emphasis id="strong1211" effect="bold">
+startEffectHandler
+
+</emphasis>
+ is executed each time the 
+
+<emphasis id="strong1212" effect="bold">
+
+Resize
+
+</emphasis>
+ object dispatches an 
+
+<emphasis id="strong1213" effect="bold">
+effectStart
+
+</emphasis>
+ event. The second 
+method named 
+
+<emphasis id="strong1214" effect="bold">
+endEffectHandler
+
+</emphasis>
+ is executed each time the 
+
+<emphasis id="strong1215" effect="bold">
+Resize
+
+</emphasis>
+ 
+object dispatches an 
+
+<emphasis id="strong1216" effect="bold">
+effectEnd
+
+</emphasis>
+ event.
+
+</para>
+
+
+
+
+<para id="p1185">
+<emphasis id="strong1217" effect="bold">
+Output text at the start and the end of the effect
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1186">
+The text in the text area at the top of Figure 5 shows the result of 
+executing the 
+
+<emphasis id="strong1218" effect="bold">
+startEffectHandler
+
+</emphasis>
+ method from Listing 11.
+
+</para>
+
+
+
+
+<para id="p1187">
+The text in the text area at the top of Figure 6 shows the result of 
+executing the 
+
+<emphasis id="strong1219" effect="bold">
+endEffectHandler
+
+</emphasis>
+ method from Listing 11.
+
+</para>
+
+
+
+
+<quote id="blockquote1002" display="block">
+
+	
+
+<para id="p1188">
+<emphasis id="em1024" effect="italics">
+(Note the small size of the image at the end of the resize effect in 
+	Figure 6 as compared to the size of the image at the beginning of the resize 
+	effect in Figure 4.)
+
+</emphasis>
+</para>
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1189">
+<emphasis id="strong1220" effect="bold">
+<emphasis id="Methods_of_the_Resize_class" effect="bold">
+
+Methods of the 
+Resize class
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1190">
+The 
+
+<emphasis id="strong1221" effect="bold">
+Resize
+
+</emphasis>
+ class defines several methods including the following six
+
+
+<emphasis id="em1025" effect="italics">
+(in alphabetical order)
+
+</emphasis>
+:
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1056">
+<emphasis id="strong1222" effect="bold">
+end
+
+</emphasis>
+ - Interrupts an effect that is currently playing, and jumps 
+	immediately to the end of the effect.
+
+</item>
+
+
+
+
+<item id="li1057">
+<emphasis id="strong1223" effect="bold">
+pause
+
+</emphasis>
+ - Pauses the effect until you call the 
+
+<emphasis id="strong1224" effect="bold">
+resume
+
+</emphasis>
+ method.
+
+</item>
+
+
+	
+
+<item id="li1058">
+<emphasis id="strong1225" effect="bold">
+play
+
+</emphasis>
+ - Begins playing the effect.
+
+</item>
+
+
+
+
+<item id="li1059">
+<emphasis id="strong1226" effect="bold">
+resume
+
+</emphasis>
+ - Resumes the effect after it has been paused by a call to the 
+
+
+<emphasis id="strong1227" effect="bold">
+pause
+
+</emphasis>
+ method.
+
+</item>
+
+
+	
+
+<item id="li1060">
+<emphasis id="strong1228" effect="bold">
+reverse
+
+</emphasis>
+ - Plays the effect in reverse 
+
+<emphasis id="em1026" effect="italics">
+(if the effect is 
+	currently playing)
+
+</emphasis>
+, starting from the current position of the effect.
+
+</item>
+
+
+
+
+<item id="li1061">
+<emphasis id="strong1229" effect="bold">
+stop
+
+</emphasis>
+ - Stops the effect, leaving the effect targets in their current 
+state.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1191">
+
+
+
+<emphasis id="strong1230" effect="bold">
+Common event handler for the buttons
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1192">
+Listing 12 shows a common event handler that is used to service 
+
+<emphasis id="strong1231" effect="bold">
+click
+
+</emphasis>
+ 
+events on all six of the buttons at the bottom of Figure 4.
+
+</para>
+
+
+
+
+
+
+<example id="listing1011" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_12" effect="bold">
+</emphasis>
+Common event handler for the buttons.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1012" display="block">
+    private function btnHandler(event:MouseEvent):void{
+      if (event.target == startButton) {
+        resize.play();//start the effect 
+        startButton.enabled = false;
+      }else if(event.target == pauseButton){
+        resize.pause();//pause the effect
+      }else if(event.target == resumeButton){
+        resize.resume();//resume the effect after a pause
+      }else if(event.target == reverseButton){
+        resize.reverse();//reverse the effect
+      }else if(event.target == endButton){
+        resize.end();//end the effect prematurely
+      }else{//reset the program to starting conditions
+        resize.end(); 
+        image.width=240; 
+        image.height=240; 
+        startButton.enabled=true;
+      } //end else
+      
+    } //end btnHandler</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1193">
+<emphasis id="strong1232" effect="bold">
+Identify the button that dispatched the event
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1194">
+Listing 12 extracts and uses the 
+
+<emphasis id="strong1233" effect="bold">
+target
+
+</emphasis>
+ property of the incoming 
+
+<emphasis id="strong1234" effect="bold">
+
+MouseEvent
+
+</emphasis>
+ 
+object to identify which of the six buttons dispatched the 
+
+<emphasis id="strong1235" effect="bold">
+click
+
+</emphasis>
+ event 
+that caused the method to be executed.
+
+</para>
+
+
+
+
+<para id="p1195">
+<emphasis id="strong1236" effect="bold">
+Call a corresponding method on the Resize object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1196">
+For each of the first five buttons shown in Figure 4, Listing 12 calls a 
+corresponding method from the above 
+
+<link id="a1078" target-id="Methods_of_the_Resize_class">
+
+list
+
+</link>
+
+ 
+on the 
+
+<emphasis id="strong1237" effect="bold">
+Resize
+
+</emphasis>
+ object. 
+
+<emphasis id="em1027" effect="italics">
+(Note that clicking the 
+
+<emphasis id="strong1238" effect="bold">
+Start
+
+</emphasis>
+ 
+button causes the 
+
+<emphasis id="strong1239" effect="bold">
+Start
+
+</emphasis>
+ button to be disabled by the code in Listing 12. 
+Note also that none of the buttons call the 
+
+<emphasis id="strong1240" effect="bold">
+
+stop
+
+</emphasis>
+ 
+method from the above list.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1197">
+<emphasis id="strong1241" effect="bold">
+Service the Reset button
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1198">
+The sixth button, labeled 
+
+<emphasis id="strong1242" effect="bold">
+Reset
+
+</emphasis>
+ also calls the 
+
+<emphasis id="strong1243" effect="bold">
+end
+
+</emphasis>
+ method from 
+the above list to cause the effect to immediately jump to the end. Then it 
+executes some additional code to restore the image to its original size and to 
+re-enable the 
+
+<emphasis id="strong1244" effect="bold">
+Start
+
+</emphasis>
+ button.
+
+</para>
+
+
+
+
+<para id="p1199">
+
+
+
+<emphasis id="strong1245" effect="bold">
+Service the creationComplete event dispatched by the Panel
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1200">
+That brings us to the final event handler method and the end of the program. 
+The method shown in Listing 13 is executed when the 
+
+<emphasis id="strong1246" effect="bold">
+Panel
+
+</emphasis>
+ dispatches a 
+
+<emphasis id="strong1247" effect="bold">
+
+creationComplete
+
+</emphasis>
+ event.
+
+</para>
+
+
+
+
+
+<example id="listing1012" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_13" effect="bold">
+</emphasis>
+Event handler for the creationComplete  event dispatched by the Panel.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1013" display="block">    private function creationCompleteHandler(
+                                   event:FlexEvent):void{
+        textOut.text += "\nCreation Complete!";
+    } //end event handler</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1201">
+As you saw in Figure 4, the code in this method causes the text "Creation 
+Complete!" to be displayed in the text area when the 
+
+<emphasis id="strong1248" effect="bold">
+Panel
+
+</emphasis>
+ and all of its 
+children have been created, initialized, and drawn.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Runtheprogram" effect="bold">
+
+
+</emphasis>
+
+Run the program
+
+</title>
+
+
+
+
+
+
+<para id="p1202">
+I encourage you to
+
+
+<link id="a1079" url="Effects03.html">
+
+run
+
+</link>
+
+ this program from the web. 
+Then copy the code from Listing 14 through Listing 16. Use that 
+code to create Flex projects. Compile and run the projects. 
+Experiment with the code, making changes, and observing the results of your 
+changes. Make certain that you can explain why your changes behave as they 
+do.
+
+</para>
+
+
+
+
+<section id="h21006">
+<title>
+<emphasis id="Resources" effect="bold">
+
+Resources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1203">
+I will publish a list containing links to ActionScript 
+resources as a separate document. Search for ActionScript Resources in the 
+Connexions search box.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+ 
+
+<emphasis id="CompleteProgramListings" effect="bold">
+
+
+</emphasis>
+
+Complete program listings
+
+</title>
+
+
+
+
+
+
+<para id="p1204">
+Complete listings of the programs discussed in this lesson are provided in 
+Listing 14 through Listing 16.
+
+</para>
+
+
+
+
+<example id="listing1013" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_14" effect="bold">
+</emphasis>
+The common MXML code.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1014" display="block">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;mx:Application 
+  xmlns:mx="http://www.adobe.com/2006/mxml"
+  xmlns:cc="CustomClasses.*"&gt;
+  &lt;cc:Driver/&gt;
+&lt;/mx:Application&gt;</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1205">
+</para>
+
+
+
+
+
+
+<example id="listing1014" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_15" effect="bold">
+</emphasis>
+Driver class for ActivateEvent01.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1015" display="block">//Illustrates the activate and deactivate events of the
+// EventDispatcher class. Must run in debug mode to see
+// the text output.
+// Click on the browser to cause the Flash player
+// to gain focus and fire an activate event.
+// Click on the desktop to cause the Flash player to
+// lose focus and fire a deactivate event.
+package CustomClasses{
+  import flash.events.Event;
+  import mx.containers.VBox;
+  import mx.controls.Label;
+  
+  public class Driver extends VBox{
+    public function Driver(){
+      setStyle("borderStyle","inset");
+      setStyle("borderColor",0xFF0000);
+      height=100;
+      
+      var label:Label = new Label();
+      label.text = "Click browser in debug mode"
+      label.setStyle("color",0xFFFF00);
+      addChild(label);
+      
+      addEventListener(Event.ACTIVATE,activateHandler);
+      addEventListener(Event.DEACTIVATE,
+                                      deActivateHandler);
+    }//end constructor
+    
+    
+    private function activateHandler(event:Event):void{
+        trace("\nActivated\ncurrentTarget = " 
+              + event.currentTarget 
+              + "\ntarget = " 
+              + event.target);
+    }//end activateHandler
+    
+    private function deActivateHandler(event:Event):void{
+        trace("\nDeactivated\ncurrentTarget = " 
+              + event.currentTarget 
+              + "\ntarget = " 
+              + event.target);
+    }//end deActivateHandler
+
+  }//end class
+}//end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<para id="p1206">
+</para>
+
+
+
+
+
+<example id="listing1015" type="listing">
+<label>Listing</label>
+
+
+
+
+<title>
+<emphasis id="Listing_16" effect="bold">
+</emphasis>
+Driver class for Effects03.
+</title>
+
+
+  
+
+
+    
+
+
+      
+
+
+      
+
+<code id="pre1016" display="block">/*This is an ActionScript version of a program that is
+similar to the sample MXML program in the documentation 
+for the Effect class at:
+http://livedocs.adobe.com/flex/3/langref/mx/effects
+/Effect.html. However, several changes were made to the 
+behavior of the program to make it more suitable for the 
+instructional purpose.
+*/
+
+package CustomClasses{
+  import flash.events.MouseEvent;
+  import mx.containers.ControlBar;
+  import mx.containers.Panel;
+  import mx.controls.Button;
+  import mx.controls.Image;
+  import mx.controls.TextArea;
+  import mx.effects.Resize;
+  import mx.events.EffectEvent;
+  import mx.events.FlexEvent;
+
+
+  public class Driver extends Panel{
+    //Instantiate and save references to all of the
+    // objects needed by the program.
+    private var resize:Resize = new Resize();
+    private var textOut:TextArea = new TextArea();
+    private var image:Image = new Image();
+    private var bar:ControlBar = new ControlBar();
+    private var startButton:Button = new Button();
+    private var pauseButton:Button = new Button();
+    private var resumeButton:Button = new Button();
+    private var reverseButton:Button = new Button();
+    private var endButton:Button = new Button();
+    private var resetButton:Button = new Button();
+    //--------------------------------------------------//
+    
+    public function Driver(){//constructor
+      this.title="Demonstration of the Resize effect.";
+      this.percentWidth = 100;
+      this.percentHeight = 100;
+      this.addEventListener(FlexEvent.CREATION_COMPLETE,
+                            creationCompleteHandler);
+      
+      //Set textOut properties and add to the panel.
+      textOut.percentWidth = 100;//percent
+      textOut.height = 100;//pixels
+      textOut.setStyle("color","0x0000FF");
+      textOut.setStyle("fontSize",14);
+      textOut.text = "Use the Buttons to control "
+                              + "the size of the image.";
+      addChild(textOut);
+      
+      //Prepare an embedded image and add the Image
+      // object to the panel.
+      [Embed("/Images/snowscene.jpg")]
+      var img:Class;
+      image.load(img);
+      addChild(image);
+      
+      //Add the button bar to the panel.
+      addChild(bar);
+      
+      //Set text on the six buttons.
+      startButton.label = "Start";
+      pauseButton.label = "Pause";
+      resumeButton.label = "Resume";
+      reverseButton.label = "Reverse";
+      endButton.label = "End";
+      resetButton.label = "Reset";
+      
+      //Register a click listener on each button
+      startButton.addEventListener(
+                            MouseEvent.CLICK,btnHandler);
+      pauseButton.addEventListener(
+                            MouseEvent.CLICK,btnHandler);
+      resumeButton.addEventListener(
+                            MouseEvent.CLICK,btnHandler);
+      reverseButton.addEventListener(
+                            MouseEvent.CLICK,btnHandler);
+      endButton.addEventListener(
+                            MouseEvent.CLICK,btnHandler);
+      resetButton.addEventListener(
+                            MouseEvent.CLICK,btnHandler);
+
+      //Add the six buttons to the button bar
+      bar.addChild(startButton);
+      bar.addChild(pauseButton);
+      bar.addChild(resumeButton);
+      bar.addChild(reverseButton);
+      bar.addChild(endButton);
+      bar.addChild(resetButton);
+
+      
+      //Configure the Resize effect. Note that the
+      // original size of the image is 240x240.
+      resize.target = image;
+      resize.widthTo = 60;
+      resize.heightTo = 60; 
+      resize.duration = 10000;
+      resize.addEventListener(
+                EffectEvent.EFFECT_END,endEffectHandler);
+      resize.addEventListener(
+            EffectEvent.EFFECT_START,startEffectHandler);
+
+    } //end constructor
+    //--------------------------------------------------//
+    
+    //This common button handler is used to service click
+    // event on all six of the buttons.
+    private function btnHandler(event:MouseEvent):void{
+      if (event.target == startButton) {
+        resize.play();//start the effect 
+        startButton.enabled = false;
+      }else if(event.target == pauseButton){
+        resize.pause();//pause the effect
+      }else if(event.target == resumeButton){
+        resize.resume();//resume the effect after a pause
+      }else if(event.target == reverseButton){
+        resize.reverse();//reverse the effect
+      }else if(event.target == endButton){
+        resize.end();//end the effect prematurely
+      }else{//reset the program to starting conditions
+        resize.end(); 
+        image.width=240; 
+        image.height=240; 
+        startButton.enabled=true;
+      } //end else
+      
+    } //end btnHandler
+    //--------------------------------------------------//
+    
+    //This event handler method is executed when the
+    // effect ends.
+    private function endEffectHandler(
+                                 event:EffectEvent):void{
+        textOut.text += "\nEffect Ended!";
+    } //end event handler
+    //--------------------------------------------------//
+    
+    //This event handler method is executed when the
+    // effect starts
+    private function startEffectHandler(
+                                 event:EffectEvent):void{
+        textOut.text += "\nEffect Started!";
+    } //end event handler
+    //--------------------------------------------------//
+
+    //This event handler method is executed when the
+    // application dispatches a creationComplete event.
+    private function creationCompleteHandler(
+                                   event:FlexEvent):void{
+        textOut.text += "\nCreation Complete!";
+    } //end event handler
+    //--------------------------------------------------//
+    
+  } //end class
+} //end package</code>
+
+
+      
+
+</example>
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1207">
+This section contains a variety of miscellaneous materials.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1002" type="miscellaneous">
+
+
+
+
+
+
+
+<emphasis id="strong1249" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+
+
+<item id="li1062">
+Module name: Digging Deeper into ActionScript Events
+
+</item>
+
+
+
+
+<item id="li1063">
+Files:
+
+<list id="ul1013" list-type="bulleted">
+
+
+
+<item id="li1064">
+ActionScript0114\ActionScript0114.htm
+
+</item>
+
+
+
+
+<item id="li1065">
+ActionScript0114\Connexions\ActionScriptXhtml0114.htm
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1003" type="miscellaneous">
+
+
+
+
+<emphasis id="strong1250" effect="bold">
+PDF disclaimer:
+
+</emphasis>
+ Although the Connexions 
+site makes it possible for you to download a PDF file for this 
+module at no charge, and also makes it possible for you to 
+purchase a pre-printed version of the PDF file, you should be 
+aware that some of the HTML elements in this module may not translate well into 
+PDF.
+
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1208">
+-end- 
+
+</para>
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>
