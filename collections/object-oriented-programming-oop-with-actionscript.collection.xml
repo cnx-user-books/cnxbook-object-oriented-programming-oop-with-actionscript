@@ -1,12 +1,13 @@
-<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en">
+<?xml version="1.0"?>
+<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en" authors="Richard Baldwin">
   <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">
     <md:content-id>col11202</md:content-id>
     <md:title>Object-Oriented Programming (OOP) with ActionScript</md:title>
     <md:language>en</md:language>
     <md:license url="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License</md:license>
     <md:uuid>8e116180-91e1-4a83-960e-b90caf2de414</md:uuid>
-<md:slug>object-oriented-programming-oop-with-actionscript</md:slug>
-</metadata>
+    <md:slug>object-oriented-programming-oop-with-actionscript</md:slug>
+  </metadata>
   <col:content>
     <col:module document="m34441"/>
     <col:module document="m34442"/>
